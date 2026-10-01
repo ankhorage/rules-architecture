@@ -1,4 +1,9 @@
-import type { SourceCapability, SourceGraph } from '@ankhorage/dependency-graph';
+import type {
+  SourceCapability,
+  SourceEdgeData,
+  SourceGraph,
+  SourceNodeData,
+} from '@ankhorage/dependency-graph';
 
 import type {
   ArchitectureContradiction,
@@ -27,32 +32,23 @@ export function detectArchitecture(graph: SourceGraph): ArchitectureDetectionRes
   return { candidates };
 }
 
+interface ClassifiedDependency {
+  readonly allowed: boolean;
+  readonly edge: { readonly data: SourceEdgeData; readonly source: number; readonly target: number };
+  readonly source: SourceNodeData;
+  readonly sourceRole: ArchitectureRoleAssignment;
+  readonly target: SourceNodeData;
+  readonly targetRole: ArchitectureRoleAssignment;
+}
+
 /*** Build one scored model candidate while preserving ambiguity, evidence, and contradictions. */
 function candidateForModel(
   graph: SourceGraph,
   model: ArchitectureModel,
 ): ArchitectureDetectionCandidate {
   const roleAssignments = inferArchitectureRoles(graph, model);
-  const roleByPath = new Map(
-    roleAssignments.map((assignment) => [assignment.semanticPath, assignment]),
-  );
-  const dependencies = graph.graph.edges.filter(
-    ({ data }) => data.kind === 'imports' || data.kind === 'extends' || data.kind === 'implements',
-  );
-  const nodeById = new Map(graph.graph.nodes.map((node) => [node.id, node.data]));
-  const classified = dependencies.flatMap((edge) => {
-    const source = nodeById.get(edge.source);
-    const target = nodeById.get(edge.target);
-    if (source === undefined || target === undefined) return [];
-    const sourceRole = roleByPath.get(source.semanticPath);
-    const targetRole = roleByPath.get(target.semanticPath);
-    if (sourceRole === undefined || targetRole === undefined) return [];
-    const allowed = model.allowedDependencies.some(
-      (dependency) =>
-        dependency.source === sourceRole.roleId && dependency.target === targetRole.roleId,
-    );
-    return [{ edge, source, target, sourceRole, targetRole, allowed }];
-  });
+  const classified = classifyDependencies(graph, model, roleAssignments);
+  const supportingEdges = classified.filter(({ allowed }) => allowed);
   const contradictions = classified
     .filter(({ allowed }) => !allowed)
     .map(({ edge, source, target, sourceRole, targetRole }) =>
@@ -64,32 +60,7 @@ function candidateForModel(
         targetRole,
       ),
     );
-  const supportingEdges = classified.filter(({ allowed }) => allowed);
-  const eligibleNodes = graph.graph.nodes.filter(
-    ({ data }) =>
-      data.classification !== 'vendor' &&
-      data.kind !== 'project' &&
-      data.kind !== 'package' &&
-      data.kind !== 'directory',
-  ).length;
-  const assignmentCoverage = eligibleNodes === 0 ? 0 : roleAssignments.length / eligibleNodes;
-  const averageConfidence =
-    roleAssignments.length === 0
-      ? 0
-      : roleAssignments.reduce((sum, assignment) => sum + assignment.confidence, 0) /
-        roleAssignments.length;
-  const topologyConformance =
-    classified.length === 0 ? 0.5 : supportingEdges.length / classified.length;
-  const representedRoles = new Set(roleAssignments.map(({ roleId }) => roleId)).size;
-  const roleCoverage = model.roles.length === 0 ? 0 : representedRoles / model.roles.length;
-  const unavailableCapabilities = unavailableDetectionCapabilities(graph);
-  const capabilityFactor = 1 - unavailableCapabilities.length / (DETECTION_CAPABILITIES.length * 2);
-  const rawScore =
-    averageConfidence * 0.35 +
-    assignmentCoverage * 0.25 +
-    topologyConformance * 0.25 +
-    roleCoverage * 0.15;
-  const confidence = round(Math.max(0, Math.min(1, rawScore * capabilityFactor)));
+  const confidence = candidateConfidence(graph, model, roleAssignments, classified, supportingEdges);
 
   return {
     modelId: model.id,
@@ -102,8 +73,78 @@ function candidateForModel(
       classified.length,
     ),
     contradictions,
-    unavailableCapabilities,
+    unavailableCapabilities: unavailableDetectionCapabilities(graph),
   };
+}
+
+/*** Classify only dependencies whose endpoints have inferred semantic roles. */
+function classifyDependencies(
+  graph: SourceGraph,
+  model: ArchitectureModel,
+  assignments: readonly ArchitectureRoleAssignment[],
+): readonly ClassifiedDependency[] {
+  const roleByPath = new Map(assignments.map((assignment) => [assignment.semanticPath, assignment]));
+  const nodeById = new Map(graph.graph.nodes.map((node) => [node.id, node.data]));
+
+  return graph.graph.edges.flatMap((edge) => {
+    if (
+      edge.data.kind !== 'imports' &&
+      edge.data.kind !== 'extends' &&
+      edge.data.kind !== 'implements'
+    ) {
+      return [];
+    }
+    const source = nodeById.get(edge.source);
+    const target = nodeById.get(edge.target);
+    if (source === undefined || target === undefined) return [];
+    const sourceRole = roleByPath.get(source.semanticPath);
+    const targetRole = roleByPath.get(target.semanticPath);
+    if (sourceRole === undefined || targetRole === undefined) return [];
+    const allowed = model.allowedDependencies.some(
+      (dependency) =>
+        dependency.source === sourceRole.roleId && dependency.target === targetRole.roleId,
+    );
+    return [{ edge, source, target, sourceRole, targetRole, allowed }];
+  });
+}
+
+/*** Score one candidate from role coverage, confidence, topology conformance, and capabilities. */
+function candidateConfidence(
+  graph: SourceGraph,
+  model: ArchitectureModel,
+  assignments: readonly ArchitectureRoleAssignment[],
+  classified: readonly ClassifiedDependency[],
+  supporting: readonly ClassifiedDependency[],
+): number {
+  const eligibleNodes = graph.graph.nodes.filter(({ data }) => isEligibleNode(data)).length;
+  const assignmentCoverage = eligibleNodes === 0 ? 0 : assignments.length / eligibleNodes;
+  const averageConfidence =
+    assignments.length === 0
+      ? 0
+      : assignments.reduce((sum, assignment) => sum + assignment.confidence, 0) /
+        assignments.length;
+  const topologyConformance = classified.length === 0 ? 0.5 : supporting.length / classified.length;
+  const representedRoles = new Set(assignments.map(({ roleId }) => roleId)).size;
+  const roleCoverage = model.roles.length === 0 ? 0 : representedRoles / model.roles.length;
+  const unavailable = unavailableDetectionCapabilities(graph);
+  const capabilityFactor = 1 - unavailable.length / (DETECTION_CAPABILITIES.length * 2);
+  const rawScore =
+    averageConfidence * 0.35 +
+    assignmentCoverage * 0.25 +
+    topologyConformance * 0.25 +
+    roleCoverage * 0.15;
+
+  return round(Math.max(0, Math.min(1, rawScore * capabilityFactor)));
+}
+
+/*** Keep candidate coverage focused on internal executable/declaration source nodes. */
+function isEligibleNode(node: SourceNodeData): boolean {
+  return (
+    node.classification !== 'vendor' &&
+    node.kind !== 'project' &&
+    node.kind !== 'package' &&
+    node.kind !== 'directory'
+  );
 }
 
 /*** Convert one forbidden inferred dependency into explicit contradictory evidence. */
