@@ -1,11 +1,11 @@
-import { findCyclicComponents, type Graph } from '@ankhorage/graph';
 import type {
   SourceEdgeData,
   SourceGraph,
   SourceNodeData,
   SourceRelationKind,
 } from '@ankhorage/dependency-graph';
-import type { JsonValue, Rule, RuleFinding, RuleSet } from '@ankhorage/rules';
+import { findCyclicComponents, type Graph } from '@ankhorage/graph';
+import type { Rule, RuleFinding, RuleSet } from '@ankhorage/rules';
 
 import type { ArchitectureRuleContext } from '../../../types/architectureAnalysis.js';
 import type { ArchitectureModel } from '../../../types/architectureModel.js';
@@ -47,7 +47,7 @@ function dependencyDirectionRule(): Rule<ArchitectureRuleContext> {
 }
 
 /*** Convert file-level import strongly connected components into generic Rule findings. */
-function cycleFindings(graph: SourceGraph): readonly RuleFinding<JsonValue>[] {
+function cycleFindings(graph: SourceGraph): readonly RuleFinding[] {
   const fileIds = new Set(
     graph.graph.nodes.filter(({ data }) => data.kind === 'file').map(({ id }) => id),
   );
@@ -78,8 +78,10 @@ function cycleFindings(graph: SourceGraph): readonly RuleFinding<JsonValue>[] {
 }
 
 /*** Report selected-model dependency violations for confidently inferred endpoint roles. */
-function directionFindings(context: ArchitectureRuleContext): readonly RuleFinding<JsonValue>[] {
-  const roleByPath = new Map(context.roleAssignments.map((assignment) => [assignment.semanticPath, assignment]));
+function directionFindings(context: ArchitectureRuleContext): readonly RuleFinding[] {
+  const roleByPath = new Map(
+    context.roleAssignments.map((assignment) => [assignment.semanticPath, assignment]),
+  );
   const nodeById = new Map(context.graph.graph.nodes.map((node) => [node.id, node.data]));
 
   return context.graph.graph.edges.flatMap((edge) => {
@@ -92,31 +94,35 @@ function directionFindings(context: ArchitectureRuleContext): readonly RuleFindi
     if (sourceRole === undefined || targetRole === undefined) return [];
     if (sourceRole.confidence < 0.4 || targetRole.confidence < 0.4) return [];
     const allowed = context.model.allowedDependencies.some(
-      (dependency) => dependency.source === sourceRole.roleId && dependency.target === targetRole.roleId,
+      (dependency) =>
+        dependency.source === sourceRole.roleId && dependency.target === targetRole.roleId,
     );
     if (allowed) return [];
 
     const evidence = edge.data.evidence[0];
-    return [{
-      ruleId: 'architecture-dependency-direction',
-      severity: 'warning',
-      message: `${sourceRole.roleId} must not depend on ${targetRole.roleId} in ${context.model.name}.`,
-      subjects: [
-        { id: source.semanticPath, kind: source.kind, path: source.filePath ?? source.path },
-        { id: target.semanticPath, kind: target.kind, path: target.filePath ?? target.path },
-      ],
-      sourceLocation: evidence?.location === undefined
-        ? undefined
-        : { ...evidence.location, path: evidence.sourcePath },
-      evidence: {
-        modelId: context.model.id,
-        relationKind: edge.data.kind,
-        sourceRole: sourceRole.roleId,
-        sourceSemanticPath: source.semanticPath,
-        targetRole: targetRole.roleId,
-        targetSemanticPath: target.semanticPath,
+    return [
+      {
+        ruleId: 'architecture-dependency-direction',
+        severity: 'warning',
+        message: `${sourceRole.roleId} must not depend on ${targetRole.roleId} in ${context.model.name}.`,
+        subjects: [
+          { id: source.semanticPath, kind: source.kind, path: source.filePath ?? source.path },
+          { id: target.semanticPath, kind: target.kind, path: target.filePath ?? target.path },
+        ],
+        sourceLocation:
+          evidence?.location === undefined
+            ? undefined
+            : { ...evidence.location, path: evidence.sourcePath },
+        evidence: {
+          modelId: context.model.id,
+          relationKind: edge.data.kind,
+          sourceRole: sourceRole.roleId,
+          sourceSemanticPath: source.semanticPath,
+          targetRole: targetRole.roleId,
+          targetSemanticPath: target.semanticPath,
+        },
       },
-    }];
+    ];
   });
 }
 
