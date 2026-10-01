@@ -11,11 +11,11 @@ import { inferArchitectureRoles } from '../../detection/domain/inferArchitecture
 import { findArchitectureModel } from '../../models/domain/findArchitectureModel.js';
 import { createArchitectureRuleSet } from '../../rules/domain/createArchitectureRuleSet.js';
 
-const CAPABILITY_NAMES: Readonly<Partial<Record<SourceCapability, string>>> = {
-  imports: 'source-graph.imports',
-  extends: 'source-graph.extends',
-  implements: 'source-graph.implements',
-};
+const CAPABILITY_NAMES: readonly (readonly [SourceCapability, string])[] = [
+  ['imports', 'source-graph.imports'],
+  ['extends', 'source-graph.extends'],
+  ['implements', 'source-graph.implements'],
+];
 
 /*** Evaluate one explicitly selected architecture model through the generic Rules engine. */
 export function evaluateArchitecture(
@@ -45,11 +45,9 @@ export function evaluateArchitecture(
 /*** Translate analyzer capability reports into generic Rules capability identifiers. */
 function availableRuleCapabilities(graph: SourceGraph): readonly string[] {
   if (graph.capabilities.length === 0) return [];
-  return Object.entries(CAPABILITY_NAMES).flatMap(([capability, ruleCapability]) => {
-    if (ruleCapability === undefined) return [];
-    const sourceCapability = capability as SourceCapability;
-    return graph.capabilities.every(({ available }) => available.includes(sourceCapability))
+  return CAPABILITY_NAMES.flatMap(([sourceCapability, ruleCapability]) =>
+    graph.capabilities.every(({ available }) => available.includes(sourceCapability))
       ? [ruleCapability]
-      : [];
-  });
+      : [],
+  );
 }
