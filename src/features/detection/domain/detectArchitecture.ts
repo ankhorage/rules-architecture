@@ -13,8 +13,8 @@ import type {
   ArchitectureRoleAssignment,
 } from '../../../types/architectureAnalysis.js';
 import type { ArchitectureModel } from '../../../types/architectureModel.js';
-import { listArchitectureModels } from '../../models/domain/listArchitectureModels.js';
 import { hasSourceCapability } from '../../../utils/hasSourceCapability.js';
+import { listArchitectureModels } from '../../models/domain/listArchitectureModels.js';
 import { inferArchitectureRoles } from './inferArchitectureRoles.js';
 
 const DETECTION_CAPABILITIES: readonly SourceCapability[] = [
