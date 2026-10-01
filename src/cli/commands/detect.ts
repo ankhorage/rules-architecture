@@ -3,7 +3,7 @@ import { resolve } from 'node:path';
 import { createSourceGraphAsync } from '@ankhorage/dependency-graph';
 
 import { detectArchitecture } from '../../features/detection/domain/detectArchitecture.js';
-import { parseArchitectureCommandOptions } from '../parseArchitectureCommandOptions.js';
+import { parseArchitectureCommandOptions } from '../utils/parseArchitectureCommandOptions.js';
 
 /*** Execute architecture detection without converting inference into enforcement. */
 export async function detect(
