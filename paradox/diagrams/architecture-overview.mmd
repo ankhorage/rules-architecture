@@ -1,0 +1,17 @@
+graph TD
+  package__ankhorage_rules_architecture["@ankhorage/rules-architecture"]
+  entrypoint_src_index_ts["src/index.ts"]
+  package__ankhorage_rules_architecture --> entrypoint_src_index_ts
+  module_src_features_models_constants_architectureModels_ts["src/features/models/constants/architectureModels.ts"]
+  package__ankhorage_rules_architecture -.-> module_src_features_models_constants_architectureModels_ts
+  module_src_features_models_constants_architectureModels_ts --> module_src_types_architectureModel_ts
+  module_src_features_models_domain_listArchitectureModels_test_ts["src/features/models/domain/listArchitectureModels.test.ts"]
+  package__ankhorage_rules_architecture -.-> module_src_features_models_domain_listArchitectureModels_test_ts
+  module_src_features_models_domain_listArchitectureModels_test_ts --> module_src_features_models_domain_listArchitectureModels_ts
+  module_src_features_models_domain_listArchitectureModels_ts["src/features/models/domain/listArchitectureModels.ts"]
+  package__ankhorage_rules_architecture -.-> module_src_features_models_domain_listArchitectureModels_ts
+  module_src_features_models_domain_listArchitectureModels_ts --> module_src_features_models_constants_architectureModels_ts
+  module_src_features_models_domain_listArchitectureModels_ts --> module_src_types_architectureModel_ts
+  module_src_index_ts["src/index.ts"]
+  module_src_types_architectureModel_ts["src/types/architectureModel.ts"]
+  package__ankhorage_rules_architecture -.-> module_src_types_architectureModel_ts

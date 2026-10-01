@@ -1,6 +1,6 @@
 {
   "name": "@ankhorage/rules-architecture",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "Architecture models, detection, and rules for canonical source graphs.",
   "keywords": [
     "architecture",

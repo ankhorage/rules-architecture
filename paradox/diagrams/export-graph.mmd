@@ -1,0 +1,17 @@
+graph LR
+  module_src_features_models_constants_architectureModels_ts["src/features/models/constants/architectureModels.ts"]
+  module_src_features_models_domain_listArchitectureModels_test_ts["src/features/models/domain/listArchitectureModels.test.ts"]
+  module_src_features_models_domain_listArchitectureModels_ts["src/features/models/domain/listArchitectureModels.ts"]
+  module_src_index_ts["src/index.ts"]
+  module_src_types_architectureModel_ts["src/types/architectureModel.ts"]
+  export_ArchitectureModel["ArchitectureModel"]
+  module_src_types_architectureModel_ts --> export_ArchitectureModel
+  export_ArchitectureModel -.-> export_ArchitectureRole
+  export_ArchitectureModel -.-> export_ArchitectureRoleDependency
+  export_ArchitectureRole["ArchitectureRole"]
+  module_src_types_architectureModel_ts --> export_ArchitectureRole
+  export_ArchitectureRoleDependency["ArchitectureRoleDependency"]
+  module_src_types_architectureModel_ts --> export_ArchitectureRoleDependency
+  export_listArchitectureModels["listArchitectureModels"]
+  module_src_features_models_domain_listArchitectureModels_ts --> export_listArchitectureModels
+  export_listArchitectureModels -.-> export_ArchitectureModel

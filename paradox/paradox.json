@@ -1,0 +1,436 @@
+{
+  "packageName": "@ankhorage/rules-architecture",
+  "packageId": "@ankhorage/rules-architecture",
+  "description": "Architecture models, detection, and rules for canonical source graphs.",
+  "collaborators": null,
+  "donation": null,
+  "badges": [
+    {
+      "id": "license",
+      "label": "license",
+      "value": "MIT",
+      "color": "2563eb"
+    },
+    {
+      "id": "npm",
+      "label": "npm",
+      "value": "v0.2.0",
+      "color": "cb3837"
+    },
+    {
+      "id": "runtime",
+      "label": "runtime",
+      "value": "bun",
+      "color": "f59e0b"
+    },
+    {
+      "id": "typescript",
+      "label": "typescript",
+      "value": "strict",
+      "color": "2563eb"
+    },
+    {
+      "id": "eslint",
+      "label": "eslint",
+      "value": "checked",
+      "color": "0a7f3f"
+    },
+    {
+      "id": "prettier",
+      "label": "prettier",
+      "value": "checked",
+      "color": "0a7f3f"
+    },
+    {
+      "id": "build",
+      "label": "build",
+      "value": "checked",
+      "color": "0a7f3f"
+    },
+    {
+      "id": "tests",
+      "label": "tests",
+      "value": "checked",
+      "color": "0a7f3f"
+    },
+    {
+      "id": "docs",
+      "label": "paradox",
+      "value": "canonical",
+      "color": "0a7f3f"
+    }
+  ],
+  "usage": {
+    "packageName": "@ankhorage/rules-architecture",
+    "command": "ankh rules-architecture --help"
+  },
+  "usageEntries": [],
+  "exampleCount": 0,
+  "findings": [],
+  "readmeConfig": {
+    "language": "ts",
+    "code": "import { defineParadoxConfig } from '@ankhorage/paradox';\n\nexport default defineParadoxConfig({\n  mode: 'write',\n  docs: {\n    title: '@ankhorage/rules-architecture',\n    description: 'Architecture models, detection, and rules for canonical source graphs.',\n  },\n  package: {\n    root: '.',\n    entrypoints: ['src/index.ts'],\n  },\n  output: { dir: './paradox' },\n});",
+    "sourcePath": "paradox.config.ts"
+  },
+  "config": null,
+  "entrypoints": [
+    "src/index.ts"
+  ],
+  "modules": [
+    {
+      "path": "src/features/models/constants/architectureModels.ts",
+      "isEntrypoint": false,
+      "dependencies": [
+        "src/types/architectureModel.ts"
+      ],
+      "exports": [
+        "ARCHITECTURE_MODELS"
+      ]
+    },
+    {
+      "path": "src/features/models/domain/listArchitectureModels.test.ts",
+      "isEntrypoint": false,
+      "dependencies": [
+        "src/features/models/domain/listArchitectureModels.ts"
+      ],
+      "exports": []
+    },
+    {
+      "path": "src/features/models/domain/listArchitectureModels.ts",
+      "isEntrypoint": false,
+      "dependencies": [
+        "src/features/models/constants/architectureModels.ts",
+        "src/types/architectureModel.ts"
+      ],
+      "exports": [
+        "listArchitectureModels"
+      ]
+    },
+    {
+      "path": "src/index.ts",
+      "isEntrypoint": true,
+      "dependencies": [],
+      "exports": [
+        "ArchitectureModel",
+        "ArchitectureRole",
+        "ArchitectureRoleDependency",
+        "listArchitectureModels"
+      ]
+    },
+    {
+      "path": "src/types/architectureModel.ts",
+      "isEntrypoint": false,
+      "dependencies": [],
+      "exports": [
+        "ArchitectureModel",
+        "ArchitectureRole",
+        "ArchitectureRoleDependency"
+      ]
+    }
+  ],
+  "exports": [
+    {
+      "name": "ArchitectureModel",
+      "title": null,
+      "description": "Built-in architecture semantics, separate from observed facts and inferred roles.",
+      "isReadme": false,
+      "see": [],
+      "security": [],
+      "kind": "type",
+      "modulePath": "src/types/architectureModel.ts",
+      "sourceLocation": {
+        "filePath": "src/types/architectureModel.ts",
+        "line": 14,
+        "column": 1
+      },
+      "exportPaths": [
+        "src/index.ts"
+      ],
+      "relatedSymbols": [
+        "ArchitectureRole",
+        "ArchitectureRoleDependency"
+      ],
+      "signatures": [],
+      "members": [
+        {
+          "name": "allowedDependencies",
+          "kind": "property",
+          "type": "readonly ArchitectureRoleDependency[]",
+          "required": true,
+          "description": null
+        },
+        {
+          "name": "id",
+          "kind": "property",
+          "type": "\"hexagonal\" | \"clean\" | \"onion\" | \"layered\"",
+          "required": true,
+          "description": null
+        },
+        {
+          "name": "interpretation",
+          "kind": "property",
+          "type": "string",
+          "required": true,
+          "description": null
+        },
+        {
+          "name": "name",
+          "kind": "property",
+          "type": "string",
+          "required": true,
+          "description": null
+        },
+        {
+          "name": "reference",
+          "kind": "property",
+          "type": "string",
+          "required": true,
+          "description": null
+        },
+        {
+          "name": "roles",
+          "kind": "property",
+          "type": "readonly ArchitectureRole[]",
+          "required": true,
+          "description": null
+        }
+      ],
+      "structuredRows": []
+    },
+    {
+      "name": "ArchitectureRole",
+      "title": null,
+      "description": "A semantic role in one architecture model, independent of source layout.",
+      "isReadme": false,
+      "see": [],
+      "security": [],
+      "kind": "type",
+      "modulePath": "src/types/architectureModel.ts",
+      "sourceLocation": {
+        "filePath": "src/types/architectureModel.ts",
+        "line": 2,
+        "column": 1
+      },
+      "exportPaths": [
+        "src/index.ts"
+      ],
+      "relatedSymbols": [],
+      "signatures": [],
+      "members": [
+        {
+          "name": "description",
+          "kind": "property",
+          "type": "string",
+          "required": true,
+          "description": null
+        },
+        {
+          "name": "id",
+          "kind": "property",
+          "type": "string",
+          "required": true,
+          "description": null
+        }
+      ],
+      "structuredRows": []
+    },
+    {
+      "name": "ArchitectureRoleDependency",
+      "title": null,
+      "description": "A permitted static source dependency between inferred roles.",
+      "isReadme": false,
+      "see": [],
+      "security": [],
+      "kind": "type",
+      "modulePath": "src/types/architectureModel.ts",
+      "sourceLocation": {
+        "filePath": "src/types/architectureModel.ts",
+        "line": 8,
+        "column": 1
+      },
+      "exportPaths": [
+        "src/index.ts"
+      ],
+      "relatedSymbols": [],
+      "signatures": [],
+      "members": [
+        {
+          "name": "source",
+          "kind": "property",
+          "type": "string",
+          "required": true,
+          "description": null
+        },
+        {
+          "name": "target",
+          "kind": "property",
+          "type": "string",
+          "required": true,
+          "description": null
+        }
+      ],
+      "structuredRows": []
+    },
+    {
+      "name": "listArchitectureModels",
+      "title": null,
+      "description": "List established architecture models without inferring a project's target.",
+      "isReadme": false,
+      "see": [],
+      "security": [],
+      "kind": "function",
+      "modulePath": "src/features/models/domain/listArchitectureModels.ts",
+      "sourceLocation": {
+        "filePath": "src/features/models/domain/listArchitectureModels.ts",
+        "line": 5,
+        "column": 1
+      },
+      "exportPaths": [
+        "src/index.ts"
+      ],
+      "relatedSymbols": [
+        "ArchitectureModel"
+      ],
+      "signatures": [
+        {
+          "label": "() => readonly ArchitectureModel[]",
+          "parameters": [],
+          "returnType": "readonly ArchitectureModel[]",
+          "returnDescription": null
+        }
+      ],
+      "members": [],
+      "structuredRows": []
+    }
+  ],
+  "components": [],
+  "sourceFunctions": [
+    {
+      "name": "dependencies",
+      "description": "Include same-role coupling and the model's explicit cross-role direction.",
+      "see": [],
+      "security": [],
+      "sourceLocation": {
+        "filePath": "src/features/models/constants/architectureModels.ts",
+        "line": 123,
+        "column": 1
+      }
+    },
+    {
+      "name": "concentricDependencies",
+      "description": "Allow outer Clean Architecture rings to depend on equal or inner rings.",
+      "see": [],
+      "security": [],
+      "sourceLocation": {
+        "filePath": "src/features/models/constants/architectureModels.ts",
+        "line": 134,
+        "column": 1
+      }
+    },
+    {
+      "name": "listArchitectureModels",
+      "description": "List established architecture models without inferring a project's target.",
+      "see": [],
+      "security": [],
+      "sourceLocation": {
+        "filePath": "src/features/models/domain/listArchitectureModels.ts",
+        "line": 5,
+        "column": 1
+      }
+    }
+  ],
+  "sequenceScenarios": [
+    {
+      "kind": "export",
+      "name": "listArchitectureModels",
+      "sourcePath": "src/features/models/domain/listArchitectureModels.ts",
+      "symbolName": "listArchitectureModels",
+      "description": "List established architecture models without inferring a project's target.",
+      "isReadme": false
+    }
+  ],
+  "graphs": {
+    "imports": [
+      {
+        "fromPath": "src/index.ts",
+        "toPath": "src/features/models/domain/listArchitectureModels.ts",
+        "sourcePath": "src/index.ts"
+      },
+      {
+        "fromPath": "src/index.ts",
+        "toPath": "src/types/architectureModel.ts",
+        "sourcePath": "src/index.ts"
+      },
+      {
+        "fromPath": "src/features/models/constants/architectureModels.ts",
+        "toPath": "src/types/architectureModel.ts",
+        "sourcePath": "src/features/models/constants/architectureModels.ts"
+      },
+      {
+        "fromPath": "src/features/models/domain/listArchitectureModels.test.ts",
+        "toPath": "src/features/models/domain/listArchitectureModels.ts",
+        "sourcePath": "src/features/models/domain/listArchitectureModels.test.ts"
+      },
+      {
+        "fromPath": "src/features/models/domain/listArchitectureModels.ts",
+        "toPath": "src/types/architectureModel.ts",
+        "sourcePath": "src/features/models/domain/listArchitectureModels.ts"
+      },
+      {
+        "fromPath": "src/features/models/domain/listArchitectureModels.ts",
+        "toPath": "src/features/models/constants/architectureModels.ts",
+        "sourcePath": "src/features/models/domain/listArchitectureModels.ts"
+      }
+    ],
+    "calls": [
+      {
+        "fromSymbol": "src/features/models/constants/architectureModels.ts",
+        "toSymbol": "dependencies",
+        "callExpression": "dependencies",
+        "sourcePath": "src/features/models/constants/architectureModels.ts"
+      },
+      {
+        "fromSymbol": "src/features/models/constants/architectureModels.ts",
+        "toSymbol": "concentricDependencies",
+        "callExpression": "concentricDependencies",
+        "sourcePath": "src/features/models/constants/architectureModels.ts"
+      },
+      {
+        "fromSymbol": "src/features/models/domain/listArchitectureModels.test.ts",
+        "toSymbol": "test",
+        "callExpression": "test",
+        "sourcePath": "src/features/models/domain/listArchitectureModels.test.ts"
+      },
+      {
+        "fromSymbol": "src/features/models/domain/listArchitectureModels.test.ts",
+        "toSymbol": "listArchitectureModels",
+        "callExpression": "listArchitectureModels",
+        "sourcePath": "src/features/models/domain/listArchitectureModels.test.ts"
+      },
+      {
+        "fromSymbol": "src/features/models/domain/listArchitectureModels.test.ts",
+        "toSymbol": "expect",
+        "callExpression": "expect",
+        "sourcePath": "src/features/models/domain/listArchitectureModels.test.ts"
+      }
+    ],
+    "typeReferences": [
+      {
+        "fromSymbol": "listArchitectureModels",
+        "toType": "ArchitectureModel",
+        "sourcePath": "src/features/models/domain/listArchitectureModels.ts"
+      },
+      {
+        "fromSymbol": "ArchitectureModel",
+        "toType": "ArchitectureRole",
+        "sourcePath": "src/types/architectureModel.ts"
+      },
+      {
+        "fromSymbol": "ArchitectureModel",
+        "toType": "ArchitectureRoleDependency",
+        "sourcePath": "src/types/architectureModel.ts"
+      }
+    ],
+    "componentComposition": []
+  }
+}

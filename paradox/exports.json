@@ -1,0 +1,175 @@
+[
+  {
+    "name": "ArchitectureModel",
+    "title": null,
+    "description": "Built-in architecture semantics, separate from observed facts and inferred roles.",
+    "isReadme": false,
+    "see": [],
+    "security": [],
+    "kind": "type",
+    "modulePath": "src/types/architectureModel.ts",
+    "sourceLocation": {
+      "filePath": "src/types/architectureModel.ts",
+      "line": 14,
+      "column": 1
+    },
+    "exportPaths": [
+      "src/index.ts"
+    ],
+    "relatedSymbols": [
+      "ArchitectureRole",
+      "ArchitectureRoleDependency"
+    ],
+    "signatures": [],
+    "members": [
+      {
+        "name": "allowedDependencies",
+        "kind": "property",
+        "type": "readonly ArchitectureRoleDependency[]",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "id",
+        "kind": "property",
+        "type": "\"hexagonal\" | \"clean\" | \"onion\" | \"layered\"",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "interpretation",
+        "kind": "property",
+        "type": "string",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "name",
+        "kind": "property",
+        "type": "string",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "reference",
+        "kind": "property",
+        "type": "string",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "roles",
+        "kind": "property",
+        "type": "readonly ArchitectureRole[]",
+        "required": true,
+        "description": null
+      }
+    ],
+    "structuredRows": []
+  },
+  {
+    "name": "ArchitectureRole",
+    "title": null,
+    "description": "A semantic role in one architecture model, independent of source layout.",
+    "isReadme": false,
+    "see": [],
+    "security": [],
+    "kind": "type",
+    "modulePath": "src/types/architectureModel.ts",
+    "sourceLocation": {
+      "filePath": "src/types/architectureModel.ts",
+      "line": 2,
+      "column": 1
+    },
+    "exportPaths": [
+      "src/index.ts"
+    ],
+    "relatedSymbols": [],
+    "signatures": [],
+    "members": [
+      {
+        "name": "description",
+        "kind": "property",
+        "type": "string",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "id",
+        "kind": "property",
+        "type": "string",
+        "required": true,
+        "description": null
+      }
+    ],
+    "structuredRows": []
+  },
+  {
+    "name": "ArchitectureRoleDependency",
+    "title": null,
+    "description": "A permitted static source dependency between inferred roles.",
+    "isReadme": false,
+    "see": [],
+    "security": [],
+    "kind": "type",
+    "modulePath": "src/types/architectureModel.ts",
+    "sourceLocation": {
+      "filePath": "src/types/architectureModel.ts",
+      "line": 8,
+      "column": 1
+    },
+    "exportPaths": [
+      "src/index.ts"
+    ],
+    "relatedSymbols": [],
+    "signatures": [],
+    "members": [
+      {
+        "name": "source",
+        "kind": "property",
+        "type": "string",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "target",
+        "kind": "property",
+        "type": "string",
+        "required": true,
+        "description": null
+      }
+    ],
+    "structuredRows": []
+  },
+  {
+    "name": "listArchitectureModels",
+    "title": null,
+    "description": "List established architecture models without inferring a project's target.",
+    "isReadme": false,
+    "see": [],
+    "security": [],
+    "kind": "function",
+    "modulePath": "src/features/models/domain/listArchitectureModels.ts",
+    "sourceLocation": {
+      "filePath": "src/features/models/domain/listArchitectureModels.ts",
+      "line": 5,
+      "column": 1
+    },
+    "exportPaths": [
+      "src/index.ts"
+    ],
+    "relatedSymbols": [
+      "ArchitectureModel"
+    ],
+    "signatures": [
+      {
+        "label": "() => readonly ArchitectureModel[]",
+        "parameters": [],
+        "returnType": "readonly ArchitectureModel[]",
+        "returnDescription": null
+      }
+    ],
+    "members": [],
+    "structuredRows": []
+  }
+]
