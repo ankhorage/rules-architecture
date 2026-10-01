@@ -22,7 +22,7 @@ const DETECTION_CAPABILITIES: readonly SourceCapability[] = [
 export function detectArchitecture(graph: SourceGraph): ArchitectureDetectionResult {
   const candidates = listArchitectureModels()
     .map((model) => candidateForModel(graph, model))
-    .sort((left, right) => right.score - left.score || left.modelId.localeCompare(right.modelId));
+    .sort((left, right) => right.score - left.score || compareText(left.modelId, right.modelId));
 
   return { candidates };
 }
@@ -137,4 +137,9 @@ function unavailableDetectionCapabilities(graph: SourceGraph): readonly SourceCa
 /*** Stabilize serializable detection confidence. */
 function round(value: number): number {
   return Math.round(value * 1000) / 1000;
+}
+
+/*** Compare stable identifiers by code units instead of locale-sensitive collation. */
+function compareText(left: string, right: string): number {
+  return left < right ? -1 : left > right ? 1 : 0;
 }
