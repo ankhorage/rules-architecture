@@ -4,6 +4,8 @@ import { expect, test } from 'bun:test';
 import { listArchitectureModels } from '../../models/domain/listArchitectureModels.js';
 import { inferArchitectureRoles } from './inferArchitectureRoles.js';
 
+type SourceNode = SourceGraph['graph']['nodes'][number];
+
 test('does not treat conventional src/main/java source roots as composition evidence', () => {
   const model = listArchitectureModels().find(({ id }) => id === 'hexagonal');
   if (model === undefined) throw new Error('Missing hexagonal model.');
@@ -27,44 +29,34 @@ function javaMainSourceGraph(): SourceGraph {
     ],
     graph: {
       nodes: [
-        {
-          id: 0,
-          data: {
-            kind: 'file',
-            semanticPath: 'file:fixture:src%2Fmain%2Fjava%2Fcom%2Fexample%2FThing.java',
-            name: 'Thing.java',
-            projectId: 'fixture',
-            path: 'src/main/java/com/example/Thing.java',
-            filePath: 'src/main/java/com/example/Thing.java',
-            classification: 'intrinsic',
-          },
-        },
-        {
-          id: 1,
-          data: {
-            kind: 'class',
-            semanticPath:
-              'file:fixture:src%2Fmain%2Fjava%2Fcom%2Fexample%2FThing.java:class:Thing:3%3A1',
-            name: 'Thing',
-            projectId: 'fixture',
-            filePath: 'src/main/java/com/example/Thing.java',
-            classification: 'intrinsic',
-          },
-        },
-        {
-          id: 2,
-          data: {
-            kind: 'method',
-            semanticPath:
-              'file:fixture:src%2Fmain%2Fjava%2Fcom%2Fexample%2FThing.java:class:Thing:3%3A1:method:run:4%3A3',
-            name: 'run',
-            projectId: 'fixture',
-            filePath: 'src/main/java/com/example/Thing.java',
-            classification: 'intrinsic',
-          },
-        },
+        javaNode(0, 'file', 'Thing.java'),
+        javaNode(1, 'class', 'Thing'),
+        javaNode(2, 'method', 'run'),
       ],
       edges: [],
+    },
+  };
+}
+
+function javaNode(id: number, kind: 'file' | 'class' | 'method', name: string): SourceNode {
+  const filePath = 'src/main/java/com/example/Thing.java';
+  const semanticPath =
+    kind === 'file'
+      ? 'file:fixture:src%2Fmain%2Fjava%2Fcom%2Fexample%2FThing.java'
+      : kind === 'class'
+        ? 'file:fixture:src%2Fmain%2Fjava%2Fcom%2Fexample%2FThing.java:class:Thing:3%3A1'
+        : 'file:fixture:src%2Fmain%2Fjava%2Fcom%2Fexample%2FThing.java:class:Thing:3%3A1:method:run:4%3A3';
+
+  return {
+    id,
+    data: {
+      kind,
+      semanticPath,
+      name,
+      projectId: 'fixture',
+      filePath,
+      ...(kind === 'file' ? { path: filePath } : {}),
+      classification: 'intrinsic',
     },
   };
 }
