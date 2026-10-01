@@ -34,7 +34,11 @@ export function detectArchitecture(graph: SourceGraph): ArchitectureDetectionRes
 
 interface ClassifiedDependency {
   readonly allowed: boolean;
-  readonly edge: { readonly data: SourceEdgeData; readonly source: number; readonly target: number };
+  readonly edge: {
+    readonly data: SourceEdgeData;
+    readonly source: number;
+    readonly target: number;
+  };
   readonly source: SourceNodeData;
   readonly sourceRole: ArchitectureRoleAssignment;
   readonly target: SourceNodeData;
@@ -60,7 +64,13 @@ function candidateForModel(
         targetRole,
       ),
     );
-  const confidence = candidateConfidence(graph, model, roleAssignments, classified, supportingEdges);
+  const confidence = candidateConfidence(
+    graph,
+    model,
+    roleAssignments,
+    classified,
+    supportingEdges,
+  );
 
   return {
     modelId: model.id,
@@ -83,7 +93,9 @@ function classifyDependencies(
   model: ArchitectureModel,
   assignments: readonly ArchitectureRoleAssignment[],
 ): readonly ClassifiedDependency[] {
-  const roleByPath = new Map(assignments.map((assignment) => [assignment.semanticPath, assignment]));
+  const roleByPath = new Map(
+    assignments.map((assignment) => [assignment.semanticPath, assignment]),
+  );
   const nodeById = new Map(graph.graph.nodes.map((node) => [node.id, node.data]));
 
   return graph.graph.edges.flatMap((edge) => {
