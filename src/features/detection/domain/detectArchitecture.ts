@@ -14,6 +14,7 @@ import type {
 } from '../../../types/architectureAnalysis.js';
 import type { ArchitectureModel } from '../../../types/architectureModel.js';
 import { listArchitectureModels } from '../../models/domain/listArchitectureModels.js';
+import { hasSourceCapability } from '../../../utils/hasSourceCapability.js';
 import { inferArchitectureRoles } from './inferArchitectureRoles.js';
 
 const DETECTION_CAPABILITIES: readonly SourceCapability[] = [
@@ -151,11 +152,13 @@ function candidateConfidence(
 
 /*** Keep candidate coverage focused on internal executable/declaration source nodes. */
 function isEligibleNode(node: SourceNodeData): boolean {
+  if (node.classification === 'vendor') return false;
   return (
-    node.classification !== 'vendor' &&
-    node.kind !== 'project' &&
-    node.kind !== 'package' &&
-    node.kind !== 'directory'
+    node.kind === 'file' ||
+    node.kind === 'class' ||
+    node.kind === 'interface' ||
+    node.kind === 'function' ||
+    node.kind === 'type'
   );
 }
 
@@ -208,9 +211,7 @@ function supportingEvidence(
 /*** Report capabilities that cannot safely be treated as negative architecture evidence. */
 function unavailableDetectionCapabilities(graph: SourceGraph): readonly SourceCapability[] {
   if (graph.capabilities.length === 0) return DETECTION_CAPABILITIES;
-  return DETECTION_CAPABILITIES.filter((capability) =>
-    graph.capabilities.some(({ available }) => !available.includes(capability)),
-  );
+  return DETECTION_CAPABILITIES.filter((capability) => !hasSourceCapability(graph, capability));
 }
 
 /*** Stabilize serializable detection confidence. */
