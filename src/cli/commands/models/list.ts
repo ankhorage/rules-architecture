@@ -1,9 +1,10 @@
 import { listArchitectureModels } from '../../../features/models/domain/listArchitectureModels.js';
 
 /*** Execute `ankh rules-architecture models list` through the public model registry. */
-export function list(
-  argv: readonly string[],
-): { readonly exitCode: number; readonly stdout: string } {
+export function list(argv: readonly string[]): {
+  readonly exitCode: number;
+  readonly stdout: string;
+} {
   const json = parseJsonFlag(argv);
   const models = listArchitectureModels();
   return {
