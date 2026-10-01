@@ -128,10 +128,7 @@ function inferNodeRole(
     .sort((left, right) => right.score - left.score || compareText(left.roleId, right.roleId));
   const [best, secondBest] = ranked;
   if (best === undefined || best.score < 0.3) return [];
-  const ambiguityPenalty = Math.max(
-    0,
-    0.15 - Math.max(0, best.score - (secondBest?.score ?? 0)),
-  );
+  const ambiguityPenalty = Math.max(0, 0.15 - Math.max(0, best.score - (secondBest?.score ?? 0)));
   return [
     {
       semanticPath: node.semanticPath,
