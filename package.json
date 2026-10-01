@@ -75,7 +75,7 @@
     "ankhorage-rules-architecture": "./dist/cli/standalone.js"
   },
   "ankh": {
-    "category": "rules",
+    "category": "rules-architecture",
     "provider": "./dist/cli/index.js",
     "capabilities": [
       "rules-architecture.models.list",
