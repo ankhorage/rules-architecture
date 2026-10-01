@@ -10,6 +10,7 @@ import type { ArchitectureModel } from '../../../types/architectureModel.js';
 import { inferArchitectureRoles } from '../../detection/domain/inferArchitectureRoles.js';
 import { findArchitectureModel } from '../../models/domain/findArchitectureModel.js';
 import { createArchitectureRuleSet } from '../../rules/domain/createArchitectureRuleSet.js';
+import { hasSourceCapability } from '../../../utils/hasSourceCapability.js';
 
 const CAPABILITY_NAMES: readonly (readonly [SourceCapability, string])[] = [
   ['imports', 'source-graph.imports'],
@@ -46,8 +47,6 @@ export function evaluateArchitecture(
 function availableRuleCapabilities(graph: SourceGraph): readonly string[] {
   if (graph.capabilities.length === 0) return [];
   return CAPABILITY_NAMES.flatMap(([sourceCapability, ruleCapability]) =>
-    graph.capabilities.every(({ available }) => available.includes(sourceCapability))
-      ? [ruleCapability]
-      : [],
+    hasSourceCapability(graph, sourceCapability) ? [ruleCapability] : [],
   );
 }
