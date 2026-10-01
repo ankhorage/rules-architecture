@@ -28,11 +28,16 @@ export function detectArchitecture(graph: SourceGraph): ArchitectureDetectionRes
 }
 
 /*** Build one scored model candidate while preserving ambiguity, evidence, and contradictions. */
-function candidateForModel(graph: SourceGraph, model: ArchitectureModel): ArchitectureDetectionCandidate {
+function candidateForModel(
+  graph: SourceGraph,
+  model: ArchitectureModel,
+): ArchitectureDetectionCandidate {
   const roleAssignments = inferArchitectureRoles(graph, model);
-  const roleByPath = new Map(roleAssignments.map((assignment) => [assignment.semanticPath, assignment]));
-  const dependencies = graph.graph.edges.filter(({ data }) =>
-    data.kind === 'imports' || data.kind === 'extends' || data.kind === 'implements',
+  const roleByPath = new Map(
+    roleAssignments.map((assignment) => [assignment.semanticPath, assignment]),
+  );
+  const dependencies = graph.graph.edges.filter(
+    ({ data }) => data.kind === 'imports' || data.kind === 'extends' || data.kind === 'implements',
   );
   const nodeById = new Map(graph.graph.nodes.map((node) => [node.id, node.data]));
   const classified = dependencies.flatMap((edge) => {
@@ -43,24 +48,38 @@ function candidateForModel(graph: SourceGraph, model: ArchitectureModel): Archit
     const targetRole = roleByPath.get(target.semanticPath);
     if (sourceRole === undefined || targetRole === undefined) return [];
     const allowed = model.allowedDependencies.some(
-      (dependency) => dependency.source === sourceRole.roleId && dependency.target === targetRole.roleId,
+      (dependency) =>
+        dependency.source === sourceRole.roleId && dependency.target === targetRole.roleId,
     );
     return [{ edge, source, target, sourceRole, targetRole, allowed }];
   });
   const contradictions = classified
     .filter(({ allowed }) => !allowed)
     .map(({ edge, source, target, sourceRole, targetRole }) =>
-      contradiction(edge.data.kind, source.semanticPath, target.semanticPath, sourceRole, targetRole),
+      contradiction(
+        edge.data.kind,
+        source.semanticPath,
+        target.semanticPath,
+        sourceRole,
+        targetRole,
+      ),
     );
   const supportingEdges = classified.filter(({ allowed }) => allowed);
-  const eligibleNodes = graph.graph.nodes.filter(({ data }) =>
-    data.classification !== 'vendor' && data.kind !== 'project' && data.kind !== 'package' && data.kind !== 'directory',
+  const eligibleNodes = graph.graph.nodes.filter(
+    ({ data }) =>
+      data.classification !== 'vendor' &&
+      data.kind !== 'project' &&
+      data.kind !== 'package' &&
+      data.kind !== 'directory',
   ).length;
   const assignmentCoverage = eligibleNodes === 0 ? 0 : roleAssignments.length / eligibleNodes;
-  const averageConfidence = roleAssignments.length === 0
-    ? 0
-    : roleAssignments.reduce((sum, assignment) => sum + assignment.confidence, 0) / roleAssignments.length;
-  const topologyConformance = classified.length === 0 ? 0.5 : supportingEdges.length / classified.length;
+  const averageConfidence =
+    roleAssignments.length === 0
+      ? 0
+      : roleAssignments.reduce((sum, assignment) => sum + assignment.confidence, 0) /
+        roleAssignments.length;
+  const topologyConformance =
+    classified.length === 0 ? 0.5 : supportingEdges.length / classified.length;
   const representedRoles = new Set(roleAssignments.map(({ roleId }) => roleId)).size;
   const roleCoverage = model.roles.length === 0 ? 0 : representedRoles / model.roles.length;
   const unavailableCapabilities = unavailableDetectionCapabilities(graph);
@@ -77,7 +96,11 @@ function candidateForModel(graph: SourceGraph, model: ArchitectureModel): Archit
     confidence,
     score: Math.round(confidence * 100),
     roleAssignments,
-    supportingEvidence: supportingEvidence(roleAssignments, supportingEdges.length, classified.length),
+    supportingEvidence: supportingEvidence(
+      roleAssignments,
+      supportingEdges.length,
+      classified.length,
+    ),
     contradictions,
     unavailableCapabilities,
   };
@@ -116,13 +139,16 @@ function supportingEvidence(
       message: `Inferred role "${roleId}" with confidence ${confidence}.`,
       weight: confidence,
     }));
-  const dependencyEvidence: ArchitectureDetectionEvidence[] = classifiedEdges === 0
-    ? []
-    : [{
-        kind: 'dependency',
-        message: `${supportingEdges} of ${classifiedEdges} classified dependencies follow this model's direction.`,
-        weight: supportingEdges / classifiedEdges,
-      }];
+  const dependencyEvidence: ArchitectureDetectionEvidence[] =
+    classifiedEdges === 0
+      ? []
+      : [
+          {
+            kind: 'dependency',
+            message: `${supportingEdges} of ${classifiedEdges} classified dependencies follow this model's direction.`,
+            weight: supportingEdges / classifiedEdges,
+          },
+        ];
   return [...roleEvidence, ...dependencyEvidence];
 }
 
