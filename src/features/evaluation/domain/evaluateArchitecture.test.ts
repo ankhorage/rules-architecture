@@ -29,10 +29,7 @@ function directionViolationFixture(): SourceGraph {
 function cycleFixture(): SourceGraph {
   return sourceGraph(
     [fileNode(0, 'src/domain/a.ts'), fileNode(1, 'src/domain/b.ts')],
-    [
-      importEdge(0, 0, 1, 'src/domain/a.ts'),
-      importEdge(1, 1, 0, 'src/domain/b.ts'),
-    ],
+    [importEdge(0, 0, 1, 'src/domain/a.ts'), importEdge(1, 1, 0, 'src/domain/b.ts')],
   );
 }
 
