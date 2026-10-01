@@ -12,6 +12,7 @@ graph LR
   module_src_constants_rulesArchitecture_ts["src/constants/rulesArchitecture.ts"]
   module_src_features_detection_domain_detectArchitecture_test_ts["src/features/detection/domain/detectArchitecture.test.ts"]
   module_src_features_detection_domain_detectArchitecture_ts["src/features/detection/domain/detectArchitecture.ts"]
+  module_src_features_detection_domain_inferArchitectureRoles_test_ts["src/features/detection/domain/inferArchitectureRoles.test.ts"]
   module_src_features_detection_domain_inferArchitectureRoles_ts["src/features/detection/domain/inferArchitectureRoles.ts"]
   module_src_features_evaluation_domain_evaluateArchitecture_test_ts["src/features/evaluation/domain/evaluateArchitecture.test.ts"]
   module_src_features_evaluation_domain_evaluateArchitecture_ts["src/features/evaluation/domain/evaluateArchitecture.ts"]
@@ -24,6 +25,7 @@ graph LR
   module_src_types_architectureAnalysis_ts["src/types/architectureAnalysis.ts"]
   module_src_types_architectureCli_ts["src/types/architectureCli.ts"]
   module_src_types_architectureModel_ts["src/types/architectureModel.ts"]
+  module_src_utils_hasSourceCapability_ts["src/utils/hasSourceCapability.ts"]
   module_src_cli_commands_detect_ts --> module_src_cli_utils_parseArchitectureCommandOptions_ts
   module_src_cli_commands_detect_ts --> module_src_features_detection_domain_detectArchitecture_ts
   module_src_cli_commands_evaluate_ts --> module_src_cli_utils_parseArchitectureCommandOptions_ts
@@ -48,6 +50,9 @@ graph LR
   module_src_features_detection_domain_detectArchitecture_ts --> module_src_features_models_domain_listArchitectureModels_ts
   module_src_features_detection_domain_detectArchitecture_ts --> module_src_types_architectureAnalysis_ts
   module_src_features_detection_domain_detectArchitecture_ts --> module_src_types_architectureModel_ts
+  module_src_features_detection_domain_detectArchitecture_ts --> module_src_utils_hasSourceCapability_ts
+  module_src_features_detection_domain_inferArchitectureRoles_test_ts --> module_src_features_detection_domain_inferArchitectureRoles_ts
+  module_src_features_detection_domain_inferArchitectureRoles_test_ts --> module_src_features_models_domain_listArchitectureModels_ts
   module_src_features_detection_domain_inferArchitectureRoles_ts --> module_src_types_architectureAnalysis_ts
   module_src_features_detection_domain_inferArchitectureRoles_ts --> module_src_types_architectureModel_ts
   module_src_features_evaluation_domain_evaluateArchitecture_test_ts --> module_src_features_evaluation_domain_evaluateArchitecture_ts
@@ -56,6 +61,7 @@ graph LR
   module_src_features_evaluation_domain_evaluateArchitecture_ts --> module_src_features_rules_domain_createArchitectureRuleSet_ts
   module_src_features_evaluation_domain_evaluateArchitecture_ts --> module_src_types_architectureAnalysis_ts
   module_src_features_evaluation_domain_evaluateArchitecture_ts --> module_src_types_architectureModel_ts
+  module_src_features_evaluation_domain_evaluateArchitecture_ts --> module_src_utils_hasSourceCapability_ts
   module_src_features_models_constants_architectureModels_ts --> module_src_types_architectureModel_ts
   module_src_features_models_domain_findArchitectureModel_ts --> module_src_features_models_constants_architectureModels_ts
   module_src_features_models_domain_findArchitectureModel_ts --> module_src_types_architectureModel_ts

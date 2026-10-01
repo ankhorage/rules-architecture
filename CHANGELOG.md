@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.3.1
+
+### Patch Changes
+
+- 762847b: Correct architecture inference for conventional source roots and aggregate source capabilities per project so Java analyzer facts remain available beside project-detector metadata.
+
 ## 0.3.0
 
 ### Minor Changes

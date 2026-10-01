@@ -201,7 +201,7 @@ Create architecture rules for one explicitly selected target model.
 
 Kind: `function`
 Module: `src/features/detection/domain/detectArchitecture.ts`
-Source: `src/features/detection/domain/detectArchitecture.ts:27:1`
+Source: `src/features/detection/domain/detectArchitecture.ts:28:1`
 
 Detect plausible architecture models from observed graph facts without selecting an enforcement target.
 
@@ -215,7 +215,7 @@ Detect plausible architecture models from observed graph facts without selecting
 
 Kind: `function`
 Module: `src/features/evaluation/domain/evaluateArchitecture.ts`
-Source: `src/features/evaluation/domain/evaluateArchitecture.ts:21:1`
+Source: `src/features/evaluation/domain/evaluateArchitecture.ts:22:1`
 
 Evaluate one explicitly selected architecture model through the generic Rules engine.
 

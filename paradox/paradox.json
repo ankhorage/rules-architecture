@@ -14,7 +14,7 @@
     {
       "id": "npm",
       "label": "npm",
-      "value": "v0.3.0",
+      "value": "v0.3.1",
       "color": "cb3837"
     },
     {
@@ -206,11 +206,21 @@
         "src/features/detection/domain/inferArchitectureRoles.ts",
         "src/features/models/domain/listArchitectureModels.ts",
         "src/types/architectureAnalysis.ts",
-        "src/types/architectureModel.ts"
+        "src/types/architectureModel.ts",
+        "src/utils/hasSourceCapability.ts"
       ],
       "exports": [
         "detectArchitecture"
       ]
+    },
+    {
+      "path": "src/features/detection/domain/inferArchitectureRoles.test.ts",
+      "isEntrypoint": false,
+      "dependencies": [
+        "src/features/detection/domain/inferArchitectureRoles.ts",
+        "src/features/models/domain/listArchitectureModels.ts"
+      ],
+      "exports": []
     },
     {
       "path": "src/features/detection/domain/inferArchitectureRoles.ts",
@@ -239,7 +249,8 @@
         "src/features/models/domain/findArchitectureModel.ts",
         "src/features/rules/domain/createArchitectureRuleSet.ts",
         "src/types/architectureAnalysis.ts",
-        "src/types/architectureModel.ts"
+        "src/types/architectureModel.ts",
+        "src/utils/hasSourceCapability.ts"
       ],
       "exports": [
         "evaluateArchitecture"
@@ -355,6 +366,14 @@
         "ArchitectureModel",
         "ArchitectureRole",
         "ArchitectureRoleDependency"
+      ]
+    },
+    {
+      "path": "src/utils/hasSourceCapability.ts",
+      "isEntrypoint": false,
+      "dependencies": [],
+      "exports": [
+        "hasSourceCapability"
       ]
     }
   ],
@@ -957,7 +976,7 @@
       "modulePath": "src/features/detection/domain/detectArchitecture.ts",
       "sourceLocation": {
         "filePath": "src/features/detection/domain/detectArchitecture.ts",
-        "line": 27,
+        "line": 28,
         "column": 1
       },
       "exportPaths": [
@@ -995,7 +1014,7 @@
       "modulePath": "src/features/evaluation/domain/evaluateArchitecture.ts",
       "sourceLocation": {
         "filePath": "src/features/evaluation/domain/evaluateArchitecture.ts",
-        "line": 21,
+        "line": 22,
         "column": 1
       },
       "exportPaths": [
@@ -1319,7 +1338,7 @@
       "security": [],
       "sourceLocation": {
         "filePath": "src/features/detection/domain/detectArchitecture.test.ts",
-        "line": 29,
+        "line": 42,
         "column": 1
       }
     },
@@ -1330,7 +1349,7 @@
       "security": [],
       "sourceLocation": {
         "filePath": "src/features/detection/domain/detectArchitecture.test.ts",
-        "line": 60,
+        "line": 73,
         "column": 1
       }
     },
@@ -1341,7 +1360,7 @@
       "security": [],
       "sourceLocation": {
         "filePath": "src/features/detection/domain/detectArchitecture.test.ts",
-        "line": 75,
+        "line": 88,
         "column": 1
       }
     },
@@ -1352,7 +1371,7 @@
       "security": [],
       "sourceLocation": {
         "filePath": "src/features/detection/domain/detectArchitecture.test.ts",
-        "line": 94,
+        "line": 107,
         "column": 1
       }
     },
@@ -1363,7 +1382,7 @@
       "security": [],
       "sourceLocation": {
         "filePath": "src/features/detection/domain/detectArchitecture.ts",
-        "line": 27,
+        "line": 28,
         "column": 1
       }
     },
@@ -1374,7 +1393,7 @@
       "security": [],
       "sourceLocation": {
         "filePath": "src/features/detection/domain/detectArchitecture.ts",
-        "line": 49,
+        "line": 50,
         "column": 1
       }
     },
@@ -1385,7 +1404,7 @@
       "security": [],
       "sourceLocation": {
         "filePath": "src/features/detection/domain/detectArchitecture.ts",
-        "line": 91,
+        "line": 92,
         "column": 1
       }
     },
@@ -1396,7 +1415,7 @@
       "security": [],
       "sourceLocation": {
         "filePath": "src/features/detection/domain/detectArchitecture.ts",
-        "line": 124,
+        "line": 125,
         "column": 1
       }
     },
@@ -1407,7 +1426,7 @@
       "security": [],
       "sourceLocation": {
         "filePath": "src/features/detection/domain/detectArchitecture.ts",
-        "line": 153,
+        "line": 154,
         "column": 1
       }
     },
@@ -1418,7 +1437,7 @@
       "security": [],
       "sourceLocation": {
         "filePath": "src/features/detection/domain/detectArchitecture.ts",
-        "line": 163,
+        "line": 166,
         "column": 1
       }
     },
@@ -1429,7 +1448,7 @@
       "security": [],
       "sourceLocation": {
         "filePath": "src/features/detection/domain/detectArchitecture.ts",
-        "line": 181,
+        "line": 184,
         "column": 1
       }
     },
@@ -1440,7 +1459,7 @@
       "security": [],
       "sourceLocation": {
         "filePath": "src/features/detection/domain/detectArchitecture.ts",
-        "line": 209,
+        "line": 212,
         "column": 1
       }
     },
@@ -1451,7 +1470,7 @@
       "security": [],
       "sourceLocation": {
         "filePath": "src/features/detection/domain/detectArchitecture.ts",
-        "line": 217,
+        "line": 218,
         "column": 1
       }
     },
@@ -1462,7 +1481,29 @@
       "security": [],
       "sourceLocation": {
         "filePath": "src/features/detection/domain/detectArchitecture.ts",
-        "line": 222,
+        "line": 223,
+        "column": 1
+      }
+    },
+    {
+      "name": "javaMainSourceGraph",
+      "description": null,
+      "see": [],
+      "security": [],
+      "sourceLocation": {
+        "filePath": "src/features/detection/domain/inferArchitectureRoles.test.ts",
+        "line": 19,
+        "column": 1
+      }
+    },
+    {
+      "name": "javaNode",
+      "description": null,
+      "see": [],
+      "security": [],
+      "sourceLocation": {
+        "filePath": "src/features/detection/domain/inferArchitectureRoles.test.ts",
+        "line": 41,
         "column": 1
       }
     },
@@ -1528,7 +1569,7 @@
       "security": [],
       "sourceLocation": {
         "filePath": "src/features/detection/domain/inferArchitectureRoles.ts",
-        "line": 243,
+        "line": 245,
         "column": 1
       }
     },
@@ -1539,7 +1580,7 @@
       "security": [],
       "sourceLocation": {
         "filePath": "src/features/detection/domain/inferArchitectureRoles.ts",
-        "line": 258,
+        "line": 260,
         "column": 1
       }
     },
@@ -1550,7 +1591,7 @@
       "security": [],
       "sourceLocation": {
         "filePath": "src/features/detection/domain/inferArchitectureRoles.ts",
-        "line": 267,
+        "line": 269,
         "column": 1
       }
     },
@@ -1561,7 +1602,7 @@
       "security": [],
       "sourceLocation": {
         "filePath": "src/features/detection/domain/inferArchitectureRoles.ts",
-        "line": 272,
+        "line": 274,
         "column": 1
       }
     },
@@ -1572,7 +1613,7 @@
       "security": [],
       "sourceLocation": {
         "filePath": "src/features/detection/domain/inferArchitectureRoles.ts",
-        "line": 277,
+        "line": 279,
         "column": 1
       }
     },
@@ -1638,7 +1679,7 @@
       "security": [],
       "sourceLocation": {
         "filePath": "src/features/evaluation/domain/evaluateArchitecture.ts",
-        "line": 21,
+        "line": 22,
         "column": 1
       }
     },
@@ -1649,7 +1690,7 @@
       "security": [],
       "sourceLocation": {
         "filePath": "src/features/evaluation/domain/evaluateArchitecture.ts",
-        "line": 46,
+        "line": 47,
         "column": 1
       }
     },
@@ -1760,6 +1801,17 @@
       "sourceLocation": {
         "filePath": "src/features/rules/domain/createArchitectureRuleSet.ts",
         "line": 130,
+        "column": 1
+      }
+    },
+    {
+      "name": "hasSourceCapability",
+      "description": "Report whether every observed project has at least one analyzer that provides a capability.",
+      "see": [],
+      "security": [],
+      "sourceLocation": {
+        "filePath": "src/utils/hasSourceCapability.ts",
+        "line": 4,
         "column": 1
       }
     }
@@ -1973,6 +2025,11 @@
       },
       {
         "fromPath": "src/features/detection/domain/detectArchitecture.ts",
+        "toPath": "src/utils/hasSourceCapability.ts",
+        "sourcePath": "src/features/detection/domain/detectArchitecture.ts"
+      },
+      {
+        "fromPath": "src/features/detection/domain/detectArchitecture.ts",
         "toPath": "src/features/models/domain/listArchitectureModels.ts",
         "sourcePath": "src/features/detection/domain/detectArchitecture.ts"
       },
@@ -1980,6 +2037,16 @@
         "fromPath": "src/features/detection/domain/detectArchitecture.ts",
         "toPath": "src/features/detection/domain/inferArchitectureRoles.ts",
         "sourcePath": "src/features/detection/domain/detectArchitecture.ts"
+      },
+      {
+        "fromPath": "src/features/detection/domain/inferArchitectureRoles.test.ts",
+        "toPath": "src/features/models/domain/listArchitectureModels.ts",
+        "sourcePath": "src/features/detection/domain/inferArchitectureRoles.test.ts"
+      },
+      {
+        "fromPath": "src/features/detection/domain/inferArchitectureRoles.test.ts",
+        "toPath": "src/features/detection/domain/inferArchitectureRoles.ts",
+        "sourcePath": "src/features/detection/domain/inferArchitectureRoles.test.ts"
       },
       {
         "fromPath": "src/features/detection/domain/inferArchitectureRoles.ts",
@@ -2004,6 +2071,11 @@
       {
         "fromPath": "src/features/evaluation/domain/evaluateArchitecture.ts",
         "toPath": "src/types/architectureModel.ts",
+        "sourcePath": "src/features/evaluation/domain/evaluateArchitecture.ts"
+      },
+      {
+        "fromPath": "src/features/evaluation/domain/evaluateArchitecture.ts",
+        "toPath": "src/utils/hasSourceCapability.ts",
         "sourcePath": "src/features/evaluation/domain/evaluateArchitecture.ts"
       },
       {
@@ -2423,6 +2495,48 @@
         "sourcePath": "src/features/detection/domain/detectArchitecture.ts"
       },
       {
+        "fromSymbol": "src/features/detection/domain/detectArchitecture.ts",
+        "toSymbol": "hasSourceCapability",
+        "callExpression": "hasSourceCapability",
+        "sourcePath": "src/features/detection/domain/detectArchitecture.ts"
+      },
+      {
+        "fromSymbol": "src/features/detection/domain/inferArchitectureRoles.test.ts",
+        "toSymbol": "test",
+        "callExpression": "test",
+        "sourcePath": "src/features/detection/domain/inferArchitectureRoles.test.ts"
+      },
+      {
+        "fromSymbol": "src/features/detection/domain/inferArchitectureRoles.test.ts",
+        "toSymbol": "listArchitectureModels",
+        "callExpression": "listArchitectureModels",
+        "sourcePath": "src/features/detection/domain/inferArchitectureRoles.test.ts"
+      },
+      {
+        "fromSymbol": "src/features/detection/domain/inferArchitectureRoles.test.ts",
+        "toSymbol": "inferArchitectureRoles",
+        "callExpression": "inferArchitectureRoles",
+        "sourcePath": "src/features/detection/domain/inferArchitectureRoles.test.ts"
+      },
+      {
+        "fromSymbol": "src/features/detection/domain/inferArchitectureRoles.test.ts",
+        "toSymbol": "javaMainSourceGraph",
+        "callExpression": "javaMainSourceGraph",
+        "sourcePath": "src/features/detection/domain/inferArchitectureRoles.test.ts"
+      },
+      {
+        "fromSymbol": "src/features/detection/domain/inferArchitectureRoles.test.ts",
+        "toSymbol": "expect",
+        "callExpression": "expect",
+        "sourcePath": "src/features/detection/domain/inferArchitectureRoles.test.ts"
+      },
+      {
+        "fromSymbol": "javaMainSourceGraph",
+        "toSymbol": "javaNode",
+        "callExpression": "javaNode",
+        "sourcePath": "src/features/detection/domain/inferArchitectureRoles.test.ts"
+      },
+      {
         "fromSymbol": "src/features/detection/domain/inferArchitectureRoles.ts",
         "toSymbol": "inferNodeRole",
         "callExpression": "inferNodeRole",
@@ -2576,6 +2690,12 @@
         "fromSymbol": "evaluateArchitecture",
         "toSymbol": "createRuleRegistry",
         "callExpression": "createRuleRegistry",
+        "sourcePath": "src/features/evaluation/domain/evaluateArchitecture.ts"
+      },
+      {
+        "fromSymbol": "src/features/evaluation/domain/evaluateArchitecture.ts",
+        "toSymbol": "hasSourceCapability",
+        "callExpression": "hasSourceCapability",
         "sourcePath": "src/features/evaluation/domain/evaluateArchitecture.ts"
       },
       {
