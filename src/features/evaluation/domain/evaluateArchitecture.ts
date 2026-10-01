@@ -7,10 +7,10 @@ import type {
   ArchitectureRuleContext,
 } from '../../../types/architectureAnalysis.js';
 import type { ArchitectureModel } from '../../../types/architectureModel.js';
+import { hasSourceCapability } from '../../../utils/hasSourceCapability.js';
 import { inferArchitectureRoles } from '../../detection/domain/inferArchitectureRoles.js';
 import { findArchitectureModel } from '../../models/domain/findArchitectureModel.js';
 import { createArchitectureRuleSet } from '../../rules/domain/createArchitectureRuleSet.js';
-import { hasSourceCapability } from '../../../utils/hasSourceCapability.js';
 
 const CAPABILITY_NAMES: readonly (readonly [SourceCapability, string])[] = [
   ['imports', 'source-graph.imports'],
