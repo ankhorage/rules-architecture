@@ -1,5 +1,312 @@
 [
   {
+    "name": "ArchitectureContradiction",
+    "title": null,
+    "description": "One observed dependency that contradicts an inferred model role direction.",
+    "isReadme": false,
+    "see": [],
+    "security": [],
+    "kind": "type",
+    "modulePath": "src/types/architectureAnalysis.ts",
+    "sourceLocation": {
+      "filePath": "src/types/architectureAnalysis.ts",
+      "line": 23,
+      "column": 1
+    },
+    "exportPaths": [
+      "src/index.ts"
+    ],
+    "relatedSymbols": [],
+    "signatures": [],
+    "members": [
+      {
+        "name": "message",
+        "kind": "property",
+        "type": "string",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "relationKind",
+        "kind": "property",
+        "type": "string",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "sourceRole",
+        "kind": "property",
+        "type": "string",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "sourceSemanticPath",
+        "kind": "property",
+        "type": "string",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "targetRole",
+        "kind": "property",
+        "type": "string",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "targetSemanticPath",
+        "kind": "property",
+        "type": "string",
+        "required": true,
+        "description": null
+      }
+    ],
+    "structuredRows": []
+  },
+  {
+    "name": "ArchitectureDetectionCandidate",
+    "title": null,
+    "description": "A plausible architecture interpretation with explicit uncertainty and limitations.",
+    "isReadme": false,
+    "see": [],
+    "security": [],
+    "kind": "type",
+    "modulePath": "src/types/architectureAnalysis.ts",
+    "sourceLocation": {
+      "filePath": "src/types/architectureAnalysis.ts",
+      "line": 33,
+      "column": 1
+    },
+    "exportPaths": [
+      "src/index.ts"
+    ],
+    "relatedSymbols": [
+      "ArchitectureContradiction",
+      "ArchitectureDetectionEvidence",
+      "ArchitectureRoleAssignment"
+    ],
+    "signatures": [],
+    "members": [
+      {
+        "name": "confidence",
+        "kind": "property",
+        "type": "number",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "contradictions",
+        "kind": "property",
+        "type": "readonly ArchitectureContradiction[]",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "modelId",
+        "kind": "property",
+        "type": "\"hexagonal\" | \"clean\" | \"onion\" | \"layered\"",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "roleAssignments",
+        "kind": "property",
+        "type": "readonly ArchitectureRoleAssignment[]",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "score",
+        "kind": "property",
+        "type": "number",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "supportingEvidence",
+        "kind": "property",
+        "type": "readonly ArchitectureDetectionEvidence[]",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "unavailableCapabilities",
+        "kind": "property",
+        "type": "readonly SourceCapability[]",
+        "required": true,
+        "description": null
+      }
+    ],
+    "structuredRows": []
+  },
+  {
+    "name": "ArchitectureDetectionEvidence",
+    "title": null,
+    "description": "One serializable reason supporting an inferred architecture role or candidate.",
+    "isReadme": false,
+    "see": [],
+    "security": [],
+    "kind": "type",
+    "modulePath": "src/types/architectureAnalysis.ts",
+    "sourceLocation": {
+      "filePath": "src/types/architectureAnalysis.ts",
+      "line": 7,
+      "column": 1
+    },
+    "exportPaths": [
+      "src/index.ts"
+    ],
+    "relatedSymbols": [],
+    "signatures": [],
+    "members": [
+      {
+        "name": "kind",
+        "kind": "property",
+        "type": "\"capability\" | \"declaration\" | \"dependency\" | \"path\" | \"topology\"",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "message",
+        "kind": "property",
+        "type": "string",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "semanticPath",
+        "kind": "property",
+        "type": "string | undefined",
+        "required": false,
+        "description": null
+      },
+      {
+        "name": "weight",
+        "kind": "property",
+        "type": "number",
+        "required": true,
+        "description": null
+      }
+    ],
+    "structuredRows": []
+  },
+  {
+    "name": "ArchitectureDetectionResult",
+    "title": null,
+    "description": "Architecture analysis result that may contain several plausible models.",
+    "isReadme": false,
+    "see": [],
+    "security": [],
+    "kind": "type",
+    "modulePath": "src/types/architectureAnalysis.ts",
+    "sourceLocation": {
+      "filePath": "src/types/architectureAnalysis.ts",
+      "line": 44,
+      "column": 1
+    },
+    "exportPaths": [
+      "src/index.ts"
+    ],
+    "relatedSymbols": [
+      "ArchitectureDetectionCandidate"
+    ],
+    "signatures": [],
+    "members": [
+      {
+        "name": "candidates",
+        "kind": "property",
+        "type": "readonly ArchitectureDetectionCandidate[]",
+        "required": true,
+        "description": null
+      }
+    ],
+    "structuredRows": []
+  },
+  {
+    "name": "ArchitectureEvaluationOptions",
+    "title": null,
+    "description": "Optional generic Rules configuration for explicit architecture evaluation.",
+    "isReadme": false,
+    "see": [],
+    "security": [],
+    "kind": "type",
+    "modulePath": "src/types/architectureAnalysis.ts",
+    "sourceLocation": {
+      "filePath": "src/types/architectureAnalysis.ts",
+      "line": 56,
+      "column": 1
+    },
+    "exportPaths": [
+      "src/index.ts"
+    ],
+    "relatedSymbols": [],
+    "signatures": [],
+    "members": [
+      {
+        "name": "config",
+        "kind": "property",
+        "type": "RulesConfig | undefined",
+        "required": false,
+        "description": null
+      }
+    ],
+    "structuredRows": []
+  },
+  {
+    "name": "ArchitectureEvaluationResult",
+    "title": null,
+    "description": "Generic Rules result plus the explicit target and inferred role evidence used for evaluation.",
+    "isReadme": false,
+    "see": [],
+    "security": [],
+    "kind": "type",
+    "modulePath": "src/types/architectureAnalysis.ts",
+    "sourceLocation": {
+      "filePath": "src/types/architectureAnalysis.ts",
+      "line": 61,
+      "column": 1
+    },
+    "exportPaths": [
+      "src/index.ts"
+    ],
+    "relatedSymbols": [
+      "ArchitectureRoleAssignment"
+    ],
+    "signatures": [],
+    "members": [
+      {
+        "name": "diagnostics",
+        "kind": "property",
+        "type": "readonly RuleEvaluationDiagnostic[]",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "findings",
+        "kind": "property",
+        "type": "readonly RuleFinding<JsonValue>[]",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "modelId",
+        "kind": "property",
+        "type": "\"hexagonal\" | \"clean\" | \"onion\" | \"layered\"",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "roleAssignments",
+        "kind": "property",
+        "type": "readonly ArchitectureRoleAssignment[]",
+        "required": true,
+        "description": null
+      }
+    ],
+    "structuredRows": []
+  },
+  {
     "name": "ArchitectureModel",
     "title": null,
     "description": "Built-in architecture semantics, separate from observed facts and inferred roles.",
@@ -105,6 +412,59 @@
     "structuredRows": []
   },
   {
+    "name": "ArchitectureRoleAssignment",
+    "title": null,
+    "description": "One semantic role inferred from graph evidence without changing observed source facts.",
+    "isReadme": false,
+    "see": [],
+    "security": [],
+    "kind": "type",
+    "modulePath": "src/types/architectureAnalysis.ts",
+    "sourceLocation": {
+      "filePath": "src/types/architectureAnalysis.ts",
+      "line": 15,
+      "column": 1
+    },
+    "exportPaths": [
+      "src/index.ts"
+    ],
+    "relatedSymbols": [
+      "ArchitectureDetectionEvidence"
+    ],
+    "signatures": [],
+    "members": [
+      {
+        "name": "confidence",
+        "kind": "property",
+        "type": "number",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "evidence",
+        "kind": "property",
+        "type": "readonly ArchitectureDetectionEvidence[]",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "roleId",
+        "kind": "property",
+        "type": "string",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "semanticPath",
+        "kind": "property",
+        "type": "string",
+        "required": true,
+        "description": null
+      }
+    ],
+    "structuredRows": []
+  },
+  {
     "name": "ArchitectureRoleDependency",
     "title": null,
     "description": "A permitted static source dependency between inferred roles.",
@@ -139,6 +499,225 @@
         "description": null
       }
     ],
+    "structuredRows": []
+  },
+  {
+    "name": "ArchitectureRuleContext",
+    "title": null,
+    "description": "Architecture-specific Rules context built from an explicit target model.",
+    "isReadme": false,
+    "see": [],
+    "security": [],
+    "kind": "type",
+    "modulePath": "src/types/architectureAnalysis.ts",
+    "sourceLocation": {
+      "filePath": "src/types/architectureAnalysis.ts",
+      "line": 49,
+      "column": 1
+    },
+    "exportPaths": [
+      "src/index.ts"
+    ],
+    "relatedSymbols": [
+      "ArchitectureModel",
+      "ArchitectureRoleAssignment"
+    ],
+    "signatures": [],
+    "members": [
+      {
+        "name": "graph",
+        "kind": "property",
+        "type": "SourceGraph",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "model",
+        "kind": "property",
+        "type": "ArchitectureModel",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "roleAssignments",
+        "kind": "property",
+        "type": "readonly ArchitectureRoleAssignment[]",
+        "required": true,
+        "description": null
+      }
+    ],
+    "structuredRows": []
+  },
+  {
+    "name": "createArchitectureRuleSet",
+    "title": null,
+    "description": "Create architecture rules for one explicitly selected target model.",
+    "isReadme": false,
+    "see": [],
+    "security": [],
+    "kind": "function",
+    "modulePath": "src/features/rules/domain/createArchitectureRuleSet.ts",
+    "sourceLocation": {
+      "filePath": "src/features/rules/domain/createArchitectureRuleSet.ts",
+      "line": 17,
+      "column": 1
+    },
+    "exportPaths": [
+      "src/index.ts"
+    ],
+    "relatedSymbols": [
+      "ArchitectureRuleContext"
+    ],
+    "signatures": [
+      {
+        "label": "(modelId: \"hexagonal\" | \"clean\" | \"onion\" | \"layered\") => RuleSet<ArchitectureRuleContext>",
+        "parameters": [
+          {
+            "name": "modelId",
+            "type": "\"hexagonal\" | \"clean\" | \"onion\" | \"layered\"",
+            "required": true,
+            "description": null
+          }
+        ],
+        "returnType": "RuleSet<ArchitectureRuleContext>",
+        "returnDescription": null
+      }
+    ],
+    "members": [],
+    "structuredRows": []
+  },
+  {
+    "name": "detectArchitecture",
+    "title": null,
+    "description": "Detect plausible architecture models from observed graph facts without selecting an enforcement target.",
+    "isReadme": false,
+    "see": [],
+    "security": [],
+    "kind": "function",
+    "modulePath": "src/features/detection/domain/detectArchitecture.ts",
+    "sourceLocation": {
+      "filePath": "src/features/detection/domain/detectArchitecture.ts",
+      "line": 27,
+      "column": 1
+    },
+    "exportPaths": [
+      "src/index.ts"
+    ],
+    "relatedSymbols": [
+      "ArchitectureDetectionResult"
+    ],
+    "signatures": [
+      {
+        "label": "(graph: SourceGraph) => ArchitectureDetectionResult",
+        "parameters": [
+          {
+            "name": "graph",
+            "type": "SourceGraph",
+            "required": true,
+            "description": null
+          }
+        ],
+        "returnType": "ArchitectureDetectionResult",
+        "returnDescription": null
+      }
+    ],
+    "members": [],
+    "structuredRows": []
+  },
+  {
+    "name": "evaluateArchitecture",
+    "title": null,
+    "description": "Evaluate one explicitly selected architecture model through the generic Rules engine.",
+    "isReadme": false,
+    "see": [],
+    "security": [],
+    "kind": "function",
+    "modulePath": "src/features/evaluation/domain/evaluateArchitecture.ts",
+    "sourceLocation": {
+      "filePath": "src/features/evaluation/domain/evaluateArchitecture.ts",
+      "line": 21,
+      "column": 1
+    },
+    "exportPaths": [
+      "src/index.ts"
+    ],
+    "relatedSymbols": [
+      "ArchitectureEvaluationOptions",
+      "ArchitectureEvaluationResult"
+    ],
+    "signatures": [
+      {
+        "label": "(graph: SourceGraph, modelId: \"hexagonal\" | \"clean\" | \"onion\" | \"layered\", options?: ArchitectureEvaluationOptions) => ArchitectureEvaluationResult",
+        "parameters": [
+          {
+            "name": "graph",
+            "type": "SourceGraph",
+            "required": true,
+            "description": null
+          },
+          {
+            "name": "modelId",
+            "type": "\"hexagonal\" | \"clean\" | \"onion\" | \"layered\"",
+            "required": true,
+            "description": null
+          },
+          {
+            "name": "options",
+            "type": "ArchitectureEvaluationOptions",
+            "required": false,
+            "description": null
+          }
+        ],
+        "returnType": "ArchitectureEvaluationResult",
+        "returnDescription": null
+      }
+    ],
+    "members": [],
+    "structuredRows": []
+  },
+  {
+    "name": "inferArchitectureRoles",
+    "title": null,
+    "description": "Infer semantic model roles from generic source facts while keeping path names weak evidence.",
+    "isReadme": false,
+    "see": [],
+    "security": [],
+    "kind": "function",
+    "modulePath": "src/features/detection/domain/inferArchitectureRoles.ts",
+    "sourceLocation": {
+      "filePath": "src/features/detection/domain/inferArchitectureRoles.ts",
+      "line": 76,
+      "column": 1
+    },
+    "exportPaths": [
+      "src/index.ts"
+    ],
+    "relatedSymbols": [
+      "ArchitectureModel",
+      "ArchitectureRoleAssignment"
+    ],
+    "signatures": [
+      {
+        "label": "(graph: SourceGraph, model: ArchitectureModel) => readonly ArchitectureRoleAssignment[]",
+        "parameters": [
+          {
+            "name": "graph",
+            "type": "SourceGraph",
+            "required": true,
+            "description": null
+          },
+          {
+            "name": "model",
+            "type": "ArchitectureModel",
+            "required": true,
+            "description": null
+          }
+        ],
+        "returnType": "readonly ArchitectureRoleAssignment[]",
+        "returnDescription": null
+      }
+    ],
+    "members": [],
     "structuredRows": []
   },
   {

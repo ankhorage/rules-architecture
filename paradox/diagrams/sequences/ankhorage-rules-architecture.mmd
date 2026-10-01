@@ -1,0 +1,11 @@
+sequenceDiagram
+  participant participant_executeCommand as executeCommand
+  participant participant_isHelpToken as isHelpToken
+  participant participant_renderHelp as renderHelp
+  participant participant_runCli as runCli
+  participant_runCli->>participant_isHelpToken: isHelpToken()
+  participant_isHelpToken-->>participant_runCli: return
+  participant_runCli->>participant_renderHelp: renderHelp()
+  participant_renderHelp-->>participant_runCli: return
+  participant_runCli->>participant_executeCommand: executeCommand()
+  participant_executeCommand-->>participant_runCli: return

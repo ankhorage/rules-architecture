@@ -14,7 +14,7 @@
     {
       "id": "npm",
       "label": "npm",
-      "value": "v0.2.0",
+      "value": "v0.3.0",
       "color": "cb3837"
     },
     {
@@ -78,6 +78,174 @@
   ],
   "modules": [
     {
+      "path": "package.json",
+      "isEntrypoint": false,
+      "dependencies": [],
+      "exports": []
+    },
+    {
+      "path": "src/cli/commands/detect.ts",
+      "isEntrypoint": false,
+      "dependencies": [
+        "src/cli/utils/parseArchitectureCommandOptions.ts",
+        "src/features/detection/domain/detectArchitecture.ts"
+      ],
+      "exports": [
+        "detect"
+      ]
+    },
+    {
+      "path": "src/cli/commands/evaluate.ts",
+      "isEntrypoint": false,
+      "dependencies": [
+        "src/cli/utils/parseArchitectureCommandOptions.ts",
+        "src/features/evaluation/domain/evaluateArchitecture.ts"
+      ],
+      "exports": [
+        "evaluate"
+      ]
+    },
+    {
+      "path": "src/cli/commands/models/list.test.ts",
+      "isEntrypoint": false,
+      "dependencies": [
+        "src/cli/commands/models/list.ts"
+      ],
+      "exports": []
+    },
+    {
+      "path": "src/cli/commands/models/list.ts",
+      "isEntrypoint": false,
+      "dependencies": [
+        "src/features/models/domain/listArchitectureModels.ts"
+      ],
+      "exports": [
+        "list"
+      ]
+    },
+    {
+      "path": "src/cli/createRulesArchitectureRuntimeProvider.test.ts",
+      "isEntrypoint": false,
+      "dependencies": [
+        "src/cli/createRulesArchitectureRuntimeProvider.ts"
+      ],
+      "exports": []
+    },
+    {
+      "path": "src/cli/createRulesArchitectureRuntimeProvider.ts",
+      "isEntrypoint": false,
+      "dependencies": [
+        "src/cli/commands/detect.ts",
+        "src/cli/commands/evaluate.ts",
+        "src/cli/commands/models/list.ts",
+        "src/constants/rulesArchitecture.ts"
+      ],
+      "exports": [
+        "createRulesArchitectureRuntimeProvider"
+      ]
+    },
+    {
+      "path": "src/cli/index.ts",
+      "isEntrypoint": false,
+      "dependencies": [
+        "src/cli/createRulesArchitectureRuntimeProvider.ts"
+      ],
+      "exports": [
+        "createRulesArchitectureRuntimeProvider",
+        "default"
+      ]
+    },
+    {
+      "path": "src/cli/standalone.ts",
+      "isEntrypoint": false,
+      "dependencies": [
+        "src/cli/commands/detect.ts",
+        "src/cli/commands/evaluate.ts",
+        "src/cli/commands/models/list.ts"
+      ],
+      "exports": [
+        "runCli"
+      ]
+    },
+    {
+      "path": "src/cli/utils/parseArchitectureCommandOptions.ts",
+      "isEntrypoint": false,
+      "dependencies": [
+        "src/features/models/domain/listArchitectureModels.ts",
+        "src/types/architectureCli.ts",
+        "src/types/architectureModel.ts"
+      ],
+      "exports": [
+        "parseArchitectureCommandOptions"
+      ]
+    },
+    {
+      "path": "src/constants/rulesArchitecture.ts",
+      "isEntrypoint": false,
+      "dependencies": [
+        "package.json"
+      ],
+      "exports": [
+        "RULES_ARCHITECTURE_CAPABILITIES",
+        "RULES_ARCHITECTURE_COMMAND_CATEGORY",
+        "RULES_ARCHITECTURE_PACKAGE_VERSION"
+      ]
+    },
+    {
+      "path": "src/features/detection/domain/detectArchitecture.test.ts",
+      "isEntrypoint": false,
+      "dependencies": [
+        "src/features/detection/domain/detectArchitecture.ts"
+      ],
+      "exports": []
+    },
+    {
+      "path": "src/features/detection/domain/detectArchitecture.ts",
+      "isEntrypoint": false,
+      "dependencies": [
+        "src/features/detection/domain/inferArchitectureRoles.ts",
+        "src/features/models/domain/listArchitectureModels.ts",
+        "src/types/architectureAnalysis.ts",
+        "src/types/architectureModel.ts"
+      ],
+      "exports": [
+        "detectArchitecture"
+      ]
+    },
+    {
+      "path": "src/features/detection/domain/inferArchitectureRoles.ts",
+      "isEntrypoint": false,
+      "dependencies": [
+        "src/types/architectureAnalysis.ts",
+        "src/types/architectureModel.ts"
+      ],
+      "exports": [
+        "inferArchitectureRoles"
+      ]
+    },
+    {
+      "path": "src/features/evaluation/domain/evaluateArchitecture.test.ts",
+      "isEntrypoint": false,
+      "dependencies": [
+        "src/features/evaluation/domain/evaluateArchitecture.ts"
+      ],
+      "exports": []
+    },
+    {
+      "path": "src/features/evaluation/domain/evaluateArchitecture.ts",
+      "isEntrypoint": false,
+      "dependencies": [
+        "src/features/detection/domain/inferArchitectureRoles.ts",
+        "src/features/models/domain/findArchitectureModel.ts",
+        "src/features/rules/domain/createArchitectureRuleSet.ts",
+        "src/types/architectureAnalysis.ts",
+        "src/types/architectureModel.ts"
+      ],
+      "exports": [
+        "evaluateArchitecture"
+      ]
+    },
+    {
       "path": "src/features/models/constants/architectureModels.ts",
       "isEntrypoint": false,
       "dependencies": [
@@ -85,6 +253,17 @@
       ],
       "exports": [
         "ARCHITECTURE_MODELS"
+      ]
+    },
+    {
+      "path": "src/features/models/domain/findArchitectureModel.ts",
+      "isEntrypoint": false,
+      "dependencies": [
+        "src/features/models/constants/architectureModels.ts",
+        "src/types/architectureModel.ts"
+      ],
+      "exports": [
+        "findArchitectureModel"
       ]
     },
     {
@@ -107,14 +286,65 @@
       ]
     },
     {
+      "path": "src/features/rules/domain/createArchitectureRuleSet.ts",
+      "isEntrypoint": false,
+      "dependencies": [
+        "src/features/models/domain/findArchitectureModel.ts",
+        "src/types/architectureAnalysis.ts",
+        "src/types/architectureModel.ts"
+      ],
+      "exports": [
+        "createArchitectureRuleSet"
+      ]
+    },
+    {
       "path": "src/index.ts",
       "isEntrypoint": true,
       "dependencies": [],
       "exports": [
+        "ArchitectureContradiction",
+        "ArchitectureDetectionCandidate",
+        "ArchitectureDetectionEvidence",
+        "ArchitectureDetectionResult",
+        "ArchitectureEvaluationOptions",
+        "ArchitectureEvaluationResult",
         "ArchitectureModel",
         "ArchitectureRole",
+        "ArchitectureRoleAssignment",
         "ArchitectureRoleDependency",
+        "ArchitectureRuleContext",
+        "createArchitectureRuleSet",
+        "detectArchitecture",
+        "evaluateArchitecture",
+        "inferArchitectureRoles",
         "listArchitectureModels"
+      ]
+    },
+    {
+      "path": "src/types/architectureAnalysis.ts",
+      "isEntrypoint": false,
+      "dependencies": [
+        "src/types/architectureModel.ts"
+      ],
+      "exports": [
+        "ArchitectureContradiction",
+        "ArchitectureDetectionCandidate",
+        "ArchitectureDetectionEvidence",
+        "ArchitectureDetectionResult",
+        "ArchitectureEvaluationOptions",
+        "ArchitectureEvaluationResult",
+        "ArchitectureRoleAssignment",
+        "ArchitectureRuleContext"
+      ]
+    },
+    {
+      "path": "src/types/architectureCli.ts",
+      "isEntrypoint": false,
+      "dependencies": [
+        "src/types/architectureModel.ts"
+      ],
+      "exports": [
+        "ArchitectureCommandOptions"
       ]
     },
     {
@@ -129,6 +359,313 @@
     }
   ],
   "exports": [
+    {
+      "name": "ArchitectureContradiction",
+      "title": null,
+      "description": "One observed dependency that contradicts an inferred model role direction.",
+      "isReadme": false,
+      "see": [],
+      "security": [],
+      "kind": "type",
+      "modulePath": "src/types/architectureAnalysis.ts",
+      "sourceLocation": {
+        "filePath": "src/types/architectureAnalysis.ts",
+        "line": 23,
+        "column": 1
+      },
+      "exportPaths": [
+        "src/index.ts"
+      ],
+      "relatedSymbols": [],
+      "signatures": [],
+      "members": [
+        {
+          "name": "message",
+          "kind": "property",
+          "type": "string",
+          "required": true,
+          "description": null
+        },
+        {
+          "name": "relationKind",
+          "kind": "property",
+          "type": "string",
+          "required": true,
+          "description": null
+        },
+        {
+          "name": "sourceRole",
+          "kind": "property",
+          "type": "string",
+          "required": true,
+          "description": null
+        },
+        {
+          "name": "sourceSemanticPath",
+          "kind": "property",
+          "type": "string",
+          "required": true,
+          "description": null
+        },
+        {
+          "name": "targetRole",
+          "kind": "property",
+          "type": "string",
+          "required": true,
+          "description": null
+        },
+        {
+          "name": "targetSemanticPath",
+          "kind": "property",
+          "type": "string",
+          "required": true,
+          "description": null
+        }
+      ],
+      "structuredRows": []
+    },
+    {
+      "name": "ArchitectureDetectionCandidate",
+      "title": null,
+      "description": "A plausible architecture interpretation with explicit uncertainty and limitations.",
+      "isReadme": false,
+      "see": [],
+      "security": [],
+      "kind": "type",
+      "modulePath": "src/types/architectureAnalysis.ts",
+      "sourceLocation": {
+        "filePath": "src/types/architectureAnalysis.ts",
+        "line": 33,
+        "column": 1
+      },
+      "exportPaths": [
+        "src/index.ts"
+      ],
+      "relatedSymbols": [
+        "ArchitectureContradiction",
+        "ArchitectureDetectionEvidence",
+        "ArchitectureRoleAssignment"
+      ],
+      "signatures": [],
+      "members": [
+        {
+          "name": "confidence",
+          "kind": "property",
+          "type": "number",
+          "required": true,
+          "description": null
+        },
+        {
+          "name": "contradictions",
+          "kind": "property",
+          "type": "readonly ArchitectureContradiction[]",
+          "required": true,
+          "description": null
+        },
+        {
+          "name": "modelId",
+          "kind": "property",
+          "type": "\"hexagonal\" | \"clean\" | \"onion\" | \"layered\"",
+          "required": true,
+          "description": null
+        },
+        {
+          "name": "roleAssignments",
+          "kind": "property",
+          "type": "readonly ArchitectureRoleAssignment[]",
+          "required": true,
+          "description": null
+        },
+        {
+          "name": "score",
+          "kind": "property",
+          "type": "number",
+          "required": true,
+          "description": null
+        },
+        {
+          "name": "supportingEvidence",
+          "kind": "property",
+          "type": "readonly ArchitectureDetectionEvidence[]",
+          "required": true,
+          "description": null
+        },
+        {
+          "name": "unavailableCapabilities",
+          "kind": "property",
+          "type": "readonly SourceCapability[]",
+          "required": true,
+          "description": null
+        }
+      ],
+      "structuredRows": []
+    },
+    {
+      "name": "ArchitectureDetectionEvidence",
+      "title": null,
+      "description": "One serializable reason supporting an inferred architecture role or candidate.",
+      "isReadme": false,
+      "see": [],
+      "security": [],
+      "kind": "type",
+      "modulePath": "src/types/architectureAnalysis.ts",
+      "sourceLocation": {
+        "filePath": "src/types/architectureAnalysis.ts",
+        "line": 7,
+        "column": 1
+      },
+      "exportPaths": [
+        "src/index.ts"
+      ],
+      "relatedSymbols": [],
+      "signatures": [],
+      "members": [
+        {
+          "name": "kind",
+          "kind": "property",
+          "type": "\"capability\" | \"declaration\" | \"dependency\" | \"path\" | \"topology\"",
+          "required": true,
+          "description": null
+        },
+        {
+          "name": "message",
+          "kind": "property",
+          "type": "string",
+          "required": true,
+          "description": null
+        },
+        {
+          "name": "semanticPath",
+          "kind": "property",
+          "type": "string | undefined",
+          "required": false,
+          "description": null
+        },
+        {
+          "name": "weight",
+          "kind": "property",
+          "type": "number",
+          "required": true,
+          "description": null
+        }
+      ],
+      "structuredRows": []
+    },
+    {
+      "name": "ArchitectureDetectionResult",
+      "title": null,
+      "description": "Architecture analysis result that may contain several plausible models.",
+      "isReadme": false,
+      "see": [],
+      "security": [],
+      "kind": "type",
+      "modulePath": "src/types/architectureAnalysis.ts",
+      "sourceLocation": {
+        "filePath": "src/types/architectureAnalysis.ts",
+        "line": 44,
+        "column": 1
+      },
+      "exportPaths": [
+        "src/index.ts"
+      ],
+      "relatedSymbols": [
+        "ArchitectureDetectionCandidate"
+      ],
+      "signatures": [],
+      "members": [
+        {
+          "name": "candidates",
+          "kind": "property",
+          "type": "readonly ArchitectureDetectionCandidate[]",
+          "required": true,
+          "description": null
+        }
+      ],
+      "structuredRows": []
+    },
+    {
+      "name": "ArchitectureEvaluationOptions",
+      "title": null,
+      "description": "Optional generic Rules configuration for explicit architecture evaluation.",
+      "isReadme": false,
+      "see": [],
+      "security": [],
+      "kind": "type",
+      "modulePath": "src/types/architectureAnalysis.ts",
+      "sourceLocation": {
+        "filePath": "src/types/architectureAnalysis.ts",
+        "line": 56,
+        "column": 1
+      },
+      "exportPaths": [
+        "src/index.ts"
+      ],
+      "relatedSymbols": [],
+      "signatures": [],
+      "members": [
+        {
+          "name": "config",
+          "kind": "property",
+          "type": "RulesConfig | undefined",
+          "required": false,
+          "description": null
+        }
+      ],
+      "structuredRows": []
+    },
+    {
+      "name": "ArchitectureEvaluationResult",
+      "title": null,
+      "description": "Generic Rules result plus the explicit target and inferred role evidence used for evaluation.",
+      "isReadme": false,
+      "see": [],
+      "security": [],
+      "kind": "type",
+      "modulePath": "src/types/architectureAnalysis.ts",
+      "sourceLocation": {
+        "filePath": "src/types/architectureAnalysis.ts",
+        "line": 61,
+        "column": 1
+      },
+      "exportPaths": [
+        "src/index.ts"
+      ],
+      "relatedSymbols": [
+        "ArchitectureRoleAssignment"
+      ],
+      "signatures": [],
+      "members": [
+        {
+          "name": "diagnostics",
+          "kind": "property",
+          "type": "readonly RuleEvaluationDiagnostic[]",
+          "required": true,
+          "description": null
+        },
+        {
+          "name": "findings",
+          "kind": "property",
+          "type": "readonly RuleFinding<JsonValue>[]",
+          "required": true,
+          "description": null
+        },
+        {
+          "name": "modelId",
+          "kind": "property",
+          "type": "\"hexagonal\" | \"clean\" | \"onion\" | \"layered\"",
+          "required": true,
+          "description": null
+        },
+        {
+          "name": "roleAssignments",
+          "kind": "property",
+          "type": "readonly ArchitectureRoleAssignment[]",
+          "required": true,
+          "description": null
+        }
+      ],
+      "structuredRows": []
+    },
     {
       "name": "ArchitectureModel",
       "title": null,
@@ -235,6 +772,59 @@
       "structuredRows": []
     },
     {
+      "name": "ArchitectureRoleAssignment",
+      "title": null,
+      "description": "One semantic role inferred from graph evidence without changing observed source facts.",
+      "isReadme": false,
+      "see": [],
+      "security": [],
+      "kind": "type",
+      "modulePath": "src/types/architectureAnalysis.ts",
+      "sourceLocation": {
+        "filePath": "src/types/architectureAnalysis.ts",
+        "line": 15,
+        "column": 1
+      },
+      "exportPaths": [
+        "src/index.ts"
+      ],
+      "relatedSymbols": [
+        "ArchitectureDetectionEvidence"
+      ],
+      "signatures": [],
+      "members": [
+        {
+          "name": "confidence",
+          "kind": "property",
+          "type": "number",
+          "required": true,
+          "description": null
+        },
+        {
+          "name": "evidence",
+          "kind": "property",
+          "type": "readonly ArchitectureDetectionEvidence[]",
+          "required": true,
+          "description": null
+        },
+        {
+          "name": "roleId",
+          "kind": "property",
+          "type": "string",
+          "required": true,
+          "description": null
+        },
+        {
+          "name": "semanticPath",
+          "kind": "property",
+          "type": "string",
+          "required": true,
+          "description": null
+        }
+      ],
+      "structuredRows": []
+    },
+    {
       "name": "ArchitectureRoleDependency",
       "title": null,
       "description": "A permitted static source dependency between inferred roles.",
@@ -272,6 +862,225 @@
       "structuredRows": []
     },
     {
+      "name": "ArchitectureRuleContext",
+      "title": null,
+      "description": "Architecture-specific Rules context built from an explicit target model.",
+      "isReadme": false,
+      "see": [],
+      "security": [],
+      "kind": "type",
+      "modulePath": "src/types/architectureAnalysis.ts",
+      "sourceLocation": {
+        "filePath": "src/types/architectureAnalysis.ts",
+        "line": 49,
+        "column": 1
+      },
+      "exportPaths": [
+        "src/index.ts"
+      ],
+      "relatedSymbols": [
+        "ArchitectureModel",
+        "ArchitectureRoleAssignment"
+      ],
+      "signatures": [],
+      "members": [
+        {
+          "name": "graph",
+          "kind": "property",
+          "type": "SourceGraph",
+          "required": true,
+          "description": null
+        },
+        {
+          "name": "model",
+          "kind": "property",
+          "type": "ArchitectureModel",
+          "required": true,
+          "description": null
+        },
+        {
+          "name": "roleAssignments",
+          "kind": "property",
+          "type": "readonly ArchitectureRoleAssignment[]",
+          "required": true,
+          "description": null
+        }
+      ],
+      "structuredRows": []
+    },
+    {
+      "name": "createArchitectureRuleSet",
+      "title": null,
+      "description": "Create architecture rules for one explicitly selected target model.",
+      "isReadme": false,
+      "see": [],
+      "security": [],
+      "kind": "function",
+      "modulePath": "src/features/rules/domain/createArchitectureRuleSet.ts",
+      "sourceLocation": {
+        "filePath": "src/features/rules/domain/createArchitectureRuleSet.ts",
+        "line": 17,
+        "column": 1
+      },
+      "exportPaths": [
+        "src/index.ts"
+      ],
+      "relatedSymbols": [
+        "ArchitectureRuleContext"
+      ],
+      "signatures": [
+        {
+          "label": "(modelId: \"hexagonal\" | \"clean\" | \"onion\" | \"layered\") => RuleSet<ArchitectureRuleContext>",
+          "parameters": [
+            {
+              "name": "modelId",
+              "type": "\"hexagonal\" | \"clean\" | \"onion\" | \"layered\"",
+              "required": true,
+              "description": null
+            }
+          ],
+          "returnType": "RuleSet<ArchitectureRuleContext>",
+          "returnDescription": null
+        }
+      ],
+      "members": [],
+      "structuredRows": []
+    },
+    {
+      "name": "detectArchitecture",
+      "title": null,
+      "description": "Detect plausible architecture models from observed graph facts without selecting an enforcement target.",
+      "isReadme": false,
+      "see": [],
+      "security": [],
+      "kind": "function",
+      "modulePath": "src/features/detection/domain/detectArchitecture.ts",
+      "sourceLocation": {
+        "filePath": "src/features/detection/domain/detectArchitecture.ts",
+        "line": 27,
+        "column": 1
+      },
+      "exportPaths": [
+        "src/index.ts"
+      ],
+      "relatedSymbols": [
+        "ArchitectureDetectionResult"
+      ],
+      "signatures": [
+        {
+          "label": "(graph: SourceGraph) => ArchitectureDetectionResult",
+          "parameters": [
+            {
+              "name": "graph",
+              "type": "SourceGraph",
+              "required": true,
+              "description": null
+            }
+          ],
+          "returnType": "ArchitectureDetectionResult",
+          "returnDescription": null
+        }
+      ],
+      "members": [],
+      "structuredRows": []
+    },
+    {
+      "name": "evaluateArchitecture",
+      "title": null,
+      "description": "Evaluate one explicitly selected architecture model through the generic Rules engine.",
+      "isReadme": false,
+      "see": [],
+      "security": [],
+      "kind": "function",
+      "modulePath": "src/features/evaluation/domain/evaluateArchitecture.ts",
+      "sourceLocation": {
+        "filePath": "src/features/evaluation/domain/evaluateArchitecture.ts",
+        "line": 21,
+        "column": 1
+      },
+      "exportPaths": [
+        "src/index.ts"
+      ],
+      "relatedSymbols": [
+        "ArchitectureEvaluationOptions",
+        "ArchitectureEvaluationResult"
+      ],
+      "signatures": [
+        {
+          "label": "(graph: SourceGraph, modelId: \"hexagonal\" | \"clean\" | \"onion\" | \"layered\", options?: ArchitectureEvaluationOptions) => ArchitectureEvaluationResult",
+          "parameters": [
+            {
+              "name": "graph",
+              "type": "SourceGraph",
+              "required": true,
+              "description": null
+            },
+            {
+              "name": "modelId",
+              "type": "\"hexagonal\" | \"clean\" | \"onion\" | \"layered\"",
+              "required": true,
+              "description": null
+            },
+            {
+              "name": "options",
+              "type": "ArchitectureEvaluationOptions",
+              "required": false,
+              "description": null
+            }
+          ],
+          "returnType": "ArchitectureEvaluationResult",
+          "returnDescription": null
+        }
+      ],
+      "members": [],
+      "structuredRows": []
+    },
+    {
+      "name": "inferArchitectureRoles",
+      "title": null,
+      "description": "Infer semantic model roles from generic source facts while keeping path names weak evidence.",
+      "isReadme": false,
+      "see": [],
+      "security": [],
+      "kind": "function",
+      "modulePath": "src/features/detection/domain/inferArchitectureRoles.ts",
+      "sourceLocation": {
+        "filePath": "src/features/detection/domain/inferArchitectureRoles.ts",
+        "line": 76,
+        "column": 1
+      },
+      "exportPaths": [
+        "src/index.ts"
+      ],
+      "relatedSymbols": [
+        "ArchitectureModel",
+        "ArchitectureRoleAssignment"
+      ],
+      "signatures": [
+        {
+          "label": "(graph: SourceGraph, model: ArchitectureModel) => readonly ArchitectureRoleAssignment[]",
+          "parameters": [
+            {
+              "name": "graph",
+              "type": "SourceGraph",
+              "required": true,
+              "description": null
+            },
+            {
+              "name": "model",
+              "type": "ArchitectureModel",
+              "required": true,
+              "description": null
+            }
+          ],
+          "returnType": "readonly ArchitectureRoleAssignment[]",
+          "returnDescription": null
+        }
+      ],
+      "members": [],
+      "structuredRows": []
+    },
+    {
       "name": "listArchitectureModels",
       "title": null,
       "description": "List established architecture models without inferring a project's target.",
@@ -306,6 +1115,545 @@
   "components": [],
   "sourceFunctions": [
     {
+      "name": "detect",
+      "description": "Execute architecture detection without converting inference into enforcement.",
+      "see": [],
+      "security": [],
+      "sourceLocation": {
+        "filePath": "src/cli/commands/detect.ts",
+        "line": 9,
+        "column": 1
+      }
+    },
+    {
+      "name": "renderDetection",
+      "description": "Render candidate uncertainty and contradictions without presenting a detected winner as fact.",
+      "see": [],
+      "security": [],
+      "sourceLocation": {
+        "filePath": "src/cli/commands/detect.ts",
+        "line": 34,
+        "column": 1
+      }
+    },
+    {
+      "name": "evaluate",
+      "description": "Execute explicit target-architecture evaluation through the generic Rules engine.",
+      "see": [],
+      "security": [],
+      "sourceLocation": {
+        "filePath": "src/cli/commands/evaluate.ts",
+        "line": 10,
+        "column": 1
+      }
+    },
+    {
+      "name": "readConfig",
+      "description": "Read an optional generic Rules configuration without hiding parse or validation diagnostics.",
+      "see": [],
+      "security": [],
+      "sourceLocation": {
+        "filePath": "src/cli/commands/evaluate.ts",
+        "line": 44,
+        "column": 1
+      }
+    },
+    {
+      "name": "renderInvalidConfig",
+      "description": "Render invalid generic Rules configuration before any architecture evaluation occurs.",
+      "see": [],
+      "security": [],
+      "sourceLocation": {
+        "filePath": "src/cli/commands/evaluate.ts",
+        "line": 52,
+        "column": 1
+      }
+    },
+    {
+      "name": "renderEvaluation",
+      "description": "Render advisory or blocking findings for the explicitly selected model.",
+      "see": [],
+      "security": [],
+      "sourceLocation": {
+        "filePath": "src/cli/commands/evaluate.ts",
+        "line": 62,
+        "column": 1
+      }
+    },
+    {
+      "name": "list",
+      "description": "Execute `ankh rules-architecture models list` through the public model registry.",
+      "see": [],
+      "security": [],
+      "sourceLocation": {
+        "filePath": "src/cli/commands/models/list.ts",
+        "line": 4,
+        "column": 1
+      }
+    },
+    {
+      "name": "parseJsonFlag",
+      "description": "Accept only the optional JSON rendering flag for model listing.",
+      "see": [],
+      "security": [],
+      "sourceLocation": {
+        "filePath": "src/cli/commands/models/list.ts",
+        "line": 26,
+        "column": 1
+      }
+    },
+    {
+      "name": "createRulesArchitectureRuntimeProvider",
+      "description": "Create the Ankh provider for architecture model listing, detection, and explicit evaluation.",
+      "see": [],
+      "security": [],
+      "sourceLocation": {
+        "filePath": "src/cli/createRulesArchitectureRuntimeProvider.ts",
+        "line": 13,
+        "column": 1
+      }
+    },
+    {
+      "name": "commandDescriptors",
+      "description": "Describe the public architecture command paths and capabilities.",
+      "see": [],
+      "security": [],
+      "sourceLocation": {
+        "filePath": "src/cli/createRulesArchitectureRuntimeProvider.ts",
+        "line": 25,
+        "column": 1
+      }
+    },
+    {
+      "name": "commandHandlers",
+      "description": "Bind public architecture commands to their shared application operations.",
+      "see": [],
+      "security": [],
+      "sourceLocation": {
+        "filePath": "src/cli/createRulesArchitectureRuntimeProvider.ts",
+        "line": 46,
+        "column": 1
+      }
+    },
+    {
+      "name": "runCli",
+      "description": "Run the standalone Architecture Rules CLI through the same command operations as Ankh.",
+      "see": [],
+      "security": [],
+      "sourceLocation": {
+        "filePath": "src/cli/standalone.ts",
+        "line": 8,
+        "column": 1
+      }
+    },
+    {
+      "name": "executeCommand",
+      "description": "Dispatch standalone tokens without duplicating command behavior.",
+      "see": [],
+      "security": [],
+      "sourceLocation": {
+        "filePath": "src/cli/standalone.ts",
+        "line": 28,
+        "column": 1
+      }
+    },
+    {
+      "name": "isHelpToken",
+      "description": "Identify help tokens accepted by the standalone delivery adapter.",
+      "see": [],
+      "security": [],
+      "sourceLocation": {
+        "filePath": "src/cli/standalone.ts",
+        "line": 39,
+        "column": 1
+      }
+    },
+    {
+      "name": "renderHelp",
+      "description": "Render canonical command help for standalone and Ankh users.",
+      "see": [],
+      "security": [],
+      "sourceLocation": {
+        "filePath": "src/cli/standalone.ts",
+        "line": 44,
+        "column": 1
+      }
+    },
+    {
+      "name": "parseArchitectureCommandOptions",
+      "description": "Parse shared architecture CLI flags without selecting a default enforcement model.",
+      "see": [],
+      "security": [],
+      "sourceLocation": {
+        "filePath": "src/cli/utils/parseArchitectureCommandOptions.ts",
+        "line": 6,
+        "column": 1
+      }
+    },
+    {
+      "name": "parseTokens",
+      "description": "Recursively parse flags and the optional positional target without mutable parser state.",
+      "see": [],
+      "security": [],
+      "sourceLocation": {
+        "filePath": "src/cli/utils/parseArchitectureCommandOptions.ts",
+        "line": 13,
+        "column": 1
+      }
+    },
+    {
+      "name": "isArchitectureModelId",
+      "description": "Narrow arbitrary CLI input to a supported built-in architecture model ID.",
+      "see": [],
+      "security": [],
+      "sourceLocation": {
+        "filePath": "src/cli/utils/parseArchitectureCommandOptions.ts",
+        "line": 42,
+        "column": 1
+      }
+    },
+    {
+      "name": "hexagonalFixture",
+      "description": null,
+      "see": [],
+      "security": [],
+      "sourceLocation": {
+        "filePath": "src/features/detection/domain/detectArchitecture.test.ts",
+        "line": 29,
+        "column": 1
+      }
+    },
+    {
+      "name": "fileNode",
+      "description": null,
+      "see": [],
+      "security": [],
+      "sourceLocation": {
+        "filePath": "src/features/detection/domain/detectArchitecture.test.ts",
+        "line": 60,
+        "column": 1
+      }
+    },
+    {
+      "name": "symbolNode",
+      "description": null,
+      "see": [],
+      "security": [],
+      "sourceLocation": {
+        "filePath": "src/features/detection/domain/detectArchitecture.test.ts",
+        "line": 75,
+        "column": 1
+      }
+    },
+    {
+      "name": "relation",
+      "description": null,
+      "see": [],
+      "security": [],
+      "sourceLocation": {
+        "filePath": "src/features/detection/domain/detectArchitecture.test.ts",
+        "line": 94,
+        "column": 1
+      }
+    },
+    {
+      "name": "detectArchitecture",
+      "description": "Detect plausible architecture models from observed graph facts without selecting an enforcement target.",
+      "see": [],
+      "security": [],
+      "sourceLocation": {
+        "filePath": "src/features/detection/domain/detectArchitecture.ts",
+        "line": 27,
+        "column": 1
+      }
+    },
+    {
+      "name": "candidateForModel",
+      "description": "Build one scored model candidate while preserving ambiguity, evidence, and contradictions.",
+      "see": [],
+      "security": [],
+      "sourceLocation": {
+        "filePath": "src/features/detection/domain/detectArchitecture.ts",
+        "line": 49,
+        "column": 1
+      }
+    },
+    {
+      "name": "classifyDependencies",
+      "description": "Classify only dependencies whose endpoints have inferred semantic roles.",
+      "see": [],
+      "security": [],
+      "sourceLocation": {
+        "filePath": "src/features/detection/domain/detectArchitecture.ts",
+        "line": 91,
+        "column": 1
+      }
+    },
+    {
+      "name": "candidateConfidence",
+      "description": "Score one candidate from role coverage, confidence, topology conformance, and capabilities.",
+      "see": [],
+      "security": [],
+      "sourceLocation": {
+        "filePath": "src/features/detection/domain/detectArchitecture.ts",
+        "line": 124,
+        "column": 1
+      }
+    },
+    {
+      "name": "isEligibleNode",
+      "description": "Keep candidate coverage focused on internal executable/declaration source nodes.",
+      "see": [],
+      "security": [],
+      "sourceLocation": {
+        "filePath": "src/features/detection/domain/detectArchitecture.ts",
+        "line": 153,
+        "column": 1
+      }
+    },
+    {
+      "name": "contradiction",
+      "description": "Convert one forbidden inferred dependency into explicit contradictory evidence.",
+      "see": [],
+      "security": [],
+      "sourceLocation": {
+        "filePath": "src/features/detection/domain/detectArchitecture.ts",
+        "line": 163,
+        "column": 1
+      }
+    },
+    {
+      "name": "supportingEvidence",
+      "description": "Summarize role and topology support without overwhelming consumers with every observed edge.",
+      "see": [],
+      "security": [],
+      "sourceLocation": {
+        "filePath": "src/features/detection/domain/detectArchitecture.ts",
+        "line": 181,
+        "column": 1
+      }
+    },
+    {
+      "name": "unavailableDetectionCapabilities",
+      "description": "Report capabilities that cannot safely be treated as negative architecture evidence.",
+      "see": [],
+      "security": [],
+      "sourceLocation": {
+        "filePath": "src/features/detection/domain/detectArchitecture.ts",
+        "line": 209,
+        "column": 1
+      }
+    },
+    {
+      "name": "round",
+      "description": "Stabilize serializable detection confidence.",
+      "see": [],
+      "security": [],
+      "sourceLocation": {
+        "filePath": "src/features/detection/domain/detectArchitecture.ts",
+        "line": 217,
+        "column": 1
+      }
+    },
+    {
+      "name": "compareText",
+      "description": "Compare stable identifiers by code units instead of locale-sensitive collation.",
+      "see": [],
+      "security": [],
+      "sourceLocation": {
+        "filePath": "src/features/detection/domain/detectArchitecture.ts",
+        "line": 222,
+        "column": 1
+      }
+    },
+    {
+      "name": "inferArchitectureRoles",
+      "description": "Infer semantic model roles from generic source facts while keeping path names weak evidence.",
+      "see": [],
+      "security": [],
+      "sourceLocation": {
+        "filePath": "src/features/detection/domain/inferArchitectureRoles.ts",
+        "line": 76,
+        "column": 1
+      }
+    },
+    {
+      "name": "inferNodeRole",
+      "description": "Infer at most one best role for one semantic source node.",
+      "see": [],
+      "security": [],
+      "sourceLocation": {
+        "filePath": "src/features/detection/domain/inferArchitectureRoles.ts",
+        "line": 107,
+        "column": 1
+      }
+    },
+    {
+      "name": "scoreRole",
+      "description": "Score one role using weak naming evidence plus language-neutral topology facts.",
+      "see": [],
+      "security": [],
+      "sourceLocation": {
+        "filePath": "src/features/detection/domain/inferArchitectureRoles.ts",
+        "line": 143,
+        "column": 1
+      }
+    },
+    {
+      "name": "topologyScore",
+      "description": "Add stronger graph-structural evidence without branching on source language.",
+      "see": [],
+      "security": [],
+      "sourceLocation": {
+        "filePath": "src/features/detection/domain/inferArchitectureRoles.ts",
+        "line": 184,
+        "column": 1
+      }
+    },
+    {
+      "name": "isRoleCandidate",
+      "description": "Keep architecture inference on internal executable/declaration nodes rather than containers/vendors.",
+      "see": [],
+      "security": [],
+      "sourceLocation": {
+        "filePath": "src/features/detection/domain/inferArchitectureRoles.ts",
+        "line": 233,
+        "column": 1
+      }
+    },
+    {
+      "name": "semanticTokens",
+      "description": "Normalize semantic identifiers into language-neutral hint tokens.",
+      "see": [],
+      "security": [],
+      "sourceLocation": {
+        "filePath": "src/features/detection/domain/inferArchitectureRoles.ts",
+        "line": 243,
+        "column": 1
+      }
+    },
+    {
+      "name": "expandToken",
+      "description": "Preserve raw tokens and add simple singular variants for common directory naming.",
+      "see": [],
+      "security": [],
+      "sourceLocation": {
+        "filePath": "src/features/detection/domain/inferArchitectureRoles.ts",
+        "line": 258,
+        "column": 1
+      }
+    },
+    {
+      "name": "isOuterRole",
+      "description": "Identify model roles expected to sit near external technology.",
+      "see": [],
+      "security": [],
+      "sourceLocation": {
+        "filePath": "src/features/detection/domain/inferArchitectureRoles.ts",
+        "line": 267,
+        "column": 1
+      }
+    },
+    {
+      "name": "round",
+      "description": "Stabilize serializable confidence values for deterministic consumers.",
+      "see": [],
+      "security": [],
+      "sourceLocation": {
+        "filePath": "src/features/detection/domain/inferArchitectureRoles.ts",
+        "line": 272,
+        "column": 1
+      }
+    },
+    {
+      "name": "compareText",
+      "description": "Compare stable identifiers by code units instead of locale-sensitive collation.",
+      "see": [],
+      "security": [],
+      "sourceLocation": {
+        "filePath": "src/features/detection/domain/inferArchitectureRoles.ts",
+        "line": 277,
+        "column": 1
+      }
+    },
+    {
+      "name": "directionViolationFixture",
+      "description": null,
+      "see": [],
+      "security": [],
+      "sourceLocation": {
+        "filePath": "src/features/evaluation/domain/evaluateArchitecture.test.ts",
+        "line": 22,
+        "column": 1
+      }
+    },
+    {
+      "name": "cycleFixture",
+      "description": null,
+      "see": [],
+      "security": [],
+      "sourceLocation": {
+        "filePath": "src/features/evaluation/domain/evaluateArchitecture.test.ts",
+        "line": 29,
+        "column": 1
+      }
+    },
+    {
+      "name": "sourceGraph",
+      "description": null,
+      "see": [],
+      "security": [],
+      "sourceLocation": {
+        "filePath": "src/features/evaluation/domain/evaluateArchitecture.test.ts",
+        "line": 36,
+        "column": 1
+      }
+    },
+    {
+      "name": "fileNode",
+      "description": null,
+      "see": [],
+      "security": [],
+      "sourceLocation": {
+        "filePath": "src/features/evaluation/domain/evaluateArchitecture.test.ts",
+        "line": 44,
+        "column": 1
+      }
+    },
+    {
+      "name": "importEdge",
+      "description": null,
+      "see": [],
+      "security": [],
+      "sourceLocation": {
+        "filePath": "src/features/evaluation/domain/evaluateArchitecture.test.ts",
+        "line": 59,
+        "column": 1
+      }
+    },
+    {
+      "name": "evaluateArchitecture",
+      "description": "Evaluate one explicitly selected architecture model through the generic Rules engine.",
+      "see": [],
+      "security": [],
+      "sourceLocation": {
+        "filePath": "src/features/evaluation/domain/evaluateArchitecture.ts",
+        "line": 21,
+        "column": 1
+      }
+    },
+    {
+      "name": "availableRuleCapabilities",
+      "description": "Translate analyzer capability reports into generic Rules capability identifiers.",
+      "see": [],
+      "security": [],
+      "sourceLocation": {
+        "filePath": "src/features/evaluation/domain/evaluateArchitecture.ts",
+        "line": 46,
+        "column": 1
+      }
+    },
+    {
       "name": "dependencies",
       "description": "Include same-role coupling and the model's explicit cross-role direction.",
       "see": [],
@@ -328,6 +1676,17 @@
       }
     },
     {
+      "name": "findArchitectureModel",
+      "description": "Resolve one built-in architecture model or reject an unsupported explicit target.",
+      "see": [],
+      "security": [],
+      "sourceLocation": {
+        "filePath": "src/features/models/domain/findArchitectureModel.ts",
+        "line": 5,
+        "column": 1
+      }
+    },
+    {
       "name": "listArchitectureModels",
       "description": "List established architecture models without inferring a project's target.",
       "see": [],
@@ -337,9 +1696,115 @@
         "line": 5,
         "column": 1
       }
+    },
+    {
+      "name": "createArchitectureRuleSet",
+      "description": "Create architecture rules for one explicitly selected target model.",
+      "see": [],
+      "security": [],
+      "sourceLocation": {
+        "filePath": "src/features/rules/domain/createArchitectureRuleSet.ts",
+        "line": 17,
+        "column": 1
+      }
+    },
+    {
+      "name": "cyclicDependenciesRule",
+      "description": "Detect intrinsic file import cycles with canonical source identities.",
+      "see": [],
+      "security": [],
+      "sourceLocation": {
+        "filePath": "src/features/rules/domain/createArchitectureRuleSet.ts",
+        "line": 28,
+        "column": 1
+      }
+    },
+    {
+      "name": "dependencyDirectionRule",
+      "description": "Enforce dependency direction only against the explicit selected target model.",
+      "see": [],
+      "security": [],
+      "sourceLocation": {
+        "filePath": "src/features/rules/domain/createArchitectureRuleSet.ts",
+        "line": 39,
+        "column": 1
+      }
+    },
+    {
+      "name": "cycleFindings",
+      "description": "Convert file-level import strongly connected components into generic Rule findings.",
+      "see": [],
+      "security": [],
+      "sourceLocation": {
+        "filePath": "src/features/rules/domain/createArchitectureRuleSet.ts",
+        "line": 50,
+        "column": 1
+      }
+    },
+    {
+      "name": "directionFindings",
+      "description": "Report selected-model dependency violations for confidently inferred endpoint roles.",
+      "see": [],
+      "security": [],
+      "sourceLocation": {
+        "filePath": "src/features/rules/domain/createArchitectureRuleSet.ts",
+        "line": 81,
+        "column": 1
+      }
+    },
+    {
+      "name": "isDependencyRelation",
+      "description": "Restrict architecture direction rules to static source dependency relations.",
+      "see": [],
+      "security": [],
+      "sourceLocation": {
+        "filePath": "src/features/rules/domain/createArchitectureRuleSet.ts",
+        "line": 130,
+        "column": 1
+      }
     }
   ],
   "sequenceScenarios": [
+    {
+      "kind": "bin",
+      "name": "ankhorage-rules-architecture",
+      "sourcePath": "src/cli/standalone.ts",
+      "symbolName": "runCli",
+      "description": "Run the standalone Architecture Rules CLI through the same command operations as Ankh.",
+      "isReadme": false
+    },
+    {
+      "kind": "export",
+      "name": "createArchitectureRuleSet",
+      "sourcePath": "src/features/rules/domain/createArchitectureRuleSet.ts",
+      "symbolName": "createArchitectureRuleSet",
+      "description": "Create architecture rules for one explicitly selected target model.",
+      "isReadme": false
+    },
+    {
+      "kind": "export",
+      "name": "detectArchitecture",
+      "sourcePath": "src/features/detection/domain/detectArchitecture.ts",
+      "symbolName": "detectArchitecture",
+      "description": "Detect plausible architecture models from observed graph facts without selecting an enforcement target.",
+      "isReadme": false
+    },
+    {
+      "kind": "export",
+      "name": "evaluateArchitecture",
+      "sourcePath": "src/features/evaluation/domain/evaluateArchitecture.ts",
+      "symbolName": "evaluateArchitecture",
+      "description": "Evaluate one explicitly selected architecture model through the generic Rules engine.",
+      "isReadme": false
+    },
+    {
+      "kind": "export",
+      "name": "inferArchitectureRoles",
+      "sourcePath": "src/features/detection/domain/inferArchitectureRoles.ts",
+      "symbolName": "inferArchitectureRoles",
+      "description": "Infer semantic model roles from generic source facts while keeping path names weak evidence.",
+      "isReadme": false
+    },
     {
       "kind": "export",
       "name": "listArchitectureModels",
@@ -353,7 +1818,32 @@
     "imports": [
       {
         "fromPath": "src/index.ts",
+        "toPath": "src/features/detection/domain/detectArchitecture.ts",
+        "sourcePath": "src/index.ts"
+      },
+      {
+        "fromPath": "src/index.ts",
+        "toPath": "src/features/detection/domain/inferArchitectureRoles.ts",
+        "sourcePath": "src/index.ts"
+      },
+      {
+        "fromPath": "src/index.ts",
+        "toPath": "src/features/evaluation/domain/evaluateArchitecture.ts",
+        "sourcePath": "src/index.ts"
+      },
+      {
+        "fromPath": "src/index.ts",
         "toPath": "src/features/models/domain/listArchitectureModels.ts",
+        "sourcePath": "src/index.ts"
+      },
+      {
+        "fromPath": "src/index.ts",
+        "toPath": "src/features/rules/domain/createArchitectureRuleSet.ts",
+        "sourcePath": "src/index.ts"
+      },
+      {
+        "fromPath": "src/index.ts",
+        "toPath": "src/types/architectureAnalysis.ts",
         "sourcePath": "src/index.ts"
       },
       {
@@ -362,9 +1852,189 @@
         "sourcePath": "src/index.ts"
       },
       {
+        "fromPath": "src/cli/createRulesArchitectureRuntimeProvider.test.ts",
+        "toPath": "src/cli/createRulesArchitectureRuntimeProvider.ts",
+        "sourcePath": "src/cli/createRulesArchitectureRuntimeProvider.test.ts"
+      },
+      {
+        "fromPath": "src/cli/createRulesArchitectureRuntimeProvider.ts",
+        "toPath": "src/constants/rulesArchitecture.ts",
+        "sourcePath": "src/cli/createRulesArchitectureRuntimeProvider.ts"
+      },
+      {
+        "fromPath": "src/cli/createRulesArchitectureRuntimeProvider.ts",
+        "toPath": "src/cli/commands/detect.ts",
+        "sourcePath": "src/cli/createRulesArchitectureRuntimeProvider.ts"
+      },
+      {
+        "fromPath": "src/cli/createRulesArchitectureRuntimeProvider.ts",
+        "toPath": "src/cli/commands/evaluate.ts",
+        "sourcePath": "src/cli/createRulesArchitectureRuntimeProvider.ts"
+      },
+      {
+        "fromPath": "src/cli/createRulesArchitectureRuntimeProvider.ts",
+        "toPath": "src/cli/commands/models/list.ts",
+        "sourcePath": "src/cli/createRulesArchitectureRuntimeProvider.ts"
+      },
+      {
+        "fromPath": "src/cli/index.ts",
+        "toPath": "src/cli/createRulesArchitectureRuntimeProvider.ts",
+        "sourcePath": "src/cli/index.ts"
+      },
+      {
+        "fromPath": "src/cli/standalone.ts",
+        "toPath": "src/cli/commands/detect.ts",
+        "sourcePath": "src/cli/standalone.ts"
+      },
+      {
+        "fromPath": "src/cli/standalone.ts",
+        "toPath": "src/cli/commands/evaluate.ts",
+        "sourcePath": "src/cli/standalone.ts"
+      },
+      {
+        "fromPath": "src/cli/standalone.ts",
+        "toPath": "src/cli/commands/models/list.ts",
+        "sourcePath": "src/cli/standalone.ts"
+      },
+      {
+        "fromPath": "src/constants/rulesArchitecture.ts",
+        "toPath": "package.json",
+        "sourcePath": "src/constants/rulesArchitecture.ts"
+      },
+      {
+        "fromPath": "src/types/architectureAnalysis.ts",
+        "toPath": "src/types/architectureModel.ts",
+        "sourcePath": "src/types/architectureAnalysis.ts"
+      },
+      {
+        "fromPath": "src/types/architectureCli.ts",
+        "toPath": "src/types/architectureModel.ts",
+        "sourcePath": "src/types/architectureCli.ts"
+      },
+      {
+        "fromPath": "src/cli/commands/detect.ts",
+        "toPath": "src/features/detection/domain/detectArchitecture.ts",
+        "sourcePath": "src/cli/commands/detect.ts"
+      },
+      {
+        "fromPath": "src/cli/commands/detect.ts",
+        "toPath": "src/cli/utils/parseArchitectureCommandOptions.ts",
+        "sourcePath": "src/cli/commands/detect.ts"
+      },
+      {
+        "fromPath": "src/cli/commands/evaluate.ts",
+        "toPath": "src/features/evaluation/domain/evaluateArchitecture.ts",
+        "sourcePath": "src/cli/commands/evaluate.ts"
+      },
+      {
+        "fromPath": "src/cli/commands/evaluate.ts",
+        "toPath": "src/cli/utils/parseArchitectureCommandOptions.ts",
+        "sourcePath": "src/cli/commands/evaluate.ts"
+      },
+      {
+        "fromPath": "src/cli/utils/parseArchitectureCommandOptions.ts",
+        "toPath": "src/features/models/domain/listArchitectureModels.ts",
+        "sourcePath": "src/cli/utils/parseArchitectureCommandOptions.ts"
+      },
+      {
+        "fromPath": "src/cli/utils/parseArchitectureCommandOptions.ts",
+        "toPath": "src/types/architectureCli.ts",
+        "sourcePath": "src/cli/utils/parseArchitectureCommandOptions.ts"
+      },
+      {
+        "fromPath": "src/cli/utils/parseArchitectureCommandOptions.ts",
+        "toPath": "src/types/architectureModel.ts",
+        "sourcePath": "src/cli/utils/parseArchitectureCommandOptions.ts"
+      },
+      {
+        "fromPath": "src/cli/commands/models/list.test.ts",
+        "toPath": "src/cli/commands/models/list.ts",
+        "sourcePath": "src/cli/commands/models/list.test.ts"
+      },
+      {
+        "fromPath": "src/cli/commands/models/list.ts",
+        "toPath": "src/features/models/domain/listArchitectureModels.ts",
+        "sourcePath": "src/cli/commands/models/list.ts"
+      },
+      {
+        "fromPath": "src/features/detection/domain/detectArchitecture.test.ts",
+        "toPath": "src/features/detection/domain/detectArchitecture.ts",
+        "sourcePath": "src/features/detection/domain/detectArchitecture.test.ts"
+      },
+      {
+        "fromPath": "src/features/detection/domain/detectArchitecture.ts",
+        "toPath": "src/types/architectureAnalysis.ts",
+        "sourcePath": "src/features/detection/domain/detectArchitecture.ts"
+      },
+      {
+        "fromPath": "src/features/detection/domain/detectArchitecture.ts",
+        "toPath": "src/types/architectureModel.ts",
+        "sourcePath": "src/features/detection/domain/detectArchitecture.ts"
+      },
+      {
+        "fromPath": "src/features/detection/domain/detectArchitecture.ts",
+        "toPath": "src/features/models/domain/listArchitectureModels.ts",
+        "sourcePath": "src/features/detection/domain/detectArchitecture.ts"
+      },
+      {
+        "fromPath": "src/features/detection/domain/detectArchitecture.ts",
+        "toPath": "src/features/detection/domain/inferArchitectureRoles.ts",
+        "sourcePath": "src/features/detection/domain/detectArchitecture.ts"
+      },
+      {
+        "fromPath": "src/features/detection/domain/inferArchitectureRoles.ts",
+        "toPath": "src/types/architectureAnalysis.ts",
+        "sourcePath": "src/features/detection/domain/inferArchitectureRoles.ts"
+      },
+      {
+        "fromPath": "src/features/detection/domain/inferArchitectureRoles.ts",
+        "toPath": "src/types/architectureModel.ts",
+        "sourcePath": "src/features/detection/domain/inferArchitectureRoles.ts"
+      },
+      {
+        "fromPath": "src/features/evaluation/domain/evaluateArchitecture.test.ts",
+        "toPath": "src/features/evaluation/domain/evaluateArchitecture.ts",
+        "sourcePath": "src/features/evaluation/domain/evaluateArchitecture.test.ts"
+      },
+      {
+        "fromPath": "src/features/evaluation/domain/evaluateArchitecture.ts",
+        "toPath": "src/types/architectureAnalysis.ts",
+        "sourcePath": "src/features/evaluation/domain/evaluateArchitecture.ts"
+      },
+      {
+        "fromPath": "src/features/evaluation/domain/evaluateArchitecture.ts",
+        "toPath": "src/types/architectureModel.ts",
+        "sourcePath": "src/features/evaluation/domain/evaluateArchitecture.ts"
+      },
+      {
+        "fromPath": "src/features/evaluation/domain/evaluateArchitecture.ts",
+        "toPath": "src/features/detection/domain/inferArchitectureRoles.ts",
+        "sourcePath": "src/features/evaluation/domain/evaluateArchitecture.ts"
+      },
+      {
+        "fromPath": "src/features/evaluation/domain/evaluateArchitecture.ts",
+        "toPath": "src/features/models/domain/findArchitectureModel.ts",
+        "sourcePath": "src/features/evaluation/domain/evaluateArchitecture.ts"
+      },
+      {
+        "fromPath": "src/features/evaluation/domain/evaluateArchitecture.ts",
+        "toPath": "src/features/rules/domain/createArchitectureRuleSet.ts",
+        "sourcePath": "src/features/evaluation/domain/evaluateArchitecture.ts"
+      },
+      {
         "fromPath": "src/features/models/constants/architectureModels.ts",
         "toPath": "src/types/architectureModel.ts",
         "sourcePath": "src/features/models/constants/architectureModels.ts"
+      },
+      {
+        "fromPath": "src/features/models/domain/findArchitectureModel.ts",
+        "toPath": "src/types/architectureModel.ts",
+        "sourcePath": "src/features/models/domain/findArchitectureModel.ts"
+      },
+      {
+        "fromPath": "src/features/models/domain/findArchitectureModel.ts",
+        "toPath": "src/features/models/constants/architectureModels.ts",
+        "sourcePath": "src/features/models/domain/findArchitectureModel.ts"
       },
       {
         "fromPath": "src/features/models/domain/listArchitectureModels.test.ts",
@@ -380,9 +2050,534 @@
         "fromPath": "src/features/models/domain/listArchitectureModels.ts",
         "toPath": "src/features/models/constants/architectureModels.ts",
         "sourcePath": "src/features/models/domain/listArchitectureModels.ts"
+      },
+      {
+        "fromPath": "src/features/rules/domain/createArchitectureRuleSet.ts",
+        "toPath": "src/types/architectureAnalysis.ts",
+        "sourcePath": "src/features/rules/domain/createArchitectureRuleSet.ts"
+      },
+      {
+        "fromPath": "src/features/rules/domain/createArchitectureRuleSet.ts",
+        "toPath": "src/types/architectureModel.ts",
+        "sourcePath": "src/features/rules/domain/createArchitectureRuleSet.ts"
+      },
+      {
+        "fromPath": "src/features/rules/domain/createArchitectureRuleSet.ts",
+        "toPath": "src/features/models/domain/findArchitectureModel.ts",
+        "sourcePath": "src/features/rules/domain/createArchitectureRuleSet.ts"
       }
     ],
     "calls": [
+      {
+        "fromSymbol": "src/cli/createRulesArchitectureRuntimeProvider.test.ts",
+        "toSymbol": "test",
+        "callExpression": "test",
+        "sourcePath": "src/cli/createRulesArchitectureRuntimeProvider.test.ts"
+      },
+      {
+        "fromSymbol": "src/cli/createRulesArchitectureRuntimeProvider.test.ts",
+        "toSymbol": "createRulesArchitectureRuntimeProvider",
+        "callExpression": "createRulesArchitectureRuntimeProvider",
+        "sourcePath": "src/cli/createRulesArchitectureRuntimeProvider.test.ts"
+      },
+      {
+        "fromSymbol": "src/cli/createRulesArchitectureRuntimeProvider.test.ts",
+        "toSymbol": "expect",
+        "callExpression": "expect",
+        "sourcePath": "src/cli/createRulesArchitectureRuntimeProvider.test.ts"
+      },
+      {
+        "fromSymbol": "createRulesArchitectureRuntimeProvider",
+        "toSymbol": "commandDescriptors",
+        "callExpression": "commandDescriptors",
+        "sourcePath": "src/cli/createRulesArchitectureRuntimeProvider.ts"
+      },
+      {
+        "fromSymbol": "createRulesArchitectureRuntimeProvider",
+        "toSymbol": "commandHandlers",
+        "callExpression": "commandHandlers",
+        "sourcePath": "src/cli/createRulesArchitectureRuntimeProvider.ts"
+      },
+      {
+        "fromSymbol": "handler",
+        "toSymbol": "list",
+        "callExpression": "list",
+        "sourcePath": "src/cli/createRulesArchitectureRuntimeProvider.ts"
+      },
+      {
+        "fromSymbol": "handler",
+        "toSymbol": "detect",
+        "callExpression": "detect",
+        "sourcePath": "src/cli/createRulesArchitectureRuntimeProvider.ts"
+      },
+      {
+        "fromSymbol": "handler",
+        "toSymbol": "evaluate",
+        "callExpression": "evaluate",
+        "sourcePath": "src/cli/createRulesArchitectureRuntimeProvider.ts"
+      },
+      {
+        "fromSymbol": "src/cli/index.ts",
+        "toSymbol": "createRulesArchitectureRuntimeProvider",
+        "callExpression": "createRulesArchitectureRuntimeProvider",
+        "sourcePath": "src/cli/index.ts"
+      },
+      {
+        "fromSymbol": "runCli",
+        "toSymbol": "isHelpToken",
+        "callExpression": "isHelpToken",
+        "sourcePath": "src/cli/standalone.ts"
+      },
+      {
+        "fromSymbol": "runCli",
+        "toSymbol": "renderHelp",
+        "callExpression": "renderHelp",
+        "sourcePath": "src/cli/standalone.ts"
+      },
+      {
+        "fromSymbol": "runCli",
+        "toSymbol": "executeCommand",
+        "callExpression": "executeCommand",
+        "sourcePath": "src/cli/standalone.ts"
+      },
+      {
+        "fromSymbol": "executeCommand",
+        "toSymbol": "list",
+        "callExpression": "list",
+        "sourcePath": "src/cli/standalone.ts"
+      },
+      {
+        "fromSymbol": "executeCommand",
+        "toSymbol": "detect",
+        "callExpression": "detect",
+        "sourcePath": "src/cli/standalone.ts"
+      },
+      {
+        "fromSymbol": "executeCommand",
+        "toSymbol": "evaluate",
+        "callExpression": "evaluate",
+        "sourcePath": "src/cli/standalone.ts"
+      },
+      {
+        "fromSymbol": "src/cli/standalone.ts",
+        "toSymbol": "runCli",
+        "callExpression": "runCli",
+        "sourcePath": "src/cli/standalone.ts"
+      },
+      {
+        "fromSymbol": "detect",
+        "toSymbol": "parseArchitectureCommandOptions",
+        "callExpression": "parseArchitectureCommandOptions",
+        "sourcePath": "src/cli/commands/detect.ts"
+      },
+      {
+        "fromSymbol": "detect",
+        "toSymbol": "resolve",
+        "callExpression": "resolve",
+        "sourcePath": "src/cli/commands/detect.ts"
+      },
+      {
+        "fromSymbol": "detect",
+        "toSymbol": "createSourceGraphAsync",
+        "callExpression": "createSourceGraphAsync",
+        "sourcePath": "src/cli/commands/detect.ts"
+      },
+      {
+        "fromSymbol": "detect",
+        "toSymbol": "detectArchitecture",
+        "callExpression": "detectArchitecture",
+        "sourcePath": "src/cli/commands/detect.ts"
+      },
+      {
+        "fromSymbol": "detect",
+        "toSymbol": "renderDetection",
+        "callExpression": "renderDetection",
+        "sourcePath": "src/cli/commands/detect.ts"
+      },
+      {
+        "fromSymbol": "evaluate",
+        "toSymbol": "parseArchitectureCommandOptions",
+        "callExpression": "parseArchitectureCommandOptions",
+        "sourcePath": "src/cli/commands/evaluate.ts"
+      },
+      {
+        "fromSymbol": "evaluate",
+        "toSymbol": "resolve",
+        "callExpression": "resolve",
+        "sourcePath": "src/cli/commands/evaluate.ts"
+      },
+      {
+        "fromSymbol": "evaluate",
+        "toSymbol": "readConfig",
+        "callExpression": "readConfig",
+        "sourcePath": "src/cli/commands/evaluate.ts"
+      },
+      {
+        "fromSymbol": "evaluate",
+        "toSymbol": "renderInvalidConfig",
+        "callExpression": "renderInvalidConfig",
+        "sourcePath": "src/cli/commands/evaluate.ts"
+      },
+      {
+        "fromSymbol": "evaluate",
+        "toSymbol": "createSourceGraphAsync",
+        "callExpression": "createSourceGraphAsync",
+        "sourcePath": "src/cli/commands/evaluate.ts"
+      },
+      {
+        "fromSymbol": "evaluate",
+        "toSymbol": "evaluateArchitecture",
+        "callExpression": "evaluateArchitecture",
+        "sourcePath": "src/cli/commands/evaluate.ts"
+      },
+      {
+        "fromSymbol": "evaluate",
+        "toSymbol": "renderEvaluation",
+        "callExpression": "renderEvaluation",
+        "sourcePath": "src/cli/commands/evaluate.ts"
+      },
+      {
+        "fromSymbol": "readConfig",
+        "toSymbol": "readRulesConfigAsync",
+        "callExpression": "readRulesConfigAsync",
+        "sourcePath": "src/cli/commands/evaluate.ts"
+      },
+      {
+        "fromSymbol": "readConfig",
+        "toSymbol": "resolve",
+        "callExpression": "resolve",
+        "sourcePath": "src/cli/commands/evaluate.ts"
+      },
+      {
+        "fromSymbol": "parseArchitectureCommandOptions",
+        "toSymbol": "parseTokens",
+        "callExpression": "parseTokens",
+        "sourcePath": "src/cli/utils/parseArchitectureCommandOptions.ts"
+      },
+      {
+        "fromSymbol": "parseTokens",
+        "toSymbol": "parseTokens",
+        "callExpression": "parseTokens",
+        "sourcePath": "src/cli/utils/parseArchitectureCommandOptions.ts"
+      },
+      {
+        "fromSymbol": "parseTokens",
+        "toSymbol": "isArchitectureModelId",
+        "callExpression": "isArchitectureModelId",
+        "sourcePath": "src/cli/utils/parseArchitectureCommandOptions.ts"
+      },
+      {
+        "fromSymbol": "parseTokens",
+        "toSymbol": "listArchitectureModels",
+        "callExpression": "listArchitectureModels",
+        "sourcePath": "src/cli/utils/parseArchitectureCommandOptions.ts"
+      },
+      {
+        "fromSymbol": "isArchitectureModelId",
+        "toSymbol": "listArchitectureModels",
+        "callExpression": "listArchitectureModels",
+        "sourcePath": "src/cli/utils/parseArchitectureCommandOptions.ts"
+      },
+      {
+        "fromSymbol": "src/cli/commands/models/list.test.ts",
+        "toSymbol": "test",
+        "callExpression": "test",
+        "sourcePath": "src/cli/commands/models/list.test.ts"
+      },
+      {
+        "fromSymbol": "src/cli/commands/models/list.test.ts",
+        "toSymbol": "list",
+        "callExpression": "list",
+        "sourcePath": "src/cli/commands/models/list.test.ts"
+      },
+      {
+        "fromSymbol": "src/cli/commands/models/list.test.ts",
+        "toSymbol": "expect",
+        "callExpression": "expect",
+        "sourcePath": "src/cli/commands/models/list.test.ts"
+      },
+      {
+        "fromSymbol": "list",
+        "toSymbol": "parseJsonFlag",
+        "callExpression": "parseJsonFlag",
+        "sourcePath": "src/cli/commands/models/list.ts"
+      },
+      {
+        "fromSymbol": "list",
+        "toSymbol": "listArchitectureModels",
+        "callExpression": "listArchitectureModels",
+        "sourcePath": "src/cli/commands/models/list.ts"
+      },
+      {
+        "fromSymbol": "src/features/detection/domain/detectArchitecture.test.ts",
+        "toSymbol": "test",
+        "callExpression": "test",
+        "sourcePath": "src/features/detection/domain/detectArchitecture.test.ts"
+      },
+      {
+        "fromSymbol": "src/features/detection/domain/detectArchitecture.test.ts",
+        "toSymbol": "detectArchitecture",
+        "callExpression": "detectArchitecture",
+        "sourcePath": "src/features/detection/domain/detectArchitecture.test.ts"
+      },
+      {
+        "fromSymbol": "src/features/detection/domain/detectArchitecture.test.ts",
+        "toSymbol": "hexagonalFixture",
+        "callExpression": "hexagonalFixture",
+        "sourcePath": "src/features/detection/domain/detectArchitecture.test.ts"
+      },
+      {
+        "fromSymbol": "src/features/detection/domain/detectArchitecture.test.ts",
+        "toSymbol": "expect",
+        "callExpression": "expect",
+        "sourcePath": "src/features/detection/domain/detectArchitecture.test.ts"
+      },
+      {
+        "fromSymbol": "hexagonalFixture",
+        "toSymbol": "fileNode",
+        "callExpression": "fileNode",
+        "sourcePath": "src/features/detection/domain/detectArchitecture.test.ts"
+      },
+      {
+        "fromSymbol": "hexagonalFixture",
+        "toSymbol": "symbolNode",
+        "callExpression": "symbolNode",
+        "sourcePath": "src/features/detection/domain/detectArchitecture.test.ts"
+      },
+      {
+        "fromSymbol": "hexagonalFixture",
+        "toSymbol": "relation",
+        "callExpression": "relation",
+        "sourcePath": "src/features/detection/domain/detectArchitecture.test.ts"
+      },
+      {
+        "fromSymbol": "detectArchitecture",
+        "toSymbol": "listArchitectureModels",
+        "callExpression": "listArchitectureModels",
+        "sourcePath": "src/features/detection/domain/detectArchitecture.ts"
+      },
+      {
+        "fromSymbol": "src/features/detection/domain/detectArchitecture.ts",
+        "toSymbol": "candidateForModel",
+        "callExpression": "candidateForModel",
+        "sourcePath": "src/features/detection/domain/detectArchitecture.ts"
+      },
+      {
+        "fromSymbol": "src/features/detection/domain/detectArchitecture.ts",
+        "toSymbol": "compareText",
+        "callExpression": "compareText",
+        "sourcePath": "src/features/detection/domain/detectArchitecture.ts"
+      },
+      {
+        "fromSymbol": "candidateForModel",
+        "toSymbol": "inferArchitectureRoles",
+        "callExpression": "inferArchitectureRoles",
+        "sourcePath": "src/features/detection/domain/detectArchitecture.ts"
+      },
+      {
+        "fromSymbol": "candidateForModel",
+        "toSymbol": "classifyDependencies",
+        "callExpression": "classifyDependencies",
+        "sourcePath": "src/features/detection/domain/detectArchitecture.ts"
+      },
+      {
+        "fromSymbol": "src/features/detection/domain/detectArchitecture.ts",
+        "toSymbol": "contradiction",
+        "callExpression": "contradiction",
+        "sourcePath": "src/features/detection/domain/detectArchitecture.ts"
+      },
+      {
+        "fromSymbol": "candidateForModel",
+        "toSymbol": "candidateConfidence",
+        "callExpression": "candidateConfidence",
+        "sourcePath": "src/features/detection/domain/detectArchitecture.ts"
+      },
+      {
+        "fromSymbol": "candidateForModel",
+        "toSymbol": "supportingEvidence",
+        "callExpression": "supportingEvidence",
+        "sourcePath": "src/features/detection/domain/detectArchitecture.ts"
+      },
+      {
+        "fromSymbol": "candidateForModel",
+        "toSymbol": "unavailableDetectionCapabilities",
+        "callExpression": "unavailableDetectionCapabilities",
+        "sourcePath": "src/features/detection/domain/detectArchitecture.ts"
+      },
+      {
+        "fromSymbol": "src/features/detection/domain/detectArchitecture.ts",
+        "toSymbol": "isEligibleNode",
+        "callExpression": "isEligibleNode",
+        "sourcePath": "src/features/detection/domain/detectArchitecture.ts"
+      },
+      {
+        "fromSymbol": "candidateConfidence",
+        "toSymbol": "unavailableDetectionCapabilities",
+        "callExpression": "unavailableDetectionCapabilities",
+        "sourcePath": "src/features/detection/domain/detectArchitecture.ts"
+      },
+      {
+        "fromSymbol": "candidateConfidence",
+        "toSymbol": "round",
+        "callExpression": "round",
+        "sourcePath": "src/features/detection/domain/detectArchitecture.ts"
+      },
+      {
+        "fromSymbol": "src/features/detection/domain/inferArchitectureRoles.ts",
+        "toSymbol": "inferNodeRole",
+        "callExpression": "inferNodeRole",
+        "sourcePath": "src/features/detection/domain/inferArchitectureRoles.ts"
+      },
+      {
+        "fromSymbol": "inferNodeRole",
+        "toSymbol": "isRoleCandidate",
+        "callExpression": "isRoleCandidate",
+        "sourcePath": "src/features/detection/domain/inferArchitectureRoles.ts"
+      },
+      {
+        "fromSymbol": "src/features/detection/domain/inferArchitectureRoles.ts",
+        "toSymbol": "scoreRole",
+        "callExpression": "scoreRole",
+        "sourcePath": "src/features/detection/domain/inferArchitectureRoles.ts"
+      },
+      {
+        "fromSymbol": "src/features/detection/domain/inferArchitectureRoles.ts",
+        "toSymbol": "compareText",
+        "callExpression": "compareText",
+        "sourcePath": "src/features/detection/domain/inferArchitectureRoles.ts"
+      },
+      {
+        "fromSymbol": "inferNodeRole",
+        "toSymbol": "round",
+        "callExpression": "round",
+        "sourcePath": "src/features/detection/domain/inferArchitectureRoles.ts"
+      },
+      {
+        "fromSymbol": "scoreRole",
+        "toSymbol": "semanticTokens",
+        "callExpression": "semanticTokens",
+        "sourcePath": "src/features/detection/domain/inferArchitectureRoles.ts"
+      },
+      {
+        "fromSymbol": "scoreRole",
+        "toSymbol": "topologyScore",
+        "callExpression": "topologyScore",
+        "sourcePath": "src/features/detection/domain/inferArchitectureRoles.ts"
+      },
+      {
+        "fromSymbol": "topologyScore",
+        "toSymbol": "isOuterRole",
+        "callExpression": "isOuterRole",
+        "sourcePath": "src/features/detection/domain/inferArchitectureRoles.ts"
+      },
+      {
+        "fromSymbol": "src/features/evaluation/domain/evaluateArchitecture.test.ts",
+        "toSymbol": "test",
+        "callExpression": "test",
+        "sourcePath": "src/features/evaluation/domain/evaluateArchitecture.test.ts"
+      },
+      {
+        "fromSymbol": "src/features/evaluation/domain/evaluateArchitecture.test.ts",
+        "toSymbol": "evaluateArchitecture",
+        "callExpression": "evaluateArchitecture",
+        "sourcePath": "src/features/evaluation/domain/evaluateArchitecture.test.ts"
+      },
+      {
+        "fromSymbol": "src/features/evaluation/domain/evaluateArchitecture.test.ts",
+        "toSymbol": "directionViolationFixture",
+        "callExpression": "directionViolationFixture",
+        "sourcePath": "src/features/evaluation/domain/evaluateArchitecture.test.ts"
+      },
+      {
+        "fromSymbol": "src/features/evaluation/domain/evaluateArchitecture.test.ts",
+        "toSymbol": "expect",
+        "callExpression": "expect",
+        "sourcePath": "src/features/evaluation/domain/evaluateArchitecture.test.ts"
+      },
+      {
+        "fromSymbol": "src/features/evaluation/domain/evaluateArchitecture.test.ts",
+        "toSymbol": "cycleFixture",
+        "callExpression": "cycleFixture",
+        "sourcePath": "src/features/evaluation/domain/evaluateArchitecture.test.ts"
+      },
+      {
+        "fromSymbol": "directionViolationFixture",
+        "toSymbol": "sourceGraph",
+        "callExpression": "sourceGraph",
+        "sourcePath": "src/features/evaluation/domain/evaluateArchitecture.test.ts"
+      },
+      {
+        "fromSymbol": "directionViolationFixture",
+        "toSymbol": "fileNode",
+        "callExpression": "fileNode",
+        "sourcePath": "src/features/evaluation/domain/evaluateArchitecture.test.ts"
+      },
+      {
+        "fromSymbol": "directionViolationFixture",
+        "toSymbol": "importEdge",
+        "callExpression": "importEdge",
+        "sourcePath": "src/features/evaluation/domain/evaluateArchitecture.test.ts"
+      },
+      {
+        "fromSymbol": "cycleFixture",
+        "toSymbol": "sourceGraph",
+        "callExpression": "sourceGraph",
+        "sourcePath": "src/features/evaluation/domain/evaluateArchitecture.test.ts"
+      },
+      {
+        "fromSymbol": "cycleFixture",
+        "toSymbol": "fileNode",
+        "callExpression": "fileNode",
+        "sourcePath": "src/features/evaluation/domain/evaluateArchitecture.test.ts"
+      },
+      {
+        "fromSymbol": "cycleFixture",
+        "toSymbol": "importEdge",
+        "callExpression": "importEdge",
+        "sourcePath": "src/features/evaluation/domain/evaluateArchitecture.test.ts"
+      },
+      {
+        "fromSymbol": "evaluateArchitecture",
+        "toSymbol": "findArchitectureModel",
+        "callExpression": "findArchitectureModel",
+        "sourcePath": "src/features/evaluation/domain/evaluateArchitecture.ts"
+      },
+      {
+        "fromSymbol": "evaluateArchitecture",
+        "toSymbol": "inferArchitectureRoles",
+        "callExpression": "inferArchitectureRoles",
+        "sourcePath": "src/features/evaluation/domain/evaluateArchitecture.ts"
+      },
+      {
+        "fromSymbol": "evaluateArchitecture",
+        "toSymbol": "createArchitectureRuleSet",
+        "callExpression": "createArchitectureRuleSet",
+        "sourcePath": "src/features/evaluation/domain/evaluateArchitecture.ts"
+      },
+      {
+        "fromSymbol": "evaluateArchitecture",
+        "toSymbol": "availableRuleCapabilities",
+        "callExpression": "availableRuleCapabilities",
+        "sourcePath": "src/features/evaluation/domain/evaluateArchitecture.ts"
+      },
+      {
+        "fromSymbol": "evaluateArchitecture",
+        "toSymbol": "evaluateRules",
+        "callExpression": "evaluateRules",
+        "sourcePath": "src/features/evaluation/domain/evaluateArchitecture.ts"
+      },
+      {
+        "fromSymbol": "evaluateArchitecture",
+        "toSymbol": "evaluateConfiguredRules",
+        "callExpression": "evaluateConfiguredRules",
+        "sourcePath": "src/features/evaluation/domain/evaluateArchitecture.ts"
+      },
+      {
+        "fromSymbol": "evaluateArchitecture",
+        "toSymbol": "createRuleRegistry",
+        "callExpression": "createRuleRegistry",
+        "sourcePath": "src/features/evaluation/domain/evaluateArchitecture.ts"
+      },
       {
         "fromSymbol": "src/features/models/constants/architectureModels.ts",
         "toSymbol": "dependencies",
@@ -412,13 +2607,175 @@
         "toSymbol": "expect",
         "callExpression": "expect",
         "sourcePath": "src/features/models/domain/listArchitectureModels.test.ts"
+      },
+      {
+        "fromSymbol": "createArchitectureRuleSet",
+        "toSymbol": "findArchitectureModel",
+        "callExpression": "findArchitectureModel",
+        "sourcePath": "src/features/rules/domain/createArchitectureRuleSet.ts"
+      },
+      {
+        "fromSymbol": "createArchitectureRuleSet",
+        "toSymbol": "cyclicDependenciesRule",
+        "callExpression": "cyclicDependenciesRule",
+        "sourcePath": "src/features/rules/domain/createArchitectureRuleSet.ts"
+      },
+      {
+        "fromSymbol": "createArchitectureRuleSet",
+        "toSymbol": "dependencyDirectionRule",
+        "callExpression": "dependencyDirectionRule",
+        "sourcePath": "src/features/rules/domain/createArchitectureRuleSet.ts"
+      },
+      {
+        "fromSymbol": "evaluate",
+        "toSymbol": "cycleFindings",
+        "callExpression": "cycleFindings",
+        "sourcePath": "src/features/rules/domain/createArchitectureRuleSet.ts"
+      },
+      {
+        "fromSymbol": "evaluate",
+        "toSymbol": "directionFindings",
+        "callExpression": "directionFindings",
+        "sourcePath": "src/features/rules/domain/createArchitectureRuleSet.ts"
+      },
+      {
+        "fromSymbol": "cycleFindings",
+        "toSymbol": "findCyclicComponents",
+        "callExpression": "findCyclicComponents",
+        "sourcePath": "src/features/rules/domain/createArchitectureRuleSet.ts"
+      },
+      {
+        "fromSymbol": "src/features/rules/domain/createArchitectureRuleSet.ts",
+        "toSymbol": "isDependencyRelation",
+        "callExpression": "isDependencyRelation",
+        "sourcePath": "src/features/rules/domain/createArchitectureRuleSet.ts"
       }
     ],
     "typeReferences": [
       {
+        "fromSymbol": "detectArchitecture",
+        "toType": "ArchitectureDetectionResult",
+        "sourcePath": "src/features/detection/domain/detectArchitecture.ts"
+      },
+      {
+        "fromSymbol": "detectArchitecture",
+        "toType": "SourceGraph",
+        "sourcePath": "src/features/detection/domain/detectArchitecture.ts"
+      },
+      {
+        "fromSymbol": "inferArchitectureRoles",
+        "toType": "ArchitectureModel",
+        "sourcePath": "src/features/detection/domain/inferArchitectureRoles.ts"
+      },
+      {
+        "fromSymbol": "inferArchitectureRoles",
+        "toType": "ArchitectureRoleAssignment",
+        "sourcePath": "src/features/detection/domain/inferArchitectureRoles.ts"
+      },
+      {
+        "fromSymbol": "inferArchitectureRoles",
+        "toType": "SourceGraph",
+        "sourcePath": "src/features/detection/domain/inferArchitectureRoles.ts"
+      },
+      {
+        "fromSymbol": "evaluateArchitecture",
+        "toType": "ArchitectureEvaluationOptions",
+        "sourcePath": "src/features/evaluation/domain/evaluateArchitecture.ts"
+      },
+      {
+        "fromSymbol": "evaluateArchitecture",
+        "toType": "ArchitectureEvaluationResult",
+        "sourcePath": "src/features/evaluation/domain/evaluateArchitecture.ts"
+      },
+      {
+        "fromSymbol": "evaluateArchitecture",
+        "toType": "SourceGraph",
+        "sourcePath": "src/features/evaluation/domain/evaluateArchitecture.ts"
+      },
+      {
         "fromSymbol": "listArchitectureModels",
         "toType": "ArchitectureModel",
         "sourcePath": "src/features/models/domain/listArchitectureModels.ts"
+      },
+      {
+        "fromSymbol": "createArchitectureRuleSet",
+        "toType": "ArchitectureRuleContext",
+        "sourcePath": "src/features/rules/domain/createArchitectureRuleSet.ts"
+      },
+      {
+        "fromSymbol": "createArchitectureRuleSet",
+        "toType": "RuleSet",
+        "sourcePath": "src/features/rules/domain/createArchitectureRuleSet.ts"
+      },
+      {
+        "fromSymbol": "ArchitectureDetectionCandidate",
+        "toType": "ArchitectureContradiction",
+        "sourcePath": "src/types/architectureAnalysis.ts"
+      },
+      {
+        "fromSymbol": "ArchitectureDetectionCandidate",
+        "toType": "ArchitectureDetectionEvidence",
+        "sourcePath": "src/types/architectureAnalysis.ts"
+      },
+      {
+        "fromSymbol": "ArchitectureDetectionCandidate",
+        "toType": "ArchitectureRoleAssignment",
+        "sourcePath": "src/types/architectureAnalysis.ts"
+      },
+      {
+        "fromSymbol": "ArchitectureDetectionCandidate",
+        "toType": "SourceCapability",
+        "sourcePath": "src/types/architectureAnalysis.ts"
+      },
+      {
+        "fromSymbol": "ArchitectureDetectionResult",
+        "toType": "ArchitectureDetectionCandidate",
+        "sourcePath": "src/types/architectureAnalysis.ts"
+      },
+      {
+        "fromSymbol": "ArchitectureEvaluationOptions",
+        "toType": "RulesConfig",
+        "sourcePath": "src/types/architectureAnalysis.ts"
+      },
+      {
+        "fromSymbol": "ArchitectureEvaluationResult",
+        "toType": "ArchitectureRoleAssignment",
+        "sourcePath": "src/types/architectureAnalysis.ts"
+      },
+      {
+        "fromSymbol": "ArchitectureEvaluationResult",
+        "toType": "JsonValue",
+        "sourcePath": "src/types/architectureAnalysis.ts"
+      },
+      {
+        "fromSymbol": "ArchitectureEvaluationResult",
+        "toType": "RuleEvaluationDiagnostic",
+        "sourcePath": "src/types/architectureAnalysis.ts"
+      },
+      {
+        "fromSymbol": "ArchitectureEvaluationResult",
+        "toType": "RuleFinding",
+        "sourcePath": "src/types/architectureAnalysis.ts"
+      },
+      {
+        "fromSymbol": "ArchitectureRoleAssignment",
+        "toType": "ArchitectureDetectionEvidence",
+        "sourcePath": "src/types/architectureAnalysis.ts"
+      },
+      {
+        "fromSymbol": "ArchitectureRuleContext",
+        "toType": "ArchitectureModel",
+        "sourcePath": "src/types/architectureAnalysis.ts"
+      },
+      {
+        "fromSymbol": "ArchitectureRuleContext",
+        "toType": "ArchitectureRoleAssignment",
+        "sourcePath": "src/types/architectureAnalysis.ts"
+      },
+      {
+        "fromSymbol": "ArchitectureRuleContext",
+        "toType": "SourceGraph",
+        "sourcePath": "src/types/architectureAnalysis.ts"
       },
       {
         "fromSymbol": "ArchitectureModel",

@@ -1,17 +1,75 @@
 graph LR
+  module_package_json["package.json"]
+  module_src_cli_commands_detect_ts["src/cli/commands/detect.ts"]
+  module_src_cli_commands_evaluate_ts["src/cli/commands/evaluate.ts"]
+  module_src_cli_commands_models_list_test_ts["src/cli/commands/models/list.test.ts"]
+  module_src_cli_commands_models_list_ts["src/cli/commands/models/list.ts"]
+  module_src_cli_createRulesArchitectureRuntimeProvider_test_ts["src/cli/createRulesArchitectureRuntimeProvider.test.ts"]
+  module_src_cli_createRulesArchitectureRuntimeProvider_ts["src/cli/createRulesArchitectureRuntimeProvider.ts"]
+  module_src_cli_index_ts["src/cli/index.ts"]
+  module_src_cli_standalone_ts["src/cli/standalone.ts"]
+  module_src_cli_utils_parseArchitectureCommandOptions_ts["src/cli/utils/parseArchitectureCommandOptions.ts"]
+  module_src_constants_rulesArchitecture_ts["src/constants/rulesArchitecture.ts"]
+  module_src_features_detection_domain_detectArchitecture_test_ts["src/features/detection/domain/detectArchitecture.test.ts"]
+  module_src_features_detection_domain_detectArchitecture_ts["src/features/detection/domain/detectArchitecture.ts"]
+  module_src_features_detection_domain_inferArchitectureRoles_ts["src/features/detection/domain/inferArchitectureRoles.ts"]
+  module_src_features_evaluation_domain_evaluateArchitecture_test_ts["src/features/evaluation/domain/evaluateArchitecture.test.ts"]
+  module_src_features_evaluation_domain_evaluateArchitecture_ts["src/features/evaluation/domain/evaluateArchitecture.ts"]
   module_src_features_models_constants_architectureModels_ts["src/features/models/constants/architectureModels.ts"]
+  module_src_features_models_domain_findArchitectureModel_ts["src/features/models/domain/findArchitectureModel.ts"]
   module_src_features_models_domain_listArchitectureModels_test_ts["src/features/models/domain/listArchitectureModels.test.ts"]
   module_src_features_models_domain_listArchitectureModels_ts["src/features/models/domain/listArchitectureModels.ts"]
+  module_src_features_rules_domain_createArchitectureRuleSet_ts["src/features/rules/domain/createArchitectureRuleSet.ts"]
   module_src_index_ts["src/index.ts"]
+  module_src_types_architectureAnalysis_ts["src/types/architectureAnalysis.ts"]
+  module_src_types_architectureCli_ts["src/types/architectureCli.ts"]
   module_src_types_architectureModel_ts["src/types/architectureModel.ts"]
+  export_ArchitectureContradiction["ArchitectureContradiction"]
+  module_src_types_architectureAnalysis_ts --> export_ArchitectureContradiction
+  export_ArchitectureDetectionCandidate["ArchitectureDetectionCandidate"]
+  module_src_types_architectureAnalysis_ts --> export_ArchitectureDetectionCandidate
+  export_ArchitectureDetectionCandidate -.-> export_ArchitectureContradiction
+  export_ArchitectureDetectionCandidate -.-> export_ArchitectureDetectionEvidence
+  export_ArchitectureDetectionCandidate -.-> export_ArchitectureRoleAssignment
+  export_ArchitectureDetectionEvidence["ArchitectureDetectionEvidence"]
+  module_src_types_architectureAnalysis_ts --> export_ArchitectureDetectionEvidence
+  export_ArchitectureDetectionResult["ArchitectureDetectionResult"]
+  module_src_types_architectureAnalysis_ts --> export_ArchitectureDetectionResult
+  export_ArchitectureDetectionResult -.-> export_ArchitectureDetectionCandidate
+  export_ArchitectureEvaluationOptions["ArchitectureEvaluationOptions"]
+  module_src_types_architectureAnalysis_ts --> export_ArchitectureEvaluationOptions
+  export_ArchitectureEvaluationResult["ArchitectureEvaluationResult"]
+  module_src_types_architectureAnalysis_ts --> export_ArchitectureEvaluationResult
+  export_ArchitectureEvaluationResult -.-> export_ArchitectureRoleAssignment
   export_ArchitectureModel["ArchitectureModel"]
   module_src_types_architectureModel_ts --> export_ArchitectureModel
   export_ArchitectureModel -.-> export_ArchitectureRole
   export_ArchitectureModel -.-> export_ArchitectureRoleDependency
   export_ArchitectureRole["ArchitectureRole"]
   module_src_types_architectureModel_ts --> export_ArchitectureRole
+  export_ArchitectureRoleAssignment["ArchitectureRoleAssignment"]
+  module_src_types_architectureAnalysis_ts --> export_ArchitectureRoleAssignment
+  export_ArchitectureRoleAssignment -.-> export_ArchitectureDetectionEvidence
   export_ArchitectureRoleDependency["ArchitectureRoleDependency"]
   module_src_types_architectureModel_ts --> export_ArchitectureRoleDependency
+  export_ArchitectureRuleContext["ArchitectureRuleContext"]
+  module_src_types_architectureAnalysis_ts --> export_ArchitectureRuleContext
+  export_ArchitectureRuleContext -.-> export_ArchitectureModel
+  export_ArchitectureRuleContext -.-> export_ArchitectureRoleAssignment
+  export_createArchitectureRuleSet["createArchitectureRuleSet"]
+  module_src_features_rules_domain_createArchitectureRuleSet_ts --> export_createArchitectureRuleSet
+  export_createArchitectureRuleSet -.-> export_ArchitectureRuleContext
+  export_detectArchitecture["detectArchitecture"]
+  module_src_features_detection_domain_detectArchitecture_ts --> export_detectArchitecture
+  export_detectArchitecture -.-> export_ArchitectureDetectionResult
+  export_evaluateArchitecture["evaluateArchitecture"]
+  module_src_features_evaluation_domain_evaluateArchitecture_ts --> export_evaluateArchitecture
+  export_evaluateArchitecture -.-> export_ArchitectureEvaluationOptions
+  export_evaluateArchitecture -.-> export_ArchitectureEvaluationResult
+  export_inferArchitectureRoles["inferArchitectureRoles"]
+  module_src_features_detection_domain_inferArchitectureRoles_ts --> export_inferArchitectureRoles
+  export_inferArchitectureRoles -.-> export_ArchitectureModel
+  export_inferArchitectureRoles -.-> export_ArchitectureRoleAssignment
   export_listArchitectureModels["listArchitectureModels"]
   module_src_features_models_domain_listArchitectureModels_ts --> export_listArchitectureModels
   export_listArchitectureModels -.-> export_ArchitectureModel
