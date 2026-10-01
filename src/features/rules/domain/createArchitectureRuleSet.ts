@@ -92,7 +92,7 @@ function directionFindings(context: ArchitectureRuleContext): readonly RuleFindi
     const sourceRole = roleByPath.get(source.semanticPath);
     const targetRole = roleByPath.get(target.semanticPath);
     if (sourceRole === undefined || targetRole === undefined) return [];
-    if (sourceRole.confidence < 0.4 || targetRole.confidence < 0.4) return [];
+    if (sourceRole.confidence < 0.3 || targetRole.confidence < 0.3) return [];
     const allowed = context.model.allowedDependencies.some(
       (dependency) =>
         dependency.source === sourceRole.roleId && dependency.target === targetRole.roleId,
