@@ -17,7 +17,7 @@ export async function evaluate(
   }
   const target = resolve(cwd, options.target);
   const config = await readConfig(options.configPath, cwd);
-  if (config !== undefined && config.config === null) {
+  if (config?.config === null) {
     return {
       exitCode: 1,
       stdout: renderInvalidConfig(config),
@@ -59,10 +59,7 @@ function renderInvalidConfig(result: Awaited<ReturnType<typeof readRulesConfigAs
 }
 
 /*** Render advisory or blocking findings for the explicitly selected model. */
-function renderEvaluation(
-  target: string,
-  result: ReturnType<typeof evaluateArchitecture>,
-): string {
+function renderEvaluation(target: string, result: ReturnType<typeof evaluateArchitecture>): string {
   return [
     'rules-architecture evaluate',
     `target: ${target}`,
