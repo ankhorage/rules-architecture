@@ -16,11 +16,24 @@ test('reports multiple scored candidates without selecting an enforcement target
   );
 });
 
-test('reports unavailable capabilities separately from contradictory evidence', () => {
+test('aggregates analyzer capabilities per project without treating project detection as a negative fact', () => {
   const graph = hexagonalFixture();
   const result = detectArchitecture({
     ...graph,
-    capabilities: graph.capabilities.map((report) => ({ ...report, available: ['imports'] })),
+    capabilities: [
+      { analyzerId: 'project-detector', projectId: 'fixture', available: ['containment'] },
+      ...graph.capabilities,
+    ],
+  });
+  const hexagonal = result.candidates.find(({ modelId }) => modelId === 'hexagonal');
+  expect(hexagonal?.unavailableCapabilities).toEqual([]);
+});
+
+test('reports a capability unavailable when no analyzer provides it for the project', () => {
+  const graph = hexagonalFixture();
+  const result = detectArchitecture({
+    ...graph,
+    capabilities: [{ analyzerId: 'fixture', projectId: 'fixture', available: ['imports'] }],
   });
   const hexagonal = result.candidates.find(({ modelId }) => modelId === 'hexagonal');
   expect(hexagonal?.unavailableCapabilities).toContain('implements');
