@@ -4,7 +4,7 @@ import { createSourceGraphAsync } from '@ankhorage/dependency-graph';
 import { readRulesConfigAsync } from '@ankhorage/rules';
 
 import { evaluateArchitecture } from '../../features/evaluation/domain/evaluateArchitecture.js';
-import { parseArchitectureCommandOptions } from '../parseArchitectureCommandOptions.js';
+import { parseArchitectureCommandOptions } from '../utils/parseArchitectureCommandOptions.js';
 
 /*** Execute explicit target-architecture evaluation through the generic Rules engine. */
 export async function evaluate(
