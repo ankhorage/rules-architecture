@@ -3,6 +3,9 @@ import { expect, test } from 'bun:test';
 
 import { detectArchitecture } from './detectArchitecture.js';
 
+type SourceNode = SourceGraph['graph']['nodes'][number];
+type SourceEdge = SourceGraph['graph']['edges'][number];
+
 test('reports multiple scored candidates without selecting an enforcement target', () => {
   const result = detectArchitecture(hexagonalFixture());
   expect(result.candidates).toHaveLength(4);
@@ -42,60 +45,63 @@ function hexagonalFixture(): SourceGraph {
     ],
     graph: {
       nodes: [
-        {
-          id: 0,
-          data: {
-            kind: 'file',
-            semanticPath: 'fixture:file:src/domain/order.ts',
-            name: 'order.ts',
-            projectId: 'fixture',
-            path: 'src/domain/order.ts',
-            classification: 'intrinsic',
-          },
-        },
-        {
-          id: 1,
-          data: {
-            kind: 'interface',
-            semanticPath: 'fixture:symbol:src/ports/orderRepository.ts#OrderRepository',
-            name: 'OrderRepository',
-            projectId: 'fixture',
-            filePath: 'src/ports/orderRepository.ts',
-            classification: 'intrinsic',
-          },
-        },
-        {
-          id: 2,
-          data: {
-            kind: 'class',
-            semanticPath: 'fixture:symbol:src/adapters/postgresRepository.ts#PostgresRepository',
-            name: 'PostgresRepository',
-            projectId: 'fixture',
-            filePath: 'src/adapters/postgresRepository.ts',
-            classification: 'intrinsic',
-          },
-        },
+        fileNode(0, 'src/domain/order.ts'),
+        symbolNode(1, 'interface', 'src/ports/orderRepository.ts', 'OrderRepository'),
+        symbolNode(2, 'class', 'src/adapters/postgresRepository.ts', 'PostgresRepository'),
       ],
       edges: [
-        {
-          id: 0,
-          source: 2,
-          target: 1,
-          data: {
-            kind: 'implements',
-            evidence: [{ analyzerId: 'fixture', sourcePath: 'src/adapters/postgresRepository.ts' }],
-          },
-        },
-        {
-          id: 1,
-          source: 2,
-          target: 0,
-          data: {
-            kind: 'imports',
-            evidence: [{ analyzerId: 'fixture', sourcePath: 'src/adapters/postgresRepository.ts' }],
-          },
-        },
+        relation(0, 2, 1, 'implements', 'src/adapters/postgresRepository.ts'),
+        relation(1, 2, 0, 'imports', 'src/adapters/postgresRepository.ts'),
       ],
     },
+  };
+}
+
+function fileNode(id: number, path: string): SourceNode {
+  const name = path.split('/').at(-1) ?? path;
+  return {
+    id,
+    data: {
+      kind: 'file',
+      semanticPath: `fixture:file:${path}`,
+      name,
+      projectId: 'fixture',
+      path,
+      classification: 'intrinsic',
+    },
+  };
+}
+
+function symbolNode(
+  id: number,
+  kind: 'class' | 'interface',
+  filePath: string,
+  name: string,
+): SourceNode {
+  return {
+    id,
+    data: {
+      kind,
+      semanticPath: `fixture:symbol:${filePath}#${name}`,
+      name,
+      projectId: 'fixture',
+      filePath,
+      classification: 'intrinsic',
+    },
+  };
+}
+
+function relation(
+  id: number,
+  source: number,
+  target: number,
+  kind: 'implements' | 'imports',
+  sourcePath: string,
+): SourceEdge {
+  return {
+    id,
+    source,
+    target,
+    data: { kind, evidence: [{ analyzerId: 'fixture', sourcePath }] },
   };
 }
