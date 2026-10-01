@@ -35,14 +35,19 @@
       "types": "./dist/index.d.ts",
       "import": "./dist/index.js"
     },
-    "./package.json": "./package.json"
+    "./package.json": "./package.json",
+    "./cli": {
+      "types": "./dist/cli/index.d.ts",
+      "import": "./dist/cli/index.js"
+    }
   },
   "devDependencies": {
     "@ankhorage/devtools": "^2.0.13",
     "@ankhorage/paradox": "^0.2.6",
     "@types/bun": "^1.4.2",
     "@types/node": "^26.6.2",
-    "typescript": "~6.0.3"
+    "typescript": "~6.0.3",
+    "@ankhorage/ankh": "^0.10.4"
   },
   "packageManager": "bun@1.4.2",
   "scripts": {
@@ -60,5 +65,22 @@
     "format": "ankhorage-prettier --write .",
     "format:check": "ankhorage-prettier --check .",
     "knip:check": "ankhorage-knip"
+  },
+  "dependencies": {
+    "@ankhorage/dependency-graph": "^1.1.1",
+    "@ankhorage/graph": "^0.3.0",
+    "@ankhorage/rules": "^0.2.0"
+  },
+  "bin": {
+    "ankhorage-rules-architecture": "./dist/cli/standalone.js"
+  },
+  "ankh": {
+    "category": "rules-architecture",
+    "provider": "./dist/cli/index.js",
+    "capabilities": [
+      "rules-architecture.models.list",
+      "rules-architecture.detect",
+      "rules-architecture.evaluate"
+    ]
   }
 }
