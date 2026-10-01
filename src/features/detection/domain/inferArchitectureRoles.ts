@@ -156,12 +156,12 @@ function scoreRole(
   const tokens = semanticTokens(node);
   const hints = ROLE_HINTS.get(modelId)?.get(roleId) ?? [];
   const matchedHints = hints.filter((hint) => tokens.has(hint));
-  const pathScore = Math.min(0.55, matchedHints.length * 0.22);
+  const pathScore = Math.min(0.55, matchedHints.length * 0.32);
   const evidence: ArchitectureDetectionEvidence[] = matchedHints.map((hint) => ({
     kind: 'path',
     semanticPath: node.semanticPath,
     message: `Semantic name/path contains architecture hint "${hint}".`,
-    weight: 0.22,
+    weight: 0.32,
   }));
   const topology = topologyScore(
     nodeId,
@@ -249,8 +249,18 @@ function semanticTokens(node: SourceNodeData): ReadonlySet<string> {
       .replace(/([a-z0-9])([A-Z])/g, '$1 $2')
       .toLowerCase()
       .split(/[^a-z0-9]+/)
-      .filter(Boolean),
+      .filter(Boolean)
+      .flatMap(expandToken),
   );
+}
+
+/*** Preserve raw tokens and add simple singular variants for common directory naming. */
+function expandToken(token: string): readonly string[] {
+  if (token.endsWith('ies') && token.length > 3) return [token, `${token.slice(0, -3)}y`];
+  if (token.endsWith('s') && !token.endsWith('ss') && token.length > 3) {
+    return [token, token.slice(0, -1)];
+  }
+  return [token];
 }
 
 /*** Identify model roles expected to sit near external technology. */
