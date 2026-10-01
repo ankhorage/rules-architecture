@@ -5,6 +5,7 @@ import { createRulesArchitectureRuntimeProvider } from './createRulesArchitectur
 test('registers canonical architecture CLI capabilities and command paths', () => {
   const provider = createRulesArchitectureRuntimeProvider();
   expect(provider.id).toBe('@ankhorage/rules-architecture');
+  expect(provider.category).toBe('rules-architecture');
   expect(provider.capabilities).toEqual([
     'rules-architecture.models.list',
     'rules-architecture.detect',
