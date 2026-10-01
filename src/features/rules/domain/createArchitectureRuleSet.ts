@@ -51,7 +51,7 @@ function cycleFindings(graph: SourceGraph): readonly RuleFinding[] {
   const fileIds = new Set(
     graph.graph.nodes.filter(({ data }) => data.kind === 'file').map(({ id }) => id),
   );
-  const cycleGraph: Graph<SourceNodeData, SourceEdgeData, number, number> = {
+  const cycleGraph: Graph<SourceNodeData, SourceEdgeData, number> = {
     nodes: graph.graph.nodes.filter(({ id }) => fileIds.has(id)),
     edges: graph.graph.edges.filter(
       ({ source, target, data }) =>
@@ -99,7 +99,7 @@ function directionFindings(context: ArchitectureRuleContext): readonly RuleFindi
     );
     if (allowed) return [];
 
-    const evidence = edge.data.evidence[0];
+    const [evidence] = edge.data.evidence;
     return [
       {
         ruleId: 'architecture-dependency-direction',
