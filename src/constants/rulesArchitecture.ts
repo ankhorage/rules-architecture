@@ -1,6 +1,6 @@
 import packageJson from '../../package.json';
 
-export const RULES_ARCHITECTURE_COMMAND_CATEGORY = 'rules';
+export const RULES_ARCHITECTURE_COMMAND_CATEGORY = 'rules-architecture';
 export const RULES_ARCHITECTURE_CAPABILITIES = [
   'rules-architecture.models.list',
   'rules-architecture.detect',
