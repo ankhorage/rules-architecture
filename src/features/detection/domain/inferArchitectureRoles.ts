@@ -60,7 +60,7 @@ export function inferArchitectureRoles(
     if (!isRoleCandidate(node.data)) return [];
     const ranked = model.roles
       .map(({ id }) => scoreRole(node.id, node.data, model.id, id, implementedTargets, implementingSources, vendorImportSources))
-      .sort((left, right) => right.score - left.score || left.roleId.localeCompare(right.roleId));
+      .sort((left, right) => right.score - left.score || compareText(left.roleId, right.roleId));
     const best = ranked[0];
     if (best === undefined || best.score < 0.3) return [];
     const second = ranked[1]?.score ?? 0;
@@ -179,4 +179,9 @@ function isOuterRole(modelId: ArchitectureModel['id'], roleId: string): boolean 
 /*** Stabilize serializable confidence values for deterministic consumers. */
 function round(value: number): number {
   return Math.round(value * 1000) / 1000;
+}
+
+/*** Compare stable identifiers by code units instead of locale-sensitive collation. */
+function compareText(left: string, right: string): number {
+  return left < right ? -1 : left > right ? 1 : 0;
 }
