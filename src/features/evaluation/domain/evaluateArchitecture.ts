@@ -1,9 +1,5 @@
 import type { SourceCapability, SourceGraph } from '@ankhorage/dependency-graph';
-import {
-  createRuleRegistry,
-  evaluateConfiguredRules,
-  evaluateRules,
-} from '@ankhorage/rules';
+import { createRuleRegistry, evaluateConfiguredRules, evaluateRules } from '@ankhorage/rules';
 
 import type {
   ArchitectureEvaluationOptions,
@@ -32,9 +28,12 @@ export function evaluateArchitecture(
   const context: ArchitectureRuleContext = { graph, model, roleAssignments };
   const ruleSet = createArchitectureRuleSet(modelId);
   const capabilities = availableRuleCapabilities(graph);
-  const result = options.config === undefined
-    ? evaluateRules(context, ruleSet.rules, { capabilities })
-    : evaluateConfiguredRules(context, options.config, createRuleRegistry([ruleSet]), { capabilities });
+  const result =
+    options.config === undefined
+      ? evaluateRules(context, ruleSet.rules, { capabilities })
+      : evaluateConfiguredRules(context, options.config, createRuleRegistry([ruleSet]), {
+          capabilities,
+        });
 
   return {
     ...result,
