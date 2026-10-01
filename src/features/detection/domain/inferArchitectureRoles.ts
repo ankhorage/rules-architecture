@@ -27,7 +27,7 @@ const ROLE_HINTS = new Map<ArchitectureModel['id'], RoleHints>([
           'persistence',
         ],
       ],
-      ['composition', ['bootstrap', 'composition', 'container', 'main', 'wiring']],
+      ['composition', ['bootstrap', 'composition', 'container', 'wiring']],
     ]),
   ],
   [
@@ -40,7 +40,7 @@ const ROLE_HINTS = new Map<ArchitectureModel['id'], RoleHints>([
         'framework',
         ['database', 'framework', 'http', 'infra', 'infrastructure', 'persistence', 'web'],
       ],
-      ['composition', ['bootstrap', 'composition', 'container', 'main', 'wiring']],
+      ['composition', ['bootstrap', 'composition', 'container', 'wiring']],
     ]),
   ],
   [
@@ -51,7 +51,7 @@ const ROLE_HINTS = new Map<ArchitectureModel['id'], RoleHints>([
       ['application-service', ['application', 'applicationservice', 'usecase']],
       ['infrastructure', ['database', 'infra', 'infrastructure', 'persistence', 'repository']],
       ['presentation', ['api', 'controller', 'http', 'presentation', 'ui', 'web']],
-      ['composition', ['bootstrap', 'composition', 'container', 'main', 'wiring']],
+      ['composition', ['bootstrap', 'composition', 'container', 'wiring']],
     ]),
   ],
   [
@@ -60,7 +60,7 @@ const ROLE_HINTS = new Map<ArchitectureModel['id'], RoleHints>([
       ['presentation', ['api', 'controller', 'http', 'presentation', 'ui', 'web']],
       ['domain', ['application', 'business', 'domain', 'service']],
       ['data-source', ['dao', 'data', 'database', 'db', 'persistence', 'repository']],
-      ['composition', ['bootstrap', 'composition', 'container', 'main', 'wiring']],
+      ['composition', ['bootstrap', 'composition', 'container', 'wiring']],
     ]),
   ],
 ]);
@@ -231,11 +231,13 @@ function topologyScore(
 
 /*** Keep architecture inference on internal executable/declaration nodes rather than containers/vendors. */
 function isRoleCandidate(node: SourceNodeData): boolean {
+  if (node.classification === 'vendor') return false;
   return (
-    node.classification !== 'vendor' &&
-    node.kind !== 'project' &&
-    node.kind !== 'package' &&
-    node.kind !== 'directory'
+    node.kind === 'file' ||
+    node.kind === 'class' ||
+    node.kind === 'interface' ||
+    node.kind === 'function' ||
+    node.kind === 'type'
   );
 }
 
