@@ -60,5 +60,10 @@
     "format": "ankhorage-prettier --write .",
     "format:check": "ankhorage-prettier --check .",
     "knip:check": "ankhorage-knip"
+  },
+  "dependencies": {
+    "@ankhorage/dependency-graph": "^1.1.1",
+    "@ankhorage/graph": "^0.3.0",
+    "@ankhorage/rules": "^0.2.0"
   }
 }
