@@ -107,6 +107,7 @@ function roleDirectionRule(): Rule<ArchitectureProfileRuleContext> {
           ),
         ];
       }),
+    true,
   );
 }
 
@@ -134,6 +135,7 @@ function thinDeliveryAdapterRule(): Rule<ArchitectureProfileRuleContext> {
           : [];
       });
     },
+    true,
   );
 }
 
@@ -142,12 +144,13 @@ function createRule(
   id: string,
   summary: string,
   evaluate: (context: ArchitectureProfileRuleContext) => readonly RuleFinding[],
+  requiresImports = false,
 ): Rule<ArchitectureProfileRuleContext> {
   return {
     id,
     summary,
     defaultSeverity: 'error',
-    requiredCapabilities: ['source-graph.imports'],
+    ...(requiresImports ? { requiredCapabilities: ['source-graph.imports'] } : {}),
     evaluate: ({ context }) => evaluate(context),
   };
 }
@@ -189,11 +192,10 @@ function isAllowedSourcePath(path: string, profile: ArchitectureProfile): boolea
   if (path === profile.source.featureRoot || path.startsWith(profile.source.featureRoot + '/')) {
     return true;
   }
-  const [root] = splitPath(sourcePath);
+  const root = splitPath(sourcePath)[0] ?? '';
   return (
-    root !== undefined &&
-    (profile.source.packageWideDirectories.includes(root) ||
-      profile.source.deliveryEdgeDirectories.includes(root))
+    profile.source.packageWideDirectories.includes(root) ||
+    profile.source.deliveryEdgeDirectories.includes(root)
   );
 }
 
@@ -226,7 +228,11 @@ function resolveProfileRole(
 }
 
 interface ImportRelation {
-  readonly edge: { readonly data: SourceEdgeData; readonly source: number; readonly target: number };
+  readonly edge: {
+    readonly data: SourceEdgeData;
+    readonly source: number;
+    readonly target: number;
+  };
   readonly sourcePath: string;
   readonly targetPath: string;
 }
@@ -253,9 +259,9 @@ function nodePath(node: SourceNodeData): string | undefined {
 }
 
 /*** Return the first source-location evidence for one observed import. */
-function firstEvidence(
-  edge: { readonly data: SourceEdgeData },
-): SourceEdgeData['evidence'][number] | undefined {
+function firstEvidence(edge: {
+  readonly data: SourceEdgeData;
+}): SourceEdgeData['evidence'][number] | undefined {
   return edge.data.evidence[0];
 }
 

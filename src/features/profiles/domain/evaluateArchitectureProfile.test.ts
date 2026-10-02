@@ -6,7 +6,7 @@ import { evaluateArchitectureProfile } from './evaluateArchitectureProfile.js';
 type SourceNode = SourceGraph['graph']['nodes'][number];
 type SourceEdge = SourceGraph['graph']['edges'][number];
 
-describe('Ankhorage architecture profile', () => {
+describe('Ankhorage architecture profile ownership', () => {
   test('accepts coherent feature-first roles without requiring empty layers', () => {
     const result = evaluateArchitectureProfile(
       graph(
@@ -35,6 +35,9 @@ describe('Ankhorage architecture profile', () => {
     expect(ruleIds(result)).toContain('package.architecture.role-combination.invalid');
   });
 
+});
+
+describe('Ankhorage architecture profile dependency direction', () => {
   test('rejects domain and application imports that point outward', () => {
     const result = evaluateArchitectureProfile(
       graph(
@@ -92,7 +95,11 @@ describe('Ankhorage architecture profile', () => {
       'ankhorage',
     );
     expect(ruleIds(result)).toContain('package.architecture.feature-ownership.required');
-    expect(result.findings.some(({ subjects }) => subjects.some(({ path }) => path === 'src/index.ts'))).toBe(false);
+    expect(
+      result.findings.some(({ subjects }) =>
+        subjects.some(({ path }) => path === 'src/index.ts'),
+      ),
+    ).toBe(false);
   });
 });
 
@@ -126,12 +133,7 @@ function fileNode(id: number, path: string): SourceNode {
 }
 
 /*** Build one observed file import relation. */
-function importEdge(
-  id: number,
-  source: number,
-  target: number,
-  sourcePath: string,
-): SourceEdge {
+function importEdge(id: number, source: number, target: number, sourcePath: string): SourceEdge {
   return {
     id,
     source,
