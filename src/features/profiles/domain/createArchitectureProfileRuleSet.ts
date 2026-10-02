@@ -79,9 +79,7 @@ function roleCombinationRule(): Rule<ArchitectureProfileRuleContext> {
 }
 
 /*** Reject imports from one configured inward role into its outward implementation roles. */
-function roleDirectionRule(
-  role: ArchitectureProfileRole,
-): Rule<ArchitectureProfileRuleContext> {
+function roleDirectionRule(role: ArchitectureProfileRole): Rule<ArchitectureProfileRuleContext> {
   return createRule(
     role.ruleId,
     role.label + ' must not import outward implementation roles.',
