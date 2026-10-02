@@ -18,7 +18,7 @@ export function createArchitectureProfileRuleSet(
     rules: [
       featureOwnershipRule(),
       roleCombinationRule(),
-      roleDirectionRule(),
+      ...profile.source.roles.map(roleDirectionRule),
       thinDeliveryAdapterRule(),
     ],
   };
@@ -78,17 +78,18 @@ function roleCombinationRule(): Rule<ArchitectureProfileRuleContext> {
   );
 }
 
-/*** Reject imports from recognized inward roles into configured outward implementation roles. */
-function roleDirectionRule(): Rule<ArchitectureProfileRuleContext> {
+/*** Reject imports from one configured inward role into its outward implementation roles. */
+function roleDirectionRule(
+  role: ArchitectureProfileRole,
+): Rule<ArchitectureProfileRuleContext> {
   return createRule(
-    'package.architecture.domain-outward-import.disallowed',
-    'Inward architecture roles must not import configured outward implementation roles.',
-    ({ graph, profile }) =>
+    role.ruleId,
+    role.label + ' must not import outward implementation roles.',
+    ({ graph }) =>
       importRelations(graph).flatMap(({ edge, sourcePath, targetPath }) => {
         const sourceSegments = splitPath(sourcePath);
+        if (!sourceSegments.some((segment) => role.segments.includes(segment))) return [];
         const targetSegments = splitPath(targetPath);
-        const role = resolveProfileRole(sourceSegments, profile);
-        if (role === undefined) return [];
         const outwardRole = targetSegments.find((segment) =>
           role.forbiddenOutwardSegments.includes(segment),
         );
@@ -215,16 +216,6 @@ function collectFeatureRoles(
     roles.set(feature, featureRoles);
   }
   return roles;
-}
-
-/*** Resolve one configured inward role from a source path. */
-function resolveProfileRole(
-  sourceSegments: readonly string[],
-  profile: ArchitectureProfile,
-): ArchitectureProfileRole | undefined {
-  return profile.source.roles.find((role) =>
-    sourceSegments.some((segment) => role.segments.includes(segment)),
-  );
 }
 
 interface ImportRelation {
