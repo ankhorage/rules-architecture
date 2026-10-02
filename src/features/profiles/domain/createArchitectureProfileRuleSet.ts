@@ -181,7 +181,7 @@ function sourceFilePaths(graph: SourceGraph): readonly string[] {
   return graph.graph.nodes.flatMap(({ data }) => {
     if (data.kind !== 'file' || data.classification === 'vendor') return [];
     const path = nodePath(data);
-    return path === undefined || !path.startsWith('src/') ? [] : [path];
+    return path?.startsWith('src/') === true ? [path] : [];
   });
 }
 

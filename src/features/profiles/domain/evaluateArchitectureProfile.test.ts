@@ -35,9 +35,19 @@ describe('Ankhorage architecture profile ownership', () => {
     expect(ruleIds(result)).toContain('package.architecture.role-combination.invalid');
   });
 
+  test('rejects implementation files outside canonical ownership roots', () => {
+    const result = evaluateArchitectureProfile(
+      graph([fileNode(0, 'src/randomThing.ts'), fileNode(1, 'src/index.ts')], []),
+      'ankhorage',
+    );
+    expect(ruleIds(result)).toContain('package.architecture.feature-ownership.required');
+    expect(
+      result.findings.some(({ subjects }) => subjects.some(({ path }) => path === 'src/index.ts')),
+    ).toBe(false);
+  });
 });
 
-describe('Ankhorage architecture profile dependency direction', () => {
+describe('Ankhorage architecture profile inward dependencies', () => {
   test('rejects domain and application imports that point outward', () => {
     const result = evaluateArchitectureProfile(
       graph(
@@ -71,7 +81,9 @@ describe('Ankhorage architecture profile dependency direction', () => {
     );
     expect(ruleIds(result)).toContain('package.architecture.port-outward-import.disallowed');
   });
+});
 
+describe('Ankhorage architecture profile delivery edges', () => {
   test('rejects CLI commands that wire concrete adapters directly', () => {
     const result = evaluateArchitectureProfile(
       graph(
@@ -87,19 +99,6 @@ describe('Ankhorage architecture profile dependency direction', () => {
     expect(ruleIds(result)).toContain(
       'package.architecture.delivery-concrete-adapter-import.disallowed',
     );
-  });
-
-  test('rejects implementation files outside canonical ownership roots', () => {
-    const result = evaluateArchitectureProfile(
-      graph([fileNode(0, 'src/randomThing.ts'), fileNode(1, 'src/index.ts')], []),
-      'ankhorage',
-    );
-    expect(ruleIds(result)).toContain('package.architecture.feature-ownership.required');
-    expect(
-      result.findings.some(({ subjects }) =>
-        subjects.some(({ path }) => path === 'src/index.ts'),
-      ),
-    ).toBe(false);
   });
 });
 
