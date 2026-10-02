@@ -3,7 +3,7 @@
 
 # @ankhorage/rules-architecture
 
-![license: MIT](././paradox/badges/license.svg) ![npm: v0.3.1](././paradox/badges/npm.svg) ![runtime: bun](././paradox/badges/runtime.svg) ![typescript: strict](././paradox/badges/typescript.svg) ![eslint: checked](././paradox/badges/eslint.svg) ![prettier: checked](././paradox/badges/prettier.svg) ![build: checked](././paradox/badges/build.svg) ![tests: checked](././paradox/badges/tests.svg) ![paradox: canonical](././paradox/badges/docs.svg)
+![license: MIT](././paradox/badges/license.svg) ![npm: v0.4.0](././paradox/badges/npm.svg) ![runtime: bun](././paradox/badges/runtime.svg) ![typescript: strict](././paradox/badges/typescript.svg) ![eslint: checked](././paradox/badges/eslint.svg) ![prettier: checked](././paradox/badges/prettier.svg) ![build: checked](././paradox/badges/build.svg) ![tests: checked](././paradox/badges/tests.svg) ![paradox: canonical](././paradox/badges/docs.svg)
 
 Architecture models, detection, and rules for canonical source graphs.
 
@@ -37,5 +37,6 @@ export default defineParadoxConfig({
 - [Module relationships](././paradox/diagrams/module-relationships.mmd)
 - [Export graph](././paradox/diagrams/export-graph.mmd)
 - [ankhorage-rules-architecture sequence](././paradox/diagrams/sequences/ankhorage-rules-architecture.mmd)
+- [createArchitectureProfileRuleSet sequence](././paradox/diagrams/sequences/create-architecture-profile-rule-set.mmd)
 - [createArchitectureRuleSet sequence](././paradox/diagrams/sequences/create-architecture-rule-set.mmd)
 - [detectArchitecture sequence](././paradox/diagrams/sequences/detect-architecture.mmd)

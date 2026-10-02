@@ -375,6 +375,289 @@
     "structuredRows": []
   },
   {
+    "name": "ArchitectureProfile",
+    "title": null,
+    "description": "Project-specific source conventions layered on top of one generic architecture model.",
+    "isReadme": false,
+    "see": [],
+    "security": [],
+    "kind": "type",
+    "modulePath": "src/types/architectureProfile.ts",
+    "sourceLocation": {
+      "filePath": "src/types/architectureProfile.ts",
+      "line": 23,
+      "column": 1
+    },
+    "exportPaths": [
+      "src/index.ts"
+    ],
+    "relatedSymbols": [
+      "ArchitectureProfileFeatureCombination",
+      "ArchitectureProfileRole"
+    ],
+    "signatures": [],
+    "members": [
+      {
+        "name": "baseModelId",
+        "kind": "property",
+        "type": "\"hexagonal\" | \"clean\" | \"onion\" | \"layered\"",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "id",
+        "kind": "property",
+        "type": "\"ankhorage\"",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "interpretation",
+        "kind": "property",
+        "type": "string",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "name",
+        "kind": "property",
+        "type": "string",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "source",
+        "kind": "property",
+        "type": "{ readonly deliveryEdgeDirectories: readonly string[]; readonly facadeFiles: readonly string[]; readonly featureCombinations: readonly ArchitectureProfileFeatureCombination[]; readonly featureRoot: string; readonly inwardFeatureRoles: readonly string[]; readonly packageWideDirectories: readonly string[]; readonly roles: readonly ArchitectureProfileRole[]; readonly thinDeliveryAdapter: { readonly concreteAdapterSegment: string; readonly pathSegments: readonly string[]; readonly ruleId: string; }; }",
+        "required": true,
+        "description": null
+      }
+    ],
+    "structuredRows": []
+  },
+  {
+    "name": "ArchitectureProfileEvaluationOptions",
+    "title": null,
+    "description": "Optional generic Rules configuration for explicit architecture-profile evaluation.",
+    "isReadme": false,
+    "see": [],
+    "security": [],
+    "kind": "type",
+    "modulePath": "src/types/architectureProfile.ts",
+    "sourceLocation": {
+      "filePath": "src/types/architectureProfile.ts",
+      "line": 51,
+      "column": 1
+    },
+    "exportPaths": [
+      "src/index.ts"
+    ],
+    "relatedSymbols": [],
+    "signatures": [],
+    "members": [
+      {
+        "name": "config",
+        "kind": "property",
+        "type": "RulesConfig | undefined",
+        "required": false,
+        "description": null
+      }
+    ],
+    "structuredRows": []
+  },
+  {
+    "name": "ArchitectureProfileEvaluationResult",
+    "title": null,
+    "description": "Generic Rules result plus the explicitly selected architecture profile.",
+    "isReadme": false,
+    "see": [],
+    "security": [],
+    "kind": "type",
+    "modulePath": "src/types/architectureProfile.ts",
+    "sourceLocation": {
+      "filePath": "src/types/architectureProfile.ts",
+      "line": 56,
+      "column": 1
+    },
+    "exportPaths": [
+      "src/index.ts"
+    ],
+    "relatedSymbols": [],
+    "signatures": [],
+    "members": [
+      {
+        "name": "baseModelId",
+        "kind": "property",
+        "type": "\"hexagonal\" | \"clean\" | \"onion\" | \"layered\"",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "diagnostics",
+        "kind": "property",
+        "type": "readonly RuleEvaluationDiagnostic[]",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "findings",
+        "kind": "property",
+        "type": "readonly RuleFinding<JsonValue>[]",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "profileId",
+        "kind": "property",
+        "type": "\"ankhorage\"",
+        "required": true,
+        "description": null
+      }
+    ],
+    "structuredRows": []
+  },
+  {
+    "name": "ArchitectureProfileFeatureCombination",
+    "title": null,
+    "description": "One feature-role combination that requires at least one inward owner to exist.",
+    "isReadme": false,
+    "see": [],
+    "security": [],
+    "kind": "type",
+    "modulePath": "src/types/architectureProfile.ts",
+    "sourceLocation": {
+      "filePath": "src/types/architectureProfile.ts",
+      "line": 16,
+      "column": 1
+    },
+    "exportPaths": [
+      "src/index.ts"
+    ],
+    "relatedSymbols": [],
+    "signatures": [],
+    "members": [
+      {
+        "name": "requiresAnyOf",
+        "kind": "property",
+        "type": "readonly string[]",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "role",
+        "kind": "property",
+        "type": "\"adapters\" | \"composition\"",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "ruleId",
+        "kind": "property",
+        "type": "string",
+        "required": true,
+        "description": null
+      }
+    ],
+    "structuredRows": []
+  },
+  {
+    "name": "ArchitectureProfileRole",
+    "title": null,
+    "description": "One inward source role whose imports must not cross into configured outward segments.",
+    "isReadme": false,
+    "see": [],
+    "security": [],
+    "kind": "type",
+    "modulePath": "src/types/architectureProfile.ts",
+    "sourceLocation": {
+      "filePath": "src/types/architectureProfile.ts",
+      "line": 7,
+      "column": 1
+    },
+    "exportPaths": [
+      "src/index.ts"
+    ],
+    "relatedSymbols": [],
+    "signatures": [],
+    "members": [
+      {
+        "name": "forbiddenOutwardSegments",
+        "kind": "property",
+        "type": "readonly string[]",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "id",
+        "kind": "property",
+        "type": "\"application\" | \"domain\" | \"ports\"",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "label",
+        "kind": "property",
+        "type": "string",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "ruleId",
+        "kind": "property",
+        "type": "string",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "segments",
+        "kind": "property",
+        "type": "readonly string[]",
+        "required": true,
+        "description": null
+      }
+    ],
+    "structuredRows": []
+  },
+  {
+    "name": "ArchitectureProfileRuleContext",
+    "title": null,
+    "description": "Architecture-profile Rules context built from language-neutral source facts.",
+    "isReadme": false,
+    "see": [],
+    "security": [],
+    "kind": "type",
+    "modulePath": "src/types/architectureProfile.ts",
+    "sourceLocation": {
+      "filePath": "src/types/architectureProfile.ts",
+      "line": 45,
+      "column": 1
+    },
+    "exportPaths": [
+      "src/index.ts"
+    ],
+    "relatedSymbols": [
+      "ArchitectureProfile"
+    ],
+    "signatures": [],
+    "members": [
+      {
+        "name": "graph",
+        "kind": "property",
+        "type": "SourceGraph",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "profile",
+        "kind": "property",
+        "type": "ArchitectureProfile",
+        "required": true,
+        "description": null
+      }
+    ],
+    "structuredRows": []
+  },
+  {
     "name": "ArchitectureRole",
     "title": null,
     "description": "A semantic role in one architecture model, independent of source layout.",
@@ -549,6 +832,44 @@
     "structuredRows": []
   },
   {
+    "name": "createArchitectureProfileRuleSet",
+    "title": null,
+    "description": "Create the rule set for one explicitly selected project architecture profile.",
+    "isReadme": false,
+    "see": [],
+    "security": [],
+    "kind": "function",
+    "modulePath": "src/features/profiles/domain/createArchitectureProfileRuleSet.ts",
+    "sourceLocation": {
+      "filePath": "src/features/profiles/domain/createArchitectureProfileRuleSet.ts",
+      "line": 12,
+      "column": 1
+    },
+    "exportPaths": [
+      "src/index.ts"
+    ],
+    "relatedSymbols": [
+      "ArchitectureProfileRuleContext"
+    ],
+    "signatures": [
+      {
+        "label": "(profileId: \"ankhorage\") => RuleSet<ArchitectureProfileRuleContext>",
+        "parameters": [
+          {
+            "name": "profileId",
+            "type": "\"ankhorage\"",
+            "required": true,
+            "description": null
+          }
+        ],
+        "returnType": "RuleSet<ArchitectureProfileRuleContext>",
+        "returnDescription": null
+      }
+    ],
+    "members": [],
+    "structuredRows": []
+  },
+  {
     "name": "createArchitectureRuleSet",
     "title": null,
     "description": "Create architecture rules for one explicitly selected target model.",
@@ -676,6 +997,57 @@
     "structuredRows": []
   },
   {
+    "name": "evaluateArchitectureProfile",
+    "title": null,
+    "description": "Evaluate one explicitly selected project profile through the generic Rules engine.",
+    "isReadme": false,
+    "see": [],
+    "security": [],
+    "kind": "function",
+    "modulePath": "src/features/profiles/domain/evaluateArchitectureProfile.ts",
+    "sourceLocation": {
+      "filePath": "src/features/profiles/domain/evaluateArchitectureProfile.ts",
+      "line": 15,
+      "column": 1
+    },
+    "exportPaths": [
+      "src/index.ts"
+    ],
+    "relatedSymbols": [
+      "ArchitectureProfileEvaluationOptions",
+      "ArchitectureProfileEvaluationResult"
+    ],
+    "signatures": [
+      {
+        "label": "(graph: SourceGraph, profileId: \"ankhorage\", options?: ArchitectureProfileEvaluationOptions) => ArchitectureProfileEvaluationResult",
+        "parameters": [
+          {
+            "name": "graph",
+            "type": "SourceGraph",
+            "required": true,
+            "description": null
+          },
+          {
+            "name": "options",
+            "type": "ArchitectureProfileEvaluationOptions",
+            "required": false,
+            "description": null
+          },
+          {
+            "name": "profileId",
+            "type": "\"ankhorage\"",
+            "required": true,
+            "description": null
+          }
+        ],
+        "returnType": "ArchitectureProfileEvaluationResult",
+        "returnDescription": null
+      }
+    ],
+    "members": [],
+    "structuredRows": []
+  },
+  {
     "name": "inferArchitectureRoles",
     "title": null,
     "description": "Infer semantic model roles from generic source facts while keeping path names weak evidence.",
@@ -745,6 +1117,37 @@
         "label": "() => readonly ArchitectureModel[]",
         "parameters": [],
         "returnType": "readonly ArchitectureModel[]",
+        "returnDescription": null
+      }
+    ],
+    "members": [],
+    "structuredRows": []
+  },
+  {
+    "name": "listArchitectureProfiles",
+    "title": null,
+    "description": "List built-in architecture profiles without selecting one implicitly.",
+    "isReadme": false,
+    "see": [],
+    "security": [],
+    "kind": "function",
+    "modulePath": "src/features/profiles/domain/listArchitectureProfiles.ts",
+    "sourceLocation": {
+      "filePath": "src/features/profiles/domain/listArchitectureProfiles.ts",
+      "line": 5,
+      "column": 1
+    },
+    "exportPaths": [
+      "src/index.ts"
+    ],
+    "relatedSymbols": [
+      "ArchitectureProfile"
+    ],
+    "signatures": [
+      {
+        "label": "() => readonly ArchitectureProfile[]",
+        "parameters": [],
+        "returnType": "readonly ArchitectureProfile[]",
         "returnDescription": null
       }
     ],

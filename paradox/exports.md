@@ -120,6 +120,104 @@ Built-in architecture semantics, separate from observed facts and inferred roles
 | reference | property | `string` | yes |  |
 | roles | property | `readonly ArchitectureRole[]` | yes |  |
 
+## ArchitectureProfile
+
+Kind: `type`
+Module: `src/types/architectureProfile.ts`
+Source: `src/types/architectureProfile.ts:23:1`
+
+Project-specific source conventions layered on top of one generic architecture model.
+
+### Members
+
+| Name | Kind | Type | Required | Description |
+| --- | --- | --- | --- | --- |
+| baseModelId | property | `"hexagonal" \| "clean" \| "onion" \| "layered"` | yes |  |
+| id | property | `"ankhorage"` | yes |  |
+| interpretation | property | `string` | yes |  |
+| name | property | `string` | yes |  |
+| source | property | `{ readonly deliveryEdgeDirectories: readonly string[]; readonly facadeFiles: readonly string[]; readonly featureCombinations: readonly ArchitectureProfileFeatureCombination[]; readonly featureRoot: string; readonly inwardFeatureRoles: readonly string[]; readonly packageWideDirectories: readonly string[]; readonly roles: readonly ArchitectureProfileRole[]; readonly thinDeliveryAdapter: { readonly concreteAdapterSegment: string; readonly pathSegments: readonly string[]; readonly ruleId: string; }; }` | yes |  |
+
+## ArchitectureProfileEvaluationOptions
+
+Kind: `type`
+Module: `src/types/architectureProfile.ts`
+Source: `src/types/architectureProfile.ts:51:1`
+
+Optional generic Rules configuration for explicit architecture-profile evaluation.
+
+### Members
+
+| Name | Kind | Type | Required | Description |
+| --- | --- | --- | --- | --- |
+| config | property | `RulesConfig \| undefined` | no |  |
+
+## ArchitectureProfileEvaluationResult
+
+Kind: `type`
+Module: `src/types/architectureProfile.ts`
+Source: `src/types/architectureProfile.ts:56:1`
+
+Generic Rules result plus the explicitly selected architecture profile.
+
+### Members
+
+| Name | Kind | Type | Required | Description |
+| --- | --- | --- | --- | --- |
+| baseModelId | property | `"hexagonal" \| "clean" \| "onion" \| "layered"` | yes |  |
+| diagnostics | property | `readonly RuleEvaluationDiagnostic[]` | yes |  |
+| findings | property | `readonly RuleFinding<JsonValue>[]` | yes |  |
+| profileId | property | `"ankhorage"` | yes |  |
+
+## ArchitectureProfileFeatureCombination
+
+Kind: `type`
+Module: `src/types/architectureProfile.ts`
+Source: `src/types/architectureProfile.ts:16:1`
+
+One feature-role combination that requires at least one inward owner to exist.
+
+### Members
+
+| Name | Kind | Type | Required | Description |
+| --- | --- | --- | --- | --- |
+| requiresAnyOf | property | `readonly string[]` | yes |  |
+| role | property | `"adapters" \| "composition"` | yes |  |
+| ruleId | property | `string` | yes |  |
+
+## ArchitectureProfileRole
+
+Kind: `type`
+Module: `src/types/architectureProfile.ts`
+Source: `src/types/architectureProfile.ts:7:1`
+
+One inward source role whose imports must not cross into configured outward segments.
+
+### Members
+
+| Name | Kind | Type | Required | Description |
+| --- | --- | --- | --- | --- |
+| forbiddenOutwardSegments | property | `readonly string[]` | yes |  |
+| id | property | `"application" \| "domain" \| "ports"` | yes |  |
+| label | property | `string` | yes |  |
+| ruleId | property | `string` | yes |  |
+| segments | property | `readonly string[]` | yes |  |
+
+## ArchitectureProfileRuleContext
+
+Kind: `type`
+Module: `src/types/architectureProfile.ts`
+Source: `src/types/architectureProfile.ts:45:1`
+
+Architecture-profile Rules context built from language-neutral source facts.
+
+### Members
+
+| Name | Kind | Type | Required | Description |
+| --- | --- | --- | --- | --- |
+| graph | property | `SourceGraph` | yes |  |
+| profile | property | `ArchitectureProfile` | yes |  |
+
 ## ArchitectureRole
 
 Kind: `type`
@@ -183,6 +281,20 @@ Architecture-specific Rules context built from an explicit target model.
 | model | property | `ArchitectureModel` | yes |  |
 | roleAssignments | property | `readonly ArchitectureRoleAssignment[]` | yes |  |
 
+## createArchitectureProfileRuleSet
+
+Kind: `function`
+Module: `src/features/profiles/domain/createArchitectureProfileRuleSet.ts`
+Source: `src/features/profiles/domain/createArchitectureProfileRuleSet.ts:12:1`
+
+Create the rule set for one explicitly selected project architecture profile.
+
+### Signatures
+
+- `(profileId: "ankhorage") => RuleSet<ArchitectureProfileRuleContext>`
+  - profileId: `"ankhorage"`
+  - returns: `RuleSet<ArchitectureProfileRuleContext>`
+
 ## createArchitectureRuleSet
 
 Kind: `function`
@@ -227,6 +339,22 @@ Evaluate one explicitly selected architecture model through the generic Rules en
   - options: `ArchitectureEvaluationOptions` (optional)
   - returns: `ArchitectureEvaluationResult`
 
+## evaluateArchitectureProfile
+
+Kind: `function`
+Module: `src/features/profiles/domain/evaluateArchitectureProfile.ts`
+Source: `src/features/profiles/domain/evaluateArchitectureProfile.ts:15:1`
+
+Evaluate one explicitly selected project profile through the generic Rules engine.
+
+### Signatures
+
+- `(graph: SourceGraph, profileId: "ankhorage", options?: ArchitectureProfileEvaluationOptions) => ArchitectureProfileEvaluationResult`
+  - graph: `SourceGraph`
+  - options: `ArchitectureProfileEvaluationOptions` (optional)
+  - profileId: `"ankhorage"`
+  - returns: `ArchitectureProfileEvaluationResult`
+
 ## inferArchitectureRoles
 
 Kind: `function`
@@ -254,3 +382,16 @@ List established architecture models without inferring a project's target.
 
 - `() => readonly ArchitectureModel[]`
   - returns: `readonly ArchitectureModel[]`
+
+## listArchitectureProfiles
+
+Kind: `function`
+Module: `src/features/profiles/domain/listArchitectureProfiles.ts`
+Source: `src/features/profiles/domain/listArchitectureProfiles.ts:5:1`
+
+List built-in architecture profiles without selecting one implicitly.
+
+### Signatures
+
+- `() => readonly ArchitectureProfile[]`
+  - returns: `readonly ArchitectureProfile[]`

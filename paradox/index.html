@@ -202,6 +202,31 @@
       <small>1 function</small>
     </button>
   </li><li>
+    <button class="nav-button" type="button" data-target="src/features/profiles/domain/createArchitectureProfileRuleSet.ts">
+      src/features/profiles/domain/createArchitectureProfileRuleSet.ts
+      <small>15 functions</small>
+    </button>
+  </li><li>
+    <button class="nav-button" type="button" data-target="src/features/profiles/domain/evaluateArchitectureProfile.test.ts">
+      src/features/profiles/domain/evaluateArchitectureProfile.test.ts
+      <small>4 functions</small>
+    </button>
+  </li><li>
+    <button class="nav-button" type="button" data-target="src/features/profiles/domain/evaluateArchitectureProfile.ts">
+      src/features/profiles/domain/evaluateArchitectureProfile.ts
+      <small>1 function</small>
+    </button>
+  </li><li>
+    <button class="nav-button" type="button" data-target="src/features/profiles/domain/findArchitectureProfile.ts">
+      src/features/profiles/domain/findArchitectureProfile.ts
+      <small>1 function</small>
+    </button>
+  </li><li>
+    <button class="nav-button" type="button" data-target="src/features/profiles/domain/listArchitectureProfiles.ts">
+      src/features/profiles/domain/listArchitectureProfiles.ts
+      <small>1 function</small>
+    </button>
+  </li><li>
     <button class="nav-button" type="button" data-target="src/features/rules/domain/createArchitectureRuleSet.ts">
       src/features/rules/domain/createArchitectureRuleSet.ts
       <small>6 functions</small>
@@ -221,9 +246,9 @@
     <section class="panel">
       <h2>Package overview</h2>
       <div class="summary">
-        <div><strong>16</strong><span class="muted">public exports</span></div>
+        <div><strong>25</strong><span class="muted">public exports</span></div>
         <div><strong>0</strong><span class="muted">components</span></div>
-        <div><strong>27</strong><span class="muted">modules</span></div>
+        <div><strong>34</strong><span class="muted">modules</span></div>
         <div><strong>1</strong><span class="muted">entrypoints</span></div>
       </div>
       <h3>Entrypoints</h3>
@@ -340,16 +365,46 @@
     <p class="muted">Referenced module</p>
     <p><strong>Dependencies:</strong> <code>src/features/models/constants/architectureModels.ts</code>, <code>src/types/architectureModel.ts</code></p>
     <p><strong>Exports:</strong> <code>listArchitectureModels</code></p>
+  </article><article class="item" data-search="src/features/profiles/constants/architectureProfiles.ts src/types/architectureProfile.ts ARCHITECTURE_PROFILES">
+    <h3>src/features/profiles/constants/architectureProfiles.ts</h3>
+    <p class="muted">Referenced module</p>
+    <p><strong>Dependencies:</strong> <code>src/types/architectureProfile.ts</code></p>
+    <p><strong>Exports:</strong> <code>ARCHITECTURE_PROFILES</code></p>
+  </article><article class="item" data-search="src/features/profiles/domain/createArchitectureProfileRuleSet.ts src/features/profiles/domain/findArchitectureProfile.ts src/types/architectureProfile.ts createArchitectureProfileRuleSet">
+    <h3>src/features/profiles/domain/createArchitectureProfileRuleSet.ts</h3>
+    <p class="muted">Referenced module</p>
+    <p><strong>Dependencies:</strong> <code>src/features/profiles/domain/findArchitectureProfile.ts</code>, <code>src/types/architectureProfile.ts</code></p>
+    <p><strong>Exports:</strong> <code>createArchitectureProfileRuleSet</code></p>
+  </article><article class="item" data-search="src/features/profiles/domain/evaluateArchitectureProfile.test.ts src/features/profiles/domain/evaluateArchitectureProfile.ts">
+    <h3>src/features/profiles/domain/evaluateArchitectureProfile.test.ts</h3>
+    <p class="muted">Referenced module</p>
+    <p><strong>Dependencies:</strong> <code>src/features/profiles/domain/evaluateArchitectureProfile.ts</code></p>
+    <p><strong>Exports:</strong> <span class="empty">None</span></p>
+  </article><article class="item" data-search="src/features/profiles/domain/evaluateArchitectureProfile.ts src/features/profiles/domain/createArchitectureProfileRuleSet.ts src/features/profiles/domain/findArchitectureProfile.ts src/types/architectureProfile.ts src/utils/hasSourceCapability.ts evaluateArchitectureProfile">
+    <h3>src/features/profiles/domain/evaluateArchitectureProfile.ts</h3>
+    <p class="muted">Referenced module</p>
+    <p><strong>Dependencies:</strong> <code>src/features/profiles/domain/createArchitectureProfileRuleSet.ts</code>, <code>src/features/profiles/domain/findArchitectureProfile.ts</code>, <code>src/types/architectureProfile.ts</code>, <code>src/utils/hasSourceCapability.ts</code></p>
+    <p><strong>Exports:</strong> <code>evaluateArchitectureProfile</code></p>
+  </article><article class="item" data-search="src/features/profiles/domain/findArchitectureProfile.ts src/features/profiles/constants/architectureProfiles.ts src/types/architectureProfile.ts findArchitectureProfile">
+    <h3>src/features/profiles/domain/findArchitectureProfile.ts</h3>
+    <p class="muted">Referenced module</p>
+    <p><strong>Dependencies:</strong> <code>src/features/profiles/constants/architectureProfiles.ts</code>, <code>src/types/architectureProfile.ts</code></p>
+    <p><strong>Exports:</strong> <code>findArchitectureProfile</code></p>
+  </article><article class="item" data-search="src/features/profiles/domain/listArchitectureProfiles.ts src/features/profiles/constants/architectureProfiles.ts src/types/architectureProfile.ts listArchitectureProfiles">
+    <h3>src/features/profiles/domain/listArchitectureProfiles.ts</h3>
+    <p class="muted">Referenced module</p>
+    <p><strong>Dependencies:</strong> <code>src/features/profiles/constants/architectureProfiles.ts</code>, <code>src/types/architectureProfile.ts</code></p>
+    <p><strong>Exports:</strong> <code>listArchitectureProfiles</code></p>
   </article><article class="item" data-search="src/features/rules/domain/createArchitectureRuleSet.ts src/features/models/domain/findArchitectureModel.ts src/types/architectureAnalysis.ts src/types/architectureModel.ts createArchitectureRuleSet">
     <h3>src/features/rules/domain/createArchitectureRuleSet.ts</h3>
     <p class="muted">Referenced module</p>
     <p><strong>Dependencies:</strong> <code>src/features/models/domain/findArchitectureModel.ts</code>, <code>src/types/architectureAnalysis.ts</code>, <code>src/types/architectureModel.ts</code></p>
     <p><strong>Exports:</strong> <code>createArchitectureRuleSet</code></p>
-  </article><article class="item" data-search="src/index.ts ArchitectureContradiction ArchitectureDetectionCandidate ArchitectureDetectionEvidence ArchitectureDetectionResult ArchitectureEvaluationOptions ArchitectureEvaluationResult ArchitectureModel ArchitectureRole ArchitectureRoleAssignment ArchitectureRoleDependency ArchitectureRuleContext createArchitectureRuleSet detectArchitecture evaluateArchitecture inferArchitectureRoles listArchitectureModels">
+  </article><article class="item" data-search="src/index.ts ArchitectureContradiction ArchitectureDetectionCandidate ArchitectureDetectionEvidence ArchitectureDetectionResult ArchitectureEvaluationOptions ArchitectureEvaluationResult ArchitectureModel ArchitectureProfile ArchitectureProfileEvaluationOptions ArchitectureProfileEvaluationResult ArchitectureProfileFeatureCombination ArchitectureProfileRole ArchitectureProfileRuleContext ArchitectureRole ArchitectureRoleAssignment ArchitectureRoleDependency ArchitectureRuleContext createArchitectureProfileRuleSet createArchitectureRuleSet detectArchitecture evaluateArchitecture evaluateArchitectureProfile inferArchitectureRoles listArchitectureModels listArchitectureProfiles">
     <h3>src/index.ts</h3>
     <p class="muted">Configured entrypoint</p>
     <p><strong>Dependencies:</strong> <span class="empty">None</span></p>
-    <p><strong>Exports:</strong> <code>ArchitectureContradiction</code>, <code>ArchitectureDetectionCandidate</code>, <code>ArchitectureDetectionEvidence</code>, <code>ArchitectureDetectionResult</code>, <code>ArchitectureEvaluationOptions</code>, <code>ArchitectureEvaluationResult</code>, <code>ArchitectureModel</code>, <code>ArchitectureRole</code>, <code>ArchitectureRoleAssignment</code>, <code>ArchitectureRoleDependency</code>, <code>ArchitectureRuleContext</code>, <code>createArchitectureRuleSet</code>, <code>detectArchitecture</code>, <code>evaluateArchitecture</code>, <code>inferArchitectureRoles</code>, <code>listArchitectureModels</code></p>
+    <p><strong>Exports:</strong> <code>ArchitectureContradiction</code>, <code>ArchitectureDetectionCandidate</code>, <code>ArchitectureDetectionEvidence</code>, <code>ArchitectureDetectionResult</code>, <code>ArchitectureEvaluationOptions</code>, <code>ArchitectureEvaluationResult</code>, <code>ArchitectureModel</code>, <code>ArchitectureProfile</code>, <code>ArchitectureProfileEvaluationOptions</code>, <code>ArchitectureProfileEvaluationResult</code>, <code>ArchitectureProfileFeatureCombination</code>, <code>ArchitectureProfileRole</code>, <code>ArchitectureProfileRuleContext</code>, <code>ArchitectureRole</code>, <code>ArchitectureRoleAssignment</code>, <code>ArchitectureRoleDependency</code>, <code>ArchitectureRuleContext</code>, <code>createArchitectureProfileRuleSet</code>, <code>createArchitectureRuleSet</code>, <code>detectArchitecture</code>, <code>evaluateArchitecture</code>, <code>evaluateArchitectureProfile</code>, <code>inferArchitectureRoles</code>, <code>listArchitectureModels</code>, <code>listArchitectureProfiles</code></p>
   </article><article class="item" data-search="src/types/architectureAnalysis.ts src/types/architectureModel.ts ArchitectureContradiction ArchitectureDetectionCandidate ArchitectureDetectionEvidence ArchitectureDetectionResult ArchitectureEvaluationOptions ArchitectureEvaluationResult ArchitectureRoleAssignment ArchitectureRuleContext">
     <h3>src/types/architectureAnalysis.ts</h3>
     <p class="muted">Referenced module</p>
@@ -365,6 +420,11 @@
     <p class="muted">Referenced module</p>
     <p><strong>Dependencies:</strong> <span class="empty">None</span></p>
     <p><strong>Exports:</strong> <code>ArchitectureModel</code>, <code>ArchitectureRole</code>, <code>ArchitectureRoleDependency</code></p>
+  </article><article class="item" data-search="src/types/architectureProfile.ts src/types/architectureModel.ts ArchitectureProfile ArchitectureProfileEvaluationOptions ArchitectureProfileEvaluationResult ArchitectureProfileFeatureCombination ArchitectureProfileRole ArchitectureProfileRuleContext">
+    <h3>src/types/architectureProfile.ts</h3>
+    <p class="muted">Referenced module</p>
+    <p><strong>Dependencies:</strong> <code>src/types/architectureModel.ts</code></p>
+    <p><strong>Exports:</strong> <code>ArchitectureProfile</code>, <code>ArchitectureProfileEvaluationOptions</code>, <code>ArchitectureProfileEvaluationResult</code>, <code>ArchitectureProfileFeatureCombination</code>, <code>ArchitectureProfileRole</code>, <code>ArchitectureProfileRuleContext</code></p>
   </article><article class="item" data-search="src/utils/hasSourceCapability.ts hasSourceCapability">
     <h3>src/utils/hasSourceCapability.ts</h3>
     <p class="muted">Referenced module</p>
@@ -492,6 +552,93 @@
         <pre>() =&gt; readonly ArchitectureModel[]</pre>
         
         <p><strong>Returns:</strong> <code>readonly ArchitectureModel[]</code></p>
+      </div>
+    
+  </article>
+            </section>
+            <section>
+              <h3>src/features/profiles/domain/createArchitectureProfileRuleSet.ts</h3>
+              <article class="item" id="symbol-createarchitectureprofileruleset" data-search="createArchitectureProfileRuleSet  function src/features/profiles/domain/createArchitectureProfileRuleSet.ts Create the rule set for one explicitly selected project architecture profile. ArchitectureProfileRuleContext (profileId: &quot;ankhorage&quot;) =&gt; RuleSet&lt;ArchitectureProfileRuleContext&gt;">
+    <h4>createArchitectureProfileRuleSet</h4>
+    
+    <p class="muted">function • <code>src/features/profiles/domain/createArchitectureProfileRuleSet.ts:12:1</code></p>
+    <p>Create the rule set for one explicitly selected project architecture profile.</p>
+    
+    <p><strong>Export paths:</strong> <code>src/index.ts</code></p>
+    <div><strong>Related symbols:</strong> <ul class="chips"><li class="chip">ArchitectureProfileRuleContext</li></ul></div>
+    <div>
+        <h5>Signature</h5>
+        <pre>(profileId: &quot;ankhorage&quot;) =&gt; RuleSet&lt;ArchitectureProfileRuleContext&gt;</pre>
+        <table>
+                <thead><tr><th>Parameter</th><th>Type</th><th>Required</th><th>Description</th></tr></thead>
+                <tbody>
+                  <tr>
+                        <td><code>profileId</code></td>
+                        <td><code>&quot;ankhorage&quot;</code></td>
+                        <td>yes</td>
+                        <td></td>
+                      </tr>
+                </tbody>
+              </table>
+        <p><strong>Returns:</strong> <code>RuleSet&lt;ArchitectureProfileRuleContext&gt;</code></p>
+      </div>
+    
+  </article>
+            </section>
+            <section>
+              <h3>src/features/profiles/domain/evaluateArchitectureProfile.ts</h3>
+              <article class="item" id="symbol-evaluatearchitectureprofile" data-search="evaluateArchitectureProfile  function src/features/profiles/domain/evaluateArchitectureProfile.ts Evaluate one explicitly selected project profile through the generic Rules engine. ArchitectureProfileEvaluationOptions ArchitectureProfileEvaluationResult (graph: SourceGraph, profileId: &quot;ankhorage&quot;, options?: ArchitectureProfileEvaluationOptions) =&gt; ArchitectureProfileEvaluationResult">
+    <h4>evaluateArchitectureProfile</h4>
+    
+    <p class="muted">function • <code>src/features/profiles/domain/evaluateArchitectureProfile.ts:15:1</code></p>
+    <p>Evaluate one explicitly selected project profile through the generic Rules engine.</p>
+    
+    <p><strong>Export paths:</strong> <code>src/index.ts</code></p>
+    <div><strong>Related symbols:</strong> <ul class="chips"><li class="chip">ArchitectureProfileEvaluationOptions</li><li class="chip">ArchitectureProfileEvaluationResult</li></ul></div>
+    <div>
+        <h5>Signature</h5>
+        <pre>(graph: SourceGraph, profileId: &quot;ankhorage&quot;, options?: ArchitectureProfileEvaluationOptions) =&gt; ArchitectureProfileEvaluationResult</pre>
+        <table>
+                <thead><tr><th>Parameter</th><th>Type</th><th>Required</th><th>Description</th></tr></thead>
+                <tbody>
+                  <tr>
+                        <td><code>graph</code></td>
+                        <td><code>SourceGraph</code></td>
+                        <td>yes</td>
+                        <td></td>
+                      </tr><tr>
+                        <td><code>options</code></td>
+                        <td><code>ArchitectureProfileEvaluationOptions</code></td>
+                        <td>no</td>
+                        <td></td>
+                      </tr><tr>
+                        <td><code>profileId</code></td>
+                        <td><code>&quot;ankhorage&quot;</code></td>
+                        <td>yes</td>
+                        <td></td>
+                      </tr>
+                </tbody>
+              </table>
+        <p><strong>Returns:</strong> <code>ArchitectureProfileEvaluationResult</code></p>
+      </div>
+    
+  </article>
+            </section>
+            <section>
+              <h3>src/features/profiles/domain/listArchitectureProfiles.ts</h3>
+              <article class="item" id="symbol-listarchitectureprofiles" data-search="listArchitectureProfiles  function src/features/profiles/domain/listArchitectureProfiles.ts List built-in architecture profiles without selecting one implicitly. ArchitectureProfile () =&gt; readonly ArchitectureProfile[]">
+    <h4>listArchitectureProfiles</h4>
+    
+    <p class="muted">function • <code>src/features/profiles/domain/listArchitectureProfiles.ts:5:1</code></p>
+    <p>List built-in architecture profiles without selecting one implicitly.</p>
+    
+    <p><strong>Export paths:</strong> <code>src/index.ts</code></p>
+    <div><strong>Related symbols:</strong> <ul class="chips"><li class="chip">ArchitectureProfile</li></ul></div>
+    <div>
+        <h5>Signature</h5>
+        <pre>() =&gt; readonly ArchitectureProfile[]</pre>
+        
+        <p><strong>Returns:</strong> <code>readonly ArchitectureProfile[]</code></p>
       </div>
     
   </article>
@@ -938,6 +1085,220 @@
   </table>
   </article>
             </section>
+            <section>
+              <h3>src/types/architectureProfile.ts</h3>
+              <article class="item" id="symbol-architectureprofile" data-search="ArchitectureProfile  type src/types/architectureProfile.ts Project-specific source conventions layered on top of one generic architecture model. ArchitectureProfileFeatureCombination ArchitectureProfileRole">
+    <h4>ArchitectureProfile</h4>
+    
+    <p class="muted">type • <code>src/types/architectureProfile.ts:23:1</code></p>
+    <p>Project-specific source conventions layered on top of one generic architecture model.</p>
+    
+    <p><strong>Export paths:</strong> <code>src/index.ts</code></p>
+    <div><strong>Related symbols:</strong> <ul class="chips"><li class="chip">ArchitectureProfileFeatureCombination</li><li class="chip">ArchitectureProfileRole</li></ul></div>
+    
+    <table>
+    <thead><tr><th>Member</th><th>Kind</th><th>Type</th><th>Required</th><th>Description</th></tr></thead>
+    <tbody>
+      <tr>
+            <td><code>baseModelId</code></td>
+            <td>property</td>
+            <td><code>&quot;hexagonal&quot; | &quot;clean&quot; | &quot;onion&quot; | &quot;layered&quot;</code></td>
+            <td>yes</td>
+            <td></td>
+          </tr><tr>
+            <td><code>id</code></td>
+            <td>property</td>
+            <td><code>&quot;ankhorage&quot;</code></td>
+            <td>yes</td>
+            <td></td>
+          </tr><tr>
+            <td><code>interpretation</code></td>
+            <td>property</td>
+            <td><code>string</code></td>
+            <td>yes</td>
+            <td></td>
+          </tr><tr>
+            <td><code>name</code></td>
+            <td>property</td>
+            <td><code>string</code></td>
+            <td>yes</td>
+            <td></td>
+          </tr><tr>
+            <td><code>source</code></td>
+            <td>property</td>
+            <td><code>{ readonly deliveryEdgeDirectories: readonly string[]; readonly facadeFiles: readonly string[]; readonly featureCombinations: readonly ArchitectureProfileFeatureCombination[]; readonly featureRoot: string; readonly inwardFeatureRoles: readonly string[]; readonly packageWideDirectories: readonly string[]; readonly roles: readonly ArchitectureProfileRole[]; readonly thinDeliveryAdapter: { readonly concreteAdapterSegment: string; readonly pathSegments: readonly string[]; readonly ruleId: string; }; }</code></td>
+            <td>yes</td>
+            <td></td>
+          </tr>
+    </tbody>
+  </table>
+  </article><article class="item" id="symbol-architectureprofileevaluationoptions" data-search="ArchitectureProfileEvaluationOptions  type src/types/architectureProfile.ts Optional generic Rules configuration for explicit architecture-profile evaluation.">
+    <h4>ArchitectureProfileEvaluationOptions</h4>
+    
+    <p class="muted">type • <code>src/types/architectureProfile.ts:51:1</code></p>
+    <p>Optional generic Rules configuration for explicit architecture-profile evaluation.</p>
+    
+    <p><strong>Export paths:</strong> <code>src/index.ts</code></p>
+    <div><strong>Related symbols:</strong> <span class="empty">None</span></div>
+    
+    <table>
+    <thead><tr><th>Member</th><th>Kind</th><th>Type</th><th>Required</th><th>Description</th></tr></thead>
+    <tbody>
+      <tr>
+            <td><code>config</code></td>
+            <td>property</td>
+            <td><code>RulesConfig | undefined</code></td>
+            <td>no</td>
+            <td></td>
+          </tr>
+    </tbody>
+  </table>
+  </article><article class="item" id="symbol-architectureprofileevaluationresult" data-search="ArchitectureProfileEvaluationResult  type src/types/architectureProfile.ts Generic Rules result plus the explicitly selected architecture profile.">
+    <h4>ArchitectureProfileEvaluationResult</h4>
+    
+    <p class="muted">type • <code>src/types/architectureProfile.ts:56:1</code></p>
+    <p>Generic Rules result plus the explicitly selected architecture profile.</p>
+    
+    <p><strong>Export paths:</strong> <code>src/index.ts</code></p>
+    <div><strong>Related symbols:</strong> <span class="empty">None</span></div>
+    
+    <table>
+    <thead><tr><th>Member</th><th>Kind</th><th>Type</th><th>Required</th><th>Description</th></tr></thead>
+    <tbody>
+      <tr>
+            <td><code>baseModelId</code></td>
+            <td>property</td>
+            <td><code>&quot;hexagonal&quot; | &quot;clean&quot; | &quot;onion&quot; | &quot;layered&quot;</code></td>
+            <td>yes</td>
+            <td></td>
+          </tr><tr>
+            <td><code>diagnostics</code></td>
+            <td>property</td>
+            <td><code>readonly RuleEvaluationDiagnostic[]</code></td>
+            <td>yes</td>
+            <td></td>
+          </tr><tr>
+            <td><code>findings</code></td>
+            <td>property</td>
+            <td><code>readonly RuleFinding&lt;JsonValue&gt;[]</code></td>
+            <td>yes</td>
+            <td></td>
+          </tr><tr>
+            <td><code>profileId</code></td>
+            <td>property</td>
+            <td><code>&quot;ankhorage&quot;</code></td>
+            <td>yes</td>
+            <td></td>
+          </tr>
+    </tbody>
+  </table>
+  </article><article class="item" id="symbol-architectureprofilefeaturecombination" data-search="ArchitectureProfileFeatureCombination  type src/types/architectureProfile.ts One feature-role combination that requires at least one inward owner to exist.">
+    <h4>ArchitectureProfileFeatureCombination</h4>
+    
+    <p class="muted">type • <code>src/types/architectureProfile.ts:16:1</code></p>
+    <p>One feature-role combination that requires at least one inward owner to exist.</p>
+    
+    <p><strong>Export paths:</strong> <code>src/index.ts</code></p>
+    <div><strong>Related symbols:</strong> <span class="empty">None</span></div>
+    
+    <table>
+    <thead><tr><th>Member</th><th>Kind</th><th>Type</th><th>Required</th><th>Description</th></tr></thead>
+    <tbody>
+      <tr>
+            <td><code>requiresAnyOf</code></td>
+            <td>property</td>
+            <td><code>readonly string[]</code></td>
+            <td>yes</td>
+            <td></td>
+          </tr><tr>
+            <td><code>role</code></td>
+            <td>property</td>
+            <td><code>&quot;adapters&quot; | &quot;composition&quot;</code></td>
+            <td>yes</td>
+            <td></td>
+          </tr><tr>
+            <td><code>ruleId</code></td>
+            <td>property</td>
+            <td><code>string</code></td>
+            <td>yes</td>
+            <td></td>
+          </tr>
+    </tbody>
+  </table>
+  </article><article class="item" id="symbol-architectureprofilerole" data-search="ArchitectureProfileRole  type src/types/architectureProfile.ts One inward source role whose imports must not cross into configured outward segments.">
+    <h4>ArchitectureProfileRole</h4>
+    
+    <p class="muted">type • <code>src/types/architectureProfile.ts:7:1</code></p>
+    <p>One inward source role whose imports must not cross into configured outward segments.</p>
+    
+    <p><strong>Export paths:</strong> <code>src/index.ts</code></p>
+    <div><strong>Related symbols:</strong> <span class="empty">None</span></div>
+    
+    <table>
+    <thead><tr><th>Member</th><th>Kind</th><th>Type</th><th>Required</th><th>Description</th></tr></thead>
+    <tbody>
+      <tr>
+            <td><code>forbiddenOutwardSegments</code></td>
+            <td>property</td>
+            <td><code>readonly string[]</code></td>
+            <td>yes</td>
+            <td></td>
+          </tr><tr>
+            <td><code>id</code></td>
+            <td>property</td>
+            <td><code>&quot;application&quot; | &quot;domain&quot; | &quot;ports&quot;</code></td>
+            <td>yes</td>
+            <td></td>
+          </tr><tr>
+            <td><code>label</code></td>
+            <td>property</td>
+            <td><code>string</code></td>
+            <td>yes</td>
+            <td></td>
+          </tr><tr>
+            <td><code>ruleId</code></td>
+            <td>property</td>
+            <td><code>string</code></td>
+            <td>yes</td>
+            <td></td>
+          </tr><tr>
+            <td><code>segments</code></td>
+            <td>property</td>
+            <td><code>readonly string[]</code></td>
+            <td>yes</td>
+            <td></td>
+          </tr>
+    </tbody>
+  </table>
+  </article><article class="item" id="symbol-architectureprofilerulecontext" data-search="ArchitectureProfileRuleContext  type src/types/architectureProfile.ts Architecture-profile Rules context built from language-neutral source facts. ArchitectureProfile">
+    <h4>ArchitectureProfileRuleContext</h4>
+    
+    <p class="muted">type • <code>src/types/architectureProfile.ts:45:1</code></p>
+    <p>Architecture-profile Rules context built from language-neutral source facts.</p>
+    
+    <p><strong>Export paths:</strong> <code>src/index.ts</code></p>
+    <div><strong>Related symbols:</strong> <ul class="chips"><li class="chip">ArchitectureProfile</li></ul></div>
+    
+    <table>
+    <thead><tr><th>Member</th><th>Kind</th><th>Type</th><th>Required</th><th>Description</th></tr></thead>
+    <tbody>
+      <tr>
+            <td><code>graph</code></td>
+            <td>property</td>
+            <td><code>SourceGraph</code></td>
+            <td>yes</td>
+            <td></td>
+          </tr><tr>
+            <td><code>profile</code></td>
+            <td>property</td>
+            <td><code>ArchitectureProfile</code></td>
+            <td>yes</td>
+            <td></td>
+          </tr>
+    </tbody>
+  </table>
+  </article>
+            </section>
     </section>
     <section class="panel">
       <h2>Component registry</h2>
@@ -1036,6 +1397,30 @@
   package__ankhorage_rules_architecture -.-&gt; module_src_features_models_domain_listArchitectureModels_ts
   module_src_features_models_domain_listArchitectureModels_ts --&gt; module_src_features_models_constants_architectureModels_ts
   module_src_features_models_domain_listArchitectureModels_ts --&gt; module_src_types_architectureModel_ts
+  module_src_features_profiles_constants_architectureProfiles_ts[&quot;src/features/profiles/constants/architectureProfiles.ts&quot;]
+  package__ankhorage_rules_architecture -.-&gt; module_src_features_profiles_constants_architectureProfiles_ts
+  module_src_features_profiles_constants_architectureProfiles_ts --&gt; module_src_types_architectureProfile_ts
+  module_src_features_profiles_domain_createArchitectureProfileRuleSet_ts[&quot;src/features/profiles/domain/createArchitectureProfileRuleSet.ts&quot;]
+  package__ankhorage_rules_architecture -.-&gt; module_src_features_profiles_domain_createArchitectureProfileRuleSet_ts
+  module_src_features_profiles_domain_createArchitectureProfileRuleSet_ts --&gt; module_src_features_profiles_domain_findArchitectureProfile_ts
+  module_src_features_profiles_domain_createArchitectureProfileRuleSet_ts --&gt; module_src_types_architectureProfile_ts
+  module_src_features_profiles_domain_evaluateArchitectureProfile_test_ts[&quot;src/features/profiles/domain/evaluateArchitectureProfile.test.ts&quot;]
+  package__ankhorage_rules_architecture -.-&gt; module_src_features_profiles_domain_evaluateArchitectureProfile_test_ts
+  module_src_features_profiles_domain_evaluateArchitectureProfile_test_ts --&gt; module_src_features_profiles_domain_evaluateArchitectureProfile_ts
+  module_src_features_profiles_domain_evaluateArchitectureProfile_ts[&quot;src/features/profiles/domain/evaluateArchitectureProfile.ts&quot;]
+  package__ankhorage_rules_architecture -.-&gt; module_src_features_profiles_domain_evaluateArchitectureProfile_ts
+  module_src_features_profiles_domain_evaluateArchitectureProfile_ts --&gt; module_src_features_profiles_domain_createArchitectureProfileRuleSet_ts
+  module_src_features_profiles_domain_evaluateArchitectureProfile_ts --&gt; module_src_features_profiles_domain_findArchitectureProfile_ts
+  module_src_features_profiles_domain_evaluateArchitectureProfile_ts --&gt; module_src_types_architectureProfile_ts
+  module_src_features_profiles_domain_evaluateArchitectureProfile_ts --&gt; module_src_utils_hasSourceCapability_ts
+  module_src_features_profiles_domain_findArchitectureProfile_ts[&quot;src/features/profiles/domain/findArchitectureProfile.ts&quot;]
+  package__ankhorage_rules_architecture -.-&gt; module_src_features_profiles_domain_findArchitectureProfile_ts
+  module_src_features_profiles_domain_findArchitectureProfile_ts --&gt; module_src_features_profiles_constants_architectureProfiles_ts
+  module_src_features_profiles_domain_findArchitectureProfile_ts --&gt; module_src_types_architectureProfile_ts
+  module_src_features_profiles_domain_listArchitectureProfiles_ts[&quot;src/features/profiles/domain/listArchitectureProfiles.ts&quot;]
+  package__ankhorage_rules_architecture -.-&gt; module_src_features_profiles_domain_listArchitectureProfiles_ts
+  module_src_features_profiles_domain_listArchitectureProfiles_ts --&gt; module_src_features_profiles_constants_architectureProfiles_ts
+  module_src_features_profiles_domain_listArchitectureProfiles_ts --&gt; module_src_types_architectureProfile_ts
   module_src_features_rules_domain_createArchitectureRuleSet_ts[&quot;src/features/rules/domain/createArchitectureRuleSet.ts&quot;]
   package__ankhorage_rules_architecture -.-&gt; module_src_features_rules_domain_createArchitectureRuleSet_ts
   module_src_features_rules_domain_createArchitectureRuleSet_ts --&gt; module_src_features_models_domain_findArchitectureModel_ts
@@ -1050,6 +1435,9 @@
   module_src_types_architectureCli_ts --&gt; module_src_types_architectureModel_ts
   module_src_types_architectureModel_ts[&quot;src/types/architectureModel.ts&quot;]
   package__ankhorage_rules_architecture -.-&gt; module_src_types_architectureModel_ts
+  module_src_types_architectureProfile_ts[&quot;src/types/architectureProfile.ts&quot;]
+  package__ankhorage_rules_architecture -.-&gt; module_src_types_architectureProfile_ts
+  module_src_types_architectureProfile_ts --&gt; module_src_types_architectureModel_ts
   module_src_utils_hasSourceCapability_ts[&quot;src/utils/hasSourceCapability.ts&quot;]
   package__ankhorage_rules_architecture -.-&gt; module_src_utils_hasSourceCapability_ts
 </div>
@@ -1143,6 +1531,30 @@
   package__ankhorage_rules_architecture -.-&gt; module_src_features_models_domain_listArchitectureModels_ts
   module_src_features_models_domain_listArchitectureModels_ts --&gt; module_src_features_models_constants_architectureModels_ts
   module_src_features_models_domain_listArchitectureModels_ts --&gt; module_src_types_architectureModel_ts
+  module_src_features_profiles_constants_architectureProfiles_ts[&quot;src/features/profiles/constants/architectureProfiles.ts&quot;]
+  package__ankhorage_rules_architecture -.-&gt; module_src_features_profiles_constants_architectureProfiles_ts
+  module_src_features_profiles_constants_architectureProfiles_ts --&gt; module_src_types_architectureProfile_ts
+  module_src_features_profiles_domain_createArchitectureProfileRuleSet_ts[&quot;src/features/profiles/domain/createArchitectureProfileRuleSet.ts&quot;]
+  package__ankhorage_rules_architecture -.-&gt; module_src_features_profiles_domain_createArchitectureProfileRuleSet_ts
+  module_src_features_profiles_domain_createArchitectureProfileRuleSet_ts --&gt; module_src_features_profiles_domain_findArchitectureProfile_ts
+  module_src_features_profiles_domain_createArchitectureProfileRuleSet_ts --&gt; module_src_types_architectureProfile_ts
+  module_src_features_profiles_domain_evaluateArchitectureProfile_test_ts[&quot;src/features/profiles/domain/evaluateArchitectureProfile.test.ts&quot;]
+  package__ankhorage_rules_architecture -.-&gt; module_src_features_profiles_domain_evaluateArchitectureProfile_test_ts
+  module_src_features_profiles_domain_evaluateArchitectureProfile_test_ts --&gt; module_src_features_profiles_domain_evaluateArchitectureProfile_ts
+  module_src_features_profiles_domain_evaluateArchitectureProfile_ts[&quot;src/features/profiles/domain/evaluateArchitectureProfile.ts&quot;]
+  package__ankhorage_rules_architecture -.-&gt; module_src_features_profiles_domain_evaluateArchitectureProfile_ts
+  module_src_features_profiles_domain_evaluateArchitectureProfile_ts --&gt; module_src_features_profiles_domain_createArchitectureProfileRuleSet_ts
+  module_src_features_profiles_domain_evaluateArchitectureProfile_ts --&gt; module_src_features_profiles_domain_findArchitectureProfile_ts
+  module_src_features_profiles_domain_evaluateArchitectureProfile_ts --&gt; module_src_types_architectureProfile_ts
+  module_src_features_profiles_domain_evaluateArchitectureProfile_ts --&gt; module_src_utils_hasSourceCapability_ts
+  module_src_features_profiles_domain_findArchitectureProfile_ts[&quot;src/features/profiles/domain/findArchitectureProfile.ts&quot;]
+  package__ankhorage_rules_architecture -.-&gt; module_src_features_profiles_domain_findArchitectureProfile_ts
+  module_src_features_profiles_domain_findArchitectureProfile_ts --&gt; module_src_features_profiles_constants_architectureProfiles_ts
+  module_src_features_profiles_domain_findArchitectureProfile_ts --&gt; module_src_types_architectureProfile_ts
+  module_src_features_profiles_domain_listArchitectureProfiles_ts[&quot;src/features/profiles/domain/listArchitectureProfiles.ts&quot;]
+  package__ankhorage_rules_architecture -.-&gt; module_src_features_profiles_domain_listArchitectureProfiles_ts
+  module_src_features_profiles_domain_listArchitectureProfiles_ts --&gt; module_src_features_profiles_constants_architectureProfiles_ts
+  module_src_features_profiles_domain_listArchitectureProfiles_ts --&gt; module_src_types_architectureProfile_ts
   module_src_features_rules_domain_createArchitectureRuleSet_ts[&quot;src/features/rules/domain/createArchitectureRuleSet.ts&quot;]
   package__ankhorage_rules_architecture -.-&gt; module_src_features_rules_domain_createArchitectureRuleSet_ts
   module_src_features_rules_domain_createArchitectureRuleSet_ts --&gt; module_src_features_models_domain_findArchitectureModel_ts
@@ -1157,6 +1569,9 @@
   module_src_types_architectureCli_ts --&gt; module_src_types_architectureModel_ts
   module_src_types_architectureModel_ts[&quot;src/types/architectureModel.ts&quot;]
   package__ankhorage_rules_architecture -.-&gt; module_src_types_architectureModel_ts
+  module_src_types_architectureProfile_ts[&quot;src/types/architectureProfile.ts&quot;]
+  package__ankhorage_rules_architecture -.-&gt; module_src_types_architectureProfile_ts
+  module_src_types_architectureProfile_ts --&gt; module_src_types_architectureModel_ts
   module_src_utils_hasSourceCapability_ts[&quot;src/utils/hasSourceCapability.ts&quot;]
   package__ankhorage_rules_architecture -.-&gt; module_src_utils_hasSourceCapability_ts
 </pre>
@@ -1186,11 +1601,18 @@
   module_src_features_models_domain_findArchitectureModel_ts[&quot;src/features/models/domain/findArchitectureModel.ts&quot;]
   module_src_features_models_domain_listArchitectureModels_test_ts[&quot;src/features/models/domain/listArchitectureModels.test.ts&quot;]
   module_src_features_models_domain_listArchitectureModels_ts[&quot;src/features/models/domain/listArchitectureModels.ts&quot;]
+  module_src_features_profiles_constants_architectureProfiles_ts[&quot;src/features/profiles/constants/architectureProfiles.ts&quot;]
+  module_src_features_profiles_domain_createArchitectureProfileRuleSet_ts[&quot;src/features/profiles/domain/createArchitectureProfileRuleSet.ts&quot;]
+  module_src_features_profiles_domain_evaluateArchitectureProfile_test_ts[&quot;src/features/profiles/domain/evaluateArchitectureProfile.test.ts&quot;]
+  module_src_features_profiles_domain_evaluateArchitectureProfile_ts[&quot;src/features/profiles/domain/evaluateArchitectureProfile.ts&quot;]
+  module_src_features_profiles_domain_findArchitectureProfile_ts[&quot;src/features/profiles/domain/findArchitectureProfile.ts&quot;]
+  module_src_features_profiles_domain_listArchitectureProfiles_ts[&quot;src/features/profiles/domain/listArchitectureProfiles.ts&quot;]
   module_src_features_rules_domain_createArchitectureRuleSet_ts[&quot;src/features/rules/domain/createArchitectureRuleSet.ts&quot;]
   module_src_index_ts[&quot;src/index.ts&quot;]
   module_src_types_architectureAnalysis_ts[&quot;src/types/architectureAnalysis.ts&quot;]
   module_src_types_architectureCli_ts[&quot;src/types/architectureCli.ts&quot;]
   module_src_types_architectureModel_ts[&quot;src/types/architectureModel.ts&quot;]
+  module_src_types_architectureProfile_ts[&quot;src/types/architectureProfile.ts&quot;]
   module_src_utils_hasSourceCapability_ts[&quot;src/utils/hasSourceCapability.ts&quot;]
   module_src_cli_commands_detect_ts --&gt; module_src_cli_utils_parseArchitectureCommandOptions_ts
   module_src_cli_commands_detect_ts --&gt; module_src_features_detection_domain_detectArchitecture_ts
@@ -1234,11 +1656,24 @@
   module_src_features_models_domain_listArchitectureModels_test_ts --&gt; module_src_features_models_domain_listArchitectureModels_ts
   module_src_features_models_domain_listArchitectureModels_ts --&gt; module_src_features_models_constants_architectureModels_ts
   module_src_features_models_domain_listArchitectureModels_ts --&gt; module_src_types_architectureModel_ts
+  module_src_features_profiles_constants_architectureProfiles_ts --&gt; module_src_types_architectureProfile_ts
+  module_src_features_profiles_domain_createArchitectureProfileRuleSet_ts --&gt; module_src_features_profiles_domain_findArchitectureProfile_ts
+  module_src_features_profiles_domain_createArchitectureProfileRuleSet_ts --&gt; module_src_types_architectureProfile_ts
+  module_src_features_profiles_domain_evaluateArchitectureProfile_test_ts --&gt; module_src_features_profiles_domain_evaluateArchitectureProfile_ts
+  module_src_features_profiles_domain_evaluateArchitectureProfile_ts --&gt; module_src_features_profiles_domain_createArchitectureProfileRuleSet_ts
+  module_src_features_profiles_domain_evaluateArchitectureProfile_ts --&gt; module_src_features_profiles_domain_findArchitectureProfile_ts
+  module_src_features_profiles_domain_evaluateArchitectureProfile_ts --&gt; module_src_types_architectureProfile_ts
+  module_src_features_profiles_domain_evaluateArchitectureProfile_ts --&gt; module_src_utils_hasSourceCapability_ts
+  module_src_features_profiles_domain_findArchitectureProfile_ts --&gt; module_src_features_profiles_constants_architectureProfiles_ts
+  module_src_features_profiles_domain_findArchitectureProfile_ts --&gt; module_src_types_architectureProfile_ts
+  module_src_features_profiles_domain_listArchitectureProfiles_ts --&gt; module_src_features_profiles_constants_architectureProfiles_ts
+  module_src_features_profiles_domain_listArchitectureProfiles_ts --&gt; module_src_types_architectureProfile_ts
   module_src_features_rules_domain_createArchitectureRuleSet_ts --&gt; module_src_features_models_domain_findArchitectureModel_ts
   module_src_features_rules_domain_createArchitectureRuleSet_ts --&gt; module_src_types_architectureAnalysis_ts
   module_src_features_rules_domain_createArchitectureRuleSet_ts --&gt; module_src_types_architectureModel_ts
   module_src_types_architectureAnalysis_ts --&gt; module_src_types_architectureModel_ts
   module_src_types_architectureCli_ts --&gt; module_src_types_architectureModel_ts
+  module_src_types_architectureProfile_ts --&gt; module_src_types_architectureModel_ts
 </div>
     <details>
       <summary>View Mermaid source</summary>
@@ -1264,11 +1699,18 @@
   module_src_features_models_domain_findArchitectureModel_ts[&quot;src/features/models/domain/findArchitectureModel.ts&quot;]
   module_src_features_models_domain_listArchitectureModels_test_ts[&quot;src/features/models/domain/listArchitectureModels.test.ts&quot;]
   module_src_features_models_domain_listArchitectureModels_ts[&quot;src/features/models/domain/listArchitectureModels.ts&quot;]
+  module_src_features_profiles_constants_architectureProfiles_ts[&quot;src/features/profiles/constants/architectureProfiles.ts&quot;]
+  module_src_features_profiles_domain_createArchitectureProfileRuleSet_ts[&quot;src/features/profiles/domain/createArchitectureProfileRuleSet.ts&quot;]
+  module_src_features_profiles_domain_evaluateArchitectureProfile_test_ts[&quot;src/features/profiles/domain/evaluateArchitectureProfile.test.ts&quot;]
+  module_src_features_profiles_domain_evaluateArchitectureProfile_ts[&quot;src/features/profiles/domain/evaluateArchitectureProfile.ts&quot;]
+  module_src_features_profiles_domain_findArchitectureProfile_ts[&quot;src/features/profiles/domain/findArchitectureProfile.ts&quot;]
+  module_src_features_profiles_domain_listArchitectureProfiles_ts[&quot;src/features/profiles/domain/listArchitectureProfiles.ts&quot;]
   module_src_features_rules_domain_createArchitectureRuleSet_ts[&quot;src/features/rules/domain/createArchitectureRuleSet.ts&quot;]
   module_src_index_ts[&quot;src/index.ts&quot;]
   module_src_types_architectureAnalysis_ts[&quot;src/types/architectureAnalysis.ts&quot;]
   module_src_types_architectureCli_ts[&quot;src/types/architectureCli.ts&quot;]
   module_src_types_architectureModel_ts[&quot;src/types/architectureModel.ts&quot;]
+  module_src_types_architectureProfile_ts[&quot;src/types/architectureProfile.ts&quot;]
   module_src_utils_hasSourceCapability_ts[&quot;src/utils/hasSourceCapability.ts&quot;]
   module_src_cli_commands_detect_ts --&gt; module_src_cli_utils_parseArchitectureCommandOptions_ts
   module_src_cli_commands_detect_ts --&gt; module_src_features_detection_domain_detectArchitecture_ts
@@ -1312,11 +1754,24 @@
   module_src_features_models_domain_listArchitectureModels_test_ts --&gt; module_src_features_models_domain_listArchitectureModels_ts
   module_src_features_models_domain_listArchitectureModels_ts --&gt; module_src_features_models_constants_architectureModels_ts
   module_src_features_models_domain_listArchitectureModels_ts --&gt; module_src_types_architectureModel_ts
+  module_src_features_profiles_constants_architectureProfiles_ts --&gt; module_src_types_architectureProfile_ts
+  module_src_features_profiles_domain_createArchitectureProfileRuleSet_ts --&gt; module_src_features_profiles_domain_findArchitectureProfile_ts
+  module_src_features_profiles_domain_createArchitectureProfileRuleSet_ts --&gt; module_src_types_architectureProfile_ts
+  module_src_features_profiles_domain_evaluateArchitectureProfile_test_ts --&gt; module_src_features_profiles_domain_evaluateArchitectureProfile_ts
+  module_src_features_profiles_domain_evaluateArchitectureProfile_ts --&gt; module_src_features_profiles_domain_createArchitectureProfileRuleSet_ts
+  module_src_features_profiles_domain_evaluateArchitectureProfile_ts --&gt; module_src_features_profiles_domain_findArchitectureProfile_ts
+  module_src_features_profiles_domain_evaluateArchitectureProfile_ts --&gt; module_src_types_architectureProfile_ts
+  module_src_features_profiles_domain_evaluateArchitectureProfile_ts --&gt; module_src_utils_hasSourceCapability_ts
+  module_src_features_profiles_domain_findArchitectureProfile_ts --&gt; module_src_features_profiles_constants_architectureProfiles_ts
+  module_src_features_profiles_domain_findArchitectureProfile_ts --&gt; module_src_types_architectureProfile_ts
+  module_src_features_profiles_domain_listArchitectureProfiles_ts --&gt; module_src_features_profiles_constants_architectureProfiles_ts
+  module_src_features_profiles_domain_listArchitectureProfiles_ts --&gt; module_src_types_architectureProfile_ts
   module_src_features_rules_domain_createArchitectureRuleSet_ts --&gt; module_src_features_models_domain_findArchitectureModel_ts
   module_src_features_rules_domain_createArchitectureRuleSet_ts --&gt; module_src_types_architectureAnalysis_ts
   module_src_features_rules_domain_createArchitectureRuleSet_ts --&gt; module_src_types_architectureModel_ts
   module_src_types_architectureAnalysis_ts --&gt; module_src_types_architectureModel_ts
   module_src_types_architectureCli_ts --&gt; module_src_types_architectureModel_ts
+  module_src_types_architectureProfile_ts --&gt; module_src_types_architectureModel_ts
 </pre>
     </details>
   </article><article class="item" data-search="Export graph diagrams/export-graph.mmd">
@@ -1344,11 +1799,18 @@
   module_src_features_models_domain_findArchitectureModel_ts[&quot;src/features/models/domain/findArchitectureModel.ts&quot;]
   module_src_features_models_domain_listArchitectureModels_test_ts[&quot;src/features/models/domain/listArchitectureModels.test.ts&quot;]
   module_src_features_models_domain_listArchitectureModels_ts[&quot;src/features/models/domain/listArchitectureModels.ts&quot;]
+  module_src_features_profiles_constants_architectureProfiles_ts[&quot;src/features/profiles/constants/architectureProfiles.ts&quot;]
+  module_src_features_profiles_domain_createArchitectureProfileRuleSet_ts[&quot;src/features/profiles/domain/createArchitectureProfileRuleSet.ts&quot;]
+  module_src_features_profiles_domain_evaluateArchitectureProfile_test_ts[&quot;src/features/profiles/domain/evaluateArchitectureProfile.test.ts&quot;]
+  module_src_features_profiles_domain_evaluateArchitectureProfile_ts[&quot;src/features/profiles/domain/evaluateArchitectureProfile.ts&quot;]
+  module_src_features_profiles_domain_findArchitectureProfile_ts[&quot;src/features/profiles/domain/findArchitectureProfile.ts&quot;]
+  module_src_features_profiles_domain_listArchitectureProfiles_ts[&quot;src/features/profiles/domain/listArchitectureProfiles.ts&quot;]
   module_src_features_rules_domain_createArchitectureRuleSet_ts[&quot;src/features/rules/domain/createArchitectureRuleSet.ts&quot;]
   module_src_index_ts[&quot;src/index.ts&quot;]
   module_src_types_architectureAnalysis_ts[&quot;src/types/architectureAnalysis.ts&quot;]
   module_src_types_architectureCli_ts[&quot;src/types/architectureCli.ts&quot;]
   module_src_types_architectureModel_ts[&quot;src/types/architectureModel.ts&quot;]
+  module_src_types_architectureProfile_ts[&quot;src/types/architectureProfile.ts&quot;]
   module_src_utils_hasSourceCapability_ts[&quot;src/utils/hasSourceCapability.ts&quot;]
   export_ArchitectureContradiction[&quot;ArchitectureContradiction&quot;]
   module_src_types_architectureAnalysis_ts --&gt; export_ArchitectureContradiction
@@ -1371,6 +1833,21 @@
   module_src_types_architectureModel_ts --&gt; export_ArchitectureModel
   export_ArchitectureModel -.-&gt; export_ArchitectureRole
   export_ArchitectureModel -.-&gt; export_ArchitectureRoleDependency
+  export_ArchitectureProfile[&quot;ArchitectureProfile&quot;]
+  module_src_types_architectureProfile_ts --&gt; export_ArchitectureProfile
+  export_ArchitectureProfile -.-&gt; export_ArchitectureProfileFeatureCombination
+  export_ArchitectureProfile -.-&gt; export_ArchitectureProfileRole
+  export_ArchitectureProfileEvaluationOptions[&quot;ArchitectureProfileEvaluationOptions&quot;]
+  module_src_types_architectureProfile_ts --&gt; export_ArchitectureProfileEvaluationOptions
+  export_ArchitectureProfileEvaluationResult[&quot;ArchitectureProfileEvaluationResult&quot;]
+  module_src_types_architectureProfile_ts --&gt; export_ArchitectureProfileEvaluationResult
+  export_ArchitectureProfileFeatureCombination[&quot;ArchitectureProfileFeatureCombination&quot;]
+  module_src_types_architectureProfile_ts --&gt; export_ArchitectureProfileFeatureCombination
+  export_ArchitectureProfileRole[&quot;ArchitectureProfileRole&quot;]
+  module_src_types_architectureProfile_ts --&gt; export_ArchitectureProfileRole
+  export_ArchitectureProfileRuleContext[&quot;ArchitectureProfileRuleContext&quot;]
+  module_src_types_architectureProfile_ts --&gt; export_ArchitectureProfileRuleContext
+  export_ArchitectureProfileRuleContext -.-&gt; export_ArchitectureProfile
   export_ArchitectureRole[&quot;ArchitectureRole&quot;]
   module_src_types_architectureModel_ts --&gt; export_ArchitectureRole
   export_ArchitectureRoleAssignment[&quot;ArchitectureRoleAssignment&quot;]
@@ -1382,6 +1859,9 @@
   module_src_types_architectureAnalysis_ts --&gt; export_ArchitectureRuleContext
   export_ArchitectureRuleContext -.-&gt; export_ArchitectureModel
   export_ArchitectureRuleContext -.-&gt; export_ArchitectureRoleAssignment
+  export_createArchitectureProfileRuleSet[&quot;createArchitectureProfileRuleSet&quot;]
+  module_src_features_profiles_domain_createArchitectureProfileRuleSet_ts --&gt; export_createArchitectureProfileRuleSet
+  export_createArchitectureProfileRuleSet -.-&gt; export_ArchitectureProfileRuleContext
   export_createArchitectureRuleSet[&quot;createArchitectureRuleSet&quot;]
   module_src_features_rules_domain_createArchitectureRuleSet_ts --&gt; export_createArchitectureRuleSet
   export_createArchitectureRuleSet -.-&gt; export_ArchitectureRuleContext
@@ -1392,6 +1872,10 @@
   module_src_features_evaluation_domain_evaluateArchitecture_ts --&gt; export_evaluateArchitecture
   export_evaluateArchitecture -.-&gt; export_ArchitectureEvaluationOptions
   export_evaluateArchitecture -.-&gt; export_ArchitectureEvaluationResult
+  export_evaluateArchitectureProfile[&quot;evaluateArchitectureProfile&quot;]
+  module_src_features_profiles_domain_evaluateArchitectureProfile_ts --&gt; export_evaluateArchitectureProfile
+  export_evaluateArchitectureProfile -.-&gt; export_ArchitectureProfileEvaluationOptions
+  export_evaluateArchitectureProfile -.-&gt; export_ArchitectureProfileEvaluationResult
   export_inferArchitectureRoles[&quot;inferArchitectureRoles&quot;]
   module_src_features_detection_domain_inferArchitectureRoles_ts --&gt; export_inferArchitectureRoles
   export_inferArchitectureRoles -.-&gt; export_ArchitectureModel
@@ -1399,6 +1883,9 @@
   export_listArchitectureModels[&quot;listArchitectureModels&quot;]
   module_src_features_models_domain_listArchitectureModels_ts --&gt; export_listArchitectureModels
   export_listArchitectureModels -.-&gt; export_ArchitectureModel
+  export_listArchitectureProfiles[&quot;listArchitectureProfiles&quot;]
+  module_src_features_profiles_domain_listArchitectureProfiles_ts --&gt; export_listArchitectureProfiles
+  export_listArchitectureProfiles -.-&gt; export_ArchitectureProfile
 </div>
     <details>
       <summary>View Mermaid source</summary>
@@ -1424,11 +1911,18 @@
   module_src_features_models_domain_findArchitectureModel_ts[&quot;src/features/models/domain/findArchitectureModel.ts&quot;]
   module_src_features_models_domain_listArchitectureModels_test_ts[&quot;src/features/models/domain/listArchitectureModels.test.ts&quot;]
   module_src_features_models_domain_listArchitectureModels_ts[&quot;src/features/models/domain/listArchitectureModels.ts&quot;]
+  module_src_features_profiles_constants_architectureProfiles_ts[&quot;src/features/profiles/constants/architectureProfiles.ts&quot;]
+  module_src_features_profiles_domain_createArchitectureProfileRuleSet_ts[&quot;src/features/profiles/domain/createArchitectureProfileRuleSet.ts&quot;]
+  module_src_features_profiles_domain_evaluateArchitectureProfile_test_ts[&quot;src/features/profiles/domain/evaluateArchitectureProfile.test.ts&quot;]
+  module_src_features_profiles_domain_evaluateArchitectureProfile_ts[&quot;src/features/profiles/domain/evaluateArchitectureProfile.ts&quot;]
+  module_src_features_profiles_domain_findArchitectureProfile_ts[&quot;src/features/profiles/domain/findArchitectureProfile.ts&quot;]
+  module_src_features_profiles_domain_listArchitectureProfiles_ts[&quot;src/features/profiles/domain/listArchitectureProfiles.ts&quot;]
   module_src_features_rules_domain_createArchitectureRuleSet_ts[&quot;src/features/rules/domain/createArchitectureRuleSet.ts&quot;]
   module_src_index_ts[&quot;src/index.ts&quot;]
   module_src_types_architectureAnalysis_ts[&quot;src/types/architectureAnalysis.ts&quot;]
   module_src_types_architectureCli_ts[&quot;src/types/architectureCli.ts&quot;]
   module_src_types_architectureModel_ts[&quot;src/types/architectureModel.ts&quot;]
+  module_src_types_architectureProfile_ts[&quot;src/types/architectureProfile.ts&quot;]
   module_src_utils_hasSourceCapability_ts[&quot;src/utils/hasSourceCapability.ts&quot;]
   export_ArchitectureContradiction[&quot;ArchitectureContradiction&quot;]
   module_src_types_architectureAnalysis_ts --&gt; export_ArchitectureContradiction
@@ -1451,6 +1945,21 @@
   module_src_types_architectureModel_ts --&gt; export_ArchitectureModel
   export_ArchitectureModel -.-&gt; export_ArchitectureRole
   export_ArchitectureModel -.-&gt; export_ArchitectureRoleDependency
+  export_ArchitectureProfile[&quot;ArchitectureProfile&quot;]
+  module_src_types_architectureProfile_ts --&gt; export_ArchitectureProfile
+  export_ArchitectureProfile -.-&gt; export_ArchitectureProfileFeatureCombination
+  export_ArchitectureProfile -.-&gt; export_ArchitectureProfileRole
+  export_ArchitectureProfileEvaluationOptions[&quot;ArchitectureProfileEvaluationOptions&quot;]
+  module_src_types_architectureProfile_ts --&gt; export_ArchitectureProfileEvaluationOptions
+  export_ArchitectureProfileEvaluationResult[&quot;ArchitectureProfileEvaluationResult&quot;]
+  module_src_types_architectureProfile_ts --&gt; export_ArchitectureProfileEvaluationResult
+  export_ArchitectureProfileFeatureCombination[&quot;ArchitectureProfileFeatureCombination&quot;]
+  module_src_types_architectureProfile_ts --&gt; export_ArchitectureProfileFeatureCombination
+  export_ArchitectureProfileRole[&quot;ArchitectureProfileRole&quot;]
+  module_src_types_architectureProfile_ts --&gt; export_ArchitectureProfileRole
+  export_ArchitectureProfileRuleContext[&quot;ArchitectureProfileRuleContext&quot;]
+  module_src_types_architectureProfile_ts --&gt; export_ArchitectureProfileRuleContext
+  export_ArchitectureProfileRuleContext -.-&gt; export_ArchitectureProfile
   export_ArchitectureRole[&quot;ArchitectureRole&quot;]
   module_src_types_architectureModel_ts --&gt; export_ArchitectureRole
   export_ArchitectureRoleAssignment[&quot;ArchitectureRoleAssignment&quot;]
@@ -1462,6 +1971,9 @@
   module_src_types_architectureAnalysis_ts --&gt; export_ArchitectureRuleContext
   export_ArchitectureRuleContext -.-&gt; export_ArchitectureModel
   export_ArchitectureRuleContext -.-&gt; export_ArchitectureRoleAssignment
+  export_createArchitectureProfileRuleSet[&quot;createArchitectureProfileRuleSet&quot;]
+  module_src_features_profiles_domain_createArchitectureProfileRuleSet_ts --&gt; export_createArchitectureProfileRuleSet
+  export_createArchitectureProfileRuleSet -.-&gt; export_ArchitectureProfileRuleContext
   export_createArchitectureRuleSet[&quot;createArchitectureRuleSet&quot;]
   module_src_features_rules_domain_createArchitectureRuleSet_ts --&gt; export_createArchitectureRuleSet
   export_createArchitectureRuleSet -.-&gt; export_ArchitectureRuleContext
@@ -1472,6 +1984,10 @@
   module_src_features_evaluation_domain_evaluateArchitecture_ts --&gt; export_evaluateArchitecture
   export_evaluateArchitecture -.-&gt; export_ArchitectureEvaluationOptions
   export_evaluateArchitecture -.-&gt; export_ArchitectureEvaluationResult
+  export_evaluateArchitectureProfile[&quot;evaluateArchitectureProfile&quot;]
+  module_src_features_profiles_domain_evaluateArchitectureProfile_ts --&gt; export_evaluateArchitectureProfile
+  export_evaluateArchitectureProfile -.-&gt; export_ArchitectureProfileEvaluationOptions
+  export_evaluateArchitectureProfile -.-&gt; export_ArchitectureProfileEvaluationResult
   export_inferArchitectureRoles[&quot;inferArchitectureRoles&quot;]
   module_src_features_detection_domain_inferArchitectureRoles_ts --&gt; export_inferArchitectureRoles
   export_inferArchitectureRoles -.-&gt; export_ArchitectureModel
@@ -1479,6 +1995,9 @@
   export_listArchitectureModels[&quot;listArchitectureModels&quot;]
   module_src_features_models_domain_listArchitectureModels_ts --&gt; export_listArchitectureModels
   export_listArchitectureModels -.-&gt; export_ArchitectureModel
+  export_listArchitectureProfiles[&quot;listArchitectureProfiles&quot;]
+  module_src_features_profiles_domain_listArchitectureProfiles_ts --&gt; export_listArchitectureProfiles
+  export_listArchitectureProfiles -.-&gt; export_ArchitectureProfile
 </pre>
     </details>
   </article><article class="item" data-search="ankhorage-rules-architecture sequence diagrams/sequences/ankhorage-rules-architecture.mmd">
@@ -1509,6 +2028,56 @@
   participant_renderHelp--&gt;&gt;participant_runCli: return
   participant_runCli-&gt;&gt;participant_executeCommand: executeCommand()
   participant_executeCommand--&gt;&gt;participant_runCli: return
+</pre>
+    </details>
+  </article><article class="item" data-search="createArchitectureProfileRuleSet sequence diagrams/sequences/create-architecture-profile-rule-set.mmd">
+    <h3>createArchitectureProfileRuleSet sequence</h3>
+    <p class="muted"><code>diagrams/sequences/create-architecture-profile-rule-set.mmd</code></p>
+    <div class="mermaid">sequenceDiagram
+  participant participant_createArchitectureProfileRuleSet as createArchitectureProfileRuleSet
+  participant participant_createRule as createRule
+  participant participant_featureOwnershipRule as featureOwnershipRule
+  participant participant_findArchitectureProfile as findArchitectureProfile
+  participant participant_roleCombinationRule as roleCombinationRule
+  participant participant_thinDeliveryAdapterRule as thinDeliveryAdapterRule
+  participant_createArchitectureProfileRuleSet-&gt;&gt;participant_findArchitectureProfile: findArchitectureProfile()
+  participant_findArchitectureProfile--&gt;&gt;participant_createArchitectureProfileRuleSet: return
+  participant_createArchitectureProfileRuleSet-&gt;&gt;participant_featureOwnershipRule: featureOwnershipRule()
+  participant_featureOwnershipRule-&gt;&gt;participant_createRule: createRule()
+  participant_createRule--&gt;&gt;participant_featureOwnershipRule: return
+  participant_featureOwnershipRule--&gt;&gt;participant_createArchitectureProfileRuleSet: return
+  participant_createArchitectureProfileRuleSet-&gt;&gt;participant_roleCombinationRule: roleCombinationRule()
+  participant_roleCombinationRule-&gt;&gt;participant_createRule: createRule()
+  participant_createRule--&gt;&gt;participant_roleCombinationRule: return
+  participant_roleCombinationRule--&gt;&gt;participant_createArchitectureProfileRuleSet: return
+  participant_createArchitectureProfileRuleSet-&gt;&gt;participant_thinDeliveryAdapterRule: thinDeliveryAdapterRule()
+  participant_thinDeliveryAdapterRule-&gt;&gt;participant_createRule: createRule()
+  participant_createRule--&gt;&gt;participant_thinDeliveryAdapterRule: return
+  participant_thinDeliveryAdapterRule--&gt;&gt;participant_createArchitectureProfileRuleSet: return
+</div>
+    <details>
+      <summary>View Mermaid source</summary>
+      <pre>sequenceDiagram
+  participant participant_createArchitectureProfileRuleSet as createArchitectureProfileRuleSet
+  participant participant_createRule as createRule
+  participant participant_featureOwnershipRule as featureOwnershipRule
+  participant participant_findArchitectureProfile as findArchitectureProfile
+  participant participant_roleCombinationRule as roleCombinationRule
+  participant participant_thinDeliveryAdapterRule as thinDeliveryAdapterRule
+  participant_createArchitectureProfileRuleSet-&gt;&gt;participant_findArchitectureProfile: findArchitectureProfile()
+  participant_findArchitectureProfile--&gt;&gt;participant_createArchitectureProfileRuleSet: return
+  participant_createArchitectureProfileRuleSet-&gt;&gt;participant_featureOwnershipRule: featureOwnershipRule()
+  participant_featureOwnershipRule-&gt;&gt;participant_createRule: createRule()
+  participant_createRule--&gt;&gt;participant_featureOwnershipRule: return
+  participant_featureOwnershipRule--&gt;&gt;participant_createArchitectureProfileRuleSet: return
+  participant_createArchitectureProfileRuleSet-&gt;&gt;participant_roleCombinationRule: roleCombinationRule()
+  participant_roleCombinationRule-&gt;&gt;participant_createRule: createRule()
+  participant_createRule--&gt;&gt;participant_roleCombinationRule: return
+  participant_roleCombinationRule--&gt;&gt;participant_createArchitectureProfileRuleSet: return
+  participant_createArchitectureProfileRuleSet-&gt;&gt;participant_thinDeliveryAdapterRule: thinDeliveryAdapterRule()
+  participant_thinDeliveryAdapterRule-&gt;&gt;participant_createRule: createRule()
+  participant_createRule--&gt;&gt;participant_thinDeliveryAdapterRule: return
+  participant_thinDeliveryAdapterRule--&gt;&gt;participant_createArchitectureProfileRuleSet: return
 </pre>
     </details>
   </article><article class="item" data-search="createArchitectureRuleSet sequence diagrams/sequences/create-architecture-rule-set.mmd">
@@ -1909,6 +2478,141 @@
     <h3>listArchitectureModels</h3>
     <p class="muted"><code>src/features/models/domain/listArchitectureModels.ts:5:1</code></p>
     <p>List established architecture models without inferring a project&#39;s target.</p>
+    
+  </article>
+    </section>
+  </section><section id="view-src-features-profiles-domain-createarchitectureprofileruleset-ts" class="view" data-view="src/features/profiles/domain/createArchitectureProfileRuleSet.ts" hidden>
+    <section class="panel">
+      <h2>src/features/profiles/domain/createArchitectureProfileRuleSet.ts</h2>
+      <article class="item" data-search="createArchitectureProfileRuleSet src/features/profiles/domain/createArchitectureProfileRuleSet.ts Create the rule set for one explicitly selected project architecture profile.">
+    <h3>createArchitectureProfileRuleSet</h3>
+    <p class="muted"><code>src/features/profiles/domain/createArchitectureProfileRuleSet.ts:12:1</code></p>
+    <p>Create the rule set for one explicitly selected project architecture profile.</p>
+    
+  </article><article class="item" data-search="featureOwnershipRule src/features/profiles/domain/createArchitectureProfileRuleSet.ts Require source implementation ownership below canonical feature or package-wide roots.">
+    <h3>featureOwnershipRule</h3>
+    <p class="muted"><code>src/features/profiles/domain/createArchitectureProfileRuleSet.ts:28:1</code></p>
+    <p>Require source implementation ownership below canonical feature or package-wide roots.</p>
+    
+  </article><article class="item" data-search="roleCombinationRule src/features/profiles/domain/createArchitectureProfileRuleSet.ts Require adapters and composition roles to coexist with a meaningful inward owner.">
+    <h3>roleCombinationRule</h3>
+    <p class="muted"><code>src/features/profiles/domain/createArchitectureProfileRuleSet.ts:49:1</code></p>
+    <p>Require adapters and composition roles to coexist with a meaningful inward owner.</p>
+    
+  </article><article class="item" data-search="roleDirectionRule src/features/profiles/domain/createArchitectureProfileRuleSet.ts Reject imports from one configured inward role into its outward implementation roles.">
+    <h3>roleDirectionRule</h3>
+    <p class="muted"><code>src/features/profiles/domain/createArchitectureProfileRuleSet.ts:82:1</code></p>
+    <p>Reject imports from one configured inward role into its outward implementation roles.</p>
+    
+  </article><article class="item" data-search="thinDeliveryAdapterRule src/features/profiles/domain/createArchitectureProfileRuleSet.ts Keep package-level CLI commands thin by rejecting direct imports of concrete adapters.">
+    <h3>thinDeliveryAdapterRule</h3>
+    <p class="muted"><code>src/features/profiles/domain/createArchitectureProfileRuleSet.ts:114:1</code></p>
+    <p>Keep package-level CLI commands thin by rejecting direct imports of concrete adapters.</p>
+    
+  </article><article class="item" data-search="createRule src/features/profiles/domain/createArchitectureProfileRuleSet.ts Build one error-level architecture-profile rule.">
+    <h3>createRule</h3>
+    <p class="muted"><code>src/features/profiles/domain/createArchitectureProfileRuleSet.ts:142:1</code></p>
+    <p>Build one error-level architecture-profile rule.</p>
+    
+  </article><article class="item" data-search="finding src/features/profiles/domain/createArchitectureProfileRuleSet.ts Build one portable profile finding with optional graph source evidence.">
+    <h3>finding</h3>
+    <p class="muted"><code>src/features/profiles/domain/createArchitectureProfileRuleSet.ts:158:1</code></p>
+    <p>Build one portable profile finding with optional graph source evidence.</p>
+    
+  </article><article class="item" data-search="sourceFilePaths src/features/profiles/domain/createArchitectureProfileRuleSet.ts Collect intrinsic source file paths once from the factual graph.">
+    <h3>sourceFilePaths</h3>
+    <p class="muted"><code>src/features/profiles/domain/createArchitectureProfileRuleSet.ts:179:1</code></p>
+    <p>Collect intrinsic source file paths once from the factual graph.</p>
+    
+  </article><article class="item" data-search="isAllowedSourcePath src/features/profiles/domain/createArchitectureProfileRuleSet.ts Return whether one source file belongs to an allowed Ankhorage ownership root.">
+    <h3>isAllowedSourcePath</h3>
+    <p class="muted"><code>src/features/profiles/domain/createArchitectureProfileRuleSet.ts:188:1</code></p>
+    <p>Return whether one source file belongs to an allowed Ankhorage ownership root.</p>
+    
+  </article><article class="item" data-search="collectFeatureRoles src/features/profiles/domain/createArchitectureProfileRuleSet.ts Collect direct feature role directories from factual file paths.">
+    <h3>collectFeatureRoles</h3>
+    <p class="muted"><code>src/features/profiles/domain/createArchitectureProfileRuleSet.ts:202:1</code></p>
+    <p>Collect direct feature role directories from factual file paths.</p>
+    
+  </article><article class="item" data-search="importRelations src/features/profiles/domain/createArchitectureProfileRuleSet.ts Project factual import edges into source/target file paths.">
+    <h3>importRelations</h3>
+    <p class="muted"><code>src/features/profiles/domain/createArchitectureProfileRuleSet.ts:230:1</code></p>
+    <p>Project factual import edges into source/target file paths.</p>
+    
+  </article><article class="item" data-search="nodePath src/features/profiles/domain/createArchitectureProfileRuleSet.ts Resolve the project-relative path represented by a factual source node.">
+    <h3>nodePath</h3>
+    <p class="muted"><code>src/features/profiles/domain/createArchitectureProfileRuleSet.ts:246:1</code></p>
+    <p>Resolve the project-relative path represented by a factual source node.</p>
+    
+  </article><article class="item" data-search="firstEvidence src/features/profiles/domain/createArchitectureProfileRuleSet.ts Return the first source-location evidence for one observed import.">
+    <h3>firstEvidence</h3>
+    <p class="muted"><code>src/features/profiles/domain/createArchitectureProfileRuleSet.ts:251:1</code></p>
+    <p>Return the first source-location evidence for one observed import.</p>
+    
+  </article><article class="item" data-search="includesSegmentSequence src/features/profiles/domain/createArchitectureProfileRuleSet.ts Check whether one path segment sequence occurs contiguously in another.">
+    <h3>includesSegmentSequence</h3>
+    <p class="muted"><code>src/features/profiles/domain/createArchitectureProfileRuleSet.ts:258:1</code></p>
+    <p>Check whether one path segment sequence occurs contiguously in another.</p>
+    
+  </article><article class="item" data-search="splitPath src/features/profiles/domain/createArchitectureProfileRuleSet.ts Split portable source paths into normalized architecture segments.">
+    <h3>splitPath</h3>
+    <p class="muted"><code>src/features/profiles/domain/createArchitectureProfileRuleSet.ts:268:1</code></p>
+    <p>Split portable source paths into normalized architecture segments.</p>
+    
+  </article>
+    </section>
+  </section><section id="view-src-features-profiles-domain-evaluatearchitectureprofile-test-ts" class="view" data-view="src/features/profiles/domain/evaluateArchitectureProfile.test.ts" hidden>
+    <section class="panel">
+      <h2>src/features/profiles/domain/evaluateArchitectureProfile.test.ts</h2>
+      <article class="item" data-search="ruleIds src/features/profiles/domain/evaluateArchitectureProfile.test.ts Return stable finding rule IDs for one profile evaluation.">
+    <h3>ruleIds</h3>
+    <p class="muted"><code>src/features/profiles/domain/evaluateArchitectureProfile.test.ts:106:1</code></p>
+    <p>Return stable finding rule IDs for one profile evaluation.</p>
+    
+  </article><article class="item" data-search="graph src/features/profiles/domain/evaluateArchitectureProfile.test.ts Build one import-capable source graph fixture.">
+    <h3>graph</h3>
+    <p class="muted"><code>src/features/profiles/domain/evaluateArchitectureProfile.test.ts:111:1</code></p>
+    <p>Build one import-capable source graph fixture.</p>
+    
+  </article><article class="item" data-search="fileNode src/features/profiles/domain/evaluateArchitectureProfile.test.ts Build one intrinsic file node.">
+    <h3>fileNode</h3>
+    <p class="muted"><code>src/features/profiles/domain/evaluateArchitectureProfile.test.ts:120:1</code></p>
+    <p>Build one intrinsic file node.</p>
+    
+  </article><article class="item" data-search="importEdge src/features/profiles/domain/evaluateArchitectureProfile.test.ts Build one observed file import relation.">
+    <h3>importEdge</h3>
+    <p class="muted"><code>src/features/profiles/domain/evaluateArchitectureProfile.test.ts:135:1</code></p>
+    <p>Build one observed file import relation.</p>
+    
+  </article>
+    </section>
+  </section><section id="view-src-features-profiles-domain-evaluatearchitectureprofile-ts" class="view" data-view="src/features/profiles/domain/evaluateArchitectureProfile.ts" hidden>
+    <section class="panel">
+      <h2>src/features/profiles/domain/evaluateArchitectureProfile.ts</h2>
+      <article class="item" data-search="evaluateArchitectureProfile src/features/profiles/domain/evaluateArchitectureProfile.ts Evaluate one explicitly selected project profile through the generic Rules engine.">
+    <h3>evaluateArchitectureProfile</h3>
+    <p class="muted"><code>src/features/profiles/domain/evaluateArchitectureProfile.ts:15:1</code></p>
+    <p>Evaluate one explicitly selected project profile through the generic Rules engine.</p>
+    
+  </article>
+    </section>
+  </section><section id="view-src-features-profiles-domain-findarchitectureprofile-ts" class="view" data-view="src/features/profiles/domain/findArchitectureProfile.ts" hidden>
+    <section class="panel">
+      <h2>src/features/profiles/domain/findArchitectureProfile.ts</h2>
+      <article class="item" data-search="findArchitectureProfile src/features/profiles/domain/findArchitectureProfile.ts Resolve one built-in architecture profile or reject a missing provider definition.">
+    <h3>findArchitectureProfile</h3>
+    <p class="muted"><code>src/features/profiles/domain/findArchitectureProfile.ts:5:1</code></p>
+    <p>Resolve one built-in architecture profile or reject a missing provider definition.</p>
+    
+  </article>
+    </section>
+  </section><section id="view-src-features-profiles-domain-listarchitectureprofiles-ts" class="view" data-view="src/features/profiles/domain/listArchitectureProfiles.ts" hidden>
+    <section class="panel">
+      <h2>src/features/profiles/domain/listArchitectureProfiles.ts</h2>
+      <article class="item" data-search="listArchitectureProfiles src/features/profiles/domain/listArchitectureProfiles.ts List built-in architecture profiles without selecting one implicitly.">
+    <h3>listArchitectureProfiles</h3>
+    <p class="muted"><code>src/features/profiles/domain/listArchitectureProfiles.ts:5:1</code></p>
+    <p>List built-in architecture profiles without selecting one implicitly.</p>
     
   </article>
     </section>

@@ -1,5 +1,12 @@
 # Changelog
 
+## 0.4.0
+
+### Minor Changes
+
+- 3678d8d: Add an explicit Ankhorage architecture profile layered on Hexagonal Architecture, with feature
+  ownership, role-combination, inward-dependency, and thin-delivery rules over SourceGraph facts.
+
 ## 0.3.1
 
 ### Patch Changes

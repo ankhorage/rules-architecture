@@ -1,0 +1,21 @@
+sequenceDiagram
+  participant participant_createArchitectureProfileRuleSet as createArchitectureProfileRuleSet
+  participant participant_createRule as createRule
+  participant participant_featureOwnershipRule as featureOwnershipRule
+  participant participant_findArchitectureProfile as findArchitectureProfile
+  participant participant_roleCombinationRule as roleCombinationRule
+  participant participant_thinDeliveryAdapterRule as thinDeliveryAdapterRule
+  participant_createArchitectureProfileRuleSet->>participant_findArchitectureProfile: findArchitectureProfile()
+  participant_findArchitectureProfile-->>participant_createArchitectureProfileRuleSet: return
+  participant_createArchitectureProfileRuleSet->>participant_featureOwnershipRule: featureOwnershipRule()
+  participant_featureOwnershipRule->>participant_createRule: createRule()
+  participant_createRule-->>participant_featureOwnershipRule: return
+  participant_featureOwnershipRule-->>participant_createArchitectureProfileRuleSet: return
+  participant_createArchitectureProfileRuleSet->>participant_roleCombinationRule: roleCombinationRule()
+  participant_roleCombinationRule->>participant_createRule: createRule()
+  participant_createRule-->>participant_roleCombinationRule: return
+  participant_roleCombinationRule-->>participant_createArchitectureProfileRuleSet: return
+  participant_createArchitectureProfileRuleSet->>participant_thinDeliveryAdapterRule: thinDeliveryAdapterRule()
+  participant_thinDeliveryAdapterRule->>participant_createRule: createRule()
+  participant_createRule-->>participant_thinDeliveryAdapterRule: return
+  participant_thinDeliveryAdapterRule-->>participant_createArchitectureProfileRuleSet: return

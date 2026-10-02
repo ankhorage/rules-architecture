@@ -14,7 +14,7 @@
     {
       "id": "npm",
       "label": "npm",
-      "value": "v0.3.1",
+      "value": "v0.4.0",
       "color": "cb3837"
     },
     {
@@ -297,6 +297,70 @@
       ]
     },
     {
+      "path": "src/features/profiles/constants/architectureProfiles.ts",
+      "isEntrypoint": false,
+      "dependencies": [
+        "src/types/architectureProfile.ts"
+      ],
+      "exports": [
+        "ARCHITECTURE_PROFILES"
+      ]
+    },
+    {
+      "path": "src/features/profiles/domain/createArchitectureProfileRuleSet.ts",
+      "isEntrypoint": false,
+      "dependencies": [
+        "src/features/profiles/domain/findArchitectureProfile.ts",
+        "src/types/architectureProfile.ts"
+      ],
+      "exports": [
+        "createArchitectureProfileRuleSet"
+      ]
+    },
+    {
+      "path": "src/features/profiles/domain/evaluateArchitectureProfile.test.ts",
+      "isEntrypoint": false,
+      "dependencies": [
+        "src/features/profiles/domain/evaluateArchitectureProfile.ts"
+      ],
+      "exports": []
+    },
+    {
+      "path": "src/features/profiles/domain/evaluateArchitectureProfile.ts",
+      "isEntrypoint": false,
+      "dependencies": [
+        "src/features/profiles/domain/createArchitectureProfileRuleSet.ts",
+        "src/features/profiles/domain/findArchitectureProfile.ts",
+        "src/types/architectureProfile.ts",
+        "src/utils/hasSourceCapability.ts"
+      ],
+      "exports": [
+        "evaluateArchitectureProfile"
+      ]
+    },
+    {
+      "path": "src/features/profiles/domain/findArchitectureProfile.ts",
+      "isEntrypoint": false,
+      "dependencies": [
+        "src/features/profiles/constants/architectureProfiles.ts",
+        "src/types/architectureProfile.ts"
+      ],
+      "exports": [
+        "findArchitectureProfile"
+      ]
+    },
+    {
+      "path": "src/features/profiles/domain/listArchitectureProfiles.ts",
+      "isEntrypoint": false,
+      "dependencies": [
+        "src/features/profiles/constants/architectureProfiles.ts",
+        "src/types/architectureProfile.ts"
+      ],
+      "exports": [
+        "listArchitectureProfiles"
+      ]
+    },
+    {
       "path": "src/features/rules/domain/createArchitectureRuleSet.ts",
       "isEntrypoint": false,
       "dependencies": [
@@ -320,15 +384,24 @@
         "ArchitectureEvaluationOptions",
         "ArchitectureEvaluationResult",
         "ArchitectureModel",
+        "ArchitectureProfile",
+        "ArchitectureProfileEvaluationOptions",
+        "ArchitectureProfileEvaluationResult",
+        "ArchitectureProfileFeatureCombination",
+        "ArchitectureProfileRole",
+        "ArchitectureProfileRuleContext",
         "ArchitectureRole",
         "ArchitectureRoleAssignment",
         "ArchitectureRoleDependency",
         "ArchitectureRuleContext",
+        "createArchitectureProfileRuleSet",
         "createArchitectureRuleSet",
         "detectArchitecture",
         "evaluateArchitecture",
+        "evaluateArchitectureProfile",
         "inferArchitectureRoles",
-        "listArchitectureModels"
+        "listArchitectureModels",
+        "listArchitectureProfiles"
       ]
     },
     {
@@ -366,6 +439,21 @@
         "ArchitectureModel",
         "ArchitectureRole",
         "ArchitectureRoleDependency"
+      ]
+    },
+    {
+      "path": "src/types/architectureProfile.ts",
+      "isEntrypoint": false,
+      "dependencies": [
+        "src/types/architectureModel.ts"
+      ],
+      "exports": [
+        "ArchitectureProfile",
+        "ArchitectureProfileEvaluationOptions",
+        "ArchitectureProfileEvaluationResult",
+        "ArchitectureProfileFeatureCombination",
+        "ArchitectureProfileRole",
+        "ArchitectureProfileRuleContext"
       ]
     },
     {
@@ -754,6 +842,289 @@
       "structuredRows": []
     },
     {
+      "name": "ArchitectureProfile",
+      "title": null,
+      "description": "Project-specific source conventions layered on top of one generic architecture model.",
+      "isReadme": false,
+      "see": [],
+      "security": [],
+      "kind": "type",
+      "modulePath": "src/types/architectureProfile.ts",
+      "sourceLocation": {
+        "filePath": "src/types/architectureProfile.ts",
+        "line": 23,
+        "column": 1
+      },
+      "exportPaths": [
+        "src/index.ts"
+      ],
+      "relatedSymbols": [
+        "ArchitectureProfileFeatureCombination",
+        "ArchitectureProfileRole"
+      ],
+      "signatures": [],
+      "members": [
+        {
+          "name": "baseModelId",
+          "kind": "property",
+          "type": "\"hexagonal\" | \"clean\" | \"onion\" | \"layered\"",
+          "required": true,
+          "description": null
+        },
+        {
+          "name": "id",
+          "kind": "property",
+          "type": "\"ankhorage\"",
+          "required": true,
+          "description": null
+        },
+        {
+          "name": "interpretation",
+          "kind": "property",
+          "type": "string",
+          "required": true,
+          "description": null
+        },
+        {
+          "name": "name",
+          "kind": "property",
+          "type": "string",
+          "required": true,
+          "description": null
+        },
+        {
+          "name": "source",
+          "kind": "property",
+          "type": "{ readonly deliveryEdgeDirectories: readonly string[]; readonly facadeFiles: readonly string[]; readonly featureCombinations: readonly ArchitectureProfileFeatureCombination[]; readonly featureRoot: string; readonly inwardFeatureRoles: readonly string[]; readonly packageWideDirectories: readonly string[]; readonly roles: readonly ArchitectureProfileRole[]; readonly thinDeliveryAdapter: { readonly concreteAdapterSegment: string; readonly pathSegments: readonly string[]; readonly ruleId: string; }; }",
+          "required": true,
+          "description": null
+        }
+      ],
+      "structuredRows": []
+    },
+    {
+      "name": "ArchitectureProfileEvaluationOptions",
+      "title": null,
+      "description": "Optional generic Rules configuration for explicit architecture-profile evaluation.",
+      "isReadme": false,
+      "see": [],
+      "security": [],
+      "kind": "type",
+      "modulePath": "src/types/architectureProfile.ts",
+      "sourceLocation": {
+        "filePath": "src/types/architectureProfile.ts",
+        "line": 51,
+        "column": 1
+      },
+      "exportPaths": [
+        "src/index.ts"
+      ],
+      "relatedSymbols": [],
+      "signatures": [],
+      "members": [
+        {
+          "name": "config",
+          "kind": "property",
+          "type": "RulesConfig | undefined",
+          "required": false,
+          "description": null
+        }
+      ],
+      "structuredRows": []
+    },
+    {
+      "name": "ArchitectureProfileEvaluationResult",
+      "title": null,
+      "description": "Generic Rules result plus the explicitly selected architecture profile.",
+      "isReadme": false,
+      "see": [],
+      "security": [],
+      "kind": "type",
+      "modulePath": "src/types/architectureProfile.ts",
+      "sourceLocation": {
+        "filePath": "src/types/architectureProfile.ts",
+        "line": 56,
+        "column": 1
+      },
+      "exportPaths": [
+        "src/index.ts"
+      ],
+      "relatedSymbols": [],
+      "signatures": [],
+      "members": [
+        {
+          "name": "baseModelId",
+          "kind": "property",
+          "type": "\"hexagonal\" | \"clean\" | \"onion\" | \"layered\"",
+          "required": true,
+          "description": null
+        },
+        {
+          "name": "diagnostics",
+          "kind": "property",
+          "type": "readonly RuleEvaluationDiagnostic[]",
+          "required": true,
+          "description": null
+        },
+        {
+          "name": "findings",
+          "kind": "property",
+          "type": "readonly RuleFinding<JsonValue>[]",
+          "required": true,
+          "description": null
+        },
+        {
+          "name": "profileId",
+          "kind": "property",
+          "type": "\"ankhorage\"",
+          "required": true,
+          "description": null
+        }
+      ],
+      "structuredRows": []
+    },
+    {
+      "name": "ArchitectureProfileFeatureCombination",
+      "title": null,
+      "description": "One feature-role combination that requires at least one inward owner to exist.",
+      "isReadme": false,
+      "see": [],
+      "security": [],
+      "kind": "type",
+      "modulePath": "src/types/architectureProfile.ts",
+      "sourceLocation": {
+        "filePath": "src/types/architectureProfile.ts",
+        "line": 16,
+        "column": 1
+      },
+      "exportPaths": [
+        "src/index.ts"
+      ],
+      "relatedSymbols": [],
+      "signatures": [],
+      "members": [
+        {
+          "name": "requiresAnyOf",
+          "kind": "property",
+          "type": "readonly string[]",
+          "required": true,
+          "description": null
+        },
+        {
+          "name": "role",
+          "kind": "property",
+          "type": "\"adapters\" | \"composition\"",
+          "required": true,
+          "description": null
+        },
+        {
+          "name": "ruleId",
+          "kind": "property",
+          "type": "string",
+          "required": true,
+          "description": null
+        }
+      ],
+      "structuredRows": []
+    },
+    {
+      "name": "ArchitectureProfileRole",
+      "title": null,
+      "description": "One inward source role whose imports must not cross into configured outward segments.",
+      "isReadme": false,
+      "see": [],
+      "security": [],
+      "kind": "type",
+      "modulePath": "src/types/architectureProfile.ts",
+      "sourceLocation": {
+        "filePath": "src/types/architectureProfile.ts",
+        "line": 7,
+        "column": 1
+      },
+      "exportPaths": [
+        "src/index.ts"
+      ],
+      "relatedSymbols": [],
+      "signatures": [],
+      "members": [
+        {
+          "name": "forbiddenOutwardSegments",
+          "kind": "property",
+          "type": "readonly string[]",
+          "required": true,
+          "description": null
+        },
+        {
+          "name": "id",
+          "kind": "property",
+          "type": "\"application\" | \"domain\" | \"ports\"",
+          "required": true,
+          "description": null
+        },
+        {
+          "name": "label",
+          "kind": "property",
+          "type": "string",
+          "required": true,
+          "description": null
+        },
+        {
+          "name": "ruleId",
+          "kind": "property",
+          "type": "string",
+          "required": true,
+          "description": null
+        },
+        {
+          "name": "segments",
+          "kind": "property",
+          "type": "readonly string[]",
+          "required": true,
+          "description": null
+        }
+      ],
+      "structuredRows": []
+    },
+    {
+      "name": "ArchitectureProfileRuleContext",
+      "title": null,
+      "description": "Architecture-profile Rules context built from language-neutral source facts.",
+      "isReadme": false,
+      "see": [],
+      "security": [],
+      "kind": "type",
+      "modulePath": "src/types/architectureProfile.ts",
+      "sourceLocation": {
+        "filePath": "src/types/architectureProfile.ts",
+        "line": 45,
+        "column": 1
+      },
+      "exportPaths": [
+        "src/index.ts"
+      ],
+      "relatedSymbols": [
+        "ArchitectureProfile"
+      ],
+      "signatures": [],
+      "members": [
+        {
+          "name": "graph",
+          "kind": "property",
+          "type": "SourceGraph",
+          "required": true,
+          "description": null
+        },
+        {
+          "name": "profile",
+          "kind": "property",
+          "type": "ArchitectureProfile",
+          "required": true,
+          "description": null
+        }
+      ],
+      "structuredRows": []
+    },
+    {
       "name": "ArchitectureRole",
       "title": null,
       "description": "A semantic role in one architecture model, independent of source layout.",
@@ -928,6 +1299,44 @@
       "structuredRows": []
     },
     {
+      "name": "createArchitectureProfileRuleSet",
+      "title": null,
+      "description": "Create the rule set for one explicitly selected project architecture profile.",
+      "isReadme": false,
+      "see": [],
+      "security": [],
+      "kind": "function",
+      "modulePath": "src/features/profiles/domain/createArchitectureProfileRuleSet.ts",
+      "sourceLocation": {
+        "filePath": "src/features/profiles/domain/createArchitectureProfileRuleSet.ts",
+        "line": 12,
+        "column": 1
+      },
+      "exportPaths": [
+        "src/index.ts"
+      ],
+      "relatedSymbols": [
+        "ArchitectureProfileRuleContext"
+      ],
+      "signatures": [
+        {
+          "label": "(profileId: \"ankhorage\") => RuleSet<ArchitectureProfileRuleContext>",
+          "parameters": [
+            {
+              "name": "profileId",
+              "type": "\"ankhorage\"",
+              "required": true,
+              "description": null
+            }
+          ],
+          "returnType": "RuleSet<ArchitectureProfileRuleContext>",
+          "returnDescription": null
+        }
+      ],
+      "members": [],
+      "structuredRows": []
+    },
+    {
       "name": "createArchitectureRuleSet",
       "title": null,
       "description": "Create architecture rules for one explicitly selected target model.",
@@ -1055,6 +1464,57 @@
       "structuredRows": []
     },
     {
+      "name": "evaluateArchitectureProfile",
+      "title": null,
+      "description": "Evaluate one explicitly selected project profile through the generic Rules engine.",
+      "isReadme": false,
+      "see": [],
+      "security": [],
+      "kind": "function",
+      "modulePath": "src/features/profiles/domain/evaluateArchitectureProfile.ts",
+      "sourceLocation": {
+        "filePath": "src/features/profiles/domain/evaluateArchitectureProfile.ts",
+        "line": 15,
+        "column": 1
+      },
+      "exportPaths": [
+        "src/index.ts"
+      ],
+      "relatedSymbols": [
+        "ArchitectureProfileEvaluationOptions",
+        "ArchitectureProfileEvaluationResult"
+      ],
+      "signatures": [
+        {
+          "label": "(graph: SourceGraph, profileId: \"ankhorage\", options?: ArchitectureProfileEvaluationOptions) => ArchitectureProfileEvaluationResult",
+          "parameters": [
+            {
+              "name": "graph",
+              "type": "SourceGraph",
+              "required": true,
+              "description": null
+            },
+            {
+              "name": "options",
+              "type": "ArchitectureProfileEvaluationOptions",
+              "required": false,
+              "description": null
+            },
+            {
+              "name": "profileId",
+              "type": "\"ankhorage\"",
+              "required": true,
+              "description": null
+            }
+          ],
+          "returnType": "ArchitectureProfileEvaluationResult",
+          "returnDescription": null
+        }
+      ],
+      "members": [],
+      "structuredRows": []
+    },
+    {
       "name": "inferArchitectureRoles",
       "title": null,
       "description": "Infer semantic model roles from generic source facts while keeping path names weak evidence.",
@@ -1124,6 +1584,37 @@
           "label": "() => readonly ArchitectureModel[]",
           "parameters": [],
           "returnType": "readonly ArchitectureModel[]",
+          "returnDescription": null
+        }
+      ],
+      "members": [],
+      "structuredRows": []
+    },
+    {
+      "name": "listArchitectureProfiles",
+      "title": null,
+      "description": "List built-in architecture profiles without selecting one implicitly.",
+      "isReadme": false,
+      "see": [],
+      "security": [],
+      "kind": "function",
+      "modulePath": "src/features/profiles/domain/listArchitectureProfiles.ts",
+      "sourceLocation": {
+        "filePath": "src/features/profiles/domain/listArchitectureProfiles.ts",
+        "line": 5,
+        "column": 1
+      },
+      "exportPaths": [
+        "src/index.ts"
+      ],
+      "relatedSymbols": [
+        "ArchitectureProfile"
+      ],
+      "signatures": [
+        {
+          "label": "() => readonly ArchitectureProfile[]",
+          "parameters": [],
+          "returnType": "readonly ArchitectureProfile[]",
           "returnDescription": null
         }
       ],
@@ -1739,6 +2230,248 @@
       }
     },
     {
+      "name": "createArchitectureProfileRuleSet",
+      "description": "Create the rule set for one explicitly selected project architecture profile.",
+      "see": [],
+      "security": [],
+      "sourceLocation": {
+        "filePath": "src/features/profiles/domain/createArchitectureProfileRuleSet.ts",
+        "line": 12,
+        "column": 1
+      }
+    },
+    {
+      "name": "featureOwnershipRule",
+      "description": "Require source implementation ownership below canonical feature or package-wide roots.",
+      "see": [],
+      "security": [],
+      "sourceLocation": {
+        "filePath": "src/features/profiles/domain/createArchitectureProfileRuleSet.ts",
+        "line": 28,
+        "column": 1
+      }
+    },
+    {
+      "name": "roleCombinationRule",
+      "description": "Require adapters and composition roles to coexist with a meaningful inward owner.",
+      "see": [],
+      "security": [],
+      "sourceLocation": {
+        "filePath": "src/features/profiles/domain/createArchitectureProfileRuleSet.ts",
+        "line": 49,
+        "column": 1
+      }
+    },
+    {
+      "name": "roleDirectionRule",
+      "description": "Reject imports from one configured inward role into its outward implementation roles.",
+      "see": [],
+      "security": [],
+      "sourceLocation": {
+        "filePath": "src/features/profiles/domain/createArchitectureProfileRuleSet.ts",
+        "line": 82,
+        "column": 1
+      }
+    },
+    {
+      "name": "thinDeliveryAdapterRule",
+      "description": "Keep package-level CLI commands thin by rejecting direct imports of concrete adapters.",
+      "see": [],
+      "security": [],
+      "sourceLocation": {
+        "filePath": "src/features/profiles/domain/createArchitectureProfileRuleSet.ts",
+        "line": 114,
+        "column": 1
+      }
+    },
+    {
+      "name": "createRule",
+      "description": "Build one error-level architecture-profile rule.",
+      "see": [],
+      "security": [],
+      "sourceLocation": {
+        "filePath": "src/features/profiles/domain/createArchitectureProfileRuleSet.ts",
+        "line": 142,
+        "column": 1
+      }
+    },
+    {
+      "name": "finding",
+      "description": "Build one portable profile finding with optional graph source evidence.",
+      "see": [],
+      "security": [],
+      "sourceLocation": {
+        "filePath": "src/features/profiles/domain/createArchitectureProfileRuleSet.ts",
+        "line": 158,
+        "column": 1
+      }
+    },
+    {
+      "name": "sourceFilePaths",
+      "description": "Collect intrinsic source file paths once from the factual graph.",
+      "see": [],
+      "security": [],
+      "sourceLocation": {
+        "filePath": "src/features/profiles/domain/createArchitectureProfileRuleSet.ts",
+        "line": 179,
+        "column": 1
+      }
+    },
+    {
+      "name": "isAllowedSourcePath",
+      "description": "Return whether one source file belongs to an allowed Ankhorage ownership root.",
+      "see": [],
+      "security": [],
+      "sourceLocation": {
+        "filePath": "src/features/profiles/domain/createArchitectureProfileRuleSet.ts",
+        "line": 188,
+        "column": 1
+      }
+    },
+    {
+      "name": "collectFeatureRoles",
+      "description": "Collect direct feature role directories from factual file paths.",
+      "see": [],
+      "security": [],
+      "sourceLocation": {
+        "filePath": "src/features/profiles/domain/createArchitectureProfileRuleSet.ts",
+        "line": 202,
+        "column": 1
+      }
+    },
+    {
+      "name": "importRelations",
+      "description": "Project factual import edges into source/target file paths.",
+      "see": [],
+      "security": [],
+      "sourceLocation": {
+        "filePath": "src/features/profiles/domain/createArchitectureProfileRuleSet.ts",
+        "line": 230,
+        "column": 1
+      }
+    },
+    {
+      "name": "nodePath",
+      "description": "Resolve the project-relative path represented by a factual source node.",
+      "see": [],
+      "security": [],
+      "sourceLocation": {
+        "filePath": "src/features/profiles/domain/createArchitectureProfileRuleSet.ts",
+        "line": 246,
+        "column": 1
+      }
+    },
+    {
+      "name": "firstEvidence",
+      "description": "Return the first source-location evidence for one observed import.",
+      "see": [],
+      "security": [],
+      "sourceLocation": {
+        "filePath": "src/features/profiles/domain/createArchitectureProfileRuleSet.ts",
+        "line": 251,
+        "column": 1
+      }
+    },
+    {
+      "name": "includesSegmentSequence",
+      "description": "Check whether one path segment sequence occurs contiguously in another.",
+      "see": [],
+      "security": [],
+      "sourceLocation": {
+        "filePath": "src/features/profiles/domain/createArchitectureProfileRuleSet.ts",
+        "line": 258,
+        "column": 1
+      }
+    },
+    {
+      "name": "splitPath",
+      "description": "Split portable source paths into normalized architecture segments.",
+      "see": [],
+      "security": [],
+      "sourceLocation": {
+        "filePath": "src/features/profiles/domain/createArchitectureProfileRuleSet.ts",
+        "line": 268,
+        "column": 1
+      }
+    },
+    {
+      "name": "ruleIds",
+      "description": "Return stable finding rule IDs for one profile evaluation.",
+      "see": [],
+      "security": [],
+      "sourceLocation": {
+        "filePath": "src/features/profiles/domain/evaluateArchitectureProfile.test.ts",
+        "line": 106,
+        "column": 1
+      }
+    },
+    {
+      "name": "graph",
+      "description": "Build one import-capable source graph fixture.",
+      "see": [],
+      "security": [],
+      "sourceLocation": {
+        "filePath": "src/features/profiles/domain/evaluateArchitectureProfile.test.ts",
+        "line": 111,
+        "column": 1
+      }
+    },
+    {
+      "name": "fileNode",
+      "description": "Build one intrinsic file node.",
+      "see": [],
+      "security": [],
+      "sourceLocation": {
+        "filePath": "src/features/profiles/domain/evaluateArchitectureProfile.test.ts",
+        "line": 120,
+        "column": 1
+      }
+    },
+    {
+      "name": "importEdge",
+      "description": "Build one observed file import relation.",
+      "see": [],
+      "security": [],
+      "sourceLocation": {
+        "filePath": "src/features/profiles/domain/evaluateArchitectureProfile.test.ts",
+        "line": 135,
+        "column": 1
+      }
+    },
+    {
+      "name": "evaluateArchitectureProfile",
+      "description": "Evaluate one explicitly selected project profile through the generic Rules engine.",
+      "see": [],
+      "security": [],
+      "sourceLocation": {
+        "filePath": "src/features/profiles/domain/evaluateArchitectureProfile.ts",
+        "line": 15,
+        "column": 1
+      }
+    },
+    {
+      "name": "findArchitectureProfile",
+      "description": "Resolve one built-in architecture profile or reject a missing provider definition.",
+      "see": [],
+      "security": [],
+      "sourceLocation": {
+        "filePath": "src/features/profiles/domain/findArchitectureProfile.ts",
+        "line": 5,
+        "column": 1
+      }
+    },
+    {
+      "name": "listArchitectureProfiles",
+      "description": "List built-in architecture profiles without selecting one implicitly.",
+      "see": [],
+      "security": [],
+      "sourceLocation": {
+        "filePath": "src/features/profiles/domain/listArchitectureProfiles.ts",
+        "line": 5,
+        "column": 1
+      }
+    },
+    {
       "name": "createArchitectureRuleSet",
       "description": "Create architecture rules for one explicitly selected target model.",
       "see": [],
@@ -1827,6 +2560,14 @@
     },
     {
       "kind": "export",
+      "name": "createArchitectureProfileRuleSet",
+      "sourcePath": "src/features/profiles/domain/createArchitectureProfileRuleSet.ts",
+      "symbolName": "createArchitectureProfileRuleSet",
+      "description": "Create the rule set for one explicitly selected project architecture profile.",
+      "isReadme": false
+    },
+    {
+      "kind": "export",
       "name": "createArchitectureRuleSet",
       "sourcePath": "src/features/rules/domain/createArchitectureRuleSet.ts",
       "symbolName": "createArchitectureRuleSet",
@@ -1851,6 +2592,14 @@
     },
     {
       "kind": "export",
+      "name": "evaluateArchitectureProfile",
+      "sourcePath": "src/features/profiles/domain/evaluateArchitectureProfile.ts",
+      "symbolName": "evaluateArchitectureProfile",
+      "description": "Evaluate one explicitly selected project profile through the generic Rules engine.",
+      "isReadme": false
+    },
+    {
+      "kind": "export",
       "name": "inferArchitectureRoles",
       "sourcePath": "src/features/detection/domain/inferArchitectureRoles.ts",
       "symbolName": "inferArchitectureRoles",
@@ -1863,6 +2612,14 @@
       "sourcePath": "src/features/models/domain/listArchitectureModels.ts",
       "symbolName": "listArchitectureModels",
       "description": "List established architecture models without inferring a project's target.",
+      "isReadme": false
+    },
+    {
+      "kind": "export",
+      "name": "listArchitectureProfiles",
+      "sourcePath": "src/features/profiles/domain/listArchitectureProfiles.ts",
+      "symbolName": "listArchitectureProfiles",
+      "description": "List built-in architecture profiles without selecting one implicitly.",
       "isReadme": false
     }
   ],
@@ -1890,6 +2647,21 @@
       },
       {
         "fromPath": "src/index.ts",
+        "toPath": "src/features/profiles/domain/createArchitectureProfileRuleSet.ts",
+        "sourcePath": "src/index.ts"
+      },
+      {
+        "fromPath": "src/index.ts",
+        "toPath": "src/features/profiles/domain/evaluateArchitectureProfile.ts",
+        "sourcePath": "src/index.ts"
+      },
+      {
+        "fromPath": "src/index.ts",
+        "toPath": "src/features/profiles/domain/listArchitectureProfiles.ts",
+        "sourcePath": "src/index.ts"
+      },
+      {
+        "fromPath": "src/index.ts",
         "toPath": "src/features/rules/domain/createArchitectureRuleSet.ts",
         "sourcePath": "src/index.ts"
       },
@@ -1901,6 +2673,11 @@
       {
         "fromPath": "src/index.ts",
         "toPath": "src/types/architectureModel.ts",
+        "sourcePath": "src/index.ts"
+      },
+      {
+        "fromPath": "src/index.ts",
+        "toPath": "src/types/architectureProfile.ts",
         "sourcePath": "src/index.ts"
       },
       {
@@ -1962,6 +2739,11 @@
         "fromPath": "src/types/architectureCli.ts",
         "toPath": "src/types/architectureModel.ts",
         "sourcePath": "src/types/architectureCli.ts"
+      },
+      {
+        "fromPath": "src/types/architectureProfile.ts",
+        "toPath": "src/types/architectureModel.ts",
+        "sourcePath": "src/types/architectureProfile.ts"
       },
       {
         "fromPath": "src/cli/commands/detect.ts",
@@ -2122,6 +2904,66 @@
         "fromPath": "src/features/models/domain/listArchitectureModels.ts",
         "toPath": "src/features/models/constants/architectureModels.ts",
         "sourcePath": "src/features/models/domain/listArchitectureModels.ts"
+      },
+      {
+        "fromPath": "src/features/profiles/constants/architectureProfiles.ts",
+        "toPath": "src/types/architectureProfile.ts",
+        "sourcePath": "src/features/profiles/constants/architectureProfiles.ts"
+      },
+      {
+        "fromPath": "src/features/profiles/domain/createArchitectureProfileRuleSet.ts",
+        "toPath": "src/types/architectureProfile.ts",
+        "sourcePath": "src/features/profiles/domain/createArchitectureProfileRuleSet.ts"
+      },
+      {
+        "fromPath": "src/features/profiles/domain/createArchitectureProfileRuleSet.ts",
+        "toPath": "src/features/profiles/domain/findArchitectureProfile.ts",
+        "sourcePath": "src/features/profiles/domain/createArchitectureProfileRuleSet.ts"
+      },
+      {
+        "fromPath": "src/features/profiles/domain/evaluateArchitectureProfile.test.ts",
+        "toPath": "src/features/profiles/domain/evaluateArchitectureProfile.ts",
+        "sourcePath": "src/features/profiles/domain/evaluateArchitectureProfile.test.ts"
+      },
+      {
+        "fromPath": "src/features/profiles/domain/evaluateArchitectureProfile.ts",
+        "toPath": "src/types/architectureProfile.ts",
+        "sourcePath": "src/features/profiles/domain/evaluateArchitectureProfile.ts"
+      },
+      {
+        "fromPath": "src/features/profiles/domain/evaluateArchitectureProfile.ts",
+        "toPath": "src/utils/hasSourceCapability.ts",
+        "sourcePath": "src/features/profiles/domain/evaluateArchitectureProfile.ts"
+      },
+      {
+        "fromPath": "src/features/profiles/domain/evaluateArchitectureProfile.ts",
+        "toPath": "src/features/profiles/domain/createArchitectureProfileRuleSet.ts",
+        "sourcePath": "src/features/profiles/domain/evaluateArchitectureProfile.ts"
+      },
+      {
+        "fromPath": "src/features/profiles/domain/evaluateArchitectureProfile.ts",
+        "toPath": "src/features/profiles/domain/findArchitectureProfile.ts",
+        "sourcePath": "src/features/profiles/domain/evaluateArchitectureProfile.ts"
+      },
+      {
+        "fromPath": "src/features/profiles/domain/findArchitectureProfile.ts",
+        "toPath": "src/types/architectureProfile.ts",
+        "sourcePath": "src/features/profiles/domain/findArchitectureProfile.ts"
+      },
+      {
+        "fromPath": "src/features/profiles/domain/findArchitectureProfile.ts",
+        "toPath": "src/features/profiles/constants/architectureProfiles.ts",
+        "sourcePath": "src/features/profiles/domain/findArchitectureProfile.ts"
+      },
+      {
+        "fromPath": "src/features/profiles/domain/listArchitectureProfiles.ts",
+        "toPath": "src/types/architectureProfile.ts",
+        "sourcePath": "src/features/profiles/domain/listArchitectureProfiles.ts"
+      },
+      {
+        "fromPath": "src/features/profiles/domain/listArchitectureProfiles.ts",
+        "toPath": "src/features/profiles/constants/architectureProfiles.ts",
+        "sourcePath": "src/features/profiles/domain/listArchitectureProfiles.ts"
       },
       {
         "fromPath": "src/features/rules/domain/createArchitectureRuleSet.ts",
@@ -2729,6 +3571,216 @@
         "sourcePath": "src/features/models/domain/listArchitectureModels.test.ts"
       },
       {
+        "fromSymbol": "createArchitectureProfileRuleSet",
+        "toSymbol": "findArchitectureProfile",
+        "callExpression": "findArchitectureProfile",
+        "sourcePath": "src/features/profiles/domain/createArchitectureProfileRuleSet.ts"
+      },
+      {
+        "fromSymbol": "createArchitectureProfileRuleSet",
+        "toSymbol": "featureOwnershipRule",
+        "callExpression": "featureOwnershipRule",
+        "sourcePath": "src/features/profiles/domain/createArchitectureProfileRuleSet.ts"
+      },
+      {
+        "fromSymbol": "createArchitectureProfileRuleSet",
+        "toSymbol": "roleCombinationRule",
+        "callExpression": "roleCombinationRule",
+        "sourcePath": "src/features/profiles/domain/createArchitectureProfileRuleSet.ts"
+      },
+      {
+        "fromSymbol": "createArchitectureProfileRuleSet",
+        "toSymbol": "thinDeliveryAdapterRule",
+        "callExpression": "thinDeliveryAdapterRule",
+        "sourcePath": "src/features/profiles/domain/createArchitectureProfileRuleSet.ts"
+      },
+      {
+        "fromSymbol": "featureOwnershipRule",
+        "toSymbol": "createRule",
+        "callExpression": "createRule",
+        "sourcePath": "src/features/profiles/domain/createArchitectureProfileRuleSet.ts"
+      },
+      {
+        "fromSymbol": "src/features/profiles/domain/createArchitectureProfileRuleSet.ts",
+        "toSymbol": "sourceFilePaths",
+        "callExpression": "sourceFilePaths",
+        "sourcePath": "src/features/profiles/domain/createArchitectureProfileRuleSet.ts"
+      },
+      {
+        "fromSymbol": "src/features/profiles/domain/createArchitectureProfileRuleSet.ts",
+        "toSymbol": "isAllowedSourcePath",
+        "callExpression": "isAllowedSourcePath",
+        "sourcePath": "src/features/profiles/domain/createArchitectureProfileRuleSet.ts"
+      },
+      {
+        "fromSymbol": "src/features/profiles/domain/createArchitectureProfileRuleSet.ts",
+        "toSymbol": "finding",
+        "callExpression": "finding",
+        "sourcePath": "src/features/profiles/domain/createArchitectureProfileRuleSet.ts"
+      },
+      {
+        "fromSymbol": "roleCombinationRule",
+        "toSymbol": "createRule",
+        "callExpression": "createRule",
+        "sourcePath": "src/features/profiles/domain/createArchitectureProfileRuleSet.ts"
+      },
+      {
+        "fromSymbol": "src/features/profiles/domain/createArchitectureProfileRuleSet.ts",
+        "toSymbol": "collectFeatureRoles",
+        "callExpression": "collectFeatureRoles",
+        "sourcePath": "src/features/profiles/domain/createArchitectureProfileRuleSet.ts"
+      },
+      {
+        "fromSymbol": "roleDirectionRule",
+        "toSymbol": "createRule",
+        "callExpression": "createRule",
+        "sourcePath": "src/features/profiles/domain/createArchitectureProfileRuleSet.ts"
+      },
+      {
+        "fromSymbol": "src/features/profiles/domain/createArchitectureProfileRuleSet.ts",
+        "toSymbol": "importRelations",
+        "callExpression": "importRelations",
+        "sourcePath": "src/features/profiles/domain/createArchitectureProfileRuleSet.ts"
+      },
+      {
+        "fromSymbol": "src/features/profiles/domain/createArchitectureProfileRuleSet.ts",
+        "toSymbol": "splitPath",
+        "callExpression": "splitPath",
+        "sourcePath": "src/features/profiles/domain/createArchitectureProfileRuleSet.ts"
+      },
+      {
+        "fromSymbol": "src/features/profiles/domain/createArchitectureProfileRuleSet.ts",
+        "toSymbol": "firstEvidence",
+        "callExpression": "firstEvidence",
+        "sourcePath": "src/features/profiles/domain/createArchitectureProfileRuleSet.ts"
+      },
+      {
+        "fromSymbol": "thinDeliveryAdapterRule",
+        "toSymbol": "createRule",
+        "callExpression": "createRule",
+        "sourcePath": "src/features/profiles/domain/createArchitectureProfileRuleSet.ts"
+      },
+      {
+        "fromSymbol": "src/features/profiles/domain/createArchitectureProfileRuleSet.ts",
+        "toSymbol": "includesSegmentSequence",
+        "callExpression": "includesSegmentSequence",
+        "sourcePath": "src/features/profiles/domain/createArchitectureProfileRuleSet.ts"
+      },
+      {
+        "fromSymbol": "evaluate",
+        "toSymbol": "evaluate",
+        "callExpression": "evaluate",
+        "sourcePath": "src/features/profiles/domain/createArchitectureProfileRuleSet.ts"
+      },
+      {
+        "fromSymbol": "src/features/profiles/domain/createArchitectureProfileRuleSet.ts",
+        "toSymbol": "nodePath",
+        "callExpression": "nodePath",
+        "sourcePath": "src/features/profiles/domain/createArchitectureProfileRuleSet.ts"
+      },
+      {
+        "fromSymbol": "isAllowedSourcePath",
+        "toSymbol": "splitPath",
+        "callExpression": "splitPath",
+        "sourcePath": "src/features/profiles/domain/createArchitectureProfileRuleSet.ts"
+      },
+      {
+        "fromSymbol": "collectFeatureRoles",
+        "toSymbol": "sourceFilePaths",
+        "callExpression": "sourceFilePaths",
+        "sourcePath": "src/features/profiles/domain/createArchitectureProfileRuleSet.ts"
+      },
+      {
+        "fromSymbol": "collectFeatureRoles",
+        "toSymbol": "splitPath",
+        "callExpression": "splitPath",
+        "sourcePath": "src/features/profiles/domain/createArchitectureProfileRuleSet.ts"
+      },
+      {
+        "fromSymbol": "src/features/profiles/domain/evaluateArchitectureProfile.test.ts",
+        "toSymbol": "describe",
+        "callExpression": "describe",
+        "sourcePath": "src/features/profiles/domain/evaluateArchitectureProfile.test.ts"
+      },
+      {
+        "fromSymbol": "src/features/profiles/domain/evaluateArchitectureProfile.test.ts",
+        "toSymbol": "test",
+        "callExpression": "test",
+        "sourcePath": "src/features/profiles/domain/evaluateArchitectureProfile.test.ts"
+      },
+      {
+        "fromSymbol": "src/features/profiles/domain/evaluateArchitectureProfile.test.ts",
+        "toSymbol": "evaluateArchitectureProfile",
+        "callExpression": "evaluateArchitectureProfile",
+        "sourcePath": "src/features/profiles/domain/evaluateArchitectureProfile.test.ts"
+      },
+      {
+        "fromSymbol": "src/features/profiles/domain/evaluateArchitectureProfile.test.ts",
+        "toSymbol": "graph",
+        "callExpression": "graph",
+        "sourcePath": "src/features/profiles/domain/evaluateArchitectureProfile.test.ts"
+      },
+      {
+        "fromSymbol": "src/features/profiles/domain/evaluateArchitectureProfile.test.ts",
+        "toSymbol": "fileNode",
+        "callExpression": "fileNode",
+        "sourcePath": "src/features/profiles/domain/evaluateArchitectureProfile.test.ts"
+      },
+      {
+        "fromSymbol": "src/features/profiles/domain/evaluateArchitectureProfile.test.ts",
+        "toSymbol": "importEdge",
+        "callExpression": "importEdge",
+        "sourcePath": "src/features/profiles/domain/evaluateArchitectureProfile.test.ts"
+      },
+      {
+        "fromSymbol": "src/features/profiles/domain/evaluateArchitectureProfile.test.ts",
+        "toSymbol": "expect",
+        "callExpression": "expect",
+        "sourcePath": "src/features/profiles/domain/evaluateArchitectureProfile.test.ts"
+      },
+      {
+        "fromSymbol": "src/features/profiles/domain/evaluateArchitectureProfile.test.ts",
+        "toSymbol": "ruleIds",
+        "callExpression": "ruleIds",
+        "sourcePath": "src/features/profiles/domain/evaluateArchitectureProfile.test.ts"
+      },
+      {
+        "fromSymbol": "evaluateArchitectureProfile",
+        "toSymbol": "findArchitectureProfile",
+        "callExpression": "findArchitectureProfile",
+        "sourcePath": "src/features/profiles/domain/evaluateArchitectureProfile.ts"
+      },
+      {
+        "fromSymbol": "evaluateArchitectureProfile",
+        "toSymbol": "createArchitectureProfileRuleSet",
+        "callExpression": "createArchitectureProfileRuleSet",
+        "sourcePath": "src/features/profiles/domain/evaluateArchitectureProfile.ts"
+      },
+      {
+        "fromSymbol": "evaluateArchitectureProfile",
+        "toSymbol": "hasSourceCapability",
+        "callExpression": "hasSourceCapability",
+        "sourcePath": "src/features/profiles/domain/evaluateArchitectureProfile.ts"
+      },
+      {
+        "fromSymbol": "evaluateArchitectureProfile",
+        "toSymbol": "evaluateRules",
+        "callExpression": "evaluateRules",
+        "sourcePath": "src/features/profiles/domain/evaluateArchitectureProfile.ts"
+      },
+      {
+        "fromSymbol": "evaluateArchitectureProfile",
+        "toSymbol": "evaluateConfiguredRules",
+        "callExpression": "evaluateConfiguredRules",
+        "sourcePath": "src/features/profiles/domain/evaluateArchitectureProfile.ts"
+      },
+      {
+        "fromSymbol": "evaluateArchitectureProfile",
+        "toSymbol": "createRuleRegistry",
+        "callExpression": "createRuleRegistry",
+        "sourcePath": "src/features/profiles/domain/evaluateArchitectureProfile.ts"
+      },
+      {
         "fromSymbol": "createArchitectureRuleSet",
         "toSymbol": "findArchitectureModel",
         "callExpression": "findArchitectureModel",
@@ -2816,6 +3868,36 @@
         "fromSymbol": "listArchitectureModels",
         "toType": "ArchitectureModel",
         "sourcePath": "src/features/models/domain/listArchitectureModels.ts"
+      },
+      {
+        "fromSymbol": "createArchitectureProfileRuleSet",
+        "toType": "ArchitectureProfileRuleContext",
+        "sourcePath": "src/features/profiles/domain/createArchitectureProfileRuleSet.ts"
+      },
+      {
+        "fromSymbol": "createArchitectureProfileRuleSet",
+        "toType": "RuleSet",
+        "sourcePath": "src/features/profiles/domain/createArchitectureProfileRuleSet.ts"
+      },
+      {
+        "fromSymbol": "evaluateArchitectureProfile",
+        "toType": "ArchitectureProfileEvaluationOptions",
+        "sourcePath": "src/features/profiles/domain/evaluateArchitectureProfile.ts"
+      },
+      {
+        "fromSymbol": "evaluateArchitectureProfile",
+        "toType": "ArchitectureProfileEvaluationResult",
+        "sourcePath": "src/features/profiles/domain/evaluateArchitectureProfile.ts"
+      },
+      {
+        "fromSymbol": "evaluateArchitectureProfile",
+        "toType": "SourceGraph",
+        "sourcePath": "src/features/profiles/domain/evaluateArchitectureProfile.ts"
+      },
+      {
+        "fromSymbol": "listArchitectureProfiles",
+        "toType": "ArchitectureProfile",
+        "sourcePath": "src/features/profiles/domain/listArchitectureProfiles.ts"
       },
       {
         "fromSymbol": "createArchitectureRuleSet",
@@ -2906,6 +3988,46 @@
         "fromSymbol": "ArchitectureModel",
         "toType": "ArchitectureRoleDependency",
         "sourcePath": "src/types/architectureModel.ts"
+      },
+      {
+        "fromSymbol": "ArchitectureProfile",
+        "toType": "ArchitectureProfileFeatureCombination",
+        "sourcePath": "src/types/architectureProfile.ts"
+      },
+      {
+        "fromSymbol": "ArchitectureProfile",
+        "toType": "ArchitectureProfileRole",
+        "sourcePath": "src/types/architectureProfile.ts"
+      },
+      {
+        "fromSymbol": "ArchitectureProfileEvaluationOptions",
+        "toType": "RulesConfig",
+        "sourcePath": "src/types/architectureProfile.ts"
+      },
+      {
+        "fromSymbol": "ArchitectureProfileEvaluationResult",
+        "toType": "JsonValue",
+        "sourcePath": "src/types/architectureProfile.ts"
+      },
+      {
+        "fromSymbol": "ArchitectureProfileEvaluationResult",
+        "toType": "RuleEvaluationDiagnostic",
+        "sourcePath": "src/types/architectureProfile.ts"
+      },
+      {
+        "fromSymbol": "ArchitectureProfileEvaluationResult",
+        "toType": "RuleFinding",
+        "sourcePath": "src/types/architectureProfile.ts"
+      },
+      {
+        "fromSymbol": "ArchitectureProfileRuleContext",
+        "toType": "ArchitectureProfile",
+        "sourcePath": "src/types/architectureProfile.ts"
+      },
+      {
+        "fromSymbol": "ArchitectureProfileRuleContext",
+        "toType": "SourceGraph",
+        "sourcePath": "src/types/architectureProfile.ts"
       }
     ],
     "componentComposition": []
