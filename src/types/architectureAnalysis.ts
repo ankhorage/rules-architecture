@@ -45,9 +45,18 @@ export interface ArchitectureDetectionResult {
   readonly candidates: readonly ArchitectureDetectionCandidate[];
 }
 
-/*** Architecture-specific Rules context built from an explicit target model. */
-export interface ArchitectureRuleContext {
+/*** Target-independent Architecture Rules context over one canonical SourceGraph. */
+export interface ArchitectureGraphRuleContext {
   readonly graph: SourceGraph;
+}
+
+/*** Serializable options for the reusable cyclic-dependencies Architecture rule. */
+export interface ArchitectureCycleRuleOptions {
+  readonly aggregation?: 'file' | 'package';
+}
+
+/*** Architecture-specific Rules context built from an explicit target model. */
+export interface ArchitectureRuleContext extends ArchitectureGraphRuleContext {
   readonly model: ArchitectureModel;
   readonly roleAssignments: readonly ArchitectureRoleAssignment[];
 }

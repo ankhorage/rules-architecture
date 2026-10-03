@@ -5,14 +5,17 @@ export { listArchitectureModels } from './features/models/domain/listArchitectur
 export { createArchitectureProfileRuleSet } from './features/profiles/domain/createArchitectureProfileRuleSet.js';
 export { evaluateArchitectureProfile } from './features/profiles/domain/evaluateArchitectureProfile.js';
 export { listArchitectureProfiles } from './features/profiles/domain/listArchitectureProfiles.js';
+export { createArchitectureGraphRuleSet } from './features/rules/domain/createArchitectureGraphRuleSet.js';
 export { createArchitectureRuleSet } from './features/rules/domain/createArchitectureRuleSet.js';
 export type {
   ArchitectureContradiction,
+  ArchitectureCycleRuleOptions,
   ArchitectureDetectionCandidate,
   ArchitectureDetectionEvidence,
   ArchitectureDetectionResult,
   ArchitectureEvaluationOptions,
   ArchitectureEvaluationResult,
+  ArchitectureGraphRuleContext,
   ArchitectureRoleAssignment,
   ArchitectureRuleContext,
 } from './types/architectureAnalysis.js';
