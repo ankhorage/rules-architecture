@@ -10,11 +10,7 @@ type SourceEdge = SourceGraph['graph']['edges'][number];
 test('evaluates file cycles without selecting an architecture target', () => {
   const ruleSet = createArchitectureGraphRuleSet();
   const graph = sourceGraph(
-    [
-      packageNode(0, 'app'),
-      fileNode(1, 'src/a.ts', 'app'),
-      fileNode(2, 'src/b.ts', 'app'),
-    ],
+    [packageNode(0, 'app'), fileNode(1, 'src/a.ts', 'app'), fileNode(2, 'src/b.ts', 'app')],
     [importEdge(0, 1, 2, 'src/a.ts'), importEdge(1, 2, 1, 'src/b.ts')],
   );
 
