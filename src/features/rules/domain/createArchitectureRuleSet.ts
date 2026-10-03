@@ -1,15 +1,10 @@
-import type {
-  SourceEdgeData,
-  SourceGraph,
-  SourceNodeData,
-  SourceRelationKind,
-} from '@ankhorage/dependency-graph';
-import { findCyclicComponents, type Graph } from '@ankhorage/graph';
+import type { SourceRelationKind } from '@ankhorage/dependency-graph';
 import type { Rule, RuleFinding, RuleSet } from '@ankhorage/rules';
 
 import type { ArchitectureRuleContext } from '../../../types/architectureAnalysis.js';
 import type { ArchitectureModel } from '../../../types/architectureModel.js';
 import { findArchitectureModel } from '../../models/domain/findArchitectureModel.js';
+import { createCyclicDependenciesRule } from './createCyclicDependenciesRule.js';
 
 const IMPORTS_CAPABILITY = 'source-graph.imports';
 
@@ -20,18 +15,7 @@ export function createArchitectureRuleSet(
   const model = findArchitectureModel(modelId);
   return {
     id: `architecture.${model.id}`,
-    rules: [cyclicDependenciesRule(), dependencyDirectionRule()],
-  };
-}
-
-/*** Detect intrinsic file import cycles with canonical source identities. */
-function cyclicDependenciesRule(): Rule<ArchitectureRuleContext> {
-  return {
-    id: 'cyclic-dependencies',
-    summary: 'Source files must not form cyclic intrinsic import components.',
-    defaultSeverity: 'warning',
-    requiredCapabilities: [IMPORTS_CAPABILITY],
-    evaluate: ({ context }) => cycleFindings(context.graph),
+    rules: [createCyclicDependenciesRule<ArchitectureRuleContext>(), dependencyDirectionRule()],
   };
 }
 
@@ -44,37 +28,6 @@ function dependencyDirectionRule(): Rule<ArchitectureRuleContext> {
     requiredCapabilities: [IMPORTS_CAPABILITY],
     evaluate: ({ context }) => directionFindings(context),
   };
-}
-
-/*** Convert file-level import strongly connected components into generic Rule findings. */
-function cycleFindings(graph: SourceGraph): readonly RuleFinding[] {
-  const fileIds = new Set(
-    graph.graph.nodes.filter(({ data }) => data.kind === 'file').map(({ id }) => id),
-  );
-  const cycleGraph: Graph<SourceNodeData, SourceEdgeData, number> = {
-    nodes: graph.graph.nodes.filter(({ id }) => fileIds.has(id)),
-    edges: graph.graph.edges.filter(
-      ({ source, target, data }) =>
-        data.kind === 'imports' && fileIds.has(source) && fileIds.has(target),
-    ),
-  };
-  const nodeById = new Map(cycleGraph.nodes.map((node) => [node.id, node.data]));
-
-  return findCyclicComponents(cycleGraph).map((component) => {
-    const paths = component
-      .flatMap((id) => {
-        const node = nodeById.get(id);
-        return node === undefined ? [] : [node.semanticPath];
-      })
-      .sort();
-    return {
-      ruleId: 'cyclic-dependencies',
-      severity: 'warning',
-      message: `Cyclic source dependency component: ${paths.join(' -> ')}`,
-      subjects: paths.map((path) => ({ id: path, kind: 'source-node', path })),
-      evidence: { relationKind: 'imports', semanticPaths: paths },
-    };
-  });
 }
 
 /*** Report selected-model dependency violations for confidently inferred endpoint roles. */
