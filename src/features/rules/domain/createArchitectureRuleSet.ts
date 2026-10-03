@@ -4,7 +4,7 @@ import type { Rule, RuleFinding, RuleSet } from '@ankhorage/rules';
 import type { ArchitectureRuleContext } from '../../../types/architectureAnalysis.js';
 import type { ArchitectureModel } from '../../../types/architectureModel.js';
 import { findArchitectureModel } from '../../models/domain/findArchitectureModel.js';
-import { createCyclicDependenciesRule } from './createArchitectureGraphRuleSet.js';
+import { createCyclicDependenciesRule } from './createCyclicDependenciesRule.js';
 
 const IMPORTS_CAPABILITY = 'source-graph.imports';
 
