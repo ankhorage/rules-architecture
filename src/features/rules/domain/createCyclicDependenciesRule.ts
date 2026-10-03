@@ -40,7 +40,8 @@ function readAggregation(
 /*** Validate the optional cycle aggregation level without consumer-specific configuration. */
 function validateCycleOptions(options: JsonValue | undefined): readonly RuleOptionDiagnostic[] {
   if (options === undefined) return [];
-  if (!isCycleOptionsRecord(options)) return [{ code: 'invalid-options', message: 'Options must be an object.' }];
+  if (!isCycleOptionsRecord(options))
+    return [{ code: 'invalid-options', message: 'Options must be an object.' }];
   const { aggregation } = options;
   if (aggregation === undefined || aggregation === 'file' || aggregation === 'package') return [];
   return [
