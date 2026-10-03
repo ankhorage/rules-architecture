@@ -1,5 +1,12 @@
 # Changelog
 
+## 0.5.0
+
+### Minor Changes
+
+- 381529f: Expose a target-independent architecture graph RuleSet with reusable file- and package-level
+  cyclic-dependency evaluation over the canonical SourceGraph.
+
 ## 0.4.0
 
 ### Minor Changes

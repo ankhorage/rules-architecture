@@ -65,6 +65,36 @@
     "structuredRows": []
   },
   {
+    "name": "ArchitectureCycleRuleOptions",
+    "title": null,
+    "description": "Serializable options for the reusable cyclic-dependencies Architecture rule.",
+    "isReadme": false,
+    "see": [],
+    "security": [],
+    "kind": "type",
+    "modulePath": "src/types/architectureAnalysis.ts",
+    "sourceLocation": {
+      "filePath": "src/types/architectureAnalysis.ts",
+      "line": 54,
+      "column": 1
+    },
+    "exportPaths": [
+      "src/index.ts"
+    ],
+    "relatedSymbols": [],
+    "signatures": [],
+    "members": [
+      {
+        "name": "aggregation",
+        "kind": "property",
+        "type": "\"file\" | \"package\" | undefined",
+        "required": false,
+        "description": null
+      }
+    ],
+    "structuredRows": []
+  },
+  {
     "name": "ArchitectureDetectionCandidate",
     "title": null,
     "description": "A plausible architecture interpretation with explicit uncertainty and limitations.",
@@ -234,7 +264,7 @@
     "modulePath": "src/types/architectureAnalysis.ts",
     "sourceLocation": {
       "filePath": "src/types/architectureAnalysis.ts",
-      "line": 56,
+      "line": 65,
       "column": 1
     },
     "exportPaths": [
@@ -264,7 +294,7 @@
     "modulePath": "src/types/architectureAnalysis.ts",
     "sourceLocation": {
       "filePath": "src/types/architectureAnalysis.ts",
-      "line": 61,
+      "line": 70,
       "column": 1
     },
     "exportPaths": [
@@ -300,6 +330,36 @@
         "name": "roleAssignments",
         "kind": "property",
         "type": "readonly ArchitectureRoleAssignment[]",
+        "required": true,
+        "description": null
+      }
+    ],
+    "structuredRows": []
+  },
+  {
+    "name": "ArchitectureGraphRuleContext",
+    "title": null,
+    "description": "Target-independent Architecture Rules context over one canonical SourceGraph.",
+    "isReadme": false,
+    "see": [],
+    "security": [],
+    "kind": "type",
+    "modulePath": "src/types/architectureAnalysis.ts",
+    "sourceLocation": {
+      "filePath": "src/types/architectureAnalysis.ts",
+      "line": 49,
+      "column": 1
+    },
+    "exportPaths": [
+      "src/index.ts"
+    ],
+    "relatedSymbols": [],
+    "signatures": [],
+    "members": [
+      {
+        "name": "graph",
+        "kind": "property",
+        "type": "SourceGraph",
         "required": true,
         "description": null
       }
@@ -795,7 +855,7 @@
     "modulePath": "src/types/architectureAnalysis.ts",
     "sourceLocation": {
       "filePath": "src/types/architectureAnalysis.ts",
-      "line": 49,
+      "line": 59,
       "column": 1
     },
     "exportPaths": [
@@ -829,6 +889,37 @@
         "description": null
       }
     ],
+    "structuredRows": []
+  },
+  {
+    "name": "createArchitectureGraphRuleSet",
+    "title": null,
+    "description": "Create target-independent Architecture Rules over canonical source facts.",
+    "isReadme": false,
+    "see": [],
+    "security": [],
+    "kind": "function",
+    "modulePath": "src/features/rules/domain/createArchitectureGraphRuleSet.ts",
+    "sourceLocation": {
+      "filePath": "src/features/rules/domain/createArchitectureGraphRuleSet.ts",
+      "line": 7,
+      "column": 1
+    },
+    "exportPaths": [
+      "src/index.ts"
+    ],
+    "relatedSymbols": [
+      "ArchitectureGraphRuleContext"
+    ],
+    "signatures": [
+      {
+        "label": "() => RuleSet<ArchitectureGraphRuleContext>",
+        "parameters": [],
+        "returnType": "RuleSet<ArchitectureGraphRuleContext>",
+        "returnDescription": null
+      }
+    ],
+    "members": [],
     "structuredRows": []
   },
   {
@@ -880,7 +971,7 @@
     "modulePath": "src/features/rules/domain/createArchitectureRuleSet.ts",
     "sourceLocation": {
       "filePath": "src/features/rules/domain/createArchitectureRuleSet.ts",
-      "line": 17,
+      "line": 12,
       "column": 1
     },
     "exportPaths": [

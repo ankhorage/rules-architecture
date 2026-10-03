@@ -19,6 +19,20 @@ One observed dependency that contradicts an inferred model role direction.
 | targetRole | property | `string` | yes |  |
 | targetSemanticPath | property | `string` | yes |  |
 
+## ArchitectureCycleRuleOptions
+
+Kind: `type`
+Module: `src/types/architectureAnalysis.ts`
+Source: `src/types/architectureAnalysis.ts:54:1`
+
+Serializable options for the reusable cyclic-dependencies Architecture rule.
+
+### Members
+
+| Name | Kind | Type | Required | Description |
+| --- | --- | --- | --- | --- |
+| aggregation | property | `"file" \| "package" \| undefined` | no |  |
+
 ## ArchitectureDetectionCandidate
 
 Kind: `type`
@@ -74,7 +88,7 @@ Architecture analysis result that may contain several plausible models.
 
 Kind: `type`
 Module: `src/types/architectureAnalysis.ts`
-Source: `src/types/architectureAnalysis.ts:56:1`
+Source: `src/types/architectureAnalysis.ts:65:1`
 
 Optional generic Rules configuration for explicit architecture evaluation.
 
@@ -88,7 +102,7 @@ Optional generic Rules configuration for explicit architecture evaluation.
 
 Kind: `type`
 Module: `src/types/architectureAnalysis.ts`
-Source: `src/types/architectureAnalysis.ts:61:1`
+Source: `src/types/architectureAnalysis.ts:70:1`
 
 Generic Rules result plus the explicit target and inferred role evidence used for evaluation.
 
@@ -100,6 +114,20 @@ Generic Rules result plus the explicit target and inferred role evidence used fo
 | findings | property | `readonly RuleFinding<JsonValue>[]` | yes |  |
 | modelId | property | `"hexagonal" \| "clean" \| "onion" \| "layered"` | yes |  |
 | roleAssignments | property | `readonly ArchitectureRoleAssignment[]` | yes |  |
+
+## ArchitectureGraphRuleContext
+
+Kind: `type`
+Module: `src/types/architectureAnalysis.ts`
+Source: `src/types/architectureAnalysis.ts:49:1`
+
+Target-independent Architecture Rules context over one canonical SourceGraph.
+
+### Members
+
+| Name | Kind | Type | Required | Description |
+| --- | --- | --- | --- | --- |
+| graph | property | `SourceGraph` | yes |  |
 
 ## ArchitectureModel
 
@@ -269,7 +297,7 @@ A permitted static source dependency between inferred roles.
 
 Kind: `type`
 Module: `src/types/architectureAnalysis.ts`
-Source: `src/types/architectureAnalysis.ts:49:1`
+Source: `src/types/architectureAnalysis.ts:59:1`
 
 Architecture-specific Rules context built from an explicit target model.
 
@@ -280,6 +308,19 @@ Architecture-specific Rules context built from an explicit target model.
 | graph | property | `SourceGraph` | yes |  |
 | model | property | `ArchitectureModel` | yes |  |
 | roleAssignments | property | `readonly ArchitectureRoleAssignment[]` | yes |  |
+
+## createArchitectureGraphRuleSet
+
+Kind: `function`
+Module: `src/features/rules/domain/createArchitectureGraphRuleSet.ts`
+Source: `src/features/rules/domain/createArchitectureGraphRuleSet.ts:7:1`
+
+Create target-independent Architecture Rules over canonical source facts.
+
+### Signatures
+
+- `() => RuleSet<ArchitectureGraphRuleContext>`
+  - returns: `RuleSet<ArchitectureGraphRuleContext>`
 
 ## createArchitectureProfileRuleSet
 
@@ -299,7 +340,7 @@ Create the rule set for one explicitly selected project architecture profile.
 
 Kind: `function`
 Module: `src/features/rules/domain/createArchitectureRuleSet.ts`
-Source: `src/features/rules/domain/createArchitectureRuleSet.ts:17:1`
+Source: `src/features/rules/domain/createArchitectureRuleSet.ts:12:1`
 
 Create architecture rules for one explicitly selected target model.
 

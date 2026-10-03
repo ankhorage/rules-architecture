@@ -1,11 +1,11 @@
 sequenceDiagram
   participant participant_createArchitectureRuleSet as createArchitectureRuleSet
-  participant participant_cyclicDependenciesRule as cyclicDependenciesRule
+  participant participant_createCyclicDependenciesRule as createCyclicDependenciesRule
   participant participant_dependencyDirectionRule as dependencyDirectionRule
   participant participant_findArchitectureModel as findArchitectureModel
   participant_createArchitectureRuleSet->>participant_findArchitectureModel: findArchitectureModel()
   participant_findArchitectureModel-->>participant_createArchitectureRuleSet: return
-  participant_createArchitectureRuleSet->>participant_cyclicDependenciesRule: cyclicDependenciesRule()
-  participant_cyclicDependenciesRule-->>participant_createArchitectureRuleSet: return
+  participant_createArchitectureRuleSet->>participant_createCyclicDependenciesRule: createCyclicDependenciesRule()
+  participant_createCyclicDependenciesRule-->>participant_createArchitectureRuleSet: return
   participant_createArchitectureRuleSet->>participant_dependencyDirectionRule: dependencyDirectionRule()
   participant_dependencyDirectionRule-->>participant_createArchitectureRuleSet: return

@@ -1,0 +1,5 @@
+sequenceDiagram
+  participant participant_createArchitectureGraphRuleSet as createArchitectureGraphRuleSet
+  participant participant_createCyclicDependenciesRule as createCyclicDependenciesRule
+  participant_createArchitectureGraphRuleSet->>participant_createCyclicDependenciesRule: createCyclicDependenciesRule()
+  participant_createCyclicDependenciesRule-->>participant_createArchitectureGraphRuleSet: return

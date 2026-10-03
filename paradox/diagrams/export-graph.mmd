@@ -26,7 +26,10 @@ graph LR
   module_src_features_profiles_domain_evaluateArchitectureProfile_ts["src/features/profiles/domain/evaluateArchitectureProfile.ts"]
   module_src_features_profiles_domain_findArchitectureProfile_ts["src/features/profiles/domain/findArchitectureProfile.ts"]
   module_src_features_profiles_domain_listArchitectureProfiles_ts["src/features/profiles/domain/listArchitectureProfiles.ts"]
+  module_src_features_rules_domain_createArchitectureGraphRuleSet_test_ts["src/features/rules/domain/createArchitectureGraphRuleSet.test.ts"]
+  module_src_features_rules_domain_createArchitectureGraphRuleSet_ts["src/features/rules/domain/createArchitectureGraphRuleSet.ts"]
   module_src_features_rules_domain_createArchitectureRuleSet_ts["src/features/rules/domain/createArchitectureRuleSet.ts"]
+  module_src_features_rules_domain_createCyclicDependenciesRule_ts["src/features/rules/domain/createCyclicDependenciesRule.ts"]
   module_src_index_ts["src/index.ts"]
   module_src_types_architectureAnalysis_ts["src/types/architectureAnalysis.ts"]
   module_src_types_architectureCli_ts["src/types/architectureCli.ts"]
@@ -35,6 +38,8 @@ graph LR
   module_src_utils_hasSourceCapability_ts["src/utils/hasSourceCapability.ts"]
   export_ArchitectureContradiction["ArchitectureContradiction"]
   module_src_types_architectureAnalysis_ts --> export_ArchitectureContradiction
+  export_ArchitectureCycleRuleOptions["ArchitectureCycleRuleOptions"]
+  module_src_types_architectureAnalysis_ts --> export_ArchitectureCycleRuleOptions
   export_ArchitectureDetectionCandidate["ArchitectureDetectionCandidate"]
   module_src_types_architectureAnalysis_ts --> export_ArchitectureDetectionCandidate
   export_ArchitectureDetectionCandidate -.-> export_ArchitectureContradiction
@@ -50,6 +55,8 @@ graph LR
   export_ArchitectureEvaluationResult["ArchitectureEvaluationResult"]
   module_src_types_architectureAnalysis_ts --> export_ArchitectureEvaluationResult
   export_ArchitectureEvaluationResult -.-> export_ArchitectureRoleAssignment
+  export_ArchitectureGraphRuleContext["ArchitectureGraphRuleContext"]
+  module_src_types_architectureAnalysis_ts --> export_ArchitectureGraphRuleContext
   export_ArchitectureModel["ArchitectureModel"]
   module_src_types_architectureModel_ts --> export_ArchitectureModel
   export_ArchitectureModel -.-> export_ArchitectureRole
@@ -80,6 +87,9 @@ graph LR
   module_src_types_architectureAnalysis_ts --> export_ArchitectureRuleContext
   export_ArchitectureRuleContext -.-> export_ArchitectureModel
   export_ArchitectureRuleContext -.-> export_ArchitectureRoleAssignment
+  export_createArchitectureGraphRuleSet["createArchitectureGraphRuleSet"]
+  module_src_features_rules_domain_createArchitectureGraphRuleSet_ts --> export_createArchitectureGraphRuleSet
+  export_createArchitectureGraphRuleSet -.-> export_ArchitectureGraphRuleContext
   export_createArchitectureProfileRuleSet["createArchitectureProfileRuleSet"]
   module_src_features_profiles_domain_createArchitectureProfileRuleSet_ts --> export_createArchitectureProfileRuleSet
   export_createArchitectureProfileRuleSet -.-> export_ArchitectureProfileRuleContext

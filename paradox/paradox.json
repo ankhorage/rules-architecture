@@ -14,7 +14,7 @@
     {
       "id": "npm",
       "label": "npm",
-      "value": "v0.4.0",
+      "value": "v0.5.0",
       "color": "cb3837"
     },
     {
@@ -361,10 +361,30 @@
       ]
     },
     {
+      "path": "src/features/rules/domain/createArchitectureGraphRuleSet.test.ts",
+      "isEntrypoint": false,
+      "dependencies": [
+        "src/features/rules/domain/createArchitectureGraphRuleSet.ts"
+      ],
+      "exports": []
+    },
+    {
+      "path": "src/features/rules/domain/createArchitectureGraphRuleSet.ts",
+      "isEntrypoint": false,
+      "dependencies": [
+        "src/features/rules/domain/createCyclicDependenciesRule.ts",
+        "src/types/architectureAnalysis.ts"
+      ],
+      "exports": [
+        "createArchitectureGraphRuleSet"
+      ]
+    },
+    {
       "path": "src/features/rules/domain/createArchitectureRuleSet.ts",
       "isEntrypoint": false,
       "dependencies": [
         "src/features/models/domain/findArchitectureModel.ts",
+        "src/features/rules/domain/createCyclicDependenciesRule.ts",
         "src/types/architectureAnalysis.ts",
         "src/types/architectureModel.ts"
       ],
@@ -373,16 +393,28 @@
       ]
     },
     {
+      "path": "src/features/rules/domain/createCyclicDependenciesRule.ts",
+      "isEntrypoint": false,
+      "dependencies": [
+        "src/types/architectureAnalysis.ts"
+      ],
+      "exports": [
+        "createCyclicDependenciesRule"
+      ]
+    },
+    {
       "path": "src/index.ts",
       "isEntrypoint": true,
       "dependencies": [],
       "exports": [
         "ArchitectureContradiction",
+        "ArchitectureCycleRuleOptions",
         "ArchitectureDetectionCandidate",
         "ArchitectureDetectionEvidence",
         "ArchitectureDetectionResult",
         "ArchitectureEvaluationOptions",
         "ArchitectureEvaluationResult",
+        "ArchitectureGraphRuleContext",
         "ArchitectureModel",
         "ArchitectureProfile",
         "ArchitectureProfileEvaluationOptions",
@@ -394,6 +426,7 @@
         "ArchitectureRoleAssignment",
         "ArchitectureRoleDependency",
         "ArchitectureRuleContext",
+        "createArchitectureGraphRuleSet",
         "createArchitectureProfileRuleSet",
         "createArchitectureRuleSet",
         "detectArchitecture",
@@ -412,11 +445,13 @@
       ],
       "exports": [
         "ArchitectureContradiction",
+        "ArchitectureCycleRuleOptions",
         "ArchitectureDetectionCandidate",
         "ArchitectureDetectionEvidence",
         "ArchitectureDetectionResult",
         "ArchitectureEvaluationOptions",
         "ArchitectureEvaluationResult",
+        "ArchitectureGraphRuleContext",
         "ArchitectureRoleAssignment",
         "ArchitectureRuleContext"
       ]
@@ -526,6 +561,36 @@
           "kind": "property",
           "type": "string",
           "required": true,
+          "description": null
+        }
+      ],
+      "structuredRows": []
+    },
+    {
+      "name": "ArchitectureCycleRuleOptions",
+      "title": null,
+      "description": "Serializable options for the reusable cyclic-dependencies Architecture rule.",
+      "isReadme": false,
+      "see": [],
+      "security": [],
+      "kind": "type",
+      "modulePath": "src/types/architectureAnalysis.ts",
+      "sourceLocation": {
+        "filePath": "src/types/architectureAnalysis.ts",
+        "line": 54,
+        "column": 1
+      },
+      "exportPaths": [
+        "src/index.ts"
+      ],
+      "relatedSymbols": [],
+      "signatures": [],
+      "members": [
+        {
+          "name": "aggregation",
+          "kind": "property",
+          "type": "\"file\" | \"package\" | undefined",
+          "required": false,
           "description": null
         }
       ],
@@ -701,7 +766,7 @@
       "modulePath": "src/types/architectureAnalysis.ts",
       "sourceLocation": {
         "filePath": "src/types/architectureAnalysis.ts",
-        "line": 56,
+        "line": 65,
         "column": 1
       },
       "exportPaths": [
@@ -731,7 +796,7 @@
       "modulePath": "src/types/architectureAnalysis.ts",
       "sourceLocation": {
         "filePath": "src/types/architectureAnalysis.ts",
-        "line": 61,
+        "line": 70,
         "column": 1
       },
       "exportPaths": [
@@ -767,6 +832,36 @@
           "name": "roleAssignments",
           "kind": "property",
           "type": "readonly ArchitectureRoleAssignment[]",
+          "required": true,
+          "description": null
+        }
+      ],
+      "structuredRows": []
+    },
+    {
+      "name": "ArchitectureGraphRuleContext",
+      "title": null,
+      "description": "Target-independent Architecture Rules context over one canonical SourceGraph.",
+      "isReadme": false,
+      "see": [],
+      "security": [],
+      "kind": "type",
+      "modulePath": "src/types/architectureAnalysis.ts",
+      "sourceLocation": {
+        "filePath": "src/types/architectureAnalysis.ts",
+        "line": 49,
+        "column": 1
+      },
+      "exportPaths": [
+        "src/index.ts"
+      ],
+      "relatedSymbols": [],
+      "signatures": [],
+      "members": [
+        {
+          "name": "graph",
+          "kind": "property",
+          "type": "SourceGraph",
           "required": true,
           "description": null
         }
@@ -1262,7 +1357,7 @@
       "modulePath": "src/types/architectureAnalysis.ts",
       "sourceLocation": {
         "filePath": "src/types/architectureAnalysis.ts",
-        "line": 49,
+        "line": 59,
         "column": 1
       },
       "exportPaths": [
@@ -1296,6 +1391,37 @@
           "description": null
         }
       ],
+      "structuredRows": []
+    },
+    {
+      "name": "createArchitectureGraphRuleSet",
+      "title": null,
+      "description": "Create target-independent Architecture Rules over canonical source facts.",
+      "isReadme": false,
+      "see": [],
+      "security": [],
+      "kind": "function",
+      "modulePath": "src/features/rules/domain/createArchitectureGraphRuleSet.ts",
+      "sourceLocation": {
+        "filePath": "src/features/rules/domain/createArchitectureGraphRuleSet.ts",
+        "line": 7,
+        "column": 1
+      },
+      "exportPaths": [
+        "src/index.ts"
+      ],
+      "relatedSymbols": [
+        "ArchitectureGraphRuleContext"
+      ],
+      "signatures": [
+        {
+          "label": "() => RuleSet<ArchitectureGraphRuleContext>",
+          "parameters": [],
+          "returnType": "RuleSet<ArchitectureGraphRuleContext>",
+          "returnDescription": null
+        }
+      ],
+      "members": [],
       "structuredRows": []
     },
     {
@@ -1347,7 +1473,7 @@
       "modulePath": "src/features/rules/domain/createArchitectureRuleSet.ts",
       "sourceLocation": {
         "filePath": "src/features/rules/domain/createArchitectureRuleSet.ts",
-        "line": 17,
+        "line": 12,
         "column": 1
       },
       "exportPaths": [
@@ -2472,24 +2598,79 @@
       }
     },
     {
+      "name": "sourceGraph",
+      "description": null,
+      "see": [],
+      "security": [],
+      "sourceLocation": {
+        "filePath": "src/features/rules/domain/createArchitectureGraphRuleSet.test.ts",
+        "line": 62,
+        "column": 1
+      }
+    },
+    {
+      "name": "packageNode",
+      "description": null,
+      "see": [],
+      "security": [],
+      "sourceLocation": {
+        "filePath": "src/features/rules/domain/createArchitectureGraphRuleSet.test.ts",
+        "line": 70,
+        "column": 1
+      }
+    },
+    {
+      "name": "fileNode",
+      "description": null,
+      "see": [],
+      "security": [],
+      "sourceLocation": {
+        "filePath": "src/features/rules/domain/createArchitectureGraphRuleSet.test.ts",
+        "line": 84,
+        "column": 1
+      }
+    },
+    {
+      "name": "declaresInEdge",
+      "description": null,
+      "see": [],
+      "security": [],
+      "sourceLocation": {
+        "filePath": "src/features/rules/domain/createArchitectureGraphRuleSet.test.ts",
+        "line": 100,
+        "column": 1
+      }
+    },
+    {
+      "name": "importEdge",
+      "description": null,
+      "see": [],
+      "security": [],
+      "sourceLocation": {
+        "filePath": "src/features/rules/domain/createArchitectureGraphRuleSet.test.ts",
+        "line": 117,
+        "column": 1
+      }
+    },
+    {
+      "name": "createArchitectureGraphRuleSet",
+      "description": "Create target-independent Architecture Rules over canonical source facts.",
+      "see": [],
+      "security": [],
+      "sourceLocation": {
+        "filePath": "src/features/rules/domain/createArchitectureGraphRuleSet.ts",
+        "line": 7,
+        "column": 1
+      }
+    },
+    {
       "name": "createArchitectureRuleSet",
       "description": "Create architecture rules for one explicitly selected target model.",
       "see": [],
       "security": [],
       "sourceLocation": {
         "filePath": "src/features/rules/domain/createArchitectureRuleSet.ts",
-        "line": 17,
-        "column": 1
-      }
-    },
-    {
-      "name": "cyclicDependenciesRule",
-      "description": "Detect intrinsic file import cycles with canonical source identities.",
-      "see": [],
-      "security": [],
-      "sourceLocation": {
-        "filePath": "src/features/rules/domain/createArchitectureRuleSet.ts",
-        "line": 28,
+        "line": 12,
         "column": 1
       }
     },
@@ -2500,18 +2681,7 @@
       "security": [],
       "sourceLocation": {
         "filePath": "src/features/rules/domain/createArchitectureRuleSet.ts",
-        "line": 39,
-        "column": 1
-      }
-    },
-    {
-      "name": "cycleFindings",
-      "description": "Convert file-level import strongly connected components into generic Rule findings.",
-      "see": [],
-      "security": [],
-      "sourceLocation": {
-        "filePath": "src/features/rules/domain/createArchitectureRuleSet.ts",
-        "line": 50,
+        "line": 23,
         "column": 1
       }
     },
@@ -2522,7 +2692,7 @@
       "security": [],
       "sourceLocation": {
         "filePath": "src/features/rules/domain/createArchitectureRuleSet.ts",
-        "line": 81,
+        "line": 34,
         "column": 1
       }
     },
@@ -2533,7 +2703,84 @@
       "security": [],
       "sourceLocation": {
         "filePath": "src/features/rules/domain/createArchitectureRuleSet.ts",
-        "line": 130,
+        "line": 83,
+        "column": 1
+      }
+    },
+    {
+      "name": "createCyclicDependenciesRule",
+      "description": "Create the reusable cyclic-dependencies rule for any context that exposes one SourceGraph.",
+      "see": [],
+      "security": [],
+      "sourceLocation": {
+        "filePath": "src/features/rules/domain/createCyclicDependenciesRule.ts",
+        "line": 18,
+        "column": 1
+      }
+    },
+    {
+      "name": "readAggregation",
+      "description": "Read the validated aggregation option while preserving the default file-level behavior.",
+      "see": [],
+      "security": [],
+      "sourceLocation": {
+        "filePath": "src/features/rules/domain/createCyclicDependenciesRule.ts",
+        "line": 32,
+        "column": 1
+      }
+    },
+    {
+      "name": "validateCycleOptions",
+      "description": "Validate the optional cycle aggregation level without consumer-specific configuration.",
+      "see": [],
+      "security": [],
+      "sourceLocation": {
+        "filePath": "src/features/rules/domain/createCyclicDependenciesRule.ts",
+        "line": 41,
+        "column": 1
+      }
+    },
+    {
+      "name": "cycleFindings",
+      "description": "Convert canonical source dependencies into deterministic generic cycle findings.",
+      "see": [],
+      "security": [],
+      "sourceLocation": {
+        "filePath": "src/features/rules/domain/createCyclicDependenciesRule.ts",
+        "line": 57,
+        "column": 1
+      }
+    },
+    {
+      "name": "fileCycleGraph",
+      "description": "Build a file-level cycle graph while preserving original edge IDs as evidence references.",
+      "see": [],
+      "security": [],
+      "sourceLocation": {
+        "filePath": "src/features/rules/domain/createCyclicDependenciesRule.ts",
+        "line": 98,
+        "column": 1
+      }
+    },
+    {
+      "name": "packageCycleGraph",
+      "description": "Build a package-level cycle graph from the canonical deterministic import rollup.",
+      "see": [],
+      "security": [],
+      "sourceLocation": {
+        "filePath": "src/features/rules/domain/createCyclicDependenciesRule.ts",
+        "line": 125,
+        "column": 1
+      }
+    },
+    {
+      "name": "isCycleOptionsRecord",
+      "description": "Narrow only the cyclic-dependency option object accepted by this Rule.",
+      "see": [],
+      "security": [],
+      "sourceLocation": {
+        "filePath": "src/features/rules/domain/createCyclicDependenciesRule.ts",
+        "line": 151,
         "column": 1
       }
     },
@@ -2556,6 +2803,14 @@
       "sourcePath": "src/cli/standalone.ts",
       "symbolName": "runCli",
       "description": "Run the standalone Architecture Rules CLI through the same command operations as Ankh.",
+      "isReadme": false
+    },
+    {
+      "kind": "export",
+      "name": "createArchitectureGraphRuleSet",
+      "sourcePath": "src/features/rules/domain/createArchitectureGraphRuleSet.ts",
+      "symbolName": "createArchitectureGraphRuleSet",
+      "description": "Create target-independent Architecture Rules over canonical source facts.",
       "isReadme": false
     },
     {
@@ -2658,6 +2913,11 @@
       {
         "fromPath": "src/index.ts",
         "toPath": "src/features/profiles/domain/listArchitectureProfiles.ts",
+        "sourcePath": "src/index.ts"
+      },
+      {
+        "fromPath": "src/index.ts",
+        "toPath": "src/features/rules/domain/createArchitectureGraphRuleSet.ts",
         "sourcePath": "src/index.ts"
       },
       {
@@ -2966,6 +3226,21 @@
         "sourcePath": "src/features/profiles/domain/listArchitectureProfiles.ts"
       },
       {
+        "fromPath": "src/features/rules/domain/createArchitectureGraphRuleSet.test.ts",
+        "toPath": "src/features/rules/domain/createArchitectureGraphRuleSet.ts",
+        "sourcePath": "src/features/rules/domain/createArchitectureGraphRuleSet.test.ts"
+      },
+      {
+        "fromPath": "src/features/rules/domain/createArchitectureGraphRuleSet.ts",
+        "toPath": "src/types/architectureAnalysis.ts",
+        "sourcePath": "src/features/rules/domain/createArchitectureGraphRuleSet.ts"
+      },
+      {
+        "fromPath": "src/features/rules/domain/createArchitectureGraphRuleSet.ts",
+        "toPath": "src/features/rules/domain/createCyclicDependenciesRule.ts",
+        "sourcePath": "src/features/rules/domain/createArchitectureGraphRuleSet.ts"
+      },
+      {
         "fromPath": "src/features/rules/domain/createArchitectureRuleSet.ts",
         "toPath": "src/types/architectureAnalysis.ts",
         "sourcePath": "src/features/rules/domain/createArchitectureRuleSet.ts"
@@ -2979,6 +3254,16 @@
         "fromPath": "src/features/rules/domain/createArchitectureRuleSet.ts",
         "toPath": "src/features/models/domain/findArchitectureModel.ts",
         "sourcePath": "src/features/rules/domain/createArchitectureRuleSet.ts"
+      },
+      {
+        "fromPath": "src/features/rules/domain/createArchitectureRuleSet.ts",
+        "toPath": "src/features/rules/domain/createCyclicDependenciesRule.ts",
+        "sourcePath": "src/features/rules/domain/createArchitectureRuleSet.ts"
+      },
+      {
+        "fromPath": "src/features/rules/domain/createCyclicDependenciesRule.ts",
+        "toPath": "src/types/architectureAnalysis.ts",
+        "sourcePath": "src/features/rules/domain/createCyclicDependenciesRule.ts"
       }
     ],
     "calls": [
@@ -3781,6 +4066,66 @@
         "sourcePath": "src/features/profiles/domain/evaluateArchitectureProfile.ts"
       },
       {
+        "fromSymbol": "src/features/rules/domain/createArchitectureGraphRuleSet.test.ts",
+        "toSymbol": "test",
+        "callExpression": "test",
+        "sourcePath": "src/features/rules/domain/createArchitectureGraphRuleSet.test.ts"
+      },
+      {
+        "fromSymbol": "src/features/rules/domain/createArchitectureGraphRuleSet.test.ts",
+        "toSymbol": "createArchitectureGraphRuleSet",
+        "callExpression": "createArchitectureGraphRuleSet",
+        "sourcePath": "src/features/rules/domain/createArchitectureGraphRuleSet.test.ts"
+      },
+      {
+        "fromSymbol": "src/features/rules/domain/createArchitectureGraphRuleSet.test.ts",
+        "toSymbol": "sourceGraph",
+        "callExpression": "sourceGraph",
+        "sourcePath": "src/features/rules/domain/createArchitectureGraphRuleSet.test.ts"
+      },
+      {
+        "fromSymbol": "src/features/rules/domain/createArchitectureGraphRuleSet.test.ts",
+        "toSymbol": "packageNode",
+        "callExpression": "packageNode",
+        "sourcePath": "src/features/rules/domain/createArchitectureGraphRuleSet.test.ts"
+      },
+      {
+        "fromSymbol": "src/features/rules/domain/createArchitectureGraphRuleSet.test.ts",
+        "toSymbol": "fileNode",
+        "callExpression": "fileNode",
+        "sourcePath": "src/features/rules/domain/createArchitectureGraphRuleSet.test.ts"
+      },
+      {
+        "fromSymbol": "src/features/rules/domain/createArchitectureGraphRuleSet.test.ts",
+        "toSymbol": "importEdge",
+        "callExpression": "importEdge",
+        "sourcePath": "src/features/rules/domain/createArchitectureGraphRuleSet.test.ts"
+      },
+      {
+        "fromSymbol": "src/features/rules/domain/createArchitectureGraphRuleSet.test.ts",
+        "toSymbol": "evaluateRules",
+        "callExpression": "evaluateRules",
+        "sourcePath": "src/features/rules/domain/createArchitectureGraphRuleSet.test.ts"
+      },
+      {
+        "fromSymbol": "src/features/rules/domain/createArchitectureGraphRuleSet.test.ts",
+        "toSymbol": "expect",
+        "callExpression": "expect",
+        "sourcePath": "src/features/rules/domain/createArchitectureGraphRuleSet.test.ts"
+      },
+      {
+        "fromSymbol": "src/features/rules/domain/createArchitectureGraphRuleSet.test.ts",
+        "toSymbol": "declaresInEdge",
+        "callExpression": "declaresInEdge",
+        "sourcePath": "src/features/rules/domain/createArchitectureGraphRuleSet.test.ts"
+      },
+      {
+        "fromSymbol": "createArchitectureGraphRuleSet",
+        "toSymbol": "createCyclicDependenciesRule",
+        "callExpression": "createCyclicDependenciesRule",
+        "sourcePath": "src/features/rules/domain/createArchitectureGraphRuleSet.ts"
+      },
+      {
         "fromSymbol": "createArchitectureRuleSet",
         "toSymbol": "findArchitectureModel",
         "callExpression": "findArchitectureModel",
@@ -3788,8 +4133,8 @@
       },
       {
         "fromSymbol": "createArchitectureRuleSet",
-        "toSymbol": "cyclicDependenciesRule",
-        "callExpression": "cyclicDependenciesRule",
+        "toSymbol": "createCyclicDependenciesRule",
+        "callExpression": "createCyclicDependenciesRule",
         "sourcePath": "src/features/rules/domain/createArchitectureRuleSet.ts"
       },
       {
@@ -3800,20 +4145,8 @@
       },
       {
         "fromSymbol": "evaluate",
-        "toSymbol": "cycleFindings",
-        "callExpression": "cycleFindings",
-        "sourcePath": "src/features/rules/domain/createArchitectureRuleSet.ts"
-      },
-      {
-        "fromSymbol": "evaluate",
         "toSymbol": "directionFindings",
         "callExpression": "directionFindings",
-        "sourcePath": "src/features/rules/domain/createArchitectureRuleSet.ts"
-      },
-      {
-        "fromSymbol": "cycleFindings",
-        "toSymbol": "findCyclicComponents",
-        "callExpression": "findCyclicComponents",
         "sourcePath": "src/features/rules/domain/createArchitectureRuleSet.ts"
       },
       {
@@ -3821,6 +4154,60 @@
         "toSymbol": "isDependencyRelation",
         "callExpression": "isDependencyRelation",
         "sourcePath": "src/features/rules/domain/createArchitectureRuleSet.ts"
+      },
+      {
+        "fromSymbol": "evaluate",
+        "toSymbol": "cycleFindings",
+        "callExpression": "cycleFindings",
+        "sourcePath": "src/features/rules/domain/createCyclicDependenciesRule.ts"
+      },
+      {
+        "fromSymbol": "evaluate",
+        "toSymbol": "readAggregation",
+        "callExpression": "readAggregation",
+        "sourcePath": "src/features/rules/domain/createCyclicDependenciesRule.ts"
+      },
+      {
+        "fromSymbol": "readAggregation",
+        "toSymbol": "isCycleOptionsRecord",
+        "callExpression": "isCycleOptionsRecord",
+        "sourcePath": "src/features/rules/domain/createCyclicDependenciesRule.ts"
+      },
+      {
+        "fromSymbol": "validateCycleOptions",
+        "toSymbol": "isCycleOptionsRecord",
+        "callExpression": "isCycleOptionsRecord",
+        "sourcePath": "src/features/rules/domain/createCyclicDependenciesRule.ts"
+      },
+      {
+        "fromSymbol": "cycleFindings",
+        "toSymbol": "fileCycleGraph",
+        "callExpression": "fileCycleGraph",
+        "sourcePath": "src/features/rules/domain/createCyclicDependenciesRule.ts"
+      },
+      {
+        "fromSymbol": "cycleFindings",
+        "toSymbol": "packageCycleGraph",
+        "callExpression": "packageCycleGraph",
+        "sourcePath": "src/features/rules/domain/createCyclicDependenciesRule.ts"
+      },
+      {
+        "fromSymbol": "cycleFindings",
+        "toSymbol": "findCyclicComponents",
+        "callExpression": "findCyclicComponents",
+        "sourcePath": "src/features/rules/domain/createCyclicDependenciesRule.ts"
+      },
+      {
+        "fromSymbol": "packageCycleGraph",
+        "toSymbol": "createSourceGraphIndex",
+        "callExpression": "createSourceGraphIndex",
+        "sourcePath": "src/features/rules/domain/createCyclicDependenciesRule.ts"
+      },
+      {
+        "fromSymbol": "packageCycleGraph",
+        "toSymbol": "rollupSourceRelations",
+        "callExpression": "rollupSourceRelations",
+        "sourcePath": "src/features/rules/domain/createCyclicDependenciesRule.ts"
       }
     ],
     "typeReferences": [
@@ -3900,6 +4287,16 @@
         "sourcePath": "src/features/profiles/domain/listArchitectureProfiles.ts"
       },
       {
+        "fromSymbol": "createArchitectureGraphRuleSet",
+        "toType": "ArchitectureGraphRuleContext",
+        "sourcePath": "src/features/rules/domain/createArchitectureGraphRuleSet.ts"
+      },
+      {
+        "fromSymbol": "createArchitectureGraphRuleSet",
+        "toType": "RuleSet",
+        "sourcePath": "src/features/rules/domain/createArchitectureGraphRuleSet.ts"
+      },
+      {
         "fromSymbol": "createArchitectureRuleSet",
         "toType": "ArchitectureRuleContext",
         "sourcePath": "src/features/rules/domain/createArchitectureRuleSet.ts"
@@ -3957,6 +4354,11 @@
       {
         "fromSymbol": "ArchitectureEvaluationResult",
         "toType": "RuleFinding",
+        "sourcePath": "src/types/architectureAnalysis.ts"
+      },
+      {
+        "fromSymbol": "ArchitectureGraphRuleContext",
+        "toType": "SourceGraph",
         "sourcePath": "src/types/architectureAnalysis.ts"
       },
       {
