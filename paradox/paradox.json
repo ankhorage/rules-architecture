@@ -14,7 +14,7 @@
     {
       "id": "npm",
       "label": "npm",
-      "value": "v0.5.0",
+      "value": "v0.6.0",
       "color": "cb3837"
     },
     {
@@ -84,6 +84,23 @@
       "exports": []
     },
     {
+      "path": "src/capabilities/index.test.ts",
+      "isEntrypoint": false,
+      "dependencies": [
+        "package.json",
+        "src/capabilities/index.ts"
+      ],
+      "exports": []
+    },
+    {
+      "path": "src/capabilities/index.ts",
+      "isEntrypoint": false,
+      "dependencies": [],
+      "exports": [
+        "CAPABILITIES"
+      ]
+    },
+    {
       "path": "src/cli/commands/detect.ts",
       "isEntrypoint": false,
       "dependencies": [
@@ -127,6 +144,7 @@
       "path": "src/cli/createRulesArchitectureRuntimeProvider.test.ts",
       "isEntrypoint": false,
       "dependencies": [
+        "src/capabilities/index.ts",
         "src/cli/createRulesArchitectureRuntimeProvider.ts"
       ],
       "exports": []
@@ -135,6 +153,7 @@
       "path": "src/cli/createRulesArchitectureRuntimeProvider.ts",
       "isEntrypoint": false,
       "dependencies": [
+        "src/capabilities/index.ts",
         "src/cli/commands/detect.ts",
         "src/cli/commands/evaluate.ts",
         "src/cli/commands/models/list.ts",
@@ -186,7 +205,6 @@
         "package.json"
       ],
       "exports": [
-        "RULES_ARCHITECTURE_CAPABILITIES",
         "RULES_ARCHITECTURE_COMMAND_CATEGORY",
         "RULES_ARCHITECTURE_PACKAGE_VERSION"
       ]
@@ -1845,7 +1863,7 @@
       "security": [],
       "sourceLocation": {
         "filePath": "src/cli/createRulesArchitectureRuntimeProvider.ts",
-        "line": 13,
+        "line": 14,
         "column": 1
       }
     },
@@ -1856,7 +1874,7 @@
       "security": [],
       "sourceLocation": {
         "filePath": "src/cli/createRulesArchitectureRuntimeProvider.ts",
-        "line": 25,
+        "line": 26,
         "column": 1
       }
     },
@@ -1867,7 +1885,7 @@
       "security": [],
       "sourceLocation": {
         "filePath": "src/cli/createRulesArchitectureRuntimeProvider.ts",
-        "line": 46,
+        "line": 51,
         "column": 1
       }
     },
@@ -2941,9 +2959,29 @@
         "sourcePath": "src/index.ts"
       },
       {
+        "fromPath": "src/capabilities/index.test.ts",
+        "toPath": "package.json",
+        "sourcePath": "src/capabilities/index.test.ts"
+      },
+      {
+        "fromPath": "src/capabilities/index.test.ts",
+        "toPath": "src/capabilities/index.ts",
+        "sourcePath": "src/capabilities/index.test.ts"
+      },
+      {
+        "fromPath": "src/cli/createRulesArchitectureRuntimeProvider.test.ts",
+        "toPath": "src/capabilities/index.ts",
+        "sourcePath": "src/cli/createRulesArchitectureRuntimeProvider.test.ts"
+      },
+      {
         "fromPath": "src/cli/createRulesArchitectureRuntimeProvider.test.ts",
         "toPath": "src/cli/createRulesArchitectureRuntimeProvider.ts",
         "sourcePath": "src/cli/createRulesArchitectureRuntimeProvider.test.ts"
+      },
+      {
+        "fromPath": "src/cli/createRulesArchitectureRuntimeProvider.ts",
+        "toPath": "src/capabilities/index.ts",
+        "sourcePath": "src/cli/createRulesArchitectureRuntimeProvider.ts"
       },
       {
         "fromPath": "src/cli/createRulesArchitectureRuntimeProvider.ts",
@@ -3267,6 +3305,18 @@
       }
     ],
     "calls": [
+      {
+        "fromSymbol": "src/capabilities/index.test.ts",
+        "toSymbol": "test",
+        "callExpression": "test",
+        "sourcePath": "src/capabilities/index.test.ts"
+      },
+      {
+        "fromSymbol": "src/capabilities/index.test.ts",
+        "toSymbol": "expect",
+        "callExpression": "expect",
+        "sourcePath": "src/capabilities/index.test.ts"
+      },
       {
         "fromSymbol": "src/cli/createRulesArchitectureRuntimeProvider.test.ts",
         "toSymbol": "test",

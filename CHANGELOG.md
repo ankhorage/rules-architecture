@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.6.0
+
+### Minor Changes
+
+- 62d134b: Publish the canonical Rules Architecture capability catalog.
+
 ## 0.5.0
 
 ### Minor Changes

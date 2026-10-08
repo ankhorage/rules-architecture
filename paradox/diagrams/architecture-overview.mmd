@@ -4,6 +4,12 @@ graph TD
   package__ankhorage_rules_architecture --> entrypoint_src_index_ts
   module_package_json["package.json"]
   package__ankhorage_rules_architecture -.-> module_package_json
+  module_src_capabilities_index_test_ts["src/capabilities/index.test.ts"]
+  package__ankhorage_rules_architecture -.-> module_src_capabilities_index_test_ts
+  module_src_capabilities_index_test_ts --> module_package_json
+  module_src_capabilities_index_test_ts --> module_src_capabilities_index_ts
+  module_src_capabilities_index_ts["src/capabilities/index.ts"]
+  package__ankhorage_rules_architecture -.-> module_src_capabilities_index_ts
   module_src_cli_commands_detect_ts["src/cli/commands/detect.ts"]
   package__ankhorage_rules_architecture -.-> module_src_cli_commands_detect_ts
   module_src_cli_commands_detect_ts --> module_src_cli_utils_parseArchitectureCommandOptions_ts
@@ -20,9 +26,11 @@ graph TD
   module_src_cli_commands_models_list_ts --> module_src_features_models_domain_listArchitectureModels_ts
   module_src_cli_createRulesArchitectureRuntimeProvider_test_ts["src/cli/createRulesArchitectureRuntimeProvider.test.ts"]
   package__ankhorage_rules_architecture -.-> module_src_cli_createRulesArchitectureRuntimeProvider_test_ts
+  module_src_cli_createRulesArchitectureRuntimeProvider_test_ts --> module_src_capabilities_index_ts
   module_src_cli_createRulesArchitectureRuntimeProvider_test_ts --> module_src_cli_createRulesArchitectureRuntimeProvider_ts
   module_src_cli_createRulesArchitectureRuntimeProvider_ts["src/cli/createRulesArchitectureRuntimeProvider.ts"]
   package__ankhorage_rules_architecture -.-> module_src_cli_createRulesArchitectureRuntimeProvider_ts
+  module_src_cli_createRulesArchitectureRuntimeProvider_ts --> module_src_capabilities_index_ts
   module_src_cli_createRulesArchitectureRuntimeProvider_ts --> module_src_cli_commands_detect_ts
   module_src_cli_createRulesArchitectureRuntimeProvider_ts --> module_src_cli_commands_evaluate_ts
   module_src_cli_createRulesArchitectureRuntimeProvider_ts --> module_src_cli_commands_models_list_ts

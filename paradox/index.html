@@ -263,7 +263,7 @@
       <div class="summary">
         <div><strong>28</strong><span class="muted">public exports</span></div>
         <div><strong>0</strong><span class="muted">components</span></div>
-        <div><strong>37</strong><span class="muted">modules</span></div>
+        <div><strong>39</strong><span class="muted">modules</span></div>
         <div><strong>1</strong><span class="muted">entrypoints</span></div>
       </div>
       <h3>Entrypoints</h3>
@@ -280,6 +280,16 @@
     <p class="muted">Referenced module</p>
     <p><strong>Dependencies:</strong> <span class="empty">None</span></p>
     <p><strong>Exports:</strong> <span class="empty">None</span></p>
+  </article><article class="item" data-search="src/capabilities/index.test.ts package.json src/capabilities/index.ts">
+    <h3>src/capabilities/index.test.ts</h3>
+    <p class="muted">Referenced module</p>
+    <p><strong>Dependencies:</strong> <code>package.json</code>, <code>src/capabilities/index.ts</code></p>
+    <p><strong>Exports:</strong> <span class="empty">None</span></p>
+  </article><article class="item" data-search="src/capabilities/index.ts CAPABILITIES">
+    <h3>src/capabilities/index.ts</h3>
+    <p class="muted">Referenced module</p>
+    <p><strong>Dependencies:</strong> <span class="empty">None</span></p>
+    <p><strong>Exports:</strong> <code>CAPABILITIES</code></p>
   </article><article class="item" data-search="src/cli/commands/detect.ts src/cli/utils/parseArchitectureCommandOptions.ts src/features/detection/domain/detectArchitecture.ts detect">
     <h3>src/cli/commands/detect.ts</h3>
     <p class="muted">Referenced module</p>
@@ -300,15 +310,15 @@
     <p class="muted">Referenced module</p>
     <p><strong>Dependencies:</strong> <code>src/features/models/domain/listArchitectureModels.ts</code></p>
     <p><strong>Exports:</strong> <code>list</code></p>
-  </article><article class="item" data-search="src/cli/createRulesArchitectureRuntimeProvider.test.ts src/cli/createRulesArchitectureRuntimeProvider.ts">
+  </article><article class="item" data-search="src/cli/createRulesArchitectureRuntimeProvider.test.ts src/capabilities/index.ts src/cli/createRulesArchitectureRuntimeProvider.ts">
     <h3>src/cli/createRulesArchitectureRuntimeProvider.test.ts</h3>
     <p class="muted">Referenced module</p>
-    <p><strong>Dependencies:</strong> <code>src/cli/createRulesArchitectureRuntimeProvider.ts</code></p>
+    <p><strong>Dependencies:</strong> <code>src/capabilities/index.ts</code>, <code>src/cli/createRulesArchitectureRuntimeProvider.ts</code></p>
     <p><strong>Exports:</strong> <span class="empty">None</span></p>
-  </article><article class="item" data-search="src/cli/createRulesArchitectureRuntimeProvider.ts src/cli/commands/detect.ts src/cli/commands/evaluate.ts src/cli/commands/models/list.ts src/constants/rulesArchitecture.ts createRulesArchitectureRuntimeProvider">
+  </article><article class="item" data-search="src/cli/createRulesArchitectureRuntimeProvider.ts src/capabilities/index.ts src/cli/commands/detect.ts src/cli/commands/evaluate.ts src/cli/commands/models/list.ts src/constants/rulesArchitecture.ts createRulesArchitectureRuntimeProvider">
     <h3>src/cli/createRulesArchitectureRuntimeProvider.ts</h3>
     <p class="muted">Referenced module</p>
-    <p><strong>Dependencies:</strong> <code>src/cli/commands/detect.ts</code>, <code>src/cli/commands/evaluate.ts</code>, <code>src/cli/commands/models/list.ts</code>, <code>src/constants/rulesArchitecture.ts</code></p>
+    <p><strong>Dependencies:</strong> <code>src/capabilities/index.ts</code>, <code>src/cli/commands/detect.ts</code>, <code>src/cli/commands/evaluate.ts</code>, <code>src/cli/commands/models/list.ts</code>, <code>src/constants/rulesArchitecture.ts</code></p>
     <p><strong>Exports:</strong> <code>createRulesArchitectureRuntimeProvider</code></p>
   </article><article class="item" data-search="src/cli/index.ts src/cli/createRulesArchitectureRuntimeProvider.ts createRulesArchitectureRuntimeProvider default">
     <h3>src/cli/index.ts</h3>
@@ -325,11 +335,11 @@
     <p class="muted">Referenced module</p>
     <p><strong>Dependencies:</strong> <code>src/features/models/domain/listArchitectureModels.ts</code>, <code>src/types/architectureCli.ts</code>, <code>src/types/architectureModel.ts</code></p>
     <p><strong>Exports:</strong> <code>parseArchitectureCommandOptions</code></p>
-  </article><article class="item" data-search="src/constants/rulesArchitecture.ts package.json RULES_ARCHITECTURE_CAPABILITIES RULES_ARCHITECTURE_COMMAND_CATEGORY RULES_ARCHITECTURE_PACKAGE_VERSION">
+  </article><article class="item" data-search="src/constants/rulesArchitecture.ts package.json RULES_ARCHITECTURE_COMMAND_CATEGORY RULES_ARCHITECTURE_PACKAGE_VERSION">
     <h3>src/constants/rulesArchitecture.ts</h3>
     <p class="muted">Referenced module</p>
     <p><strong>Dependencies:</strong> <code>package.json</code></p>
-    <p><strong>Exports:</strong> <code>RULES_ARCHITECTURE_CAPABILITIES</code>, <code>RULES_ARCHITECTURE_COMMAND_CATEGORY</code>, <code>RULES_ARCHITECTURE_PACKAGE_VERSION</code></p>
+    <p><strong>Exports:</strong> <code>RULES_ARCHITECTURE_COMMAND_CATEGORY</code>, <code>RULES_ARCHITECTURE_PACKAGE_VERSION</code></p>
   </article><article class="item" data-search="src/features/detection/domain/detectArchitecture.test.ts src/features/detection/domain/detectArchitecture.ts">
     <h3>src/features/detection/domain/detectArchitecture.test.ts</h3>
     <p class="muted">Referenced module</p>
@@ -1406,6 +1416,12 @@
   package__ankhorage_rules_architecture --&gt; entrypoint_src_index_ts
   module_package_json[&quot;package.json&quot;]
   package__ankhorage_rules_architecture -.-&gt; module_package_json
+  module_src_capabilities_index_test_ts[&quot;src/capabilities/index.test.ts&quot;]
+  package__ankhorage_rules_architecture -.-&gt; module_src_capabilities_index_test_ts
+  module_src_capabilities_index_test_ts --&gt; module_package_json
+  module_src_capabilities_index_test_ts --&gt; module_src_capabilities_index_ts
+  module_src_capabilities_index_ts[&quot;src/capabilities/index.ts&quot;]
+  package__ankhorage_rules_architecture -.-&gt; module_src_capabilities_index_ts
   module_src_cli_commands_detect_ts[&quot;src/cli/commands/detect.ts&quot;]
   package__ankhorage_rules_architecture -.-&gt; module_src_cli_commands_detect_ts
   module_src_cli_commands_detect_ts --&gt; module_src_cli_utils_parseArchitectureCommandOptions_ts
@@ -1422,9 +1438,11 @@
   module_src_cli_commands_models_list_ts --&gt; module_src_features_models_domain_listArchitectureModels_ts
   module_src_cli_createRulesArchitectureRuntimeProvider_test_ts[&quot;src/cli/createRulesArchitectureRuntimeProvider.test.ts&quot;]
   package__ankhorage_rules_architecture -.-&gt; module_src_cli_createRulesArchitectureRuntimeProvider_test_ts
+  module_src_cli_createRulesArchitectureRuntimeProvider_test_ts --&gt; module_src_capabilities_index_ts
   module_src_cli_createRulesArchitectureRuntimeProvider_test_ts --&gt; module_src_cli_createRulesArchitectureRuntimeProvider_ts
   module_src_cli_createRulesArchitectureRuntimeProvider_ts[&quot;src/cli/createRulesArchitectureRuntimeProvider.ts&quot;]
   package__ankhorage_rules_architecture -.-&gt; module_src_cli_createRulesArchitectureRuntimeProvider_ts
+  module_src_cli_createRulesArchitectureRuntimeProvider_ts --&gt; module_src_capabilities_index_ts
   module_src_cli_createRulesArchitectureRuntimeProvider_ts --&gt; module_src_cli_commands_detect_ts
   module_src_cli_createRulesArchitectureRuntimeProvider_ts --&gt; module_src_cli_commands_evaluate_ts
   module_src_cli_createRulesArchitectureRuntimeProvider_ts --&gt; module_src_cli_commands_models_list_ts
@@ -1551,6 +1569,12 @@
   package__ankhorage_rules_architecture --&gt; entrypoint_src_index_ts
   module_package_json[&quot;package.json&quot;]
   package__ankhorage_rules_architecture -.-&gt; module_package_json
+  module_src_capabilities_index_test_ts[&quot;src/capabilities/index.test.ts&quot;]
+  package__ankhorage_rules_architecture -.-&gt; module_src_capabilities_index_test_ts
+  module_src_capabilities_index_test_ts --&gt; module_package_json
+  module_src_capabilities_index_test_ts --&gt; module_src_capabilities_index_ts
+  module_src_capabilities_index_ts[&quot;src/capabilities/index.ts&quot;]
+  package__ankhorage_rules_architecture -.-&gt; module_src_capabilities_index_ts
   module_src_cli_commands_detect_ts[&quot;src/cli/commands/detect.ts&quot;]
   package__ankhorage_rules_architecture -.-&gt; module_src_cli_commands_detect_ts
   module_src_cli_commands_detect_ts --&gt; module_src_cli_utils_parseArchitectureCommandOptions_ts
@@ -1567,9 +1591,11 @@
   module_src_cli_commands_models_list_ts --&gt; module_src_features_models_domain_listArchitectureModels_ts
   module_src_cli_createRulesArchitectureRuntimeProvider_test_ts[&quot;src/cli/createRulesArchitectureRuntimeProvider.test.ts&quot;]
   package__ankhorage_rules_architecture -.-&gt; module_src_cli_createRulesArchitectureRuntimeProvider_test_ts
+  module_src_cli_createRulesArchitectureRuntimeProvider_test_ts --&gt; module_src_capabilities_index_ts
   module_src_cli_createRulesArchitectureRuntimeProvider_test_ts --&gt; module_src_cli_createRulesArchitectureRuntimeProvider_ts
   module_src_cli_createRulesArchitectureRuntimeProvider_ts[&quot;src/cli/createRulesArchitectureRuntimeProvider.ts&quot;]
   package__ankhorage_rules_architecture -.-&gt; module_src_cli_createRulesArchitectureRuntimeProvider_ts
+  module_src_cli_createRulesArchitectureRuntimeProvider_ts --&gt; module_src_capabilities_index_ts
   module_src_cli_createRulesArchitectureRuntimeProvider_ts --&gt; module_src_cli_commands_detect_ts
   module_src_cli_createRulesArchitectureRuntimeProvider_ts --&gt; module_src_cli_commands_evaluate_ts
   module_src_cli_createRulesArchitectureRuntimeProvider_ts --&gt; module_src_cli_commands_models_list_ts
@@ -1694,6 +1720,8 @@
     <p class="muted"><code>diagrams/module-relationships.mmd</code></p>
     <div class="mermaid">graph LR
   module_package_json[&quot;package.json&quot;]
+  module_src_capabilities_index_test_ts[&quot;src/capabilities/index.test.ts&quot;]
+  module_src_capabilities_index_ts[&quot;src/capabilities/index.ts&quot;]
   module_src_cli_commands_detect_ts[&quot;src/cli/commands/detect.ts&quot;]
   module_src_cli_commands_evaluate_ts[&quot;src/cli/commands/evaluate.ts&quot;]
   module_src_cli_commands_models_list_test_ts[&quot;src/cli/commands/models/list.test.ts&quot;]
@@ -1730,13 +1758,17 @@
   module_src_types_architectureModel_ts[&quot;src/types/architectureModel.ts&quot;]
   module_src_types_architectureProfile_ts[&quot;src/types/architectureProfile.ts&quot;]
   module_src_utils_hasSourceCapability_ts[&quot;src/utils/hasSourceCapability.ts&quot;]
+  module_src_capabilities_index_test_ts --&gt; module_package_json
+  module_src_capabilities_index_test_ts --&gt; module_src_capabilities_index_ts
   module_src_cli_commands_detect_ts --&gt; module_src_cli_utils_parseArchitectureCommandOptions_ts
   module_src_cli_commands_detect_ts --&gt; module_src_features_detection_domain_detectArchitecture_ts
   module_src_cli_commands_evaluate_ts --&gt; module_src_cli_utils_parseArchitectureCommandOptions_ts
   module_src_cli_commands_evaluate_ts --&gt; module_src_features_evaluation_domain_evaluateArchitecture_ts
   module_src_cli_commands_models_list_test_ts --&gt; module_src_cli_commands_models_list_ts
   module_src_cli_commands_models_list_ts --&gt; module_src_features_models_domain_listArchitectureModels_ts
+  module_src_cli_createRulesArchitectureRuntimeProvider_test_ts --&gt; module_src_capabilities_index_ts
   module_src_cli_createRulesArchitectureRuntimeProvider_test_ts --&gt; module_src_cli_createRulesArchitectureRuntimeProvider_ts
+  module_src_cli_createRulesArchitectureRuntimeProvider_ts --&gt; module_src_capabilities_index_ts
   module_src_cli_createRulesArchitectureRuntimeProvider_ts --&gt; module_src_cli_commands_detect_ts
   module_src_cli_createRulesArchitectureRuntimeProvider_ts --&gt; module_src_cli_commands_evaluate_ts
   module_src_cli_createRulesArchitectureRuntimeProvider_ts --&gt; module_src_cli_commands_models_list_ts
@@ -1800,6 +1832,8 @@
       <summary>View Mermaid source</summary>
       <pre>graph LR
   module_package_json[&quot;package.json&quot;]
+  module_src_capabilities_index_test_ts[&quot;src/capabilities/index.test.ts&quot;]
+  module_src_capabilities_index_ts[&quot;src/capabilities/index.ts&quot;]
   module_src_cli_commands_detect_ts[&quot;src/cli/commands/detect.ts&quot;]
   module_src_cli_commands_evaluate_ts[&quot;src/cli/commands/evaluate.ts&quot;]
   module_src_cli_commands_models_list_test_ts[&quot;src/cli/commands/models/list.test.ts&quot;]
@@ -1836,13 +1870,17 @@
   module_src_types_architectureModel_ts[&quot;src/types/architectureModel.ts&quot;]
   module_src_types_architectureProfile_ts[&quot;src/types/architectureProfile.ts&quot;]
   module_src_utils_hasSourceCapability_ts[&quot;src/utils/hasSourceCapability.ts&quot;]
+  module_src_capabilities_index_test_ts --&gt; module_package_json
+  module_src_capabilities_index_test_ts --&gt; module_src_capabilities_index_ts
   module_src_cli_commands_detect_ts --&gt; module_src_cli_utils_parseArchitectureCommandOptions_ts
   module_src_cli_commands_detect_ts --&gt; module_src_features_detection_domain_detectArchitecture_ts
   module_src_cli_commands_evaluate_ts --&gt; module_src_cli_utils_parseArchitectureCommandOptions_ts
   module_src_cli_commands_evaluate_ts --&gt; module_src_features_evaluation_domain_evaluateArchitecture_ts
   module_src_cli_commands_models_list_test_ts --&gt; module_src_cli_commands_models_list_ts
   module_src_cli_commands_models_list_ts --&gt; module_src_features_models_domain_listArchitectureModels_ts
+  module_src_cli_createRulesArchitectureRuntimeProvider_test_ts --&gt; module_src_capabilities_index_ts
   module_src_cli_createRulesArchitectureRuntimeProvider_test_ts --&gt; module_src_cli_createRulesArchitectureRuntimeProvider_ts
+  module_src_cli_createRulesArchitectureRuntimeProvider_ts --&gt; module_src_capabilities_index_ts
   module_src_cli_createRulesArchitectureRuntimeProvider_ts --&gt; module_src_cli_commands_detect_ts
   module_src_cli_createRulesArchitectureRuntimeProvider_ts --&gt; module_src_cli_commands_evaluate_ts
   module_src_cli_createRulesArchitectureRuntimeProvider_ts --&gt; module_src_cli_commands_models_list_ts
@@ -1908,6 +1946,8 @@
     <p class="muted"><code>diagrams/export-graph.mmd</code></p>
     <div class="mermaid">graph LR
   module_package_json[&quot;package.json&quot;]
+  module_src_capabilities_index_test_ts[&quot;src/capabilities/index.test.ts&quot;]
+  module_src_capabilities_index_ts[&quot;src/capabilities/index.ts&quot;]
   module_src_cli_commands_detect_ts[&quot;src/cli/commands/detect.ts&quot;]
   module_src_cli_commands_evaluate_ts[&quot;src/cli/commands/evaluate.ts&quot;]
   module_src_cli_commands_models_list_test_ts[&quot;src/cli/commands/models/list.test.ts&quot;]
@@ -2030,6 +2070,8 @@
       <summary>View Mermaid source</summary>
       <pre>graph LR
   module_package_json[&quot;package.json&quot;]
+  module_src_capabilities_index_test_ts[&quot;src/capabilities/index.test.ts&quot;]
+  module_src_capabilities_index_ts[&quot;src/capabilities/index.ts&quot;]
   module_src_cli_commands_detect_ts[&quot;src/cli/commands/detect.ts&quot;]
   module_src_cli_commands_evaluate_ts[&quot;src/cli/commands/evaluate.ts&quot;]
   module_src_cli_commands_models_list_test_ts[&quot;src/cli/commands/models/list.test.ts&quot;]
@@ -2358,17 +2400,17 @@
       <h2>src/cli/createRulesArchitectureRuntimeProvider.ts</h2>
       <article class="item" data-search="createRulesArchitectureRuntimeProvider src/cli/createRulesArchitectureRuntimeProvider.ts Create the Ankh provider for architecture model listing, detection, and explicit evaluation.">
     <h3>createRulesArchitectureRuntimeProvider</h3>
-    <p class="muted"><code>src/cli/createRulesArchitectureRuntimeProvider.ts:13:1</code></p>
+    <p class="muted"><code>src/cli/createRulesArchitectureRuntimeProvider.ts:14:1</code></p>
     <p>Create the Ankh provider for architecture model listing, detection, and explicit evaluation.</p>
     
   </article><article class="item" data-search="commandDescriptors src/cli/createRulesArchitectureRuntimeProvider.ts Describe the public architecture command paths and capabilities.">
     <h3>commandDescriptors</h3>
-    <p class="muted"><code>src/cli/createRulesArchitectureRuntimeProvider.ts:25:1</code></p>
+    <p class="muted"><code>src/cli/createRulesArchitectureRuntimeProvider.ts:26:1</code></p>
     <p>Describe the public architecture command paths and capabilities.</p>
     
   </article><article class="item" data-search="commandHandlers src/cli/createRulesArchitectureRuntimeProvider.ts Bind public architecture commands to their shared application operations.">
     <h3>commandHandlers</h3>
-    <p class="muted"><code>src/cli/createRulesArchitectureRuntimeProvider.ts:46:1</code></p>
+    <p class="muted"><code>src/cli/createRulesArchitectureRuntimeProvider.ts:51:1</code></p>
     <p>Bind public architecture commands to their shared application operations.</p>
     
   </article>
