@@ -39,15 +39,19 @@
     "./cli": {
       "types": "./dist/cli/index.d.ts",
       "import": "./dist/cli/index.js"
+    },
+    "./capabilities": {
+      "types": "./dist/capabilities/index.d.ts",
+      "import": "./dist/capabilities/index.js"
     }
   },
   "devDependencies": {
-    "@ankhorage/devtools": "^2.0.13",
+    "@ankhorage/ankh": "^0.12.2",
+    "@ankhorage/devtools": "^2.2.2",
     "@ankhorage/paradox": "^0.2.6",
     "@types/bun": "^1.4.2",
-    "@types/node": "^26.6.2",
-    "typescript": "~6.0.3",
-    "@ankhorage/ankh": "^0.10.4"
+    "@types/node": "^26.6.3",
+    "typescript": "~6.0.3"
   },
   "packageManager": "bun@1.4.2",
   "scripts": {
@@ -67,9 +71,10 @@
     "knip:check": "ankhorage-knip"
   },
   "dependencies": {
+    "@ankhorage/contracts": "^24.1.0",
     "@ankhorage/dependency-graph": "^1.1.1",
     "@ankhorage/graph": "^0.3.0",
-    "@ankhorage/rules": "^0.2.0"
+    "@ankhorage/rules": "^0.2.1"
   },
   "bin": {
     "ankhorage-rules-architecture": "./dist/cli/standalone.js"
@@ -78,9 +83,51 @@
     "category": "rules-architecture",
     "provider": "./dist/cli/index.js",
     "capabilities": [
-      "rules-architecture.models.list",
-      "rules-architecture.detect",
-      "rules-architecture.evaluate"
+      {
+        "id": "rules-architecture.models.list",
+        "owner": "@ankhorage/rules-architecture",
+        "access": [
+          "invoke"
+        ],
+        "binding": {
+          "kind": "action",
+          "bindableAs": [
+            "target"
+          ]
+        },
+        "label": "List architecture models",
+        "description": "List supported architecture models and their semantic roles."
+      },
+      {
+        "id": "rules-architecture.detect",
+        "owner": "@ankhorage/rules-architecture",
+        "access": [
+          "invoke"
+        ],
+        "binding": {
+          "kind": "action",
+          "bindableAs": [
+            "target"
+          ]
+        },
+        "label": "Detect architecture",
+        "description": "Detect plausible architectures without selecting an enforcement target."
+      },
+      {
+        "id": "rules-architecture.evaluate",
+        "owner": "@ankhorage/rules-architecture",
+        "access": [
+          "invoke"
+        ],
+        "binding": {
+          "kind": "action",
+          "bindableAs": [
+            "target"
+          ]
+        },
+        "label": "Evaluate architecture",
+        "description": "Evaluate an explicitly selected target architecture through generic Rules."
+      }
     ]
   }
 }
