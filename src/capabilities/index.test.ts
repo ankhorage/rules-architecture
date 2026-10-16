@@ -1,3 +1,4 @@
+import { areCapabilityCatalogsEqual, isCapabilityCatalog } from '@ankhorage/capability';
 import { expect, test } from 'bun:test';
 
 import packageJson from '../../package.json';
@@ -9,5 +10,7 @@ test('publishes capability descriptors that match package metadata', () => {
     'rules-architecture.detect',
     'rules-architecture.evaluate',
   ]);
-  expect(JSON.stringify(packageJson.ankh.capabilities)).toBe(JSON.stringify(CAPABILITIES));
+  expect(isCapabilityCatalog(packageJson.ankh.capabilities)).toBe(true);
+  if (!isCapabilityCatalog(packageJson.ankh.capabilities)) return;
+  expect(areCapabilityCatalogsEqual(packageJson.ankh.capabilities, CAPABILITIES)).toBe(true);
 });
