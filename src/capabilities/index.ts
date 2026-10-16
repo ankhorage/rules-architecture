@@ -1,4 +1,4 @@
-import type { Capability } from '@ankhorage/contracts/capabilities';
+import type { Capability } from '@ankhorage/contracts/capability';
 
 /*** Publish the canonical catalog for Rules Architecture provider capabilities. */
 export const CAPABILITIES = [
