@@ -14,7 +14,7 @@
     {
       "id": "npm",
       "label": "npm",
-      "value": "v0.6.0",
+      "value": "v0.6.1",
       "color": "cb3837"
     },
     {
@@ -3315,6 +3315,18 @@
         "fromSymbol": "src/capabilities/index.test.ts",
         "toSymbol": "expect",
         "callExpression": "expect",
+        "sourcePath": "src/capabilities/index.test.ts"
+      },
+      {
+        "fromSymbol": "src/capabilities/index.test.ts",
+        "toSymbol": "isCapabilityCatalog",
+        "callExpression": "isCapabilityCatalog",
+        "sourcePath": "src/capabilities/index.test.ts"
+      },
+      {
+        "fromSymbol": "src/capabilities/index.test.ts",
+        "toSymbol": "areCapabilityCatalogsEqual",
+        "callExpression": "areCapabilityCatalogsEqual",
         "sourcePath": "src/capabilities/index.test.ts"
       },
       {

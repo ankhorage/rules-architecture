@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.6.1
+
+### Patch Changes
+
+- 728f965: Migrate the capability catalog to Contracts 26 and the shared capability toolkit.
+
 ## 0.6.0
 
 ### Minor Changes
