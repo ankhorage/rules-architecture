@@ -47,6 +47,7 @@
   },
   "devDependencies": {
     "@ankhorage/ankh": "^0.13.1",
+    "@ankhorage/capability": "^0.2.1",
     "@ankhorage/devtools": "^2.2.2",
     "@ankhorage/paradox": "^0.2.6",
     "@types/bun": "^1.4.2",
@@ -71,7 +72,6 @@
     "knip:check": "ankhorage-knip"
   },
   "dependencies": {
-    "@ankhorage/capability": "^0.2.1",
     "@ankhorage/contracts": "^26.0.0",
     "@ankhorage/dependency-graph": "^1.3.0",
     "@ankhorage/graph": "^0.3.0",
