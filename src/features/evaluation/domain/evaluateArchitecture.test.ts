@@ -2,6 +2,7 @@ import type { SourceGraph } from '@ankhorage/dependency-graph';
 import { expect, test } from 'bun:test';
 
 import { evaluateArchitecture } from './evaluateArchitecture.js';
+import { evaluateArchitectureGraph } from './evaluateArchitectureGraph.js';
 
 type SourceNode = SourceGraph['graph']['nodes'][number];
 type SourceEdge = SourceGraph['graph']['edges'][number];
@@ -16,6 +17,27 @@ test('requires an explicit target and reports dependency-direction violations as
 
 test('reports file import cycles through the reusable cyclic-dependencies rule', () => {
   const result = evaluateArchitecture(cycleFixture(), 'layered');
+  expect(result.findings.some(({ ruleId }) => ruleId === 'cyclic-dependencies')).toBe(true);
+});
+
+test('preserves the selected model scope and serializable generic evaluation result', () => {
+  const result = evaluateArchitecture(directionViolationFixture(), 'hexagonal');
+
+  expect(result.plan.nodes.map(({ scope }) => scope)).toEqual([
+    { id: 'hexagonal', kind: 'architecture-model' },
+    { id: 'hexagonal', kind: 'architecture-model' },
+  ]);
+  const serialized = JSON.stringify(result);
+  expect(serialized).toContain('"diagnostics"');
+  expect(serialized).toContain('"findings"');
+  expect(serialized).toContain('"plan"');
+  expect(serialized).toContain('"results"');
+});
+
+test('evaluates target-independent graph rules without selecting a model', () => {
+  const result = evaluateArchitectureGraph(cycleFixture());
+
+  expect(result.plan.nodes[0]?.scope).toEqual({ id: 'architecture-graph', kind: 'source-graph' });
   expect(result.findings.some(({ ruleId }) => ruleId === 'cyclic-dependencies')).toBe(true);
 });
 
@@ -36,7 +58,13 @@ function cycleFixture(): SourceGraph {
 function sourceGraph(nodes: readonly SourceNode[], edges: readonly SourceEdge[]): SourceGraph {
   return {
     version: 1,
-    capabilities: [{ analyzerId: 'fixture', projectId: 'fixture', available: ['imports'] }],
+    capabilities: [
+      {
+        analyzerId: 'fixture',
+        projectId: 'fixture',
+        available: ['extends', 'implements', 'imports'],
+      },
+    ],
     graph: { nodes, edges },
   };
 }

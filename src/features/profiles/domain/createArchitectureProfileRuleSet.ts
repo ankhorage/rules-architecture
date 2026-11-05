@@ -1,5 +1,5 @@
 import type { SourceEdgeData, SourceGraph, SourceNodeData } from '@ankhorage/dependency-graph';
-import type { Rule, RuleFinding, RuleSet } from '@ankhorage/rules';
+import type { Rule, RuleEvaluationOutcome, RuleFinding, RuleSet } from '@ankhorage/rules';
 
 import type {
   ArchitectureProfile,
@@ -146,12 +146,18 @@ function createRule(
   requiresImports = false,
 ): Rule<ArchitectureProfileRuleContext> {
   return {
-    id,
+    identity: { id, version: '1' },
     summary,
     defaultSeverity: 'error',
+    dependencies: [],
     ...(requiresImports ? { requiredCapabilities: ['source-graph.imports'] } : {}),
-    evaluate: ({ context }) => evaluate(context),
+    evaluate: ({ context }) => outcome(evaluate(context)),
   };
+}
+
+/*** Convert complete architecture-profile evidence into the canonical rule outcome. */
+function outcome(findings: readonly RuleFinding[]): RuleEvaluationOutcome {
+  return { findings, status: findings.length === 0 ? 'PASS' : 'FAIL' };
 }
 
 /*** Build one portable profile finding with optional graph source evidence. */

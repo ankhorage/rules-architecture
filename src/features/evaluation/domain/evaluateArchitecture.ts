@@ -31,9 +31,13 @@ export function evaluateArchitecture(
   const capabilities = availableRuleCapabilities(graph);
   const result =
     options.config === undefined
-      ? evaluateRules(context, ruleSet.rules, { capabilities })
+      ? evaluateRules(context, ruleSet.rules, {
+          capabilities,
+          scope: { id: model.id, kind: 'architecture-model' },
+        })
       : evaluateConfiguredRules(context, options.config, createRuleRegistry([ruleSet]), {
           capabilities,
+          scope: { id: model.id, kind: 'architecture-model' },
         });
 
   return {

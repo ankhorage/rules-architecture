@@ -1,5 +1,5 @@
 import type { SourceRelationKind } from '@ankhorage/dependency-graph';
-import type { Rule, RuleFinding, RuleSet } from '@ankhorage/rules';
+import type { Rule, RuleEvaluationOutcome, RuleFinding, RuleSet } from '@ankhorage/rules';
 
 import type { ArchitectureRuleContext } from '../../../types/architectureAnalysis.js';
 import type { ArchitectureModel } from '../../../types/architectureModel.js';
@@ -22,12 +22,18 @@ export function createArchitectureRuleSet(
 /*** Enforce dependency direction only against the explicit selected target model. */
 function dependencyDirectionRule(): Rule<ArchitectureRuleContext> {
   return {
-    id: 'architecture-dependency-direction',
+    identity: { id: 'architecture-dependency-direction', version: '1' },
     summary: 'Classified source dependencies must follow the selected architecture model.',
     defaultSeverity: 'warning',
-    requiredCapabilities: [IMPORTS_CAPABILITY],
-    evaluate: ({ context }) => directionFindings(context),
+    dependencies: [],
+    requiredCapabilities: [IMPORTS_CAPABILITY, 'source-graph.extends', 'source-graph.implements'],
+    evaluate: ({ context }) => outcome(directionFindings(context)),
   };
+}
+
+/*** Convert complete architecture-direction evidence into a canonical rule outcome. */
+function outcome(findings: readonly RuleFinding[]): RuleEvaluationOutcome {
+  return { findings, status: findings.length === 0 ? 'PASS' : 'FAIL' };
 }
 
 /*** Report selected-model dependency violations for confidently inferred endpoint roles. */

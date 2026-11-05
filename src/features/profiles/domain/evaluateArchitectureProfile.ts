@@ -23,9 +23,13 @@ export function evaluateArchitectureProfile(
   const capabilities = hasSourceCapability(graph, 'imports') ? ['source-graph.imports'] : [];
   const result =
     options.config === undefined
-      ? evaluateRules(context, ruleSet.rules, { capabilities })
+      ? evaluateRules(context, ruleSet.rules, {
+          capabilities,
+          scope: { id: profile.id, kind: 'architecture-profile' },
+        })
       : evaluateConfiguredRules(context, options.config, createRuleRegistry([ruleSet]), {
           capabilities,
+          scope: { id: profile.id, kind: 'architecture-profile' },
         });
   return {
     ...result,
