@@ -94,6 +94,25 @@ test('preserves actual cache provenance through the generic evaluator', () => {
   expect(second.results.map(({ execution }) => execution)).toEqual(['cache-hit', 'cache-hit']);
 });
 
+test('evaluates configured architecture rules through the generic configured evaluator', () => {
+  const result = evaluateArchitecture(directionViolationFixture(), 'hexagonal', {
+    config: {
+      version: 1,
+      rules: [
+        {
+          enabled: true,
+          id: 'architecture-dependency-direction',
+          severity: 'error',
+        },
+      ],
+    },
+  });
+
+  expect(result.plan.rootRuleIds).toEqual(['architecture-dependency-direction']);
+  expect(result.findings).toHaveLength(1);
+  expect(result.findings[0]?.severity).toBe('error');
+});
+
 test('evaluates target-independent graph rules without selecting a model', () => {
   const result = evaluateArchitectureGraph(cycleFixture());
 

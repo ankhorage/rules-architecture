@@ -20,6 +20,29 @@ test('preserves scoped profile trace identities and facets', () => {
   expect(JSON.stringify(result)).toContain('"results"');
 });
 
+test('evaluates configured profile rules through the generic configured evaluator', () => {
+  const result = evaluateArchitectureProfile(
+    graph([fileNode(0, 'src/randomThing.ts')], []),
+    'ankhorage',
+    {
+      config: {
+        version: 1,
+        rules: [
+          {
+            enabled: true,
+            id: 'package.architecture.feature-ownership.required',
+          },
+        ],
+      },
+    },
+  );
+
+  expect(result.plan.rootRuleIds).toEqual(['package.architecture.feature-ownership.required']);
+  expect(result.findings.map(({ ruleId }) => ruleId)).toEqual([
+    'package.architecture.feature-ownership.required',
+  ]);
+});
+
 describe('Ankhorage architecture profile ownership', () => {
   test('accepts coherent feature-first roles without requiring empty layers', () => {
     const result = evaluateArchitectureProfile(
