@@ -75,7 +75,7 @@
     "@ankhorage/contracts": "^26.0.0",
     "@ankhorage/dependency-graph": "^1.3.0",
     "@ankhorage/graph": "^0.3.0",
-    "@ankhorage/rules": "^0.4.0"
+    "@ankhorage/rules": "^0.5.0"
   },
   "bin": {
     "ankhorage-rules-architecture": "./dist/cli/standalone.js"

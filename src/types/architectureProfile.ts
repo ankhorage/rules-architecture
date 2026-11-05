@@ -1,5 +1,5 @@
 import type { SourceGraph } from '@ankhorage/dependency-graph';
-import type { RuleEvaluationResult, RulesConfig } from '@ankhorage/rules';
+import type { EvaluateRulesOptions, RuleEvaluationResult, RulesConfig } from '@ankhorage/rules';
 
 import type { ArchitectureModel } from './architectureModel.js';
 
@@ -48,7 +48,10 @@ export interface ArchitectureProfileRuleContext {
 }
 
 /*** Optional generic Rules configuration for explicit architecture-profile evaluation. */
-export interface ArchitectureProfileEvaluationOptions {
+export interface ArchitectureProfileEvaluationOptions extends Pick<
+  EvaluateRulesOptions,
+  'cache' | 'cachePartition' | 'factsVersion'
+> {
   readonly config?: RulesConfig;
 }
 

@@ -17,7 +17,10 @@ export function evaluateArchitectureGraph(
   const context: ArchitectureGraphRuleContext = { graph };
   const ruleSet = createArchitectureGraphRuleSet();
   const evaluationOptions = {
+    cache: options.cache,
+    cachePartition: options.cachePartition,
     capabilities: hasSourceCapability(graph, 'imports') ? ['source-graph.imports'] : [],
+    factsVersion: options.factsVersion,
     scope: { id: 'architecture-graph', kind: 'source-graph' },
   };
 

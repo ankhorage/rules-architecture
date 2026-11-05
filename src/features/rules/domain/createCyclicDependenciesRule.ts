@@ -26,6 +26,7 @@ export function createCyclicDependenciesRule<
 >(): Rule<TContext> {
   return {
     identity: { id: 'cyclic-dependencies', version: '1' },
+    facets: [{ id: 'architecture-rule-kind', value: 'cycle', version: '1' }],
     summary: 'Source dependencies must not form cyclic intrinsic components.',
     defaultSeverity: 'warning',
     dependencies: [],

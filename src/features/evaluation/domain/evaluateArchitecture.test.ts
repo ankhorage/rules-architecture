@@ -1,4 +1,5 @@
 import type { SourceGraph } from '@ankhorage/dependency-graph';
+import type { RuleEvaluationCache, RuleResult } from '@ankhorage/rules';
 import { expect, test } from 'bun:test';
 
 import { evaluateArchitecture } from './evaluateArchitecture.js';
@@ -41,11 +42,56 @@ test('preserves the selected model scope and serializable generic evaluation res
     { id: 'hexagonal', kind: 'architecture-model' },
     { id: 'hexagonal', kind: 'architecture-model' },
   ]);
+  expect(result.plan.nodes.map(({ id, rule, facets }) => ({ id, rule, facets }))).toEqual([
+    {
+      id: '["architecture-dependency-direction","1","architecture-model","hexagonal"]',
+      rule: { id: 'architecture-dependency-direction', version: '1' },
+      facets: [{ id: 'architecture-rule-kind', value: 'dependency-direction', version: '1' }],
+    },
+    {
+      id: '["cyclic-dependencies","1","architecture-model","hexagonal"]',
+      rule: { id: 'cyclic-dependencies', version: '1' },
+      facets: [{ id: 'architecture-rule-kind', value: 'cycle', version: '1' }],
+    },
+  ]);
   const serialized = JSON.stringify(result);
   expect(serialized).toContain('"diagnostics"');
   expect(serialized).toContain('"findings"');
   expect(serialized).toContain('"plan"');
   expect(serialized).toContain('"results"');
+});
+
+test('keeps known direction findings visible when optional analyzers are unavailable', () => {
+  const graph = {
+    ...directionViolationFixture(),
+    capabilities: [
+      { analyzerId: 'fixture', projectId: 'fixture', available: ['imports'] as const },
+    ],
+  };
+
+  const result = evaluateArchitecture(graph, 'hexagonal');
+
+  expect(
+    result.results.find(({ rule }) => rule.id === 'architecture-dependency-direction')?.status,
+  ).toBe('INCOMPLETE');
+  expect(result.findings.some(({ ruleId }) => ruleId === 'architecture-dependency-direction')).toBe(
+    true,
+  );
+});
+
+test('preserves actual cache provenance through the generic evaluator', () => {
+  const cache = resultCache();
+  const options = {
+    cache,
+    cachePartition: { projectId: 'fixture', tenantId: 'fixture' },
+    factsVersion: 'fixture-v1',
+  };
+
+  const first = evaluateArchitecture(directionViolationFixture(), 'hexagonal', options);
+  const second = evaluateArchitecture(directionViolationFixture(), 'hexagonal', options);
+
+  expect(first.results.map(({ execution }) => execution)).toEqual(['evaluated', 'evaluated']);
+  expect(second.results.map(({ execution }) => execution)).toEqual(['cache-hit', 'cache-hit']);
 });
 
 test('evaluates target-independent graph rules without selecting a model', () => {
@@ -122,5 +168,14 @@ function importEdge(id: number, source: number, target: number, sourcePath: stri
       kind: 'imports',
       evidence: [{ analyzerId: 'fixture', sourcePath }],
     },
+  };
+}
+
+/*** Store generic evaluator results by rule ID for a deterministic cache-adapter test. */
+function resultCache(): RuleEvaluationCache {
+  const results = new Map<string, RuleResult>();
+  return {
+    read: (key) => results.get(key.rule.id),
+    write: (key, result) => results.set(key.rule.id, result),
   };
 }
