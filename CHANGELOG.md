@@ -1,5 +1,13 @@
 # Changelog
 
+## 0.7.0
+
+### Minor Changes
+
+- a566251: Adopt the published Rules 0.4 DAG evaluation contract, including versioned rule identities,
+  explicit capability-aware outcomes, scoped plans, per-rule results, and target-independent graph
+  evaluation.
+
 ## 0.6.1
 
 ### Patch Changes

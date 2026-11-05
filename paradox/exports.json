@@ -294,7 +294,7 @@
     "modulePath": "src/types/architectureAnalysis.ts",
     "sourceLocation": {
       "filePath": "src/types/architectureAnalysis.ts",
-      "line": 70,
+      "line": 78,
       "column": 1
     },
     "exportPaths": [
@@ -327,6 +327,20 @@
         "description": null
       },
       {
+        "name": "plan",
+        "kind": "property",
+        "type": "RuleEvaluationPlan",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "results",
+        "kind": "property",
+        "type": "readonly RuleResult[]",
+        "required": true,
+        "description": null
+      },
+      {
         "name": "roleAssignments",
         "kind": "property",
         "type": "readonly ArchitectureRoleAssignment[]",
@@ -334,6 +348,58 @@
         "description": null
       }
     ],
+    "structuredRows": []
+  },
+  {
+    "name": "ArchitectureGraphEvaluationOptions",
+    "title": null,
+    "description": "Optional generic Rules configuration for target-independent source-graph evaluation.",
+    "isReadme": false,
+    "see": [],
+    "security": [],
+    "kind": "type",
+    "modulePath": "src/types/architectureAnalysis.ts",
+    "sourceLocation": {
+      "filePath": "src/types/architectureAnalysis.ts",
+      "line": 70,
+      "column": 1
+    },
+    "exportPaths": [
+      "src/index.ts"
+    ],
+    "relatedSymbols": [],
+    "signatures": [],
+    "members": [
+      {
+        "name": "config",
+        "kind": "property",
+        "type": "RulesConfig | undefined",
+        "required": false,
+        "description": null
+      }
+    ],
+    "structuredRows": []
+  },
+  {
+    "name": "ArchitectureGraphEvaluationResult",
+    "title": null,
+    "description": "Canonical generic Rules result for target-independent source-graph evaluation.",
+    "isReadme": false,
+    "see": [],
+    "security": [],
+    "kind": "unknown",
+    "modulePath": "src/types/architectureAnalysis.ts",
+    "sourceLocation": {
+      "filePath": "src/types/architectureAnalysis.ts",
+      "line": 75,
+      "column": 1
+    },
+    "exportPaths": [
+      "src/index.ts"
+    ],
+    "relatedSymbols": [],
+    "signatures": [],
+    "members": [],
     "structuredRows": []
   },
   {
@@ -567,9 +633,23 @@
         "description": null
       },
       {
+        "name": "plan",
+        "kind": "property",
+        "type": "RuleEvaluationPlan",
+        "required": true,
+        "description": null
+      },
+      {
         "name": "profileId",
         "kind": "property",
         "type": "\"ankhorage\"",
+        "required": true,
+        "description": null
+      },
+      {
+        "name": "results",
+        "kind": "property",
+        "type": "readonly RuleResult[]",
         "required": true,
         "description": null
       }
@@ -971,7 +1051,7 @@
     "modulePath": "src/features/rules/domain/createArchitectureRuleSet.ts",
     "sourceLocation": {
       "filePath": "src/features/rules/domain/createArchitectureRuleSet.ts",
-      "line": 12,
+      "line": 17,
       "column": 1
     },
     "exportPaths": [
@@ -1081,6 +1161,50 @@
           }
         ],
         "returnType": "ArchitectureEvaluationResult",
+        "returnDescription": null
+      }
+    ],
+    "members": [],
+    "structuredRows": []
+  },
+  {
+    "name": "evaluateArchitectureGraph",
+    "title": null,
+    "description": "Evaluate target-independent source-graph rules without inferring or enforcing an architecture model.",
+    "isReadme": false,
+    "see": [],
+    "security": [],
+    "kind": "function",
+    "modulePath": "src/features/evaluation/domain/evaluateArchitectureGraph.ts",
+    "sourceLocation": {
+      "filePath": "src/features/evaluation/domain/evaluateArchitectureGraph.ts",
+      "line": 13,
+      "column": 1
+    },
+    "exportPaths": [
+      "src/index.ts"
+    ],
+    "relatedSymbols": [
+      "ArchitectureGraphEvaluationOptions"
+    ],
+    "signatures": [
+      {
+        "label": "(graph: SourceGraph, options?: ArchitectureGraphEvaluationOptions) => import(\"@ankhorage/rules\").RuleEvaluationResult",
+        "parameters": [
+          {
+            "name": "graph",
+            "type": "SourceGraph",
+            "required": true,
+            "description": null
+          },
+          {
+            "name": "options",
+            "type": "ArchitectureGraphEvaluationOptions",
+            "required": false,
+            "description": null
+          }
+        ],
+        "returnType": "import(\"@ankhorage/rules\").RuleEvaluationResult",
         "returnDescription": null
       }
     ],

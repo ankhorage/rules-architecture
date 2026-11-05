@@ -102,7 +102,7 @@ Optional generic Rules configuration for explicit architecture evaluation.
 
 Kind: `type`
 Module: `src/types/architectureAnalysis.ts`
-Source: `src/types/architectureAnalysis.ts:70:1`
+Source: `src/types/architectureAnalysis.ts:78:1`
 
 Generic Rules result plus the explicit target and inferred role evidence used for evaluation.
 
@@ -113,7 +113,31 @@ Generic Rules result plus the explicit target and inferred role evidence used fo
 | diagnostics | property | `readonly RuleEvaluationDiagnostic[]` | yes |  |
 | findings | property | `readonly RuleFinding<JsonValue>[]` | yes |  |
 | modelId | property | `"hexagonal" \| "clean" \| "onion" \| "layered"` | yes |  |
+| plan | property | `RuleEvaluationPlan` | yes |  |
+| results | property | `readonly RuleResult[]` | yes |  |
 | roleAssignments | property | `readonly ArchitectureRoleAssignment[]` | yes |  |
+
+## ArchitectureGraphEvaluationOptions
+
+Kind: `type`
+Module: `src/types/architectureAnalysis.ts`
+Source: `src/types/architectureAnalysis.ts:70:1`
+
+Optional generic Rules configuration for target-independent source-graph evaluation.
+
+### Members
+
+| Name | Kind | Type | Required | Description |
+| --- | --- | --- | --- | --- |
+| config | property | `RulesConfig \| undefined` | no |  |
+
+## ArchitectureGraphEvaluationResult
+
+Kind: `unknown`
+Module: `src/types/architectureAnalysis.ts`
+Source: `src/types/architectureAnalysis.ts:75:1`
+
+Canonical generic Rules result for target-independent source-graph evaluation.
 
 ## ArchitectureGraphRuleContext
 
@@ -195,7 +219,9 @@ Generic Rules result plus the explicitly selected architecture profile.
 | baseModelId | property | `"hexagonal" \| "clean" \| "onion" \| "layered"` | yes |  |
 | diagnostics | property | `readonly RuleEvaluationDiagnostic[]` | yes |  |
 | findings | property | `readonly RuleFinding<JsonValue>[]` | yes |  |
+| plan | property | `RuleEvaluationPlan` | yes |  |
 | profileId | property | `"ankhorage"` | yes |  |
+| results | property | `readonly RuleResult[]` | yes |  |
 
 ## ArchitectureProfileFeatureCombination
 
@@ -340,7 +366,7 @@ Create the rule set for one explicitly selected project architecture profile.
 
 Kind: `function`
 Module: `src/features/rules/domain/createArchitectureRuleSet.ts`
-Source: `src/features/rules/domain/createArchitectureRuleSet.ts:12:1`
+Source: `src/features/rules/domain/createArchitectureRuleSet.ts:17:1`
 
 Create architecture rules for one explicitly selected target model.
 
@@ -379,6 +405,21 @@ Evaluate one explicitly selected architecture model through the generic Rules en
   - modelId: `"hexagonal" | "clean" | "onion" | "layered"`
   - options: `ArchitectureEvaluationOptions` (optional)
   - returns: `ArchitectureEvaluationResult`
+
+## evaluateArchitectureGraph
+
+Kind: `function`
+Module: `src/features/evaluation/domain/evaluateArchitectureGraph.ts`
+Source: `src/features/evaluation/domain/evaluateArchitectureGraph.ts:13:1`
+
+Evaluate target-independent source-graph rules without inferring or enforcing an architecture model.
+
+### Signatures
+
+- `(graph: SourceGraph, options?: ArchitectureGraphEvaluationOptions) => import("@ankhorage/rules").RuleEvaluationResult`
+  - graph: `SourceGraph`
+  - options: `ArchitectureGraphEvaluationOptions` (optional)
+  - returns: `import("@ankhorage/rules").RuleEvaluationResult`
 
 ## evaluateArchitectureProfile
 

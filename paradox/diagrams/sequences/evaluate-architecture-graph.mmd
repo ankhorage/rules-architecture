@@ -1,0 +1,20 @@
+sequenceDiagram
+  participant participant_createArchitectureGraphRuleSet as createArchitectureGraphRuleSet
+  participant participant_createCyclicDependenciesRule as createCyclicDependenciesRule
+  participant participant_createRuleRegistry as createRuleRegistry
+  participant participant_evaluateArchitectureGraph as evaluateArchitectureGraph
+  participant participant_evaluateConfiguredRules as evaluateConfiguredRules
+  participant participant_evaluateRules as evaluateRules
+  participant participant_hasSourceCapability as hasSourceCapability
+  participant_evaluateArchitectureGraph->>participant_createArchitectureGraphRuleSet: createArchitectureGraphRuleSet()
+  participant_createArchitectureGraphRuleSet->>participant_createCyclicDependenciesRule: createCyclicDependenciesRule()
+  participant_createCyclicDependenciesRule-->>participant_createArchitectureGraphRuleSet: return
+  participant_createArchitectureGraphRuleSet-->>participant_evaluateArchitectureGraph: return
+  participant_evaluateArchitectureGraph->>participant_hasSourceCapability: hasSourceCapability()
+  participant_hasSourceCapability-->>participant_evaluateArchitectureGraph: return
+  participant_evaluateArchitectureGraph->>participant_evaluateRules: evaluateRules()
+  participant_evaluateRules-->>participant_evaluateArchitectureGraph: return
+  participant_evaluateArchitectureGraph->>participant_evaluateConfiguredRules: evaluateConfiguredRules()
+  participant_evaluateConfiguredRules-->>participant_evaluateArchitectureGraph: return
+  participant_evaluateArchitectureGraph->>participant_createRuleRegistry: createRuleRegistry()
+  participant_createRuleRegistry-->>participant_evaluateArchitectureGraph: return

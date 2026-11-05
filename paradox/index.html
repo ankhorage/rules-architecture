@@ -187,6 +187,11 @@
       <small>2 functions</small>
     </button>
   </li><li>
+    <button class="nav-button" type="button" data-target="src/features/evaluation/domain/evaluateArchitectureGraph.ts">
+      src/features/evaluation/domain/evaluateArchitectureGraph.ts
+      <small>1 function</small>
+    </button>
+  </li><li>
     <button class="nav-button" type="button" data-target="src/features/models/constants/architectureModels.ts">
       src/features/models/constants/architectureModels.ts
       <small>2 functions</small>
@@ -204,7 +209,7 @@
   </li><li>
     <button class="nav-button" type="button" data-target="src/features/profiles/domain/createArchitectureProfileRuleSet.ts">
       src/features/profiles/domain/createArchitectureProfileRuleSet.ts
-      <small>15 functions</small>
+      <small>16 functions</small>
     </button>
   </li><li>
     <button class="nav-button" type="button" data-target="src/features/profiles/domain/evaluateArchitectureProfile.test.ts">
@@ -229,7 +234,7 @@
   </li><li>
     <button class="nav-button" type="button" data-target="src/features/rules/domain/createArchitectureGraphRuleSet.test.ts">
       src/features/rules/domain/createArchitectureGraphRuleSet.test.ts
-      <small>5 functions</small>
+      <small>7 functions</small>
     </button>
   </li><li>
     <button class="nav-button" type="button" data-target="src/features/rules/domain/createArchitectureGraphRuleSet.ts">
@@ -239,12 +244,12 @@
   </li><li>
     <button class="nav-button" type="button" data-target="src/features/rules/domain/createArchitectureRuleSet.ts">
       src/features/rules/domain/createArchitectureRuleSet.ts
-      <small>4 functions</small>
+      <small>5 functions</small>
     </button>
   </li><li>
     <button class="nav-button" type="button" data-target="src/features/rules/domain/createCyclicDependenciesRule.ts">
       src/features/rules/domain/createCyclicDependenciesRule.ts
-      <small>7 functions</small>
+      <small>8 functions</small>
     </button>
   </li><li>
     <button class="nav-button" type="button" data-target="src/utils/hasSourceCapability.ts">
@@ -261,9 +266,9 @@
     <section class="panel">
       <h2>Package overview</h2>
       <div class="summary">
-        <div><strong>28</strong><span class="muted">public exports</span></div>
+        <div><strong>31</strong><span class="muted">public exports</span></div>
         <div><strong>0</strong><span class="muted">components</span></div>
-        <div><strong>39</strong><span class="muted">modules</span></div>
+        <div><strong>40</strong><span class="muted">modules</span></div>
         <div><strong>1</strong><span class="muted">entrypoints</span></div>
       </div>
       <h3>Entrypoints</h3>
@@ -360,16 +365,21 @@
     <p class="muted">Referenced module</p>
     <p><strong>Dependencies:</strong> <code>src/types/architectureAnalysis.ts</code>, <code>src/types/architectureModel.ts</code></p>
     <p><strong>Exports:</strong> <code>inferArchitectureRoles</code></p>
-  </article><article class="item" data-search="src/features/evaluation/domain/evaluateArchitecture.test.ts src/features/evaluation/domain/evaluateArchitecture.ts">
+  </article><article class="item" data-search="src/features/evaluation/domain/evaluateArchitecture.test.ts src/features/evaluation/domain/evaluateArchitecture.ts src/features/evaluation/domain/evaluateArchitectureGraph.ts">
     <h3>src/features/evaluation/domain/evaluateArchitecture.test.ts</h3>
     <p class="muted">Referenced module</p>
-    <p><strong>Dependencies:</strong> <code>src/features/evaluation/domain/evaluateArchitecture.ts</code></p>
+    <p><strong>Dependencies:</strong> <code>src/features/evaluation/domain/evaluateArchitecture.ts</code>, <code>src/features/evaluation/domain/evaluateArchitectureGraph.ts</code></p>
     <p><strong>Exports:</strong> <span class="empty">None</span></p>
   </article><article class="item" data-search="src/features/evaluation/domain/evaluateArchitecture.ts src/features/detection/domain/inferArchitectureRoles.ts src/features/models/domain/findArchitectureModel.ts src/features/rules/domain/createArchitectureRuleSet.ts src/types/architectureAnalysis.ts src/types/architectureModel.ts src/utils/hasSourceCapability.ts evaluateArchitecture">
     <h3>src/features/evaluation/domain/evaluateArchitecture.ts</h3>
     <p class="muted">Referenced module</p>
     <p><strong>Dependencies:</strong> <code>src/features/detection/domain/inferArchitectureRoles.ts</code>, <code>src/features/models/domain/findArchitectureModel.ts</code>, <code>src/features/rules/domain/createArchitectureRuleSet.ts</code>, <code>src/types/architectureAnalysis.ts</code>, <code>src/types/architectureModel.ts</code>, <code>src/utils/hasSourceCapability.ts</code></p>
     <p><strong>Exports:</strong> <code>evaluateArchitecture</code></p>
+  </article><article class="item" data-search="src/features/evaluation/domain/evaluateArchitectureGraph.ts src/features/rules/domain/createArchitectureGraphRuleSet.ts src/types/architectureAnalysis.ts src/utils/hasSourceCapability.ts evaluateArchitectureGraph">
+    <h3>src/features/evaluation/domain/evaluateArchitectureGraph.ts</h3>
+    <p class="muted">Referenced module</p>
+    <p><strong>Dependencies:</strong> <code>src/features/rules/domain/createArchitectureGraphRuleSet.ts</code>, <code>src/types/architectureAnalysis.ts</code>, <code>src/utils/hasSourceCapability.ts</code></p>
+    <p><strong>Exports:</strong> <code>evaluateArchitectureGraph</code></p>
   </article><article class="item" data-search="src/features/models/constants/architectureModels.ts src/types/architectureModel.ts ARCHITECTURE_MODELS">
     <h3>src/features/models/constants/architectureModels.ts</h3>
     <p class="muted">Referenced module</p>
@@ -430,26 +440,26 @@
     <p class="muted">Referenced module</p>
     <p><strong>Dependencies:</strong> <code>src/features/rules/domain/createCyclicDependenciesRule.ts</code>, <code>src/types/architectureAnalysis.ts</code></p>
     <p><strong>Exports:</strong> <code>createArchitectureGraphRuleSet</code></p>
-  </article><article class="item" data-search="src/features/rules/domain/createArchitectureRuleSet.ts src/features/models/domain/findArchitectureModel.ts src/features/rules/domain/createCyclicDependenciesRule.ts src/types/architectureAnalysis.ts src/types/architectureModel.ts createArchitectureRuleSet">
+  </article><article class="item" data-search="src/features/rules/domain/createArchitectureRuleSet.ts src/features/models/domain/findArchitectureModel.ts src/features/rules/domain/createCyclicDependenciesRule.ts src/types/architectureAnalysis.ts src/types/architectureModel.ts src/utils/hasSourceCapability.ts createArchitectureRuleSet">
     <h3>src/features/rules/domain/createArchitectureRuleSet.ts</h3>
     <p class="muted">Referenced module</p>
-    <p><strong>Dependencies:</strong> <code>src/features/models/domain/findArchitectureModel.ts</code>, <code>src/features/rules/domain/createCyclicDependenciesRule.ts</code>, <code>src/types/architectureAnalysis.ts</code>, <code>src/types/architectureModel.ts</code></p>
+    <p><strong>Dependencies:</strong> <code>src/features/models/domain/findArchitectureModel.ts</code>, <code>src/features/rules/domain/createCyclicDependenciesRule.ts</code>, <code>src/types/architectureAnalysis.ts</code>, <code>src/types/architectureModel.ts</code>, <code>src/utils/hasSourceCapability.ts</code></p>
     <p><strong>Exports:</strong> <code>createArchitectureRuleSet</code></p>
   </article><article class="item" data-search="src/features/rules/domain/createCyclicDependenciesRule.ts src/types/architectureAnalysis.ts createCyclicDependenciesRule">
     <h3>src/features/rules/domain/createCyclicDependenciesRule.ts</h3>
     <p class="muted">Referenced module</p>
     <p><strong>Dependencies:</strong> <code>src/types/architectureAnalysis.ts</code></p>
     <p><strong>Exports:</strong> <code>createCyclicDependenciesRule</code></p>
-  </article><article class="item" data-search="src/index.ts ArchitectureContradiction ArchitectureCycleRuleOptions ArchitectureDetectionCandidate ArchitectureDetectionEvidence ArchitectureDetectionResult ArchitectureEvaluationOptions ArchitectureEvaluationResult ArchitectureGraphRuleContext ArchitectureModel ArchitectureProfile ArchitectureProfileEvaluationOptions ArchitectureProfileEvaluationResult ArchitectureProfileFeatureCombination ArchitectureProfileRole ArchitectureProfileRuleContext ArchitectureRole ArchitectureRoleAssignment ArchitectureRoleDependency ArchitectureRuleContext createArchitectureGraphRuleSet createArchitectureProfileRuleSet createArchitectureRuleSet detectArchitecture evaluateArchitecture evaluateArchitectureProfile inferArchitectureRoles listArchitectureModels listArchitectureProfiles">
+  </article><article class="item" data-search="src/index.ts ArchitectureContradiction ArchitectureCycleRuleOptions ArchitectureDetectionCandidate ArchitectureDetectionEvidence ArchitectureDetectionResult ArchitectureEvaluationOptions ArchitectureEvaluationResult ArchitectureGraphEvaluationOptions ArchitectureGraphEvaluationResult ArchitectureGraphRuleContext ArchitectureModel ArchitectureProfile ArchitectureProfileEvaluationOptions ArchitectureProfileEvaluationResult ArchitectureProfileFeatureCombination ArchitectureProfileRole ArchitectureProfileRuleContext ArchitectureRole ArchitectureRoleAssignment ArchitectureRoleDependency ArchitectureRuleContext createArchitectureGraphRuleSet createArchitectureProfileRuleSet createArchitectureRuleSet detectArchitecture evaluateArchitecture evaluateArchitectureGraph evaluateArchitectureProfile inferArchitectureRoles listArchitectureModels listArchitectureProfiles">
     <h3>src/index.ts</h3>
     <p class="muted">Configured entrypoint</p>
     <p><strong>Dependencies:</strong> <span class="empty">None</span></p>
-    <p><strong>Exports:</strong> <code>ArchitectureContradiction</code>, <code>ArchitectureCycleRuleOptions</code>, <code>ArchitectureDetectionCandidate</code>, <code>ArchitectureDetectionEvidence</code>, <code>ArchitectureDetectionResult</code>, <code>ArchitectureEvaluationOptions</code>, <code>ArchitectureEvaluationResult</code>, <code>ArchitectureGraphRuleContext</code>, <code>ArchitectureModel</code>, <code>ArchitectureProfile</code>, <code>ArchitectureProfileEvaluationOptions</code>, <code>ArchitectureProfileEvaluationResult</code>, <code>ArchitectureProfileFeatureCombination</code>, <code>ArchitectureProfileRole</code>, <code>ArchitectureProfileRuleContext</code>, <code>ArchitectureRole</code>, <code>ArchitectureRoleAssignment</code>, <code>ArchitectureRoleDependency</code>, <code>ArchitectureRuleContext</code>, <code>createArchitectureGraphRuleSet</code>, <code>createArchitectureProfileRuleSet</code>, <code>createArchitectureRuleSet</code>, <code>detectArchitecture</code>, <code>evaluateArchitecture</code>, <code>evaluateArchitectureProfile</code>, <code>inferArchitectureRoles</code>, <code>listArchitectureModels</code>, <code>listArchitectureProfiles</code></p>
-  </article><article class="item" data-search="src/types/architectureAnalysis.ts src/types/architectureModel.ts ArchitectureContradiction ArchitectureCycleRuleOptions ArchitectureDetectionCandidate ArchitectureDetectionEvidence ArchitectureDetectionResult ArchitectureEvaluationOptions ArchitectureEvaluationResult ArchitectureGraphRuleContext ArchitectureRoleAssignment ArchitectureRuleContext">
+    <p><strong>Exports:</strong> <code>ArchitectureContradiction</code>, <code>ArchitectureCycleRuleOptions</code>, <code>ArchitectureDetectionCandidate</code>, <code>ArchitectureDetectionEvidence</code>, <code>ArchitectureDetectionResult</code>, <code>ArchitectureEvaluationOptions</code>, <code>ArchitectureEvaluationResult</code>, <code>ArchitectureGraphEvaluationOptions</code>, <code>ArchitectureGraphEvaluationResult</code>, <code>ArchitectureGraphRuleContext</code>, <code>ArchitectureModel</code>, <code>ArchitectureProfile</code>, <code>ArchitectureProfileEvaluationOptions</code>, <code>ArchitectureProfileEvaluationResult</code>, <code>ArchitectureProfileFeatureCombination</code>, <code>ArchitectureProfileRole</code>, <code>ArchitectureProfileRuleContext</code>, <code>ArchitectureRole</code>, <code>ArchitectureRoleAssignment</code>, <code>ArchitectureRoleDependency</code>, <code>ArchitectureRuleContext</code>, <code>createArchitectureGraphRuleSet</code>, <code>createArchitectureProfileRuleSet</code>, <code>createArchitectureRuleSet</code>, <code>detectArchitecture</code>, <code>evaluateArchitecture</code>, <code>evaluateArchitectureGraph</code>, <code>evaluateArchitectureProfile</code>, <code>inferArchitectureRoles</code>, <code>listArchitectureModels</code>, <code>listArchitectureProfiles</code></p>
+  </article><article class="item" data-search="src/types/architectureAnalysis.ts src/types/architectureModel.ts ArchitectureContradiction ArchitectureCycleRuleOptions ArchitectureDetectionCandidate ArchitectureDetectionEvidence ArchitectureDetectionResult ArchitectureEvaluationOptions ArchitectureEvaluationResult ArchitectureGraphEvaluationOptions ArchitectureGraphEvaluationResult ArchitectureGraphRuleContext ArchitectureRoleAssignment ArchitectureRuleContext">
     <h3>src/types/architectureAnalysis.ts</h3>
     <p class="muted">Referenced module</p>
     <p><strong>Dependencies:</strong> <code>src/types/architectureModel.ts</code></p>
-    <p><strong>Exports:</strong> <code>ArchitectureContradiction</code>, <code>ArchitectureCycleRuleOptions</code>, <code>ArchitectureDetectionCandidate</code>, <code>ArchitectureDetectionEvidence</code>, <code>ArchitectureDetectionResult</code>, <code>ArchitectureEvaluationOptions</code>, <code>ArchitectureEvaluationResult</code>, <code>ArchitectureGraphRuleContext</code>, <code>ArchitectureRoleAssignment</code>, <code>ArchitectureRuleContext</code></p>
+    <p><strong>Exports:</strong> <code>ArchitectureContradiction</code>, <code>ArchitectureCycleRuleOptions</code>, <code>ArchitectureDetectionCandidate</code>, <code>ArchitectureDetectionEvidence</code>, <code>ArchitectureDetectionResult</code>, <code>ArchitectureEvaluationOptions</code>, <code>ArchitectureEvaluationResult</code>, <code>ArchitectureGraphEvaluationOptions</code>, <code>ArchitectureGraphEvaluationResult</code>, <code>ArchitectureGraphRuleContext</code>, <code>ArchitectureRoleAssignment</code>, <code>ArchitectureRuleContext</code></p>
   </article><article class="item" data-search="src/types/architectureCli.ts src/types/architectureModel.ts ArchitectureCommandOptions">
     <h3>src/types/architectureCli.ts</h3>
     <p class="muted">Referenced module</p>
@@ -573,6 +583,40 @@
                 </tbody>
               </table>
         <p><strong>Returns:</strong> <code>ArchitectureEvaluationResult</code></p>
+      </div>
+    
+  </article>
+            </section>
+            <section>
+              <h3>src/features/evaluation/domain/evaluateArchitectureGraph.ts</h3>
+              <article class="item" id="symbol-evaluatearchitecturegraph" data-search="evaluateArchitectureGraph  function src/features/evaluation/domain/evaluateArchitectureGraph.ts Evaluate target-independent source-graph rules without inferring or enforcing an architecture model. ArchitectureGraphEvaluationOptions (graph: SourceGraph, options?: ArchitectureGraphEvaluationOptions) =&gt; import(&quot;@ankhorage/rules&quot;).RuleEvaluationResult">
+    <h4>evaluateArchitectureGraph</h4>
+    
+    <p class="muted">function • <code>src/features/evaluation/domain/evaluateArchitectureGraph.ts:13:1</code></p>
+    <p>Evaluate target-independent source-graph rules without inferring or enforcing an architecture model.</p>
+    
+    <p><strong>Export paths:</strong> <code>src/index.ts</code></p>
+    <div><strong>Related symbols:</strong> <ul class="chips"><li class="chip">ArchitectureGraphEvaluationOptions</li></ul></div>
+    <div>
+        <h5>Signature</h5>
+        <pre>(graph: SourceGraph, options?: ArchitectureGraphEvaluationOptions) =&gt; import(&quot;@ankhorage/rules&quot;).RuleEvaluationResult</pre>
+        <table>
+                <thead><tr><th>Parameter</th><th>Type</th><th>Required</th><th>Description</th></tr></thead>
+                <tbody>
+                  <tr>
+                        <td><code>graph</code></td>
+                        <td><code>SourceGraph</code></td>
+                        <td>yes</td>
+                        <td></td>
+                      </tr><tr>
+                        <td><code>options</code></td>
+                        <td><code>ArchitectureGraphEvaluationOptions</code></td>
+                        <td>no</td>
+                        <td></td>
+                      </tr>
+                </tbody>
+              </table>
+        <p><strong>Returns:</strong> <code>import(&quot;@ankhorage/rules&quot;).RuleEvaluationResult</code></p>
       </div>
     
   </article>
@@ -707,7 +751,7 @@
               <article class="item" id="symbol-createarchitectureruleset" data-search="createArchitectureRuleSet  function src/features/rules/domain/createArchitectureRuleSet.ts Create architecture rules for one explicitly selected target model. ArchitectureRuleContext (modelId: &quot;hexagonal&quot; | &quot;clean&quot; | &quot;onion&quot; | &quot;layered&quot;) =&gt; RuleSet&lt;ArchitectureRuleContext&gt;">
     <h4>createArchitectureRuleSet</h4>
     
-    <p class="muted">function • <code>src/features/rules/domain/createArchitectureRuleSet.ts:12:1</code></p>
+    <p class="muted">function • <code>src/features/rules/domain/createArchitectureRuleSet.ts:17:1</code></p>
     <p>Create architecture rules for one explicitly selected target model.</p>
     
     <p><strong>Export paths:</strong> <code>src/index.ts</code></p>
@@ -946,7 +990,7 @@
   </article><article class="item" id="symbol-architectureevaluationresult" data-search="ArchitectureEvaluationResult  type src/types/architectureAnalysis.ts Generic Rules result plus the explicit target and inferred role evidence used for evaluation. ArchitectureRoleAssignment">
     <h4>ArchitectureEvaluationResult</h4>
     
-    <p class="muted">type • <code>src/types/architectureAnalysis.ts:70:1</code></p>
+    <p class="muted">type • <code>src/types/architectureAnalysis.ts:78:1</code></p>
     <p>Generic Rules result plus the explicit target and inferred role evidence used for evaluation.</p>
     
     <p><strong>Export paths:</strong> <code>src/index.ts</code></p>
@@ -974,6 +1018,18 @@
             <td>yes</td>
             <td></td>
           </tr><tr>
+            <td><code>plan</code></td>
+            <td>property</td>
+            <td><code>RuleEvaluationPlan</code></td>
+            <td>yes</td>
+            <td></td>
+          </tr><tr>
+            <td><code>results</code></td>
+            <td>property</td>
+            <td><code>readonly RuleResult[]</code></td>
+            <td>yes</td>
+            <td></td>
+          </tr><tr>
             <td><code>roleAssignments</code></td>
             <td>property</td>
             <td><code>readonly ArchitectureRoleAssignment[]</code></td>
@@ -982,6 +1038,37 @@
           </tr>
     </tbody>
   </table>
+  </article><article class="item" id="symbol-architecturegraphevaluationoptions" data-search="ArchitectureGraphEvaluationOptions  type src/types/architectureAnalysis.ts Optional generic Rules configuration for target-independent source-graph evaluation.">
+    <h4>ArchitectureGraphEvaluationOptions</h4>
+    
+    <p class="muted">type • <code>src/types/architectureAnalysis.ts:70:1</code></p>
+    <p>Optional generic Rules configuration for target-independent source-graph evaluation.</p>
+    
+    <p><strong>Export paths:</strong> <code>src/index.ts</code></p>
+    <div><strong>Related symbols:</strong> <span class="empty">None</span></div>
+    
+    <table>
+    <thead><tr><th>Member</th><th>Kind</th><th>Type</th><th>Required</th><th>Description</th></tr></thead>
+    <tbody>
+      <tr>
+            <td><code>config</code></td>
+            <td>property</td>
+            <td><code>RulesConfig | undefined</code></td>
+            <td>no</td>
+            <td></td>
+          </tr>
+    </tbody>
+  </table>
+  </article><article class="item" id="symbol-architecturegraphevaluationresult" data-search="ArchitectureGraphEvaluationResult  unknown src/types/architectureAnalysis.ts Canonical generic Rules result for target-independent source-graph evaluation.">
+    <h4>ArchitectureGraphEvaluationResult</h4>
+    
+    <p class="muted">unknown • <code>src/types/architectureAnalysis.ts:75:1</code></p>
+    <p>Canonical generic Rules result for target-independent source-graph evaluation.</p>
+    
+    <p><strong>Export paths:</strong> <code>src/index.ts</code></p>
+    <div><strong>Related symbols:</strong> <span class="empty">None</span></div>
+    
+    
   </article><article class="item" id="symbol-architecturegraphrulecontext" data-search="ArchitectureGraphRuleContext  type src/types/architectureAnalysis.ts Target-independent Architecture Rules context over one canonical SourceGraph.">
     <h4>ArchitectureGraphRuleContext</h4>
     
@@ -1285,9 +1372,21 @@
             <td>yes</td>
             <td></td>
           </tr><tr>
+            <td><code>plan</code></td>
+            <td>property</td>
+            <td><code>RuleEvaluationPlan</code></td>
+            <td>yes</td>
+            <td></td>
+          </tr><tr>
             <td><code>profileId</code></td>
             <td>property</td>
             <td><code>&quot;ankhorage&quot;</code></td>
+            <td>yes</td>
+            <td></td>
+          </tr><tr>
+            <td><code>results</code></td>
+            <td>property</td>
+            <td><code>readonly RuleResult[]</code></td>
             <td>yes</td>
             <td></td>
           </tr>
@@ -1484,6 +1583,7 @@
   module_src_features_evaluation_domain_evaluateArchitecture_test_ts[&quot;src/features/evaluation/domain/evaluateArchitecture.test.ts&quot;]
   package__ankhorage_rules_architecture -.-&gt; module_src_features_evaluation_domain_evaluateArchitecture_test_ts
   module_src_features_evaluation_domain_evaluateArchitecture_test_ts --&gt; module_src_features_evaluation_domain_evaluateArchitecture_ts
+  module_src_features_evaluation_domain_evaluateArchitecture_test_ts --&gt; module_src_features_evaluation_domain_evaluateArchitectureGraph_ts
   module_src_features_evaluation_domain_evaluateArchitecture_ts[&quot;src/features/evaluation/domain/evaluateArchitecture.ts&quot;]
   package__ankhorage_rules_architecture -.-&gt; module_src_features_evaluation_domain_evaluateArchitecture_ts
   module_src_features_evaluation_domain_evaluateArchitecture_ts --&gt; module_src_features_detection_domain_inferArchitectureRoles_ts
@@ -1492,6 +1592,11 @@
   module_src_features_evaluation_domain_evaluateArchitecture_ts --&gt; module_src_types_architectureAnalysis_ts
   module_src_features_evaluation_domain_evaluateArchitecture_ts --&gt; module_src_types_architectureModel_ts
   module_src_features_evaluation_domain_evaluateArchitecture_ts --&gt; module_src_utils_hasSourceCapability_ts
+  module_src_features_evaluation_domain_evaluateArchitectureGraph_ts[&quot;src/features/evaluation/domain/evaluateArchitectureGraph.ts&quot;]
+  package__ankhorage_rules_architecture -.-&gt; module_src_features_evaluation_domain_evaluateArchitectureGraph_ts
+  module_src_features_evaluation_domain_evaluateArchitectureGraph_ts --&gt; module_src_features_rules_domain_createArchitectureGraphRuleSet_ts
+  module_src_features_evaluation_domain_evaluateArchitectureGraph_ts --&gt; module_src_types_architectureAnalysis_ts
+  module_src_features_evaluation_domain_evaluateArchitectureGraph_ts --&gt; module_src_utils_hasSourceCapability_ts
   module_src_features_models_constants_architectureModels_ts[&quot;src/features/models/constants/architectureModels.ts&quot;]
   package__ankhorage_rules_architecture -.-&gt; module_src_features_models_constants_architectureModels_ts
   module_src_features_models_constants_architectureModels_ts --&gt; module_src_types_architectureModel_ts
@@ -1543,6 +1648,7 @@
   module_src_features_rules_domain_createArchitectureRuleSet_ts --&gt; module_src_features_rules_domain_createCyclicDependenciesRule_ts
   module_src_features_rules_domain_createArchitectureRuleSet_ts --&gt; module_src_types_architectureAnalysis_ts
   module_src_features_rules_domain_createArchitectureRuleSet_ts --&gt; module_src_types_architectureModel_ts
+  module_src_features_rules_domain_createArchitectureRuleSet_ts --&gt; module_src_utils_hasSourceCapability_ts
   module_src_features_rules_domain_createCyclicDependenciesRule_ts[&quot;src/features/rules/domain/createCyclicDependenciesRule.ts&quot;]
   package__ankhorage_rules_architecture -.-&gt; module_src_features_rules_domain_createCyclicDependenciesRule_ts
   module_src_features_rules_domain_createCyclicDependenciesRule_ts --&gt; module_src_types_architectureAnalysis_ts
@@ -1637,6 +1743,7 @@
   module_src_features_evaluation_domain_evaluateArchitecture_test_ts[&quot;src/features/evaluation/domain/evaluateArchitecture.test.ts&quot;]
   package__ankhorage_rules_architecture -.-&gt; module_src_features_evaluation_domain_evaluateArchitecture_test_ts
   module_src_features_evaluation_domain_evaluateArchitecture_test_ts --&gt; module_src_features_evaluation_domain_evaluateArchitecture_ts
+  module_src_features_evaluation_domain_evaluateArchitecture_test_ts --&gt; module_src_features_evaluation_domain_evaluateArchitectureGraph_ts
   module_src_features_evaluation_domain_evaluateArchitecture_ts[&quot;src/features/evaluation/domain/evaluateArchitecture.ts&quot;]
   package__ankhorage_rules_architecture -.-&gt; module_src_features_evaluation_domain_evaluateArchitecture_ts
   module_src_features_evaluation_domain_evaluateArchitecture_ts --&gt; module_src_features_detection_domain_inferArchitectureRoles_ts
@@ -1645,6 +1752,11 @@
   module_src_features_evaluation_domain_evaluateArchitecture_ts --&gt; module_src_types_architectureAnalysis_ts
   module_src_features_evaluation_domain_evaluateArchitecture_ts --&gt; module_src_types_architectureModel_ts
   module_src_features_evaluation_domain_evaluateArchitecture_ts --&gt; module_src_utils_hasSourceCapability_ts
+  module_src_features_evaluation_domain_evaluateArchitectureGraph_ts[&quot;src/features/evaluation/domain/evaluateArchitectureGraph.ts&quot;]
+  package__ankhorage_rules_architecture -.-&gt; module_src_features_evaluation_domain_evaluateArchitectureGraph_ts
+  module_src_features_evaluation_domain_evaluateArchitectureGraph_ts --&gt; module_src_features_rules_domain_createArchitectureGraphRuleSet_ts
+  module_src_features_evaluation_domain_evaluateArchitectureGraph_ts --&gt; module_src_types_architectureAnalysis_ts
+  module_src_features_evaluation_domain_evaluateArchitectureGraph_ts --&gt; module_src_utils_hasSourceCapability_ts
   module_src_features_models_constants_architectureModels_ts[&quot;src/features/models/constants/architectureModels.ts&quot;]
   package__ankhorage_rules_architecture -.-&gt; module_src_features_models_constants_architectureModels_ts
   module_src_features_models_constants_architectureModels_ts --&gt; module_src_types_architectureModel_ts
@@ -1696,6 +1808,7 @@
   module_src_features_rules_domain_createArchitectureRuleSet_ts --&gt; module_src_features_rules_domain_createCyclicDependenciesRule_ts
   module_src_features_rules_domain_createArchitectureRuleSet_ts --&gt; module_src_types_architectureAnalysis_ts
   module_src_features_rules_domain_createArchitectureRuleSet_ts --&gt; module_src_types_architectureModel_ts
+  module_src_features_rules_domain_createArchitectureRuleSet_ts --&gt; module_src_utils_hasSourceCapability_ts
   module_src_features_rules_domain_createCyclicDependenciesRule_ts[&quot;src/features/rules/domain/createCyclicDependenciesRule.ts&quot;]
   package__ankhorage_rules_architecture -.-&gt; module_src_features_rules_domain_createCyclicDependenciesRule_ts
   module_src_features_rules_domain_createCyclicDependenciesRule_ts --&gt; module_src_types_architectureAnalysis_ts
@@ -1738,6 +1851,7 @@
   module_src_features_detection_domain_inferArchitectureRoles_ts[&quot;src/features/detection/domain/inferArchitectureRoles.ts&quot;]
   module_src_features_evaluation_domain_evaluateArchitecture_test_ts[&quot;src/features/evaluation/domain/evaluateArchitecture.test.ts&quot;]
   module_src_features_evaluation_domain_evaluateArchitecture_ts[&quot;src/features/evaluation/domain/evaluateArchitecture.ts&quot;]
+  module_src_features_evaluation_domain_evaluateArchitectureGraph_ts[&quot;src/features/evaluation/domain/evaluateArchitectureGraph.ts&quot;]
   module_src_features_models_constants_architectureModels_ts[&quot;src/features/models/constants/architectureModels.ts&quot;]
   module_src_features_models_domain_findArchitectureModel_ts[&quot;src/features/models/domain/findArchitectureModel.ts&quot;]
   module_src_features_models_domain_listArchitectureModels_test_ts[&quot;src/features/models/domain/listArchitectureModels.test.ts&quot;]
@@ -1792,12 +1906,16 @@
   module_src_features_detection_domain_inferArchitectureRoles_ts --&gt; module_src_types_architectureAnalysis_ts
   module_src_features_detection_domain_inferArchitectureRoles_ts --&gt; module_src_types_architectureModel_ts
   module_src_features_evaluation_domain_evaluateArchitecture_test_ts --&gt; module_src_features_evaluation_domain_evaluateArchitecture_ts
+  module_src_features_evaluation_domain_evaluateArchitecture_test_ts --&gt; module_src_features_evaluation_domain_evaluateArchitectureGraph_ts
   module_src_features_evaluation_domain_evaluateArchitecture_ts --&gt; module_src_features_detection_domain_inferArchitectureRoles_ts
   module_src_features_evaluation_domain_evaluateArchitecture_ts --&gt; module_src_features_models_domain_findArchitectureModel_ts
   module_src_features_evaluation_domain_evaluateArchitecture_ts --&gt; module_src_features_rules_domain_createArchitectureRuleSet_ts
   module_src_features_evaluation_domain_evaluateArchitecture_ts --&gt; module_src_types_architectureAnalysis_ts
   module_src_features_evaluation_domain_evaluateArchitecture_ts --&gt; module_src_types_architectureModel_ts
   module_src_features_evaluation_domain_evaluateArchitecture_ts --&gt; module_src_utils_hasSourceCapability_ts
+  module_src_features_evaluation_domain_evaluateArchitectureGraph_ts --&gt; module_src_features_rules_domain_createArchitectureGraphRuleSet_ts
+  module_src_features_evaluation_domain_evaluateArchitectureGraph_ts --&gt; module_src_types_architectureAnalysis_ts
+  module_src_features_evaluation_domain_evaluateArchitectureGraph_ts --&gt; module_src_utils_hasSourceCapability_ts
   module_src_features_models_constants_architectureModels_ts --&gt; module_src_types_architectureModel_ts
   module_src_features_models_domain_findArchitectureModel_ts --&gt; module_src_features_models_constants_architectureModels_ts
   module_src_features_models_domain_findArchitectureModel_ts --&gt; module_src_types_architectureModel_ts
@@ -1823,6 +1941,7 @@
   module_src_features_rules_domain_createArchitectureRuleSet_ts --&gt; module_src_features_rules_domain_createCyclicDependenciesRule_ts
   module_src_features_rules_domain_createArchitectureRuleSet_ts --&gt; module_src_types_architectureAnalysis_ts
   module_src_features_rules_domain_createArchitectureRuleSet_ts --&gt; module_src_types_architectureModel_ts
+  module_src_features_rules_domain_createArchitectureRuleSet_ts --&gt; module_src_utils_hasSourceCapability_ts
   module_src_features_rules_domain_createCyclicDependenciesRule_ts --&gt; module_src_types_architectureAnalysis_ts
   module_src_types_architectureAnalysis_ts --&gt; module_src_types_architectureModel_ts
   module_src_types_architectureCli_ts --&gt; module_src_types_architectureModel_ts
@@ -1850,6 +1969,7 @@
   module_src_features_detection_domain_inferArchitectureRoles_ts[&quot;src/features/detection/domain/inferArchitectureRoles.ts&quot;]
   module_src_features_evaluation_domain_evaluateArchitecture_test_ts[&quot;src/features/evaluation/domain/evaluateArchitecture.test.ts&quot;]
   module_src_features_evaluation_domain_evaluateArchitecture_ts[&quot;src/features/evaluation/domain/evaluateArchitecture.ts&quot;]
+  module_src_features_evaluation_domain_evaluateArchitectureGraph_ts[&quot;src/features/evaluation/domain/evaluateArchitectureGraph.ts&quot;]
   module_src_features_models_constants_architectureModels_ts[&quot;src/features/models/constants/architectureModels.ts&quot;]
   module_src_features_models_domain_findArchitectureModel_ts[&quot;src/features/models/domain/findArchitectureModel.ts&quot;]
   module_src_features_models_domain_listArchitectureModels_test_ts[&quot;src/features/models/domain/listArchitectureModels.test.ts&quot;]
@@ -1904,12 +2024,16 @@
   module_src_features_detection_domain_inferArchitectureRoles_ts --&gt; module_src_types_architectureAnalysis_ts
   module_src_features_detection_domain_inferArchitectureRoles_ts --&gt; module_src_types_architectureModel_ts
   module_src_features_evaluation_domain_evaluateArchitecture_test_ts --&gt; module_src_features_evaluation_domain_evaluateArchitecture_ts
+  module_src_features_evaluation_domain_evaluateArchitecture_test_ts --&gt; module_src_features_evaluation_domain_evaluateArchitectureGraph_ts
   module_src_features_evaluation_domain_evaluateArchitecture_ts --&gt; module_src_features_detection_domain_inferArchitectureRoles_ts
   module_src_features_evaluation_domain_evaluateArchitecture_ts --&gt; module_src_features_models_domain_findArchitectureModel_ts
   module_src_features_evaluation_domain_evaluateArchitecture_ts --&gt; module_src_features_rules_domain_createArchitectureRuleSet_ts
   module_src_features_evaluation_domain_evaluateArchitecture_ts --&gt; module_src_types_architectureAnalysis_ts
   module_src_features_evaluation_domain_evaluateArchitecture_ts --&gt; module_src_types_architectureModel_ts
   module_src_features_evaluation_domain_evaluateArchitecture_ts --&gt; module_src_utils_hasSourceCapability_ts
+  module_src_features_evaluation_domain_evaluateArchitectureGraph_ts --&gt; module_src_features_rules_domain_createArchitectureGraphRuleSet_ts
+  module_src_features_evaluation_domain_evaluateArchitectureGraph_ts --&gt; module_src_types_architectureAnalysis_ts
+  module_src_features_evaluation_domain_evaluateArchitectureGraph_ts --&gt; module_src_utils_hasSourceCapability_ts
   module_src_features_models_constants_architectureModels_ts --&gt; module_src_types_architectureModel_ts
   module_src_features_models_domain_findArchitectureModel_ts --&gt; module_src_features_models_constants_architectureModels_ts
   module_src_features_models_domain_findArchitectureModel_ts --&gt; module_src_types_architectureModel_ts
@@ -1935,6 +2059,7 @@
   module_src_features_rules_domain_createArchitectureRuleSet_ts --&gt; module_src_features_rules_domain_createCyclicDependenciesRule_ts
   module_src_features_rules_domain_createArchitectureRuleSet_ts --&gt; module_src_types_architectureAnalysis_ts
   module_src_features_rules_domain_createArchitectureRuleSet_ts --&gt; module_src_types_architectureModel_ts
+  module_src_features_rules_domain_createArchitectureRuleSet_ts --&gt; module_src_utils_hasSourceCapability_ts
   module_src_features_rules_domain_createCyclicDependenciesRule_ts --&gt; module_src_types_architectureAnalysis_ts
   module_src_types_architectureAnalysis_ts --&gt; module_src_types_architectureModel_ts
   module_src_types_architectureCli_ts --&gt; module_src_types_architectureModel_ts
@@ -1964,6 +2089,7 @@
   module_src_features_detection_domain_inferArchitectureRoles_ts[&quot;src/features/detection/domain/inferArchitectureRoles.ts&quot;]
   module_src_features_evaluation_domain_evaluateArchitecture_test_ts[&quot;src/features/evaluation/domain/evaluateArchitecture.test.ts&quot;]
   module_src_features_evaluation_domain_evaluateArchitecture_ts[&quot;src/features/evaluation/domain/evaluateArchitecture.ts&quot;]
+  module_src_features_evaluation_domain_evaluateArchitectureGraph_ts[&quot;src/features/evaluation/domain/evaluateArchitectureGraph.ts&quot;]
   module_src_features_models_constants_architectureModels_ts[&quot;src/features/models/constants/architectureModels.ts&quot;]
   module_src_features_models_domain_findArchitectureModel_ts[&quot;src/features/models/domain/findArchitectureModel.ts&quot;]
   module_src_features_models_domain_listArchitectureModels_test_ts[&quot;src/features/models/domain/listArchitectureModels.test.ts&quot;]
@@ -2003,6 +2129,10 @@
   export_ArchitectureEvaluationResult[&quot;ArchitectureEvaluationResult&quot;]
   module_src_types_architectureAnalysis_ts --&gt; export_ArchitectureEvaluationResult
   export_ArchitectureEvaluationResult -.-&gt; export_ArchitectureRoleAssignment
+  export_ArchitectureGraphEvaluationOptions[&quot;ArchitectureGraphEvaluationOptions&quot;]
+  module_src_types_architectureAnalysis_ts --&gt; export_ArchitectureGraphEvaluationOptions
+  export_ArchitectureGraphEvaluationResult[&quot;ArchitectureGraphEvaluationResult&quot;]
+  module_src_types_architectureAnalysis_ts --&gt; export_ArchitectureGraphEvaluationResult
   export_ArchitectureGraphRuleContext[&quot;ArchitectureGraphRuleContext&quot;]
   module_src_types_architectureAnalysis_ts --&gt; export_ArchitectureGraphRuleContext
   export_ArchitectureModel[&quot;ArchitectureModel&quot;]
@@ -2051,6 +2181,9 @@
   module_src_features_evaluation_domain_evaluateArchitecture_ts --&gt; export_evaluateArchitecture
   export_evaluateArchitecture -.-&gt; export_ArchitectureEvaluationOptions
   export_evaluateArchitecture -.-&gt; export_ArchitectureEvaluationResult
+  export_evaluateArchitectureGraph[&quot;evaluateArchitectureGraph&quot;]
+  module_src_features_evaluation_domain_evaluateArchitectureGraph_ts --&gt; export_evaluateArchitectureGraph
+  export_evaluateArchitectureGraph -.-&gt; export_ArchitectureGraphEvaluationOptions
   export_evaluateArchitectureProfile[&quot;evaluateArchitectureProfile&quot;]
   module_src_features_profiles_domain_evaluateArchitectureProfile_ts --&gt; export_evaluateArchitectureProfile
   export_evaluateArchitectureProfile -.-&gt; export_ArchitectureProfileEvaluationOptions
@@ -2088,6 +2221,7 @@
   module_src_features_detection_domain_inferArchitectureRoles_ts[&quot;src/features/detection/domain/inferArchitectureRoles.ts&quot;]
   module_src_features_evaluation_domain_evaluateArchitecture_test_ts[&quot;src/features/evaluation/domain/evaluateArchitecture.test.ts&quot;]
   module_src_features_evaluation_domain_evaluateArchitecture_ts[&quot;src/features/evaluation/domain/evaluateArchitecture.ts&quot;]
+  module_src_features_evaluation_domain_evaluateArchitectureGraph_ts[&quot;src/features/evaluation/domain/evaluateArchitectureGraph.ts&quot;]
   module_src_features_models_constants_architectureModels_ts[&quot;src/features/models/constants/architectureModels.ts&quot;]
   module_src_features_models_domain_findArchitectureModel_ts[&quot;src/features/models/domain/findArchitectureModel.ts&quot;]
   module_src_features_models_domain_listArchitectureModels_test_ts[&quot;src/features/models/domain/listArchitectureModels.test.ts&quot;]
@@ -2127,6 +2261,10 @@
   export_ArchitectureEvaluationResult[&quot;ArchitectureEvaluationResult&quot;]
   module_src_types_architectureAnalysis_ts --&gt; export_ArchitectureEvaluationResult
   export_ArchitectureEvaluationResult -.-&gt; export_ArchitectureRoleAssignment
+  export_ArchitectureGraphEvaluationOptions[&quot;ArchitectureGraphEvaluationOptions&quot;]
+  module_src_types_architectureAnalysis_ts --&gt; export_ArchitectureGraphEvaluationOptions
+  export_ArchitectureGraphEvaluationResult[&quot;ArchitectureGraphEvaluationResult&quot;]
+  module_src_types_architectureAnalysis_ts --&gt; export_ArchitectureGraphEvaluationResult
   export_ArchitectureGraphRuleContext[&quot;ArchitectureGraphRuleContext&quot;]
   module_src_types_architectureAnalysis_ts --&gt; export_ArchitectureGraphRuleContext
   export_ArchitectureModel[&quot;ArchitectureModel&quot;]
@@ -2175,6 +2313,9 @@
   module_src_features_evaluation_domain_evaluateArchitecture_ts --&gt; export_evaluateArchitecture
   export_evaluateArchitecture -.-&gt; export_ArchitectureEvaluationOptions
   export_evaluateArchitecture -.-&gt; export_ArchitectureEvaluationResult
+  export_evaluateArchitectureGraph[&quot;evaluateArchitectureGraph&quot;]
+  module_src_features_evaluation_domain_evaluateArchitectureGraph_ts --&gt; export_evaluateArchitectureGraph
+  export_evaluateArchitectureGraph -.-&gt; export_ArchitectureGraphEvaluationOptions
   export_evaluateArchitectureProfile[&quot;evaluateArchitectureProfile&quot;]
   module_src_features_profiles_domain_evaluateArchitectureProfile_ts --&gt; export_evaluateArchitectureProfile
   export_evaluateArchitectureProfile -.-&gt; export_ArchitectureProfileEvaluationOptions
@@ -2335,6 +2476,54 @@
   participant participant_listArchitectureModels as listArchitectureModels
   participant_detectArchitecture-&gt;&gt;participant_listArchitectureModels: listArchitectureModels()
   participant_listArchitectureModels--&gt;&gt;participant_detectArchitecture: return
+</pre>
+    </details>
+  </article><article class="item" data-search="evaluateArchitectureGraph sequence diagrams/sequences/evaluate-architecture-graph.mmd">
+    <h3>evaluateArchitectureGraph sequence</h3>
+    <p class="muted"><code>diagrams/sequences/evaluate-architecture-graph.mmd</code></p>
+    <div class="mermaid">sequenceDiagram
+  participant participant_createArchitectureGraphRuleSet as createArchitectureGraphRuleSet
+  participant participant_createCyclicDependenciesRule as createCyclicDependenciesRule
+  participant participant_createRuleRegistry as createRuleRegistry
+  participant participant_evaluateArchitectureGraph as evaluateArchitectureGraph
+  participant participant_evaluateConfiguredRules as evaluateConfiguredRules
+  participant participant_evaluateRules as evaluateRules
+  participant participant_hasSourceCapability as hasSourceCapability
+  participant_evaluateArchitectureGraph-&gt;&gt;participant_createArchitectureGraphRuleSet: createArchitectureGraphRuleSet()
+  participant_createArchitectureGraphRuleSet-&gt;&gt;participant_createCyclicDependenciesRule: createCyclicDependenciesRule()
+  participant_createCyclicDependenciesRule--&gt;&gt;participant_createArchitectureGraphRuleSet: return
+  participant_createArchitectureGraphRuleSet--&gt;&gt;participant_evaluateArchitectureGraph: return
+  participant_evaluateArchitectureGraph-&gt;&gt;participant_hasSourceCapability: hasSourceCapability()
+  participant_hasSourceCapability--&gt;&gt;participant_evaluateArchitectureGraph: return
+  participant_evaluateArchitectureGraph-&gt;&gt;participant_evaluateRules: evaluateRules()
+  participant_evaluateRules--&gt;&gt;participant_evaluateArchitectureGraph: return
+  participant_evaluateArchitectureGraph-&gt;&gt;participant_evaluateConfiguredRules: evaluateConfiguredRules()
+  participant_evaluateConfiguredRules--&gt;&gt;participant_evaluateArchitectureGraph: return
+  participant_evaluateArchitectureGraph-&gt;&gt;participant_createRuleRegistry: createRuleRegistry()
+  participant_createRuleRegistry--&gt;&gt;participant_evaluateArchitectureGraph: return
+</div>
+    <details>
+      <summary>View Mermaid source</summary>
+      <pre>sequenceDiagram
+  participant participant_createArchitectureGraphRuleSet as createArchitectureGraphRuleSet
+  participant participant_createCyclicDependenciesRule as createCyclicDependenciesRule
+  participant participant_createRuleRegistry as createRuleRegistry
+  participant participant_evaluateArchitectureGraph as evaluateArchitectureGraph
+  participant participant_evaluateConfiguredRules as evaluateConfiguredRules
+  participant participant_evaluateRules as evaluateRules
+  participant participant_hasSourceCapability as hasSourceCapability
+  participant_evaluateArchitectureGraph-&gt;&gt;participant_createArchitectureGraphRuleSet: createArchitectureGraphRuleSet()
+  participant_createArchitectureGraphRuleSet-&gt;&gt;participant_createCyclicDependenciesRule: createCyclicDependenciesRule()
+  participant_createCyclicDependenciesRule--&gt;&gt;participant_createArchitectureGraphRuleSet: return
+  participant_createArchitectureGraphRuleSet--&gt;&gt;participant_evaluateArchitectureGraph: return
+  participant_evaluateArchitectureGraph-&gt;&gt;participant_hasSourceCapability: hasSourceCapability()
+  participant_hasSourceCapability--&gt;&gt;participant_evaluateArchitectureGraph: return
+  participant_evaluateArchitectureGraph-&gt;&gt;participant_evaluateRules: evaluateRules()
+  participant_evaluateRules--&gt;&gt;participant_evaluateArchitectureGraph: return
+  participant_evaluateArchitectureGraph-&gt;&gt;participant_evaluateConfiguredRules: evaluateConfiguredRules()
+  participant_evaluateConfiguredRules--&gt;&gt;participant_evaluateArchitectureGraph: return
+  participant_evaluateArchitectureGraph-&gt;&gt;participant_createRuleRegistry: createRuleRegistry()
+  participant_createRuleRegistry--&gt;&gt;participant_evaluateArchitectureGraph: return
 </pre>
     </details>
   </article>
@@ -2615,27 +2804,27 @@
       <h2>src/features/evaluation/domain/evaluateArchitecture.test.ts</h2>
       <article class="item" data-search="directionViolationFixture src/features/evaluation/domain/evaluateArchitecture.test.ts ">
     <h3>directionViolationFixture</h3>
-    <p class="muted"><code>src/features/evaluation/domain/evaluateArchitecture.test.ts:22:1</code></p>
+    <p class="muted"><code>src/features/evaluation/domain/evaluateArchitecture.test.ts:58:1</code></p>
     <p class="empty">No description available.</p>
     
   </article><article class="item" data-search="cycleFixture src/features/evaluation/domain/evaluateArchitecture.test.ts ">
     <h3>cycleFixture</h3>
-    <p class="muted"><code>src/features/evaluation/domain/evaluateArchitecture.test.ts:29:1</code></p>
+    <p class="muted"><code>src/features/evaluation/domain/evaluateArchitecture.test.ts:72:1</code></p>
     <p class="empty">No description available.</p>
     
   </article><article class="item" data-search="sourceGraph src/features/evaluation/domain/evaluateArchitecture.test.ts ">
     <h3>sourceGraph</h3>
-    <p class="muted"><code>src/features/evaluation/domain/evaluateArchitecture.test.ts:36:1</code></p>
+    <p class="muted"><code>src/features/evaluation/domain/evaluateArchitecture.test.ts:79:1</code></p>
     <p class="empty">No description available.</p>
     
   </article><article class="item" data-search="fileNode src/features/evaluation/domain/evaluateArchitecture.test.ts ">
     <h3>fileNode</h3>
-    <p class="muted"><code>src/features/evaluation/domain/evaluateArchitecture.test.ts:44:1</code></p>
+    <p class="muted"><code>src/features/evaluation/domain/evaluateArchitecture.test.ts:101:1</code></p>
     <p class="empty">No description available.</p>
     
   </article><article class="item" data-search="importEdge src/features/evaluation/domain/evaluateArchitecture.test.ts ">
     <h3>importEdge</h3>
-    <p class="muted"><code>src/features/evaluation/domain/evaluateArchitecture.test.ts:59:1</code></p>
+    <p class="muted"><code>src/features/evaluation/domain/evaluateArchitecture.test.ts:116:1</code></p>
     <p class="empty">No description available.</p>
     
   </article>
@@ -2650,8 +2839,18 @@
     
   </article><article class="item" data-search="availableRuleCapabilities src/features/evaluation/domain/evaluateArchitecture.ts Translate analyzer capability reports into generic Rules capability identifiers.">
     <h3>availableRuleCapabilities</h3>
-    <p class="muted"><code>src/features/evaluation/domain/evaluateArchitecture.ts:47:1</code></p>
+    <p class="muted"><code>src/features/evaluation/domain/evaluateArchitecture.ts:51:1</code></p>
     <p>Translate analyzer capability reports into generic Rules capability identifiers.</p>
+    
+  </article>
+    </section>
+  </section><section id="view-src-features-evaluation-domain-evaluatearchitecturegraph-ts" class="view" data-view="src/features/evaluation/domain/evaluateArchitectureGraph.ts" hidden>
+    <section class="panel">
+      <h2>src/features/evaluation/domain/evaluateArchitectureGraph.ts</h2>
+      <article class="item" data-search="evaluateArchitectureGraph src/features/evaluation/domain/evaluateArchitectureGraph.ts Evaluate target-independent source-graph rules without inferring or enforcing an architecture model.">
+    <h3>evaluateArchitectureGraph</h3>
+    <p class="muted"><code>src/features/evaluation/domain/evaluateArchitectureGraph.ts:13:1</code></p>
+    <p>Evaluate target-independent source-graph rules without inferring or enforcing an architecture model.</p>
     
   </article>
     </section>
@@ -2723,49 +2922,54 @@
     <p class="muted"><code>src/features/profiles/domain/createArchitectureProfileRuleSet.ts:142:1</code></p>
     <p>Build one error-level architecture-profile rule.</p>
     
+  </article><article class="item" data-search="outcome src/features/profiles/domain/createArchitectureProfileRuleSet.ts Convert complete architecture-profile evidence into the canonical rule outcome.">
+    <h3>outcome</h3>
+    <p class="muted"><code>src/features/profiles/domain/createArchitectureProfileRuleSet.ts:159:1</code></p>
+    <p>Convert complete architecture-profile evidence into the canonical rule outcome.</p>
+    
   </article><article class="item" data-search="finding src/features/profiles/domain/createArchitectureProfileRuleSet.ts Build one portable profile finding with optional graph source evidence.">
     <h3>finding</h3>
-    <p class="muted"><code>src/features/profiles/domain/createArchitectureProfileRuleSet.ts:158:1</code></p>
+    <p class="muted"><code>src/features/profiles/domain/createArchitectureProfileRuleSet.ts:164:1</code></p>
     <p>Build one portable profile finding with optional graph source evidence.</p>
     
   </article><article class="item" data-search="sourceFilePaths src/features/profiles/domain/createArchitectureProfileRuleSet.ts Collect intrinsic source file paths once from the factual graph.">
     <h3>sourceFilePaths</h3>
-    <p class="muted"><code>src/features/profiles/domain/createArchitectureProfileRuleSet.ts:179:1</code></p>
+    <p class="muted"><code>src/features/profiles/domain/createArchitectureProfileRuleSet.ts:185:1</code></p>
     <p>Collect intrinsic source file paths once from the factual graph.</p>
     
   </article><article class="item" data-search="isAllowedSourcePath src/features/profiles/domain/createArchitectureProfileRuleSet.ts Return whether one source file belongs to an allowed Ankhorage ownership root.">
     <h3>isAllowedSourcePath</h3>
-    <p class="muted"><code>src/features/profiles/domain/createArchitectureProfileRuleSet.ts:188:1</code></p>
+    <p class="muted"><code>src/features/profiles/domain/createArchitectureProfileRuleSet.ts:194:1</code></p>
     <p>Return whether one source file belongs to an allowed Ankhorage ownership root.</p>
     
   </article><article class="item" data-search="collectFeatureRoles src/features/profiles/domain/createArchitectureProfileRuleSet.ts Collect direct feature role directories from factual file paths.">
     <h3>collectFeatureRoles</h3>
-    <p class="muted"><code>src/features/profiles/domain/createArchitectureProfileRuleSet.ts:202:1</code></p>
+    <p class="muted"><code>src/features/profiles/domain/createArchitectureProfileRuleSet.ts:208:1</code></p>
     <p>Collect direct feature role directories from factual file paths.</p>
     
   </article><article class="item" data-search="importRelations src/features/profiles/domain/createArchitectureProfileRuleSet.ts Project factual import edges into source/target file paths.">
     <h3>importRelations</h3>
-    <p class="muted"><code>src/features/profiles/domain/createArchitectureProfileRuleSet.ts:230:1</code></p>
+    <p class="muted"><code>src/features/profiles/domain/createArchitectureProfileRuleSet.ts:236:1</code></p>
     <p>Project factual import edges into source/target file paths.</p>
     
   </article><article class="item" data-search="nodePath src/features/profiles/domain/createArchitectureProfileRuleSet.ts Resolve the project-relative path represented by a factual source node.">
     <h3>nodePath</h3>
-    <p class="muted"><code>src/features/profiles/domain/createArchitectureProfileRuleSet.ts:246:1</code></p>
+    <p class="muted"><code>src/features/profiles/domain/createArchitectureProfileRuleSet.ts:252:1</code></p>
     <p>Resolve the project-relative path represented by a factual source node.</p>
     
   </article><article class="item" data-search="firstEvidence src/features/profiles/domain/createArchitectureProfileRuleSet.ts Return the first source-location evidence for one observed import.">
     <h3>firstEvidence</h3>
-    <p class="muted"><code>src/features/profiles/domain/createArchitectureProfileRuleSet.ts:251:1</code></p>
+    <p class="muted"><code>src/features/profiles/domain/createArchitectureProfileRuleSet.ts:257:1</code></p>
     <p>Return the first source-location evidence for one observed import.</p>
     
   </article><article class="item" data-search="includesSegmentSequence src/features/profiles/domain/createArchitectureProfileRuleSet.ts Check whether one path segment sequence occurs contiguously in another.">
     <h3>includesSegmentSequence</h3>
-    <p class="muted"><code>src/features/profiles/domain/createArchitectureProfileRuleSet.ts:258:1</code></p>
+    <p class="muted"><code>src/features/profiles/domain/createArchitectureProfileRuleSet.ts:264:1</code></p>
     <p>Check whether one path segment sequence occurs contiguously in another.</p>
     
   </article><article class="item" data-search="splitPath src/features/profiles/domain/createArchitectureProfileRuleSet.ts Split portable source paths into normalized architecture segments.">
     <h3>splitPath</h3>
-    <p class="muted"><code>src/features/profiles/domain/createArchitectureProfileRuleSet.ts:268:1</code></p>
+    <p class="muted"><code>src/features/profiles/domain/createArchitectureProfileRuleSet.ts:274:1</code></p>
     <p>Split portable source paths into normalized architecture segments.</p>
     
   </article>
@@ -2828,29 +3032,39 @@
   </section><section id="view-src-features-rules-domain-createarchitecturegraphruleset-test-ts" class="view" data-view="src/features/rules/domain/createArchitectureGraphRuleSet.test.ts" hidden>
     <section class="panel">
       <h2>src/features/rules/domain/createArchitectureGraphRuleSet.test.ts</h2>
-      <article class="item" data-search="sourceGraph src/features/rules/domain/createArchitectureGraphRuleSet.test.ts ">
+      <article class="item" data-search="fixtureRule src/features/rules/domain/createArchitectureGraphRuleSet.test.ts ">
+    <h3>fixtureRule</h3>
+    <p class="muted"><code>src/features/rules/domain/createArchitectureGraphRuleSet.test.ts:114:1</code></p>
+    <p class="empty">No description available.</p>
+    
+  </article><article class="item" data-search="fixtureFinding src/features/rules/domain/createArchitectureGraphRuleSet.test.ts ">
+    <h3>fixtureFinding</h3>
+    <p class="muted"><code>src/features/rules/domain/createArchitectureGraphRuleSet.test.ts:138:1</code></p>
+    <p class="empty">No description available.</p>
+    
+  </article><article class="item" data-search="sourceGraph src/features/rules/domain/createArchitectureGraphRuleSet.test.ts ">
     <h3>sourceGraph</h3>
-    <p class="muted"><code>src/features/rules/domain/createArchitectureGraphRuleSet.test.ts:62:1</code></p>
+    <p class="muted"><code>src/features/rules/domain/createArchitectureGraphRuleSet.test.ts:148:1</code></p>
     <p class="empty">No description available.</p>
     
   </article><article class="item" data-search="packageNode src/features/rules/domain/createArchitectureGraphRuleSet.test.ts ">
     <h3>packageNode</h3>
-    <p class="muted"><code>src/features/rules/domain/createArchitectureGraphRuleSet.test.ts:70:1</code></p>
+    <p class="muted"><code>src/features/rules/domain/createArchitectureGraphRuleSet.test.ts:156:1</code></p>
     <p class="empty">No description available.</p>
     
   </article><article class="item" data-search="fileNode src/features/rules/domain/createArchitectureGraphRuleSet.test.ts ">
     <h3>fileNode</h3>
-    <p class="muted"><code>src/features/rules/domain/createArchitectureGraphRuleSet.test.ts:84:1</code></p>
+    <p class="muted"><code>src/features/rules/domain/createArchitectureGraphRuleSet.test.ts:170:1</code></p>
     <p class="empty">No description available.</p>
     
   </article><article class="item" data-search="declaresInEdge src/features/rules/domain/createArchitectureGraphRuleSet.test.ts ">
     <h3>declaresInEdge</h3>
-    <p class="muted"><code>src/features/rules/domain/createArchitectureGraphRuleSet.test.ts:100:1</code></p>
+    <p class="muted"><code>src/features/rules/domain/createArchitectureGraphRuleSet.test.ts:186:1</code></p>
     <p class="empty">No description available.</p>
     
   </article><article class="item" data-search="importEdge src/features/rules/domain/createArchitectureGraphRuleSet.test.ts ">
     <h3>importEdge</h3>
-    <p class="muted"><code>src/features/rules/domain/createArchitectureGraphRuleSet.test.ts:117:1</code></p>
+    <p class="muted"><code>src/features/rules/domain/createArchitectureGraphRuleSet.test.ts:203:1</code></p>
     <p class="empty">No description available.</p>
     
   </article>
@@ -2870,23 +3084,28 @@
       <h2>src/features/rules/domain/createArchitectureRuleSet.ts</h2>
       <article class="item" data-search="createArchitectureRuleSet src/features/rules/domain/createArchitectureRuleSet.ts Create architecture rules for one explicitly selected target model.">
     <h3>createArchitectureRuleSet</h3>
-    <p class="muted"><code>src/features/rules/domain/createArchitectureRuleSet.ts:12:1</code></p>
+    <p class="muted"><code>src/features/rules/domain/createArchitectureRuleSet.ts:17:1</code></p>
     <p>Create architecture rules for one explicitly selected target model.</p>
     
   </article><article class="item" data-search="dependencyDirectionRule src/features/rules/domain/createArchitectureRuleSet.ts Enforce dependency direction only against the explicit selected target model.">
     <h3>dependencyDirectionRule</h3>
-    <p class="muted"><code>src/features/rules/domain/createArchitectureRuleSet.ts:23:1</code></p>
+    <p class="muted"><code>src/features/rules/domain/createArchitectureRuleSet.ts:28:1</code></p>
     <p>Enforce dependency direction only against the explicit selected target model.</p>
+    
+  </article><article class="item" data-search="directionOutcome src/features/rules/domain/createArchitectureRuleSet.ts Preserve available direction findings while marking incomplete relation coverage explicitly.">
+    <h3>directionOutcome</h3>
+    <p class="muted"><code>src/features/rules/domain/createArchitectureRuleSet.ts:39:1</code></p>
+    <p>Preserve available direction findings while marking incomplete relation coverage explicitly.</p>
     
   </article><article class="item" data-search="directionFindings src/features/rules/domain/createArchitectureRuleSet.ts Report selected-model dependency violations for confidently inferred endpoint roles.">
     <h3>directionFindings</h3>
-    <p class="muted"><code>src/features/rules/domain/createArchitectureRuleSet.ts:34:1</code></p>
+    <p class="muted"><code>src/features/rules/domain/createArchitectureRuleSet.ts:54:1</code></p>
     <p>Report selected-model dependency violations for confidently inferred endpoint roles.</p>
     
-  </article><article class="item" data-search="isDependencyRelation src/features/rules/domain/createArchitectureRuleSet.ts Restrict architecture direction rules to static source dependency relations.">
-    <h3>isDependencyRelation</h3>
-    <p class="muted"><code>src/features/rules/domain/createArchitectureRuleSet.ts:83:1</code></p>
-    <p>Restrict architecture direction rules to static source dependency relations.</p>
+  </article><article class="item" data-search="availableDependencyRelations src/features/rules/domain/createArchitectureRuleSet.ts Read relation kinds backed by complete analyzer evidence for every inspected project.">
+    <h3>availableDependencyRelations</h3>
+    <p class="muted"><code>src/features/rules/domain/createArchitectureRuleSet.ts:106:1</code></p>
+    <p>Read relation kinds backed by complete analyzer evidence for every inspected project.</p>
     
   </article>
     </section>
@@ -2895,37 +3114,42 @@
       <h2>src/features/rules/domain/createCyclicDependenciesRule.ts</h2>
       <article class="item" data-search="createCyclicDependenciesRule src/features/rules/domain/createCyclicDependenciesRule.ts Create the reusable cyclic-dependencies rule for any context that exposes one SourceGraph.">
     <h3>createCyclicDependenciesRule</h3>
-    <p class="muted"><code>src/features/rules/domain/createCyclicDependenciesRule.ts:18:1</code></p>
+    <p class="muted"><code>src/features/rules/domain/createCyclicDependenciesRule.ts:24:1</code></p>
     <p>Create the reusable cyclic-dependencies rule for any context that exposes one SourceGraph.</p>
+    
+  </article><article class="item" data-search="outcome src/features/rules/domain/createCyclicDependenciesRule.ts Convert complete cycle evidence into the canonical rule outcome.">
+    <h3>outcome</h3>
+    <p class="muted"><code>src/features/rules/domain/createCyclicDependenciesRule.ts:40:1</code></p>
+    <p>Convert complete cycle evidence into the canonical rule outcome.</p>
     
   </article><article class="item" data-search="readAggregation src/features/rules/domain/createCyclicDependenciesRule.ts Read the validated aggregation option while preserving the default file-level behavior.">
     <h3>readAggregation</h3>
-    <p class="muted"><code>src/features/rules/domain/createCyclicDependenciesRule.ts:32:1</code></p>
+    <p class="muted"><code>src/features/rules/domain/createCyclicDependenciesRule.ts:45:1</code></p>
     <p>Read the validated aggregation option while preserving the default file-level behavior.</p>
     
   </article><article class="item" data-search="validateCycleOptions src/features/rules/domain/createCyclicDependenciesRule.ts Validate the optional cycle aggregation level without consumer-specific configuration.">
     <h3>validateCycleOptions</h3>
-    <p class="muted"><code>src/features/rules/domain/createCyclicDependenciesRule.ts:41:1</code></p>
+    <p class="muted"><code>src/features/rules/domain/createCyclicDependenciesRule.ts:54:1</code></p>
     <p>Validate the optional cycle aggregation level without consumer-specific configuration.</p>
     
   </article><article class="item" data-search="cycleFindings src/features/rules/domain/createCyclicDependenciesRule.ts Convert canonical source dependencies into deterministic generic cycle findings.">
     <h3>cycleFindings</h3>
-    <p class="muted"><code>src/features/rules/domain/createCyclicDependenciesRule.ts:57:1</code></p>
+    <p class="muted"><code>src/features/rules/domain/createCyclicDependenciesRule.ts:70:1</code></p>
     <p>Convert canonical source dependencies into deterministic generic cycle findings.</p>
     
   </article><article class="item" data-search="fileCycleGraph src/features/rules/domain/createCyclicDependenciesRule.ts Build a file-level cycle graph while preserving original edge IDs as evidence references.">
     <h3>fileCycleGraph</h3>
-    <p class="muted"><code>src/features/rules/domain/createCyclicDependenciesRule.ts:98:1</code></p>
+    <p class="muted"><code>src/features/rules/domain/createCyclicDependenciesRule.ts:111:1</code></p>
     <p>Build a file-level cycle graph while preserving original edge IDs as evidence references.</p>
     
   </article><article class="item" data-search="packageCycleGraph src/features/rules/domain/createCyclicDependenciesRule.ts Build a package-level cycle graph from the canonical deterministic import rollup.">
     <h3>packageCycleGraph</h3>
-    <p class="muted"><code>src/features/rules/domain/createCyclicDependenciesRule.ts:125:1</code></p>
+    <p class="muted"><code>src/features/rules/domain/createCyclicDependenciesRule.ts:138:1</code></p>
     <p>Build a package-level cycle graph from the canonical deterministic import rollup.</p>
     
   </article><article class="item" data-search="isCycleOptionsRecord src/features/rules/domain/createCyclicDependenciesRule.ts Narrow only the cyclic-dependency option object accepted by this Rule.">
     <h3>isCycleOptionsRecord</h3>
-    <p class="muted"><code>src/features/rules/domain/createCyclicDependenciesRule.ts:151:1</code></p>
+    <p class="muted"><code>src/features/rules/domain/createCyclicDependenciesRule.ts:164:1</code></p>
     <p>Narrow only the cyclic-dependency option object accepted by this Rule.</p>
     
   </article>
