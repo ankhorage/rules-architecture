@@ -274,9 +274,30 @@
     "signatures": [],
     "members": [
       {
+        "name": "cache",
+        "kind": "property",
+        "type": "RuleEvaluationCache | undefined",
+        "required": false,
+        "description": null
+      },
+      {
+        "name": "cachePartition",
+        "kind": "property",
+        "type": "RuleEvaluationCachePartition | undefined",
+        "required": false,
+        "description": null
+      },
+      {
         "name": "config",
         "kind": "property",
         "type": "RulesConfig | undefined",
+        "required": false,
+        "description": null
+      },
+      {
+        "name": "factsVersion",
+        "kind": "property",
+        "type": "string | undefined",
         "required": false,
         "description": null
       }
@@ -294,7 +315,7 @@
     "modulePath": "src/types/architectureAnalysis.ts",
     "sourceLocation": {
       "filePath": "src/types/architectureAnalysis.ts",
-      "line": 78,
+      "line": 84,
       "column": 1
     },
     "exportPaths": [
@@ -361,7 +382,7 @@
     "modulePath": "src/types/architectureAnalysis.ts",
     "sourceLocation": {
       "filePath": "src/types/architectureAnalysis.ts",
-      "line": 70,
+      "line": 73,
       "column": 1
     },
     "exportPaths": [
@@ -371,9 +392,30 @@
     "signatures": [],
     "members": [
       {
+        "name": "cache",
+        "kind": "property",
+        "type": "RuleEvaluationCache | undefined",
+        "required": false,
+        "description": null
+      },
+      {
+        "name": "cachePartition",
+        "kind": "property",
+        "type": "RuleEvaluationCachePartition | undefined",
+        "required": false,
+        "description": null
+      },
+      {
         "name": "config",
         "kind": "property",
         "type": "RulesConfig | undefined",
+        "required": false,
+        "description": null
+      },
+      {
+        "name": "factsVersion",
+        "kind": "property",
+        "type": "string | undefined",
         "required": false,
         "description": null
       }
@@ -391,7 +433,7 @@
     "modulePath": "src/types/architectureAnalysis.ts",
     "sourceLocation": {
       "filePath": "src/types/architectureAnalysis.ts",
-      "line": 75,
+      "line": 81,
       "column": 1
     },
     "exportPaths": [
@@ -582,9 +624,30 @@
     "signatures": [],
     "members": [
       {
+        "name": "cache",
+        "kind": "property",
+        "type": "RuleEvaluationCache | undefined",
+        "required": false,
+        "description": null
+      },
+      {
+        "name": "cachePartition",
+        "kind": "property",
+        "type": "RuleEvaluationCachePartition | undefined",
+        "required": false,
+        "description": null
+      },
+      {
         "name": "config",
         "kind": "property",
         "type": "RulesConfig | undefined",
+        "required": false,
+        "description": null
+      },
+      {
+        "name": "factsVersion",
+        "kind": "property",
+        "type": "string | undefined",
         "required": false,
         "description": null
       }
@@ -602,7 +665,7 @@
     "modulePath": "src/types/architectureProfile.ts",
     "sourceLocation": {
       "filePath": "src/types/architectureProfile.ts",
-      "line": 56,
+      "line": 59,
       "column": 1
     },
     "exportPaths": [

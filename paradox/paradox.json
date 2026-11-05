@@ -14,7 +14,7 @@
     {
       "id": "npm",
       "label": "npm",
-      "value": "v0.7.0",
+      "value": "v0.8.0",
       "color": "cb3837"
     },
     {
@@ -813,9 +813,30 @@
       "signatures": [],
       "members": [
         {
+          "name": "cache",
+          "kind": "property",
+          "type": "RuleEvaluationCache | undefined",
+          "required": false,
+          "description": null
+        },
+        {
+          "name": "cachePartition",
+          "kind": "property",
+          "type": "RuleEvaluationCachePartition | undefined",
+          "required": false,
+          "description": null
+        },
+        {
           "name": "config",
           "kind": "property",
           "type": "RulesConfig | undefined",
+          "required": false,
+          "description": null
+        },
+        {
+          "name": "factsVersion",
+          "kind": "property",
+          "type": "string | undefined",
           "required": false,
           "description": null
         }
@@ -833,7 +854,7 @@
       "modulePath": "src/types/architectureAnalysis.ts",
       "sourceLocation": {
         "filePath": "src/types/architectureAnalysis.ts",
-        "line": 78,
+        "line": 84,
         "column": 1
       },
       "exportPaths": [
@@ -900,7 +921,7 @@
       "modulePath": "src/types/architectureAnalysis.ts",
       "sourceLocation": {
         "filePath": "src/types/architectureAnalysis.ts",
-        "line": 70,
+        "line": 73,
         "column": 1
       },
       "exportPaths": [
@@ -910,9 +931,30 @@
       "signatures": [],
       "members": [
         {
+          "name": "cache",
+          "kind": "property",
+          "type": "RuleEvaluationCache | undefined",
+          "required": false,
+          "description": null
+        },
+        {
+          "name": "cachePartition",
+          "kind": "property",
+          "type": "RuleEvaluationCachePartition | undefined",
+          "required": false,
+          "description": null
+        },
+        {
           "name": "config",
           "kind": "property",
           "type": "RulesConfig | undefined",
+          "required": false,
+          "description": null
+        },
+        {
+          "name": "factsVersion",
+          "kind": "property",
+          "type": "string | undefined",
           "required": false,
           "description": null
         }
@@ -930,7 +972,7 @@
       "modulePath": "src/types/architectureAnalysis.ts",
       "sourceLocation": {
         "filePath": "src/types/architectureAnalysis.ts",
-        "line": 75,
+        "line": 81,
         "column": 1
       },
       "exportPaths": [
@@ -1121,9 +1163,30 @@
       "signatures": [],
       "members": [
         {
+          "name": "cache",
+          "kind": "property",
+          "type": "RuleEvaluationCache | undefined",
+          "required": false,
+          "description": null
+        },
+        {
+          "name": "cachePartition",
+          "kind": "property",
+          "type": "RuleEvaluationCachePartition | undefined",
+          "required": false,
+          "description": null
+        },
+        {
           "name": "config",
           "kind": "property",
           "type": "RulesConfig | undefined",
+          "required": false,
+          "description": null
+        },
+        {
+          "name": "factsVersion",
+          "kind": "property",
+          "type": "string | undefined",
           "required": false,
           "description": null
         }
@@ -1141,7 +1204,7 @@
       "modulePath": "src/types/architectureProfile.ts",
       "sourceLocation": {
         "filePath": "src/types/architectureProfile.ts",
-        "line": 56,
+        "line": 59,
         "column": 1
       },
       "exportPaths": [
@@ -2402,7 +2465,7 @@
       "security": [],
       "sourceLocation": {
         "filePath": "src/features/evaluation/domain/evaluateArchitecture.test.ts",
-        "line": 58,
+        "line": 123,
         "column": 1
       }
     },
@@ -2413,7 +2476,7 @@
       "security": [],
       "sourceLocation": {
         "filePath": "src/features/evaluation/domain/evaluateArchitecture.test.ts",
-        "line": 72,
+        "line": 137,
         "column": 1
       }
     },
@@ -2424,7 +2487,7 @@
       "security": [],
       "sourceLocation": {
         "filePath": "src/features/evaluation/domain/evaluateArchitecture.test.ts",
-        "line": 79,
+        "line": 144,
         "column": 1
       }
     },
@@ -2435,7 +2498,7 @@
       "security": [],
       "sourceLocation": {
         "filePath": "src/features/evaluation/domain/evaluateArchitecture.test.ts",
-        "line": 101,
+        "line": 166,
         "column": 1
       }
     },
@@ -2446,7 +2509,18 @@
       "security": [],
       "sourceLocation": {
         "filePath": "src/features/evaluation/domain/evaluateArchitecture.test.ts",
-        "line": 116,
+        "line": 181,
+        "column": 1
+      }
+    },
+    {
+      "name": "resultCache",
+      "description": "Store generic evaluator results by rule ID for a deterministic cache-adapter test.",
+      "see": [],
+      "security": [],
+      "sourceLocation": {
+        "filePath": "src/features/evaluation/domain/evaluateArchitecture.test.ts",
+        "line": 194,
         "column": 1
       }
     },
@@ -2468,7 +2542,7 @@
       "security": [],
       "sourceLocation": {
         "filePath": "src/features/evaluation/domain/evaluateArchitecture.ts",
-        "line": 51,
+        "line": 54,
         "column": 1
       }
     },
@@ -2600,7 +2674,7 @@
       "security": [],
       "sourceLocation": {
         "filePath": "src/features/profiles/domain/createArchitectureProfileRuleSet.ts",
-        "line": 159,
+        "line": 160,
         "column": 1
       }
     },
@@ -2611,7 +2685,7 @@
       "security": [],
       "sourceLocation": {
         "filePath": "src/features/profiles/domain/createArchitectureProfileRuleSet.ts",
-        "line": 164,
+        "line": 165,
         "column": 1
       }
     },
@@ -2622,7 +2696,7 @@
       "security": [],
       "sourceLocation": {
         "filePath": "src/features/profiles/domain/createArchitectureProfileRuleSet.ts",
-        "line": 185,
+        "line": 186,
         "column": 1
       }
     },
@@ -2633,7 +2707,7 @@
       "security": [],
       "sourceLocation": {
         "filePath": "src/features/profiles/domain/createArchitectureProfileRuleSet.ts",
-        "line": 194,
+        "line": 195,
         "column": 1
       }
     },
@@ -2644,7 +2718,7 @@
       "security": [],
       "sourceLocation": {
         "filePath": "src/features/profiles/domain/createArchitectureProfileRuleSet.ts",
-        "line": 208,
+        "line": 209,
         "column": 1
       }
     },
@@ -2655,7 +2729,7 @@
       "security": [],
       "sourceLocation": {
         "filePath": "src/features/profiles/domain/createArchitectureProfileRuleSet.ts",
-        "line": 236,
+        "line": 237,
         "column": 1
       }
     },
@@ -2666,7 +2740,7 @@
       "security": [],
       "sourceLocation": {
         "filePath": "src/features/profiles/domain/createArchitectureProfileRuleSet.ts",
-        "line": 252,
+        "line": 253,
         "column": 1
       }
     },
@@ -2677,7 +2751,7 @@
       "security": [],
       "sourceLocation": {
         "filePath": "src/features/profiles/domain/createArchitectureProfileRuleSet.ts",
-        "line": 257,
+        "line": 258,
         "column": 1
       }
     },
@@ -2688,7 +2762,7 @@
       "security": [],
       "sourceLocation": {
         "filePath": "src/features/profiles/domain/createArchitectureProfileRuleSet.ts",
-        "line": 264,
+        "line": 265,
         "column": 1
       }
     },
@@ -2699,7 +2773,7 @@
       "security": [],
       "sourceLocation": {
         "filePath": "src/features/profiles/domain/createArchitectureProfileRuleSet.ts",
-        "line": 274,
+        "line": 275,
         "column": 1
       }
     },
@@ -2710,7 +2784,7 @@
       "security": [],
       "sourceLocation": {
         "filePath": "src/features/profiles/domain/evaluateArchitectureProfile.test.ts",
-        "line": 106,
+        "line": 143,
         "column": 1
       }
     },
@@ -2721,7 +2795,7 @@
       "security": [],
       "sourceLocation": {
         "filePath": "src/features/profiles/domain/evaluateArchitectureProfile.test.ts",
-        "line": 111,
+        "line": 148,
         "column": 1
       }
     },
@@ -2732,7 +2806,7 @@
       "security": [],
       "sourceLocation": {
         "filePath": "src/features/profiles/domain/evaluateArchitectureProfile.test.ts",
-        "line": 120,
+        "line": 157,
         "column": 1
       }
     },
@@ -2743,7 +2817,7 @@
       "security": [],
       "sourceLocation": {
         "filePath": "src/features/profiles/domain/evaluateArchitectureProfile.test.ts",
-        "line": 135,
+        "line": 172,
         "column": 1
       }
     },
@@ -2897,7 +2971,7 @@
       "security": [],
       "sourceLocation": {
         "filePath": "src/features/rules/domain/createArchitectureRuleSet.ts",
-        "line": 39,
+        "line": 40,
         "column": 1
       }
     },
@@ -2908,7 +2982,7 @@
       "security": [],
       "sourceLocation": {
         "filePath": "src/features/rules/domain/createArchitectureRuleSet.ts",
-        "line": 54,
+        "line": 55,
         "column": 1
       }
     },
@@ -2919,7 +2993,7 @@
       "security": [],
       "sourceLocation": {
         "filePath": "src/features/rules/domain/createArchitectureRuleSet.ts",
-        "line": 106,
+        "line": 107,
         "column": 1
       }
     },
@@ -2941,7 +3015,7 @@
       "security": [],
       "sourceLocation": {
         "filePath": "src/features/rules/domain/createCyclicDependenciesRule.ts",
-        "line": 40,
+        "line": 41,
         "column": 1
       }
     },
@@ -2952,7 +3026,7 @@
       "security": [],
       "sourceLocation": {
         "filePath": "src/features/rules/domain/createCyclicDependenciesRule.ts",
-        "line": 45,
+        "line": 46,
         "column": 1
       }
     },
@@ -2963,7 +3037,7 @@
       "security": [],
       "sourceLocation": {
         "filePath": "src/features/rules/domain/createCyclicDependenciesRule.ts",
-        "line": 54,
+        "line": 55,
         "column": 1
       }
     },
@@ -2974,7 +3048,7 @@
       "security": [],
       "sourceLocation": {
         "filePath": "src/features/rules/domain/createCyclicDependenciesRule.ts",
-        "line": 70,
+        "line": 71,
         "column": 1
       }
     },
@@ -2985,7 +3059,7 @@
       "security": [],
       "sourceLocation": {
         "filePath": "src/features/rules/domain/createCyclicDependenciesRule.ts",
-        "line": 111,
+        "line": 112,
         "column": 1
       }
     },
@@ -2996,7 +3070,7 @@
       "security": [],
       "sourceLocation": {
         "filePath": "src/features/rules/domain/createCyclicDependenciesRule.ts",
-        "line": 138,
+        "line": 139,
         "column": 1
       }
     },
@@ -3007,7 +3081,7 @@
       "security": [],
       "sourceLocation": {
         "filePath": "src/features/rules/domain/createCyclicDependenciesRule.ts",
-        "line": 164,
+        "line": 165,
         "column": 1
       }
     },
@@ -4052,6 +4126,12 @@
       },
       {
         "fromSymbol": "src/features/evaluation/domain/evaluateArchitecture.test.ts",
+        "toSymbol": "resultCache",
+        "callExpression": "resultCache",
+        "sourcePath": "src/features/evaluation/domain/evaluateArchitecture.test.ts"
+      },
+      {
+        "fromSymbol": "src/features/evaluation/domain/evaluateArchitecture.test.ts",
         "toSymbol": "evaluateArchitectureGraph",
         "callExpression": "evaluateArchitectureGraph",
         "sourcePath": "src/features/evaluation/domain/evaluateArchitecture.test.ts"
@@ -4334,12 +4414,6 @@
       },
       {
         "fromSymbol": "src/features/profiles/domain/evaluateArchitectureProfile.test.ts",
-        "toSymbol": "describe",
-        "callExpression": "describe",
-        "sourcePath": "src/features/profiles/domain/evaluateArchitectureProfile.test.ts"
-      },
-      {
-        "fromSymbol": "src/features/profiles/domain/evaluateArchitectureProfile.test.ts",
         "toSymbol": "test",
         "callExpression": "test",
         "sourcePath": "src/features/profiles/domain/evaluateArchitectureProfile.test.ts"
@@ -4364,14 +4438,20 @@
       },
       {
         "fromSymbol": "src/features/profiles/domain/evaluateArchitectureProfile.test.ts",
-        "toSymbol": "importEdge",
-        "callExpression": "importEdge",
+        "toSymbol": "expect",
+        "callExpression": "expect",
         "sourcePath": "src/features/profiles/domain/evaluateArchitectureProfile.test.ts"
       },
       {
         "fromSymbol": "src/features/profiles/domain/evaluateArchitectureProfile.test.ts",
-        "toSymbol": "expect",
-        "callExpression": "expect",
+        "toSymbol": "describe",
+        "callExpression": "describe",
+        "sourcePath": "src/features/profiles/domain/evaluateArchitectureProfile.test.ts"
+      },
+      {
+        "fromSymbol": "src/features/profiles/domain/evaluateArchitectureProfile.test.ts",
+        "toSymbol": "importEdge",
+        "callExpression": "importEdge",
         "sourcePath": "src/features/profiles/domain/evaluateArchitectureProfile.test.ts"
       },
       {
@@ -4729,6 +4809,16 @@
       },
       {
         "fromSymbol": "ArchitectureEvaluationOptions",
+        "toType": "RuleEvaluationCache",
+        "sourcePath": "src/types/architectureAnalysis.ts"
+      },
+      {
+        "fromSymbol": "ArchitectureEvaluationOptions",
+        "toType": "RuleEvaluationCachePartition",
+        "sourcePath": "src/types/architectureAnalysis.ts"
+      },
+      {
+        "fromSymbol": "ArchitectureEvaluationOptions",
         "toType": "RulesConfig",
         "sourcePath": "src/types/architectureAnalysis.ts"
       },
@@ -4760,6 +4850,16 @@
       {
         "fromSymbol": "ArchitectureEvaluationResult",
         "toType": "RuleResult",
+        "sourcePath": "src/types/architectureAnalysis.ts"
+      },
+      {
+        "fromSymbol": "ArchitectureGraphEvaluationOptions",
+        "toType": "RuleEvaluationCache",
+        "sourcePath": "src/types/architectureAnalysis.ts"
+      },
+      {
+        "fromSymbol": "ArchitectureGraphEvaluationOptions",
+        "toType": "RuleEvaluationCachePartition",
         "sourcePath": "src/types/architectureAnalysis.ts"
       },
       {
@@ -4810,6 +4910,16 @@
       {
         "fromSymbol": "ArchitectureProfile",
         "toType": "ArchitectureProfileRole",
+        "sourcePath": "src/types/architectureProfile.ts"
+      },
+      {
+        "fromSymbol": "ArchitectureProfileEvaluationOptions",
+        "toType": "RuleEvaluationCache",
+        "sourcePath": "src/types/architectureProfile.ts"
+      },
+      {
+        "fromSymbol": "ArchitectureProfileEvaluationOptions",
+        "toType": "RuleEvaluationCachePartition",
         "sourcePath": "src/types/architectureProfile.ts"
       },
       {

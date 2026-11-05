@@ -1,5 +1,12 @@
 # Changelog
 
+## 0.8.0
+
+### Minor Changes
+
+- 87e8522: Adopt the published Rules 0.5 trace contract, including versioned identities, scoped DAG plans,
+  versioned facets, per-rule results, and truthful evaluator-owned cache provenance.
+
 ## 0.7.0
 
 ### Minor Changes

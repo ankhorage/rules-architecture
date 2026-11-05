@@ -96,13 +96,16 @@ Optional generic Rules configuration for explicit architecture evaluation.
 
 | Name | Kind | Type | Required | Description |
 | --- | --- | --- | --- | --- |
+| cache | property | `RuleEvaluationCache \| undefined` | no |  |
+| cachePartition | property | `RuleEvaluationCachePartition \| undefined` | no |  |
 | config | property | `RulesConfig \| undefined` | no |  |
+| factsVersion | property | `string \| undefined` | no |  |
 
 ## ArchitectureEvaluationResult
 
 Kind: `type`
 Module: `src/types/architectureAnalysis.ts`
-Source: `src/types/architectureAnalysis.ts:78:1`
+Source: `src/types/architectureAnalysis.ts:84:1`
 
 Generic Rules result plus the explicit target and inferred role evidence used for evaluation.
 
@@ -121,7 +124,7 @@ Generic Rules result plus the explicit target and inferred role evidence used fo
 
 Kind: `type`
 Module: `src/types/architectureAnalysis.ts`
-Source: `src/types/architectureAnalysis.ts:70:1`
+Source: `src/types/architectureAnalysis.ts:73:1`
 
 Optional generic Rules configuration for target-independent source-graph evaluation.
 
@@ -129,13 +132,16 @@ Optional generic Rules configuration for target-independent source-graph evaluat
 
 | Name | Kind | Type | Required | Description |
 | --- | --- | --- | --- | --- |
+| cache | property | `RuleEvaluationCache \| undefined` | no |  |
+| cachePartition | property | `RuleEvaluationCachePartition \| undefined` | no |  |
 | config | property | `RulesConfig \| undefined` | no |  |
+| factsVersion | property | `string \| undefined` | no |  |
 
 ## ArchitectureGraphEvaluationResult
 
 Kind: `unknown`
 Module: `src/types/architectureAnalysis.ts`
-Source: `src/types/architectureAnalysis.ts:75:1`
+Source: `src/types/architectureAnalysis.ts:81:1`
 
 Canonical generic Rules result for target-independent source-graph evaluation.
 
@@ -202,13 +208,16 @@ Optional generic Rules configuration for explicit architecture-profile evaluatio
 
 | Name | Kind | Type | Required | Description |
 | --- | --- | --- | --- | --- |
+| cache | property | `RuleEvaluationCache \| undefined` | no |  |
+| cachePartition | property | `RuleEvaluationCachePartition \| undefined` | no |  |
 | config | property | `RulesConfig \| undefined` | no |  |
+| factsVersion | property | `string \| undefined` | no |  |
 
 ## ArchitectureProfileEvaluationResult
 
 Kind: `type`
 Module: `src/types/architectureProfile.ts`
-Source: `src/types/architectureProfile.ts:56:1`
+Source: `src/types/architectureProfile.ts:59:1`
 
 Generic Rules result plus the explicitly selected architecture profile.
 
