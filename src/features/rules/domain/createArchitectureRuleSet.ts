@@ -1,12 +1,17 @@
-import type { SourceRelationKind } from '@ankhorage/dependency-graph';
+import type { SourceCapability, SourceRelationKind } from '@ankhorage/dependency-graph';
 import type { Rule, RuleEvaluationOutcome, RuleFinding, RuleSet } from '@ankhorage/rules';
 
 import type { ArchitectureRuleContext } from '../../../types/architectureAnalysis.js';
 import type { ArchitectureModel } from '../../../types/architectureModel.js';
+import { hasSourceCapability } from '../../../utils/hasSourceCapability.js';
 import { findArchitectureModel } from '../../models/domain/findArchitectureModel.js';
 import { createCyclicDependenciesRule } from './createCyclicDependenciesRule.js';
 
-const IMPORTS_CAPABILITY = 'source-graph.imports';
+const DEPENDENCY_RELATIONS: readonly (readonly [SourceRelationKind, SourceCapability])[] = [
+  ['imports', 'imports'],
+  ['extends', 'extends'],
+  ['implements', 'implements'],
+];
 
 /*** Create architecture rules for one explicitly selected target model. */
 export function createArchitectureRuleSet(
@@ -26,25 +31,37 @@ function dependencyDirectionRule(): Rule<ArchitectureRuleContext> {
     summary: 'Classified source dependencies must follow the selected architecture model.',
     defaultSeverity: 'warning',
     dependencies: [],
-    requiredCapabilities: [IMPORTS_CAPABILITY, 'source-graph.extends', 'source-graph.implements'],
-    evaluate: ({ context }) => outcome(directionFindings(context)),
+    evaluate: ({ context }) => directionOutcome(context),
   };
 }
 
-/*** Convert complete architecture-direction evidence into a canonical rule outcome. */
-function outcome(findings: readonly RuleFinding[]): RuleEvaluationOutcome {
-  return { findings, status: findings.length === 0 ? 'PASS' : 'FAIL' };
+/*** Preserve available direction findings while marking incomplete relation coverage explicitly. */
+function directionOutcome(context: ArchitectureRuleContext): RuleEvaluationOutcome {
+  const availableRelations = availableDependencyRelations(context.graph);
+  const findings = directionFindings(context, availableRelations);
+  return {
+    findings,
+    status:
+      availableRelations.length === DEPENDENCY_RELATIONS.length
+        ? findings.length === 0
+          ? 'PASS'
+          : 'FAIL'
+        : 'INCOMPLETE',
+  };
 }
 
 /*** Report selected-model dependency violations for confidently inferred endpoint roles. */
-function directionFindings(context: ArchitectureRuleContext): readonly RuleFinding[] {
+function directionFindings(
+  context: ArchitectureRuleContext,
+  availableRelations: readonly SourceRelationKind[],
+): readonly RuleFinding[] {
   const roleByPath = new Map(
     context.roleAssignments.map((assignment) => [assignment.semanticPath, assignment]),
   );
   const nodeById = new Map(context.graph.graph.nodes.map((node) => [node.id, node.data]));
 
   return context.graph.graph.edges.flatMap((edge) => {
-    if (!isDependencyRelation(edge.data.kind)) return [];
+    if (!availableRelations.includes(edge.data.kind)) return [];
     const source = nodeById.get(edge.source);
     const target = nodeById.get(edge.target);
     if (source === undefined || target === undefined) return [];
@@ -85,7 +102,11 @@ function directionFindings(context: ArchitectureRuleContext): readonly RuleFindi
   });
 }
 
-/*** Restrict architecture direction rules to static source dependency relations. */
-function isDependencyRelation(kind: SourceRelationKind): boolean {
-  return kind === 'imports' || kind === 'extends' || kind === 'implements';
+/*** Read relation kinds backed by complete analyzer evidence for every inspected project. */
+function availableDependencyRelations(
+  graph: ArchitectureRuleContext['graph'],
+): readonly SourceRelationKind[] {
+  return DEPENDENCY_RELATIONS.flatMap(([relation, capability]) =>
+    hasSourceCapability(graph, capability) ? [relation] : [],
+  );
 }

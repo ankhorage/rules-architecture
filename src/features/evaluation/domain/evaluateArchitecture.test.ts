@@ -15,6 +15,20 @@ test('requires an explicit target and reports dependency-direction violations as
   );
 });
 
+test('retains available direction violations when another relation capability is unavailable', () => {
+  const result = evaluateArchitecture(
+    directionViolationFixture(['imports', 'implements']),
+    'hexagonal',
+  );
+  const directionResult = result.results.find(
+    ({ rule }) => rule.id === 'architecture-dependency-direction',
+  );
+
+  expect(directionResult?.status).toBe('INCOMPLETE');
+  expect(directionResult?.findings).toHaveLength(1);
+  expect(directionResult?.findings[0]?.evidence).toMatchObject({ relationKind: 'imports' });
+});
+
 test('reports file import cycles through the reusable cyclic-dependencies rule', () => {
   const result = evaluateArchitecture(cycleFixture(), 'layered');
   expect(result.findings.some(({ ruleId }) => ruleId === 'cyclic-dependencies')).toBe(true);
@@ -41,10 +55,17 @@ test('evaluates target-independent graph rules without selecting a model', () =>
   expect(result.findings.some(({ ruleId }) => ruleId === 'cyclic-dependencies')).toBe(true);
 });
 
-function directionViolationFixture(): SourceGraph {
+function directionViolationFixture(
+  available: readonly ('extends' | 'implements' | 'imports')[] = [
+    'extends',
+    'implements',
+    'imports',
+  ],
+): SourceGraph {
   return sourceGraph(
     [fileNode(0, 'src/domain/order.ts'), fileNode(1, 'src/adapters/postgres.ts')],
     [importEdge(0, 0, 1, 'src/domain/order.ts')],
+    available,
   );
 }
 
@@ -55,14 +76,22 @@ function cycleFixture(): SourceGraph {
   );
 }
 
-function sourceGraph(nodes: readonly SourceNode[], edges: readonly SourceEdge[]): SourceGraph {
+function sourceGraph(
+  nodes: readonly SourceNode[],
+  edges: readonly SourceEdge[],
+  available: readonly ('extends' | 'implements' | 'imports')[] = [
+    'extends',
+    'implements',
+    'imports',
+  ],
+): SourceGraph {
   return {
     version: 1,
     capabilities: [
       {
         analyzerId: 'fixture',
         projectId: 'fixture',
-        available: ['extends', 'implements', 'imports'],
+        available,
       },
     ],
     graph: { nodes, edges },
