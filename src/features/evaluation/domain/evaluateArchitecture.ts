@@ -32,7 +32,10 @@ export function evaluateArchitecture(
   const result =
     options.config === undefined
       ? evaluateRules(context, ruleSet.rules, {
+          cache: options.cache,
+          cachePartition: options.cachePartition,
           capabilities,
+          factsVersion: options.factsVersion,
           scope: { id: model.id, kind: 'architecture-model' },
         })
       : evaluateConfiguredRules(context, options.config, createRuleRegistry([ruleSet]), {

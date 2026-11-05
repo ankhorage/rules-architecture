@@ -28,6 +28,7 @@ export function createArchitectureRuleSet(
 function dependencyDirectionRule(): Rule<ArchitectureRuleContext> {
   return {
     identity: { id: 'architecture-dependency-direction', version: '1' },
+    facets: [{ id: 'architecture-rule-kind', value: 'dependency-direction', version: '1' }],
     summary: 'Classified source dependencies must follow the selected architecture model.',
     defaultSeverity: 'warning',
     dependencies: [],

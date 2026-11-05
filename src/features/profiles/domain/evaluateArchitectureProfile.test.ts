@@ -6,6 +6,43 @@ import { evaluateArchitectureProfile } from './evaluateArchitectureProfile.js';
 type SourceNode = SourceGraph['graph']['nodes'][number];
 type SourceEdge = SourceGraph['graph']['edges'][number];
 
+test('preserves scoped profile trace identities and facets', () => {
+  const result = evaluateArchitectureProfile(graph([fileNode(0, 'src/index.ts')], []), 'ankhorage');
+
+  expect(result.plan.nodes.every(({ scope }) => scope.id === 'ankhorage')).toBe(true);
+  expect(result.plan.nodes.every(({ scope }) => scope.kind === 'architecture-profile')).toBe(true);
+  expect(result.plan.nodes.every(({ rule }) => rule.version === '1')).toBe(true);
+  expect(
+    result.plan.nodes.every(
+      ({ facets }) => facets[0]?.id === 'architecture-rule-kind' && facets[0].value === 'profile',
+    ),
+  ).toBe(true);
+  expect(JSON.stringify(result)).toContain('"results"');
+});
+
+test('evaluates configured profile rules through the generic configured evaluator', () => {
+  const result = evaluateArchitectureProfile(
+    graph([fileNode(0, 'src/randomThing.ts')], []),
+    'ankhorage',
+    {
+      config: {
+        version: 1,
+        rules: [
+          {
+            enabled: true,
+            id: 'package.architecture.feature-ownership.required',
+          },
+        ],
+      },
+    },
+  );
+
+  expect(result.plan.rootRuleIds).toEqual(['package.architecture.feature-ownership.required']);
+  expect(result.findings.map(({ ruleId }) => ruleId)).toEqual([
+    'package.architecture.feature-ownership.required',
+  ]);
+});
+
 describe('Ankhorage architecture profile ownership', () => {
   test('accepts coherent feature-first roles without requiring empty layers', () => {
     const result = evaluateArchitectureProfile(

@@ -1,5 +1,5 @@
 import type { SourceCapability, SourceGraph } from '@ankhorage/dependency-graph';
-import type { RuleEvaluationResult, RulesConfig } from '@ankhorage/rules';
+import type { EvaluateRulesOptions, RuleEvaluationResult, RulesConfig } from '@ankhorage/rules';
 
 import type { ArchitectureModel } from './architectureModel.js';
 
@@ -62,12 +62,18 @@ export interface ArchitectureRuleContext extends ArchitectureGraphRuleContext {
 }
 
 /*** Optional generic Rules configuration for explicit architecture evaluation. */
-export interface ArchitectureEvaluationOptions {
+export interface ArchitectureEvaluationOptions extends Pick<
+  EvaluateRulesOptions,
+  'cache' | 'cachePartition' | 'factsVersion'
+> {
   readonly config?: RulesConfig;
 }
 
 /*** Optional generic Rules configuration for target-independent source-graph evaluation. */
-export interface ArchitectureGraphEvaluationOptions {
+export interface ArchitectureGraphEvaluationOptions extends Pick<
+  EvaluateRulesOptions,
+  'cache' | 'cachePartition' | 'factsVersion'
+> {
   readonly config?: RulesConfig;
 }
 

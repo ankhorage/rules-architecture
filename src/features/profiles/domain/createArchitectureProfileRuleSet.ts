@@ -147,6 +147,7 @@ function createRule(
 ): Rule<ArchitectureProfileRuleContext> {
   return {
     identity: { id, version: '1' },
+    facets: [{ id: 'architecture-rule-kind', value: 'profile', version: '1' }],
     summary,
     defaultSeverity: 'error',
     dependencies: [],
