@@ -66,6 +66,14 @@ export interface ArchitectureEvaluationOptions {
   readonly config?: RulesConfig;
 }
 
+/*** Optional generic Rules configuration for target-independent source-graph evaluation. */
+export interface ArchitectureGraphEvaluationOptions {
+  readonly config?: RulesConfig;
+}
+
+/*** Canonical generic Rules result for target-independent source-graph evaluation. */
+export type ArchitectureGraphEvaluationResult = RuleEvaluationResult;
+
 /*** Generic Rules result plus the explicit target and inferred role evidence used for evaluation. */
 export interface ArchitectureEvaluationResult extends RuleEvaluationResult {
   readonly modelId: ArchitectureModel['id'];

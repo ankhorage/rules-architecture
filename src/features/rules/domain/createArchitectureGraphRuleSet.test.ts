@@ -1,5 +1,5 @@
 import type { SourceGraph } from '@ankhorage/dependency-graph';
-import { evaluateRules } from '@ankhorage/rules';
+import { evaluateRules, type Rule, type RuleEvaluationOutcome } from '@ankhorage/rules';
 import { expect, test } from 'bun:test';
 
 import { createArchitectureGraphRuleSet } from './createArchitectureGraphRuleSet.js';
@@ -58,6 +58,92 @@ test('evaluates package cycles from canonical rollups with traceable source edge
     semanticPaths: ['fixture:package:a', 'fixture:package:b'],
   });
 });
+
+test('returns INCOMPLETE rather than PASS when required cycle evidence is unavailable', () => {
+  const result = evaluateRules(
+    { graph: sourceGraph([], []) },
+    createArchitectureGraphRuleSet().rules,
+  );
+
+  expect(result.results).toHaveLength(1);
+  expect(result.results[0]?.status).toBe('INCOMPLETE');
+  expect(result.diagnostics.some(({ code }) => code === 'missing-capability')).toBe(true);
+});
+
+test('uses the Rules DAG plan for dependency closure and executes shared dependencies once', () => {
+  const executions = new Map<string, number>();
+  const shared = fixtureRule('shared', [], executions);
+  const left = fixtureRule('left', [{ ruleId: 'shared' }], executions);
+  const right = fixtureRule('right', [{ ruleId: 'shared' }], executions);
+
+  const result = evaluateRules({}, [left, right, shared]);
+
+  expect(result.plan.nodes.map(({ rule }) => rule.id)).toEqual(['shared', 'left', 'right']);
+  expect(result.plan.nodes.find(({ rule }) => rule.id === 'left')?.dependencyRuleIds).toEqual([
+    'shared',
+  ]);
+  expect(executions.get('shared')).toBe(1);
+  expect(result.results.map(({ status }) => status)).toEqual(['PASS', 'PASS', 'PASS']);
+});
+
+test('preserves evaluator diagnostics and actual outcomes for invalid, unknown, and cyclic rules', () => {
+  const invalid = fixtureRule('invalid', [], new Map(), {
+    validateOptions: () => [{ code: 'invalid-options', message: 'fixture options are invalid' }],
+  });
+  const unknown = fixtureRule('unknown', [{ ruleId: 'missing' }], new Map());
+  const first = fixtureRule('first', [{ ruleId: 'second' }], new Map());
+  const second = fixtureRule('second', [{ ruleId: 'first' }], new Map());
+  const failing = fixtureRule('failing', [], new Map(), {
+    outcome: { findings: [fixtureFinding('failing')], status: 'FAIL' },
+  });
+
+  const result = evaluateRules({}, [invalid, unknown, first, second, failing], {
+    optionsByRuleId: new Map([['invalid', { invalid: true }]]),
+  });
+
+  const diagnosticCodes = result.diagnostics.map(({ code }) => code);
+  expect(diagnosticCodes.includes('cycle')).toBe(true);
+  expect(diagnosticCodes.includes('invalid-options')).toBe(true);
+  expect(diagnosticCodes.includes('missing-dependency')).toBe(true);
+  expect(result.results.find(({ rule }) => rule.id === 'invalid')?.status).toBe('ERROR');
+  expect(result.results.find(({ rule }) => rule.id === 'unknown')?.status).toBe('ERROR');
+  expect(result.results.find(({ rule }) => rule.id === 'first')?.status).toBe('ERROR');
+  expect(result.results.find(({ rule }) => rule.id === 'failing')?.status).toBe('FAIL');
+});
+
+function fixtureRule(
+  id: string,
+  dependencies: Rule['dependencies'],
+  executions: Map<string, number>,
+  overrides: {
+    readonly outcome?: RuleEvaluationOutcome;
+    readonly validateOptions?: Rule['validateOptions'];
+  } = {},
+): Rule {
+  return {
+    identity: { id, version: '1' },
+    summary: id,
+    defaultSeverity: 'warning',
+    dependencies,
+    ...(overrides.validateOptions === undefined
+      ? {}
+      : { validateOptions: overrides.validateOptions }),
+    evaluate: () => {
+      executions.set(id, (executions.get(id) ?? 0) + 1);
+      return overrides.outcome ?? { findings: [], status: 'PASS' };
+    },
+  };
+}
+
+function fixtureFinding(ruleId: string) {
+  return {
+    ruleId,
+    severity: 'warning' as const,
+    message: ruleId,
+    subjects: [],
+    evidence: { ruleId },
+  };
+}
 
 function sourceGraph(nodes: readonly SourceNode[], edges: readonly SourceEdge[]): SourceGraph {
   return {

@@ -1,6 +1,7 @@
 export { detectArchitecture } from './features/detection/domain/detectArchitecture.js';
 export { inferArchitectureRoles } from './features/detection/domain/inferArchitectureRoles.js';
 export { evaluateArchitecture } from './features/evaluation/domain/evaluateArchitecture.js';
+export { evaluateArchitectureGraph } from './features/evaluation/domain/evaluateArchitectureGraph.js';
 export { listArchitectureModels } from './features/models/domain/listArchitectureModels.js';
 export { createArchitectureProfileRuleSet } from './features/profiles/domain/createArchitectureProfileRuleSet.js';
 export { evaluateArchitectureProfile } from './features/profiles/domain/evaluateArchitectureProfile.js';
@@ -15,6 +16,8 @@ export type {
   ArchitectureDetectionResult,
   ArchitectureEvaluationOptions,
   ArchitectureEvaluationResult,
+  ArchitectureGraphEvaluationOptions,
+  ArchitectureGraphEvaluationResult,
   ArchitectureGraphRuleContext,
   ArchitectureRoleAssignment,
   ArchitectureRuleContext,

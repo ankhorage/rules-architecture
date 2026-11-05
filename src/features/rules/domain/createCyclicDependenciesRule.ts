@@ -5,7 +5,13 @@ import {
   type SourceRollupEdge,
 } from '@ankhorage/dependency-graph';
 import { findCyclicComponents, type Graph } from '@ankhorage/graph';
-import type { JsonValue, Rule, RuleFinding, RuleOptionDiagnostic } from '@ankhorage/rules';
+import type {
+  JsonValue,
+  Rule,
+  RuleEvaluationOutcome,
+  RuleFinding,
+  RuleOptionDiagnostic,
+} from '@ankhorage/rules';
 
 import type {
   ArchitectureCycleRuleOptions,
@@ -19,13 +25,20 @@ export function createCyclicDependenciesRule<
   TContext extends ArchitectureGraphRuleContext,
 >(): Rule<TContext> {
   return {
-    id: 'cyclic-dependencies',
+    identity: { id: 'cyclic-dependencies', version: '1' },
     summary: 'Source dependencies must not form cyclic intrinsic components.',
     defaultSeverity: 'warning',
+    dependencies: [],
     requiredCapabilities: [IMPORTS_CAPABILITY],
     validateOptions: validateCycleOptions,
-    evaluate: ({ context, options }) => cycleFindings(context.graph, readAggregation(options)),
+    evaluate: ({ context, options }) =>
+      outcome(cycleFindings(context.graph, readAggregation(options))),
   };
+}
+
+/*** Convert complete cycle evidence into the canonical rule outcome. */
+function outcome(findings: readonly RuleFinding[]): RuleEvaluationOutcome {
+  return { findings, status: findings.length === 0 ? 'PASS' : 'FAIL' };
 }
 
 /*** Read the validated aggregation option while preserving the default file-level behavior. */
