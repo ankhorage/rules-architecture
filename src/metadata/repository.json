@@ -1,0 +1,35 @@
+{
+  "schemaVersion": 1,
+  "kind": "library",
+  "title": "Ankhorage Architecture Rules",
+  "summary": "Provides architecture models, architecture detection, and rules for canonical source graphs.",
+  "purpose": "Evaluate explicit architecture expectations against source-graph evidence while keeping the generic rules engine domain-neutral.",
+  "domain": "software architecture policy",
+  "responsibilities": [
+    "Define supported architecture models and their semantic roles.",
+    "Detect plausible architectures from canonical source-graph evidence.",
+    "Evaluate an explicitly selected architecture through the generic rules engine."
+  ],
+  "boundaries": [
+    "Does not own source parsing or dependency-graph construction.",
+    "Does not select an enforcement target on behalf of a consumer.",
+    "Does not add architecture-specific behavior to the domain-neutral rules core."
+  ],
+  "audience": [
+    "Architecture auditing tools and maintainers evaluating source-project structure.",
+    "Consumers that need architecture detection or explicit architecture-rule evaluation."
+  ],
+  "useCases": [
+    "List architecture models understood by the provider.",
+    "Detect plausible architecture models from a source graph.",
+    "Evaluate a selected architecture and receive evidence-backed findings."
+  ],
+  "architecture": {
+    "role": "Domain-specific rule provider over canonical dependency graphs and the generic Rules engine.",
+    "invariants": [
+      "Detection and evaluation consume canonical graph evidence.",
+      "Detection reports possibilities without silently choosing enforcement policy.",
+      "Generic evaluation mechanics remain owned by @ankhorage/rules."
+    ]
+  }
+}
